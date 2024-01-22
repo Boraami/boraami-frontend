@@ -6,5 +6,8 @@ Hello, I'm Fab, a frontend developer. I am excited to build Boraami and learn mo
 ## Carmen
 Hello, I'm Carmen, a frontend developer. I am excited to build Boraami and learn mobile development.
 
+## Nimra
+Hello, I'm Nimra, a frontend developer. I am excited to build Boraami and learn mobile development. (struggling)
+
 ## Kigris
-Hello, I'm kigris, a frontend developer. I am excited to build Boraami and learn mobile development.
+Hello, I'm Kigris, a frontend developer. I am excited to build Boraami and learn mobile development.
