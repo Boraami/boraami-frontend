@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
+import { Text, View, useColorScheme } from "react-native";
 import Constants from "expo-constants";
 import Storybook from "./.storybook";
 

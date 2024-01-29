@@ -7,7 +7,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   version: "1.0.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
-  userInterfaceStyle: "light",
+  scheme: "boraami-frontend",
+  userInterfaceStyle: "automatic",
   splash: {
     image: "./assets/splash.png",
     resizeMode: "contain",
@@ -25,8 +26,10 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   web: {
     favicon: "./assets/favicon.png",
+    bundler: "metro",
   },
   extra: {
     storybookEnabled: process.env.STORYBOOK === "1",
   },
+  plugins: ["expo-router"],
 });
