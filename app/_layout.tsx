@@ -19,7 +19,6 @@ import {
   OpenSans_700Bold,
   OpenSans_700Bold_Italic,
 } from "@expo-google-fonts/open-sans";
-import { Text } from "tamagui";
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
