@@ -35,14 +35,13 @@ const paragraphSizes = {
   true: 18,
 };
 const PoppinsLineHeights = {
-  sm: 12.5,
-  md: 15,
-  true: 12.5,
+  "4xl": 60,
+  "5xl": 80,
 };
 const PoppinsLetterSpacing = {
-  1: 0,
-  2: -0.5,
-  true: 0,
+  "2xl": 0,
+  "3xl": 70,
+  "5xl": 0,
 };
 
 const PoppinsReg = createFont({
@@ -50,7 +49,6 @@ const PoppinsReg = createFont({
   size: headingSizes,
   lineHeight: PoppinsLineHeights,
   weight: {
-    4: "400",
     true: "400",
   },
   letterSpacing: PoppinsLetterSpacing,
@@ -63,14 +61,13 @@ const PoppinsReg = createFont({
 const PoppinsMed = createFont({
   family: "Poppins_500Medium",
   size: headingSizes,
-  lineHeight: PoppinsLineHeights,
+  lineHeight: {
+    true: 60,
+  },
   weight: {
-    4: "500",
     true: "500",
   },
   letterSpacing: {
-    1: 0,
-    2: -0.5,
     true: 0,
   },
   // for native only, alternate family based on weight/style
@@ -82,19 +79,11 @@ const PoppinsMed = createFont({
 const PoppinsBold = createFont({
   family: "Poppins_700Bold",
   size: headingSizes,
-  lineHeight: {
-    1: 15,
-    true: 15,
-  },
+  lineHeight: PoppinsLineHeights,
   weight: {
-    7: "700",
     true: "700",
   },
-  letterSpacing: {
-    1: 0,
-    2: -0.5,
-    true: 0,
-  },
+  letterSpacing: PoppinsLetterSpacing,
   // for native only, alternate family based on weight/style
   face: {
     // pass in weights as keys
@@ -105,15 +94,12 @@ const OpenSansReg = createFont({
   family: "OpenSans_400Regular",
   size: paragraphSizes,
   lineHeight: {
-    1: 15,
-    true: 15,
+    true: 40,
   },
   weight: {
-    4: "400",
     true: "400",
   },
   letterSpacing: {
-    1: 0,
     true: 0,
   },
   // for native only, alternate family based on weight/style
@@ -126,15 +112,13 @@ const OpenSansBold = createFont({
   family: "OpenSans_700Bold",
   size: paragraphSizes,
   lineHeight: {
-    1: 15,
-    true: 15,
+    true: 40,
   },
   weight: {
     7: "700",
     true: "700",
   },
   letterSpacing: {
-    1: 0,
     true: 0,
   },
   // for native only, alternate family based on weight/style
