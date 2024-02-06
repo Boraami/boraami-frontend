@@ -31,5 +31,19 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   extra: {
     storybookEnabled: process.env.STORYBOOK === "1",
   },
-  plugins: ["expo-router"],
+  plugins: [
+    "expo-router",
+    [
+      "expo-font",
+      {
+        fonts: [
+          "node_modules/@expo-google-fonts/poppins/Poppins_400Regular",
+          "node_modules/@expo-google-fonts/poppins/Poppins_500Medium",
+          "node_modules/@expo-google-fonts/poppins/Poppins_700Bold",
+          "node_modules/@expo-google-fonts/open-sans/OpenSans_700Bold",
+          "node_modules/@expo-google-fonts/open-sans/OpenSans_400Regular",
+        ],
+      },
+    ],
+  ],
 });

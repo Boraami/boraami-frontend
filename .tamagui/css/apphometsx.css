@@ -1,0 +1,13 @@
+:root ._display-inline{display:inline;}
+:root ._boxSizing-border-box{box-sizing:border-box;}
+:root ._wordWrap-break-word{word-wrap:break-word;}
+:root ._marginTop-0px{margin-top:0px;}
+:root ._marginRight-0px{margin-right:0px;}
+:root ._marginBottom-0px{margin-bottom:0px;}
+:root ._marginLeft-0px{margin-left:0px;}
+:root ._color-675002279{color:var(--color);}
+:root ._fontFamily-299667014{font-family:var(--f-fa);}
+:root ._fontSize-229441251{font-size:var(--f-si-5);}
+:root ._fontStyle-italic{font-style:italic;}
+:root ._fontSize-229441344{font-size:var(--f-si-8);}
+:root ._fontWeight-233016047{font-weight:var(--f-we-1);}
