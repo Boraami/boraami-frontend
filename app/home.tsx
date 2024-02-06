@@ -24,10 +24,10 @@ function App() {
       <Text fontFamily="$heading" fontStyle="italic" fontSize={"$xl"} fontWeight={"$true"}>
         Poppins Bold Italic - g
       </Text>
-      <Text fontFamily="$body" fontSize={"$4xl"} fontWeight="$4">
+      <Text fontFamily="$body" fontSize={"$4xl"} fontWeight="$true">
         Open Sans Regular - g
       </Text>
-      <Text fontFamily="$body" fontStyle="italic" fontSize={"$4xl"} fontWeight="$4">
+      <Text fontFamily="$body" fontStyle="italic" fontSize={"$4xl"} fontWeight="$true">
         Open Sans Regular Italic - g
       </Text>
       <Text fontFamily="$OpenSansBold" fontSize={"$4xl"}>
