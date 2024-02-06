@@ -9,5 +9,7 @@
 :root ._fontFamily-299667014{font-family:var(--f-fa);}
 :root ._fontSize-229441251{font-size:var(--f-si-5);}
 :root ._fontStyle-italic{font-style:italic;}
+:root ._fontWeight-1366436722{font-weight:var(--f-we-15);}
+:root ._fontWeight-436{font-weight:$4;}
 :root ._fontSize-229441344{font-size:var(--f-si-8);}
 :root ._fontWeight-233016047{font-weight:var(--f-we-1);}

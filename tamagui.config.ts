@@ -57,7 +57,7 @@ const PoppinsReg = createFont({
   // for native only, alternate family based on weight/style
   face: {
     // pass in weights as keys
-    400: { normal: "Poppins_400Regular" },
+    400: { normal: "Poppins_400Regular", italic: "Poppins_400Regular_Italic" },
   },
 });
 const PoppinsMed = createFont({
@@ -65,7 +65,7 @@ const PoppinsMed = createFont({
   size: headingSizes,
   lineHeight: PoppinsLineHeights,
   weight: {
-    5: "500",
+    4: "500",
     true: "500",
   },
   letterSpacing: {
@@ -76,7 +76,7 @@ const PoppinsMed = createFont({
   // for native only, alternate family based on weight/style
   face: {
     // pass in weights as keys
-    500: { normal: "Poppins_500Medium" },
+    500: { normal: "Poppins_500Medium", italic: "Poppins_500Medium_Italic" },
   },
 });
 const PoppinsBold = createFont({
@@ -98,7 +98,7 @@ const PoppinsBold = createFont({
   // for native only, alternate family based on weight/style
   face: {
     // pass in weights as keys
-    700: { normal: "Poppins_700Bold" },
+    700: { normal: "Poppins_700Bold", italic: "Poppins_700Bold_Italic" },
   },
 });
 const OpenSansReg = createFont({
@@ -140,7 +140,7 @@ const OpenSansBold = createFont({
   // for native only, alternate family based on weight/style
   face: {
     // pass in weights as keys
-    700: { normal: "OpenSans_700Bold", italic: 'OpenSans_700Bold_Italic' },
+    700: { normal: "OpenSans_700Bold", italic: "OpenSans_700Bold_Italic" },
   },
 });
 export const config = createTamagui({

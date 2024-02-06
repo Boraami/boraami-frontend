@@ -4,7 +4,14 @@ import { TamaguiProvider } from "tamagui";
 import { config } from "./../tamagui.config";
 import { Tabs } from "expo-router";
 import { useFonts } from "expo-font";
-import { Poppins_400Regular, Poppins_500Medium, Poppins_700Bold } from "@expo-google-fonts/poppins";
+import {
+  Poppins_400Regular,
+  Poppins_400Regular_Italic,
+  Poppins_500Medium,
+  Poppins_500Medium_Italic,
+  Poppins_700Bold,
+  Poppins_700Bold_Italic,
+} from "@expo-google-fonts/poppins";
 import "@tamagui/core/reset.css";
 import {
   OpenSans_400Regular,
@@ -16,8 +23,11 @@ import {
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
     Poppins_400Regular,
+    Poppins_400Regular_Italic,
     Poppins_500Medium,
+    Poppins_500Medium_Italic,
     Poppins_700Bold,
+    Poppins_700Bold_Italic,
     OpenSans_400Regular,
     OpenSans_400Regular_Italic,
     OpenSans_700Bold,
