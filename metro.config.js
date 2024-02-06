@@ -7,9 +7,9 @@ const config = getDefaultConfig(__dirname, {
   isCSSEnabled: true,
 });
 
-if (process.env.STORYBOOK === "1") {
-  config.resolver.resolverMainFields.unshift("sbmodern");
-}
+// if (process.env.STORYBOOK === "1") {
+// } not needed cz we need to do it without condition - https://github.com/storybookjs/react-native/issues/469
+config.resolver.resolverMainFields.unshift("sbmodern");
 
 // Enable Tamagui
 const { withTamagui } = require("@tamagui/metro-plugin");
