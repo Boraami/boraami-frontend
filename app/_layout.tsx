@@ -19,6 +19,11 @@ import {
   OpenSans_700Bold,
   OpenSans_700Bold_Italic,
 } from "@expo-google-fonts/open-sans";
+import { Text } from "tamagui";
+export {
+  // Catch any errors thrown by the Layout component.
+  ErrorBoundary,
+} from "expo-router";
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
@@ -42,6 +47,7 @@ export default function App() {
     <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
         <Tabs />
+        {/* <Text>Hello</Text> */}
         {/* <Stack screenOptions={{ headerShown: false }}>
         </Stack> */}
       </ThemeProvider>
