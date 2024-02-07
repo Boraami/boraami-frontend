@@ -1,41 +1,41 @@
 import { View } from "react-native";
 import Constants from "expo-constants";
 import Storybook from "../.storybook";
-import { Text } from "tamagui";
+import { SizableText } from "tamagui";
 
 function App() {
   return (
     <View>
-      <Text fontFamily="$PoppinsReg" fontSize={"$xl"}>
+      <SizableText fontFamily="$PoppinsReg" size={"$3xl"}>
         Poppins Regular - g
-      </Text>
-      <Text fontFamily="$PoppinsReg" fontStyle="italic" fontSize={"$xl"} fontWeight={"$true"}>
+      </SizableText>
+      <SizableText fontFamily="$PoppinsReg" fontStyle="italic" size={"$3xl"}>
         Poppins Regular Italic - g
-      </Text>
-      <Text fontFamily="$PoppinsMed" fontSize={"$xl"}>
+      </SizableText>
+      <SizableText fontFamily="$btn" size={"$xl"}>
         Poppins Medium - g
-      </Text>
-      <Text fontFamily="$PoppinsMed" fontStyle="italic" fontSize={"$xl"} fontWeight={"$true"}>
+      </SizableText>
+      <SizableText fontFamily="$btn" fontStyle="italic" size={"$xl"}>
         Poppins Medium Italic - g
-      </Text>
-      <Text fontFamily="$heading" fontSize={"$xl"}>
+      </SizableText>
+      <SizableText fontFamily="$heading" size={"$xl"}>
         Poppins Bold - g
-      </Text>
-      <Text fontFamily="$heading" fontStyle="italic" fontSize={"$xl"} fontWeight={"$true"}>
+      </SizableText>
+      <SizableText fontFamily="$heading" fontStyle="italic" size={"$xl"}>
         Poppins Bold Italic - g
-      </Text>
-      <Text fontFamily="$body" fontSize={"$4xl"} fontWeight="$true">
+      </SizableText>
+      <SizableText fontFamily="$body" size={"$4xl"} fontWeight="$true">
         Open Sans Regular - g
-      </Text>
-      <Text fontFamily="$body" fontStyle="italic" fontSize={"$4xl"} fontWeight="$true">
+      </SizableText>
+      <SizableText fontFamily="$body" fontStyle="italic" size={"$4xl"}>
         Open Sans Regular Italic - g
-      </Text>
-      <Text fontFamily="$OpenSansBold" fontSize={"$4xl"}>
+      </SizableText>
+      <SizableText fontFamily="$OpenSansBold" size={"$4xl"}>
         Open Sans Bold - g
-      </Text>
-      <Text fontFamily="$OpenSansBold" fontStyle="italic" fontSize={"$4xl"}>
+      </SizableText>
+      <SizableText fontFamily="$OpenSansBold" fontStyle="italic" size={"$4xl"}>
         Open Sans Bold Italic - g
-      </Text>
+      </SizableText>
     </View>
   );
 }

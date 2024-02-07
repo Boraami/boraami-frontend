@@ -6,6 +6,7 @@ const headingSizes = {
   sm: 16,
   md: 20,
   lg: 24,
+  true: 24,
   xl: 30,
   "2xl": 36,
   "3xl": 48,
@@ -15,7 +16,6 @@ const headingSizes = {
   "7xl": 76,
   "8xl": 80,
   "9xl": 88,
-  true: 24,
 };
 const paragraphSizes = {
   xs: 10,
@@ -23,6 +23,7 @@ const paragraphSizes = {
   md: 14,
   lg: 16,
   xl: 18,
+  true: 18,
   "2xl": 20,
   "3xl": 24,
   "4xl": 30,
@@ -32,26 +33,32 @@ const paragraphSizes = {
   "8xl": 72,
   "9xl": 96,
   "10xl": 128,
-  true: 18,
 };
-const PoppinsLineHeights = {
-  "4xl": 60,
-  "5xl": 80,
-};
+const headingLineHeights = Object.fromEntries(
+  Object.entries(headingSizes).map(([k, v]) => {
+    if (v <= 60) {
+      return [k, v * 1.25];
+    }
+    return [k, v * 1.5];
+  })
+);
+const paraBtnLineHeights = Object.fromEntries(
+  Object.entries(paragraphSizes).map(([k, v]) => [k, v * 1.5])
+);
 const PoppinsLetterSpacing = {
   "2xl": 0,
-  "3xl": 70,
+  "3xl": -0.05,
   "5xl": 0,
 };
 
 const PoppinsReg = createFont({
   family: "Poppins_400Regular",
   size: headingSizes,
-  lineHeight: PoppinsLineHeights,
+  lineHeight: headingLineHeights,
+  letterSpacing: PoppinsLetterSpacing,
   weight: {
     true: "400",
   },
-  letterSpacing: PoppinsLetterSpacing,
   // for native only, alternate family based on weight/style
   face: {
     // pass in weights as keys
@@ -60,10 +67,8 @@ const PoppinsReg = createFont({
 });
 const PoppinsMed = createFont({
   family: "Poppins_500Medium",
-  size: headingSizes,
-  lineHeight: {
-    true: 60,
-  },
+  size: paragraphSizes,
+  lineHeight: paraBtnLineHeights,
   weight: {
     true: "500",
   },
@@ -79,7 +84,7 @@ const PoppinsMed = createFont({
 const PoppinsBold = createFont({
   family: "Poppins_700Bold",
   size: headingSizes,
-  lineHeight: PoppinsLineHeights,
+  lineHeight: headingLineHeights,
   weight: {
     true: "700",
   },
@@ -93,9 +98,7 @@ const PoppinsBold = createFont({
 const OpenSansReg = createFont({
   family: "OpenSans_400Regular",
   size: paragraphSizes,
-  lineHeight: {
-    true: 40,
-  },
+  lineHeight: paraBtnLineHeights,
   weight: {
     true: "400",
   },
@@ -131,10 +134,10 @@ export const config = createTamagui({
   themes,
   tokens,
   fonts: {
-    PoppinsReg,
-    PoppinsMed,
     heading: PoppinsBold,
     body: OpenSansReg,
+    btn: PoppinsMed,
+    PoppinsReg,
     OpenSansBold,
   },
 });
