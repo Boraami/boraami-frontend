@@ -9,10 +9,10 @@
     "web": "expo start --web",
     "storybook-generate": "sb-rn-get-stories",
     "storybook-watch": "sb-rn-watcher",
-    "storybook:start": "sb-rn-get-stories && STORYBOOK=1 expo start",
-    "storybook:ios": "sb-rn-get-stories && STORYBOOK=1 expo start --ios",
-    "storybook:android": "sb-rn-get-stories && STORYBOOK=1 expo start --android",
-    "storybook:web": "sb-rn-get-stories && STORYBOOK=1 expo start --web"
+    "storybook:start": "sb-rn-get-stories && cross-env STORYBOOK=1 expo start",
+    "storybook:ios": "sb-rn-get-stories && cross-env STORYBOOK=1 expo start --ios",
+    "storybook:android": "sb-rn-get-stories && cross-env STORYBOOK=1 expo start --android",
+    "storybook:web": "sb-rn-get-stories && cross-env STORYBOOK=1 expo start --web"
   },
   "dependencies": {
     "@expo-google-fonts/open-sans": "^0.2.3",
@@ -50,6 +50,7 @@
     "@storybook/react-native": "^6.5.7",
     "@types/react": "~18.2.45",
     "babel-loader": "^8.3.0",
+    "cross-env": "^7.0.3",
     "react-dom": "^18.2.0",
     "typescript": "^5.1.3"
   },
