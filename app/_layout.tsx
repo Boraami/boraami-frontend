@@ -24,6 +24,7 @@ export {
   ErrorBoundary,
 } from "expo-router";
 import "../tamagui.css";
+import { useEffect } from "react";
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
@@ -39,6 +40,11 @@ export default function App() {
     OpenSans_700Bold_Italic,
   });
   const colorScheme = useColorScheme();
+  useEffect(() => {
+    if (fontsLoaded) {
+      // can hide splash screen here
+    }
+  }, [fontsLoaded]);
 
   if (!fontsLoaded && !fontError) {
     return null;
