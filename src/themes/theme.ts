@@ -85,7 +85,6 @@ export const colorScheme = {
   },
 };
 
-
 const light = {
   // Text
   "text-primary": colorScheme.mono[800],
@@ -148,7 +147,7 @@ const dark: BaseTheme = {
   "text-success": colorScheme.singularity[200],
   "text-warning": colorScheme.ptd[200],
   "text-error": colorScheme.bwl[400],
-  "text-invert": colorScheme.butter[900],
+  "text-invert": colorScheme.mono[900],
   "text-inactive": colorScheme.mono[400],
 
   // Background
