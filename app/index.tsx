@@ -7,6 +7,7 @@ const CBtn = styled(Button, {
   borderRadius: "$r-strong",
   backgroundColor: "$bg-brand-strong",
   color: "$text-primary",
+  alignSelf: "center",
 });
 
 function App() {
