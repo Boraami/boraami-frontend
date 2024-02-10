@@ -4,7 +4,7 @@ import { View, SizableText, Text } from "tamagui";
 
 function App() {
   return (
-    <View backgroundColor={"$bg-brand-strong"}>
+    <View backgroundColor={"$ptd.400"}>
       <Text color={"$text-primary"} theme="light">
         Test theme
       </Text>

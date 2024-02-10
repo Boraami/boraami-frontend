@@ -1,5 +1,6 @@
 import { createTokens } from "tamagui";
 import { tokens as tamaguiTokens } from "@tamagui/themes";
+import { colorScheme } from "./theme";
 
 const radius = {
   "r-sharp": 0,
@@ -26,4 +27,11 @@ export const tokens = createTokens({
   ...tamaguiTokens,
   radius,
   spacing,
+  boraami: colorScheme.boraami,
+  bwl: colorScheme.bwl,
+  serendipity: colorScheme.serendipity,
+  butter: colorScheme.butter,
+  singularity: colorScheme.singularity,
+  ptd: colorScheme.ptd,
+  mono: colorScheme.mono,
 });
