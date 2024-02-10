@@ -57,4 +57,3 @@ function App() {
   );
 }
 
-export default Constants.expoConfig?.extra?.storybookEnabled ? Storybook : App;
