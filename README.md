@@ -7,7 +7,6 @@ To provide a safe and inclusive space for ARMY to stay connected, lead with kind
 
 ## Tech stack used
 - [Expo](https://expo.dev/) (React Native)
-- [Nativewind](https://www.nativewind.dev/)(TailwindCSS)
 - [Storybook](https://storybook.js.org/)
 
 ### Features (WIP)

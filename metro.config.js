@@ -2,10 +2,19 @@
 const { getDefaultConfig } = require("expo/metro-config");
 
 /** @type {import('expo/metro-config').MetroConfig} */
-const config = getDefaultConfig(__dirname);
+const config = getDefaultConfig(__dirname, {
+  // [Web-only]: Enables CSS support in Metro.
+  isCSSEnabled: true,
+});
 
-if (process.env.STORYBOOK === "1") {
-  config.resolver.resolverMainFields.unshift("sbmodern");
-}
+// if (process.env.STORYBOOK === "1") {
+// } not needed cz we need to do it without condition - https://github.com/storybookjs/react-native/issues/469
+config.resolver.resolverMainFields.unshift("sbmodern");
 
-module.exports = config;
+// Enable Tamagui
+const { withTamagui } = require("@tamagui/metro-plugin");
+module.exports = withTamagui(config, {
+  components: ["tamagui"],
+  config: "./tamagui.config.ts",
+  outputCSS: "./tamagui.css",
+});
