@@ -1,9 +1,12 @@
+import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { TamaguiProvider } from "tamagui";
 import { config } from "./../tamagui.config";
 import { Tabs } from "expo-router";
 import { useFonts } from "expo-font";
+import Constants from "expo-constants";
+import Storybook from "../.storybook";
 import {
   Poppins_400Regular,
   Poppins_400Regular_Italic,
@@ -12,7 +15,6 @@ import {
   Poppins_700Bold,
   Poppins_700Bold_Italic,
 } from "@expo-google-fonts/poppins";
-import "@tamagui/core/reset.css";
 import {
   OpenSans_400Regular,
   OpenSans_400Regular_Italic,
@@ -24,7 +26,7 @@ export {
   ErrorBoundary,
 } from "expo-router";
 import "../tamagui.css";
-import { useEffect } from "react";
+import "@tamagui/core/reset.css";
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
@@ -52,8 +54,7 @@ export default function App() {
   return (
     <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Tabs />
-        {/* <Text>Hello</Text> */}
+        {Constants.expoConfig?.extra?.storybookEnabled ? <Storybook /> : <Tabs />}
         {/* <Stack screenOptions={{ headerShown: false }}>
         </Stack> */}
       </ThemeProvider>
