@@ -1,17 +1,23 @@
-# Introduction
+# Boraami
 
-## Fab
+To be the best community that empowers ARMY all around the world to love themselves and BTS.
 
-Hello, I'm Fab, a frontend developer. I am excited to build Boraami and learn mobile development.
+## Vision
+To provide a safe and inclusive space for ARMY to stay connected, lead with kindness and seamlessly support all the BTS members.
 
-## Carmen
+## Tech stack used
+- [Expo](https://expo.dev/) (React Native)
+- [Storybook](https://storybook.js.org/)
 
-Hello, I'm Carmen, a frontend developer. I am excited to build Boraami and learn mobile development.
+### Features (WIP)
+- Sign up process for strictly ot7 Army.
+- Follow/Unfollow people.
+- Timeline from people you're following.
+- Basic Settings and Edit profile.
+- Notifications for interactions that concern the user.
+- Search through content, users and hashtags.
 
-## Nimra
+### Contribution
+Follow the instructions in [Contribution.md](/Contribution.md).
 
-Hello, I'm Nimra, a frontend developer. I am excited to build Boraami and learn mobile development. (struggling)
 
-## Kigris
-
-Hello, I'm Kigris, a frontend developer. I am excited to build Boraami and learn mobile development.
