@@ -49,7 +49,10 @@ try {
 
 const getStories = () => {
   return {
+    "./src/components/Alerts/BannerAlert.stories.tsx": require("../src/components/Alerts/BannerAlert.stories.tsx"),
+    "./src/components/Alerts/WarningAlert.stories.tsx": require("../src/components/Alerts/WarningAlert.stories.tsx"),
     "./src/components/Button/Button.stories.tsx": require("../src/components/Button/Button.stories.tsx"),
+    "./src/components/Card/Card.stories.tsx": require("../src/components/Card/Card.stories.tsx"),
   };
 };
 
