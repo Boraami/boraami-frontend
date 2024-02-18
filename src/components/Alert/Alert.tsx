@@ -23,7 +23,6 @@ const Btn = styled(Button, {
 type BtnProps = {
     onPress?: (event: GestureResponderEvent) => void;
     text: string
-
 };
 
 export const Alert = ({ title, content}: Props) => {
