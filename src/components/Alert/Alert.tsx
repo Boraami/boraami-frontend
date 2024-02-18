@@ -3,9 +3,15 @@ import { View, TouchableOpacity, Text, GestureResponderEvent} from 'react-native
 import { AlertDialog, Button, styled } from 'tamagui';
 
 const WarningDialog = styled(AlertDialog, {
-    width: '380',
-    backgroundColor: '#FFFFF',
-    borderColor: '$border-error-subtle'
+    width: '100%',
+    borderColor: '$border-error-subtle',
+    borderWidth: 2,  
+    borderTopColor: '$text-brand',
+    backgroundColor: '$boraami.100',
+    borderRadius: "$r-subtle",
+    alignSelf: "center",
+    display: 'flex', 
+    flexDirection: 'row',
 });
 
 type Props = {
@@ -26,5 +32,7 @@ type BtnProps = {
 };
 
 export const Alert = ({ title, content}: Props) => {
-    return <WarningDialog><Button><h1>{title}</h1><p>{content}</p></Button></WarningDialog>;
+    return <WarningDialog><h1>{title}</h1><p>{content}</p></WarningDialog>;
+    // return <WarningDialog><h1>{title}</h1><p>{content}</p></WarningDialog>;
+    // return <WarningDialog><Button><h1>{title}</h1><p>{content}</p></Button></WarningDialog>;
 }
