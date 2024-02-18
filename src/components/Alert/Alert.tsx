@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, GestureResponderEvent} from 'react-native';
 import { AlertDialog, Button, styled } from 'tamagui';
+import { AntDesign } from '@expo/vector-icons';
 
 const WarningDialog = styled(AlertDialog, {
     width: '100%',
@@ -32,7 +33,14 @@ type BtnProps = {
 };
 
 export const Alert = ({ title, content}: Props) => {
-    return <WarningDialog><h1>{title}</h1><p>{content}</p></WarningDialog>;
-    // return <WarningDialog><h1>{title}</h1><p>{content}</p></WarningDialog>;
-    // return <WarningDialog><Button><h1>{title}</h1><p>{content}</p></Button></WarningDialog>;
-}
+    return <WarningDialog>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly'}}>
+            <Text style={{ fontFamily: 'Poppins', fontSize: '20'}}>{title}</Text>
+            <AntDesign name="close" size={24} color="black" />
+        </View>
+        <View style={{ width: '100%', padding: 16 }}>
+        {/* <View style={{ flexDirection: 'column', justifyContent: 'flex-start'}}> */}
+            <Text>{content}</Text>
+        </View>
+    </WarningDialog>;
+    }
