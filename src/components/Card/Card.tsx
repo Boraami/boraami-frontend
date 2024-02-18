@@ -1,17 +1,11 @@
 import React from 'react'
-import { View } from 'react-native';
-import { Card, styled } from 'tamagui';
+import { Card, styled, View, Text, Image  } from 'tamagui';
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
-
-// Just work on light theme
-// Don't worry about passing props to Storybook component; just work on static values
-// Test components on Expo Go (Android) and XCode (iPhone)
 
 const StyledStreamerCard = styled(Card, {
     alignItems: 'flex-start',
     justifyContent: 'space-between',
-    width: '100%',
     borderColor: '$border-error-subtle',
     borderTopWidth: 5,
     borderTopColor: '$text-brand',
@@ -20,17 +14,18 @@ const StyledStreamerCard = styled(Card, {
     alignSelf: "center",
     display: 'flex', 
     flexDirection: 'row',
-    // font: '$text-primary'
+    margin: 20,
 });
 
 type StreamerCardProps = {
     title: string;
     subtitle: string;
-    image: string; 
+    uri: string;
+    width: string;
+    height: string; 
 }
 
 const StyledBadgeCard = styled(Card, {
-    width: '100%',
     backgroundColor: '$boraami.100',
     justifyContent: 'space-between',
     alignSelf: 'center',
@@ -39,30 +34,33 @@ const StyledBadgeCard = styled(Card, {
 
 type BadgeCardProps = {
     text: string,
-    image: string;
+    uri: string;
 }
     
-export const StreamerCard = ({ title, subtitle, image }: StreamerCardProps) => {
+export const StreamerCard = ({ title, subtitle, uri, width, height }: StreamerCardProps) => {
     return (
     <StyledStreamerCard>
-        <img src={image} width="100"/>
+        {/* <Image source ={{ uri, width, height }}/> */}
+        <View style={{ padding: 4}}>
+        <Image source ={{ uri: "https://ichef.bbci.co.uk/news/1024/branded_news/160F5/production/_118775309_bts-16.jpg", width: 115, height: 98 }}/>
+        </View>
         <View style={{ flexGrow: 1, padding: 8 }}>
             <View style={{ flexDirection: "row" }}>
                 <Entypo name="spotify" size={24} color="black" />
-                <p>{title}</p>
+                <Text style={{ fontFamily: 'Poppins', fontSize: 20}}>{title}</Text>
             </View> 
-            <p>{subtitle}</p>
+            <Text>{subtitle}</Text>
         </View> 
-        <AntDesign name="close" size={24} color="black"/>
+        <AntDesign name="close" size={16} color="black" margin={10}/>
     </StyledStreamerCard>
 )};
 
-export const StreamerBadge = ({ text, image }: BadgeCardProps) => {
+export const StreamerBadge = ({ text, uri }: BadgeCardProps) => {
     return (
     <StyledBadgeCard>
-        <View style={{ flexDirection: "row", marginHorizontal: 30 }}>
-        <img src={image} width="48"/>
-        <p style={{ padding: 12 }}>{text}</p>
+        <View style={{ flexDirection: "row", marginHorizontal: 30  }}>
+        <Image source={{ uri: "https://t3.ftcdn.net/jpg/05/63/73/08/240_F_563730870_ciwSsLDxuvUgsu8KYpyRG5J1MhVSVc11.jpg",  width: 48, height: 48 }}/>
+        <Text style={{ padding: 12 }}>{text}</Text>
         </View>
     </StyledBadgeCard>
 )};
