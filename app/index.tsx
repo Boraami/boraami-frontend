@@ -1,5 +1,6 @@
 import { View } from "react-native";
 import { Button, H1, styled } from "tamagui";
+import { Alert } from '../src/components/Alert'
 
 const CBtn = styled(Button, {
   borderRadius: "$r-strong",
@@ -13,6 +14,7 @@ export default function App() {
     <View>
       <H1>HOME</H1>
       <CBtn>Plain</CBtn>
+      <Alert/>
     </View>
   );
 }
