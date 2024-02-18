@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { MyButton } from "./Button";
+import { MyButton, PDeftBtn, SDeftBtn, TDeftBtn } from "./Button";
 
 const MyButtonMeta: Meta<typeof MyButton> = {
   title: "MyButton",
@@ -10,7 +10,7 @@ const MyButtonMeta: Meta<typeof MyButton> = {
     onPress: { action: "pressed the button" },
   },
   args: {
-    text: "Hello world",
+    text: "Hello",
   },
   decorators: [
     (Story) => (
@@ -21,7 +21,67 @@ const MyButtonMeta: Meta<typeof MyButton> = {
   ],
 };
 
-export default MyButtonMeta;
+const PDefaultMeta: Meta<typeof PDeftBtn> = {
+  title: "Primary",
+  component: PDeftBtn,
+  argTypes: {
+    onPress: { 
+      action: "pressed primary",
+    }
+  },
+  args: {
+    text: "Hello primary",
+  },
+  decorators: [
+    (Story) => (
+      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
+      <Story />
+    </View>
+    ),
+  ],
+};
+
+const SDefaultMeta: Meta<typeof SDeftBtn> = {
+  title: "Secondary",
+  component: SDeftBtn,
+  argTypes: {
+    onPress: { 
+      action: "pressed secondary",
+    }
+  },
+  args: {
+    text: "Hello secondary",
+  },
+  decorators: [
+    (Story) => (
+      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
+      <Story />
+    </View>
+    ),
+  ],
+};
+
+const TDefaultMeta: Meta<typeof TDeftBtn> = {
+  title: "Tertiary",
+  component: TDeftBtn,
+  argTypes: {
+    onPress: { 
+      action: "pressed tertiary",
+    }
+  },
+  args: {
+    text: "Hello tertiary",
+  },
+  decorators: [
+    (Story) => (
+      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
+      <Story />
+    </View>
+    ),
+  ],
+};
+
+export default SDefaultMeta;
 
 export const Basic = {};
 
