@@ -32,7 +32,10 @@ export const Checkbox = createCheckbox({
   Frame,
   Indicator,
 })
-export function CheckBox(props: { disable?: boolean,checked?: boolean, size: string, labeltext: string}) {
+export function CheckBox(props: { disable?: boolean,
+                                  checked?: boolean, 
+                                  size: string, 
+                                  labeltext: string}) {
 //sizing=> -6=9, -5=11, -4=13, -3=14, -2=16, no-size=20
 // -4->sm, -2->md, 0->lg(acc to design)
 //in order to make it disabled, u have to give a checked state
@@ -57,8 +60,8 @@ if(props.size=='sm'){
 
 } else if(props.size=='lg'){
   cs=0
-  is=15
-  s='$3xl' //size diff than documentation cuz the og measurements didnt work
+  is=15 //label size diff
+  s='$2xl' //size diff than documentation cuz the og measurements didnt work
   bw=2
   console.log(cs,is,bw,s)
 
@@ -68,7 +71,7 @@ if(props.size=='sm'){
   return (
     <XStack>
     {props.disable?
-      <YStack flexDirection='row'  gap={9} alignItems="center" >
+      <YStack flexDirection='row' gap={9} alignItems="center" >
         <Checkbox disabled={true}
           borderWidth={bw}
           borderColor={'rgba(95,61,156, 0.4)'} 

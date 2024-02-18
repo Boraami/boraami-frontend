@@ -21,7 +21,7 @@ if(props.size=='sm'){
   ts=18
 }
   return (
-    <XStack flexDirection='column' gap={8}>
+    <XStack flexDirection='column' gap={4}/*size gap diff */>
         <Label
         size={ls}
         fontFamily={'$heading'}
