@@ -21,8 +21,7 @@ type StreamerCardProps = {
     title: string;
     subtitle: string;
     uri: string;
-    width: string;
-    height: string; 
+    size?: 'md' | 'sm'; 
 }
 
 const StyledBadgeCard = styled(Card, {
@@ -37,12 +36,12 @@ type BadgeCardProps = {
     uri: string;
 }
     
-export const StreamerCard = ({ title, subtitle, uri, width, height }: StreamerCardProps) => {
+export const StreamerCard = ({ title, subtitle, uri, size='md' }: StreamerCardProps) => {
     return (
     <StyledStreamerCard>
         {/* <Image source ={{ uri, width, height }}/> */}
         <View style={{ padding: 4}}>
-        <Image source ={{ uri: "https://ichef.bbci.co.uk/news/1024/branded_news/160F5/production/_118775309_bts-16.jpg", width: 115, height: 98 }}/>
+        <Image source ={{ uri: uri, width: size==='md' ? 200 : 125, height: size==='md' ? 175 : 115 }}/>
         </View>
         <View style={{ flexGrow: 1, padding: 8 }}>
             <View style={{ flexDirection: "row" }}>

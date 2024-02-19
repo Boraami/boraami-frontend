@@ -8,7 +8,8 @@ function App() {
     <View>
         <View>
         <StreamerCard title="Playlist no.6" subtitle="btstatsreminder2"
-            uri="https://ichef.bbci.co.uk/news/1024/branded_news/160F5/production/_118775309_bts-16.jpg" width="100" height="100">
+            uri="https://wallpapers.com/images/hd/bts-group-photo-in-classy-suits-p5zcbisaysuxbmvb.jpg" 
+            size='sm'>
           </StreamerCard>
         </View>
 
