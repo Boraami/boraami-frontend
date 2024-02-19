@@ -1,6 +1,6 @@
 import Constants from "expo-constants";
 import Storybook from "../.storybook";
-import { Image, View, Button, styled, Text } from "tamagui";
+import { View } from "tamagui";
 import { StreamerCard, StreamerBadge } from "../src/components/Card/Card";
 
 function App() {
