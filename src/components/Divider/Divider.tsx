@@ -2,9 +2,9 @@ import React from 'react';
 import { Separator, styled, XStack, Text} from 'tamagui';
 
 const Divider = styled(Separator, {
-    borderColor: '$bg-brand-subtle-light', 
+    // borderColor: '$bg-brand-subtle-light', 
+    borderColor: '$bg-border-neutral', 
     width: 420,
-    paddingTop: 30, 
     borderWidth: '1',
 });
 
