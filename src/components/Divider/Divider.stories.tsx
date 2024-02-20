@@ -6,9 +6,7 @@ import { Dividers } from "./Divider";
 const DividerMeta: Meta<typeof Dividers> = {
   title: "Divider",
   component: Dividers,
-//   argTypes: {
-//     onPress: { action: "pressed the button" },
-//   },
+//   argTypes: {},
   args: {
     borderColor: '$bg-brand-subtle-light',
   },

@@ -7,7 +7,7 @@ function App() {
   return (
     <View>
       <Text>Divider</Text>
-        <Dividers vertical={false}/>
+        <Dividers vertical={false} borderColor="$bg-brand-subtle-light"/>
     </View>
   );
 }
