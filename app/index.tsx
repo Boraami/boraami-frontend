@@ -6,6 +6,7 @@ import { Dividers } from '../src/components/Divider/Divider';
 function App() {
   return (
     <View>
+      <Text>Divider</Text>
         <Dividers vertical={false}/>
     </View>
   );
