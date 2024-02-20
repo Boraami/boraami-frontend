@@ -98,6 +98,7 @@ const light = {
   "warning-alert-solid-fill" : colorScheme.ptd[400],
   "warning-alert-subtle-fill" : colorScheme.ptd[200],
   "warning-alert-outline" : colorScheme.ptd[500],
+  "error-alert-fill" : colorScheme.mono[50],
   "error-alert-outline" : colorScheme.bwl[700],
 
   // Button Component
@@ -214,6 +215,7 @@ const dark: BaseTheme = {
     "warning-alert-solid-fill" : colorScheme.ptd[500],
     "warning-alert-subtle-fill" : colorScheme.ptd[200],
     "warning-alert-outline" : colorScheme.ptd[500],
+    "error-alert-fill" : colorScheme.boraami[900],
     "error-alert-outline" : colorScheme.bwl[700],
 
     // Button Component
