@@ -6,9 +6,7 @@ import { StreamerCard } from "./Card";
 const StreamerCardMeta: Meta<typeof StreamerCard> = {
   title: "StreamerCard",
   component: StreamerCard,
-  argTypes: {
-
-  },
+  // argTypes: {},
   args: {
     title: 'Playlist no. 6',
     subtitle: 'btstatsrem',
