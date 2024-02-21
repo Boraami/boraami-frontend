@@ -17,6 +17,7 @@ const Alert = styled(View, {
 type Props = {
     title: string;
     content: string;
+    // size: 'long' | 'short'; 
 };
 
 export const Alerts = ({ title, content }: Props) => {

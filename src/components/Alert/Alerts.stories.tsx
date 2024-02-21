@@ -1,51 +1,107 @@
 import React from "react";
-import { View } from "react-native";
+// import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
 import { Alerts } from "./Alerts";
+import { Text, View} from 'tamagui';
 
 const AlertsMeta: Meta<typeof Alerts> = {
   title: "Alerts",
   component: Alerts,
-//   argTypes: {},
   args: {
-    borderColor: '$bg-brand-subtle-light',
+    borderColor: '#B48BFF',
+    backgroundColor: '#5F3D9C',
+    borderLeftColor: '#B48BFF', 
+    color: '#FFFFFF', 
   },
+
   decorators: [
     (Story) => (
       <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
+        <Text style={{ color: 'white'}}></Text>
         <Story />
       </View>
     ),
   ],
 };
 
-export default Alerts;
+export default AlertsMeta;
 
 export const LongAlertSolid = {};
 
 export const LongAlertSubtle = {
   args: {
     backgroundColor: '#F0E8FF',
+    // color: '#322941',
+  },
+};
+
+export const LongAlertOutline = {
+  args: {
+    backgroundColor: '#F0E8FF',
     color: '#322941',
   },
 };
 
-export const LongAlertOutline = {};
+export const ShortAlertSolid = {
+  args: {
+    backgroundColor: '#5F3D9C',
+    color: '#322941',
+  },
+};
 
-export const ShortAlertSolid = {};
+export const ShortAlertSubtle = {
+  args: {
+    backgroundColor: '#F0E8FF',
+    color: '#322941',
+  },
+};
 
-export const ShortAlertSubtle = {};
+export const ShortAlertOutline = {
+  args: {
+    backgroundColor: '#F0E8FF',
+    color: '#322941',
+  },
+};
 
-export const ShortAlertOutline = {};
+export const SuccessAlertSolid = {
+  args: {
+    backgroundColor: '#2F9D83',
+    color: '#322941',
+  },
+};
 
-export const SuccessAlertSolid = {};
+export const SuccessAlertSubtle = {
+  args: {
+    backgroundColor: '#F0E8FF',
+    color: '#322941',
+  },
+};
 
-export const SuccessAlertSubtle = {};
+export const SuccessAlertOutline = {
+  args: {
+    backgroundColor: '#F0E8FF',
+    color: '#322941',
+  },
+};
 
-export const SuccessAlertOutline = {};
+export const ErrorAlertSolid = {
+  args: {
+    backgroundColor: '#FB923C',
+    color: '#322941',
+  },
+};
 
-export const ErrorAlertSolid = {};
+export const ErrorAlertSubtle = {
+  args: {
+    backgroundColor: '#FEE8D6',
+    color: '#322941',
+  },
+};
 
-export const ErrorAlertSubtle = {};
-
-export const ErrorAlertOutline = {};
+export const ErrorAlertOutline = {
+  args: {
+    backgroundColor: '#F0E8FF',
+    color: '#FB923C',
+    borderColor: '#FB923C',
+  },
+};
