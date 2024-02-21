@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, GestureResponderEvent} from 'react-native';
-import { AlertDialog, Button, styled } from 'tamagui';
+import { GestureResponderEvent} from 'react-native';
+import { AlertDialog, View, Text, Button, styled } from 'tamagui';
 import { AntDesign } from '@expo/vector-icons';
 
 const WarningDialog = styled(AlertDialog, {
@@ -32,7 +32,7 @@ type BtnProps = {
     text: string
 };
 
-export const Alert = ({ title, content}: Props) => {
+export const WarningAlertDialog = ({ title, content}: Props) => {
     return <WarningDialog>
         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly'}}>
             <Text style={{ fontFamily: 'Poppins', fontSize: '20'}}>{title}</Text>

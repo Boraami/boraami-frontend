@@ -1,15 +1,15 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, GestureResponderEvent} from 'react-native';
-import { AlertDialog, Button, styled } from 'tamagui';
+import { AlertDialog, View, Text, styled } from 'tamagui';
 import { AntDesign, Entypo } from '@expo/vector-icons';
 
-const Banner = styled(AlertDialog, {
-    width: '100%',
-    borderWidth: 5,  
+const Alert = styled(AlertDialog, {
+    // width: '100%',
+    borderWidth: 1,  
+    width: 329, 
+    height: 90,
     backgroundColor: '$bg-brand-strong',
     borderRadius: "$r-subtle",
-    alignSelf: "center",
-    borderLeftColor: '$border-brand-subtle',
+    borderColor: '$border-brand-subtle',
     display: 'flex', 
     flexDirection: 'row',
 });
@@ -20,9 +20,9 @@ type Props = {
 };
 
 
-export const AlertBanner = ({ title, content }: Props) => {
+export const Alerts = ({ title, content }: Props) => {
     return (
-    <Banner>
+    <Alert>
         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly'}}>
             <Entypo name="heart" size={20} color="black" />
             <View style={{ flexDirection: 'column' }}>
@@ -34,5 +34,5 @@ export const AlertBanner = ({ title, content }: Props) => {
         <View style={{ width: '100%', padding: 16 }}>
             <Text>{content}</Text>
         </View>
-    </Banner>
+    </Alert>
     )}
