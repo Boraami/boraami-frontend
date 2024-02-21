@@ -23,7 +23,12 @@ export default Alerts;
 
 export const LongAlertSolid = {};
 
-export const LongAlertSubtle = {};
+export const LongAlertSubtle = {
+  args: {
+    backgroundColor: '#F0E8FF',
+    color: '#322941',
+  },
+};
 
 export const LongAlertOutline = {};
 

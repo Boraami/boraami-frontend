@@ -49,8 +49,8 @@ try {
 
 const getStories = () => {
   return {
-    "./src/components/Alert/Alert.stories.tsx": require("../src/components/Alert/WarningAlertDialog.stories"),
-    "./src/components/Alert/Banner.stories.tsx": require("../src/components/Alert/Alerts.stories"),
+    "./src/components/Alert/Alerts.stories.tsx": require("../src/components/Alert/Alerts.stories.tsx"),
+    "./src/components/Alert/WarningAlertDialog.stories.tsx": require("../src/components/Alert/WarningAlertDialog.stories.tsx"),
   };
 };
 
