@@ -50,6 +50,8 @@ try {
 const getStories = () => {
   return {
     "./src/components/Button/Button.stories.tsx": require("../src/components/Button/Button.stories.tsx"),
+    "./src/components/RadioButton/Radiobutton.stories.tsx": require("../src/components/RadioButton/Radiobutton.stories.tsx"),
+    "./src/components/RadioButton/RadiobuttonList.stories.tsx": require("../src/components/RadioButton/RadiobuttonList.stories.tsx"),
   };
 };
 
