@@ -17,17 +17,17 @@ const Alert = styled(View, {
 type Props = {
     title: string;
     content: string;
-    // size: 'long' | 'short'; 
+    size?: 'long' | 'short'; 
 };
 
-export const Alerts = ({ title, content }: Props) => {
+export const Alerts = ({ title, content, size='long' }: Props) => {
     return (
     <Alert>
         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly'}}>
             <Entypo name="heart" size={20} color="white" />
             <View style={{ color: 'white', backgroundColor: '#5F3D9C', width: 247, height: 66, gap: 4 }}>
                 <Text style={{ fontFamily: 'Poppins', fontSize: '16', lineHeight: '20', fontWeight: '700', color: '#FFFFFF'}}>{title}</Text>
-                <Text style={{ color: 'white'}}>{content}</Text>
+                <Text style={{ color: 'white'}}>{{content: size=='long' ? content : null}}</Text>
             </View>
             <AntDesign name="close" size={20} color="white" />
         </View>

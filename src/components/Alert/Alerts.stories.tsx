@@ -30,7 +30,8 @@ export const LongAlertSolid = {};
 
 export const LongAlertSubtle = {
   args: {
-    backgroundColor: '#F0E8FF',
+    backgroundColor: '$boraami.100',
+    // backgroundColor: '#F0E8FF',
     // color: '#322941',
   },
 };
@@ -86,7 +87,9 @@ export const SuccessAlertOutline = {
 
 export const ErrorAlertSolid = {
   args: {
-    backgroundColor: '#FB923C',
+    backgroundColor: '$ptd.400',
+    // backgroundColor: '$bg-ptd.400',
+    // backgroundColor: '#FB923C',
     color: '#322941',
   },
 };
