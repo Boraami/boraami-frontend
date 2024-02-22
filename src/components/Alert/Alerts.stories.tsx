@@ -1,5 +1,4 @@
 import React from "react";
-// import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
 import { Alerts } from "./Alerts";
 import { Text, View} from 'tamagui';
@@ -27,15 +26,13 @@ const AlertsMeta: Meta<typeof Alerts> = {
 export default AlertsMeta;
 
 export const LongAlertSolid = {};
-
 export const LongAlertSubtle = {
   args: {
     backgroundColor: '$boraami.100',
     // backgroundColor: '#F0E8FF',
-    // color: '#322941',
+    color: '#322941',
   },
 };
-
 export const LongAlertOutline = {
   args: {
     backgroundColor: '#F0E8FF',

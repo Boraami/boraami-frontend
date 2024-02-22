@@ -6,9 +6,14 @@ import { Alerts } from '../src/components/Alert/Alerts'
 function App() {
   return (
     <View style={{ alignItems: 'center', paddingTop: 40}}>
-        <Alerts title="We are going live in July!" content="We are happy to announce that we are going live on July 28th. Get ready!" ></Alerts>
+        <Alerts 
+          title="We are going live in July!" 
+          content="We are happy to announce that we are going live on 
+          July 28th. Get ready!" >
+        </Alerts>
     </View>
   );
 }
 
-export default Constants.expoConfig?.extra?.storybookEnabled ? Storybook : App;
+export default Constants.expoConfig?.extra?.storybookEnabled ? 
+Storybook : App;
