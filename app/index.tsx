@@ -1,21 +1,18 @@
 import Constants from "expo-constants";
 import Storybook from "../.storybook";
 import { View } from "tamagui";
-import { StreamerCard, StreamerBadge } from "../src/components/Card/Card";
+import { PlaylistCard } from "../src/components/Card/PlaylistCard";
+import { DreamerBadgeCard } from "../src/components/Card/DreamerBadge";
 
 function App() {
   return (
     <View>
-        <View>
-        <StreamerCard title="Playlist no.6" subtitle="btstatsreminder2"
+        <PlaylistCard title="Playlist no.6" subtitle="btstatsreminder2"
             uri="https://wallpapers.com/images/hd/bts-group-photo-in-classy-suits-p5zcbisaysuxbmvb.jpg" 
             size='sm'>
-          </StreamerCard>
-        </View>
+          </PlaylistCard>
 
-        <View>
-        <StreamerBadge text="I earned the Dreamer Streamer badge for streaming 3 days in a row!" uri="https://t3.ftcdn.net/jpg/05/63/73/08/240_F_563730870_ciwSsLDxuvUgsu8KYpyRG5J1MhVSVc11.jpg"></StreamerBadge>
-        </View>
+        <DreamerBadgeCard text="I earned the Dreamer Streamer badge for streaming 3 days in a row!" uri="https://t3.ftcdn.net/jpg/05/63/73/08/240_F_563730870_ciwSsLDxuvUgsu8KYpyRG5J1MhVSVc11.jpg"></DreamerBadgeCard>
     </View>
   );
 }

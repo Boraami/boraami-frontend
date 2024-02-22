@@ -3,7 +3,7 @@ import { Card, styled, View, Text, Image  } from 'tamagui';
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 
-const StyledStreamerCard = styled(Card, {
+const Playlist = styled(Card, {
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     borderColor: '$border-error-subtle',
@@ -15,33 +15,22 @@ const StyledStreamerCard = styled(Card, {
     display: 'flex', 
     flexDirection: 'row',
     margin: 20,
+    height: 110,
+    width: 329, 
 });
 
-type StreamerCardProps = {
+type PlaylistProps = {
     title: string;
     subtitle: string;
     uri: string;
     size?: 'md' | 'sm'; 
 }
-
-const StyledBadgeCard = styled(Card, {
-    backgroundColor: '$boraami.100',
-    justifyContent: 'space-between',
-    alignSelf: 'center',
-    display: 'flex',
-});
-
-type BadgeCardProps = {
-    text: string,
-    uri: string;
-}
     
-export const StreamerCard = ({ title, subtitle, uri, size='md' }: StreamerCardProps) => {
+export const PlaylistCard = ({ title, subtitle, uri, size='md' }: PlaylistProps) => {
     return (
-    <StyledStreamerCard>
-        {/* <Image source ={{ uri, width, height }}/> */}
+    <Playlist>
         <View style={{ padding: 4}}>
-        <Image source ={{ uri: uri, width: size==='md' ? 200 : 125, height: size==='md' ? 175 : 115 }}/>
+        <Image source ={{ uri: uri, width: size==='md' ? 115 : 64, height: size==='md' ? 98 : 64 }}/>
         </View>
         <View style={{ flexGrow: 1, padding: 8 }}>
             <View style={{ flexDirection: "row" }}>
@@ -51,17 +40,8 @@ export const StreamerCard = ({ title, subtitle, uri, size='md' }: StreamerCardPr
             <Text>{subtitle}</Text>
         </View> 
         <AntDesign name="close" size={16} color="black" margin={10}/>
-    </StyledStreamerCard>
+    </Playlist>
 )};
 
-export const StreamerBadge = ({ text, uri }: BadgeCardProps) => {
-    return (
-    <StyledBadgeCard>
-        <View style={{ flexDirection: "row", marginHorizontal: 30  }}>
-        <Image source={{ uri: "https://t3.ftcdn.net/jpg/05/63/73/08/240_F_563730870_ciwSsLDxuvUgsu8KYpyRG5J1MhVSVc11.jpg",  width: 48, height: 48 }}/>
-        <Text style={{ padding: 12 }}>{text}</Text>
-        </View>
-    </StyledBadgeCard>
-)};
 
 

@@ -49,9 +49,8 @@ try {
 
 const getStories = () => {
   return {
-    "./src/components/Alerts/BannerAlert.stories.tsx": require("../src/components/Alerts/BannerAlert.stories.tsx"),
-    "./src/components/Alerts/WarningAlert.stories.tsx": require("../src/components/Alerts/WarningAlert.stories.tsx"),
-    "./src/components/Card/Card.stories.tsx": require("../src/components/Card/Card.stories.tsx"),
+    "./src/components/Card/DreamerBadge.stories.tsx": require("../src/components/Card/DreamerBadge.stories.tsx"),
+    "./src/components/Card/PlaylistCard.stories.tsx": require("../src/components/Card/PlaylistCard.stories.tsx"),
   };
 };
 
