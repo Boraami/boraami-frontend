@@ -11,10 +11,10 @@ import { Entypo } from '@expo/vector-icons';
     name: "solid info",
     borderRadius: "$r-subtle",
     alignSelf: 'flex-start',
-    backgroundColor: "#0284C7", //serendipity[600]
+    backgroundColor: "$info-solid-fill", //serendipity[600]
     height: '$s-sm',
     width: '$s-sm',
-    color: '$text-invert',
+    color: '$info-solid-text',
     icon: <MaterialCommunityIcons name="lightbulb" size={20} color="white" />
   })
   
@@ -23,11 +23,11 @@ import { Entypo } from '@expo/vector-icons';
     name: "outlined info",
     borderRadius: "$r-subtle",
     alignSelf: 'center',
-    borderColor:'#BAE6FD',//serendipity[600]
+    borderColor:'info-outline-border',//serendipity[600]
     height: '$s-sm',
     width: '$s-sm',
-    color:  '#0284C7', //serendipity[200]
-    icon: <MaterialCommunityIcons name="lightbulb" size={20} color="#0284C7" />
+    color:  '$info-outline-text', //serendipity[200]
+    icon: <MaterialCommunityIcons name="lightbulb" size={20} color="$info-solid-fill" />
   })
   
   const SolSucTag = styled(Button, {
@@ -35,10 +35,10 @@ import { Entypo } from '@expo/vector-icons';
     name: "solid info",
     borderRadius: "$r-subtle",
     alignSelf: 'flex-start',
-    backgroundColor: "#2F9D83", //singularity[500]
+    backgroundColor: "$success-solid-fill", //singularity[500]
     height: '$s-sm',
     width: '$s-sm',
-    color: '$text-invert',
+    color: '$success-solid-text',
     icon: <AntDesign name="check" size={24} color="white" />
   })
   
@@ -47,11 +47,11 @@ import { Entypo } from '@expo/vector-icons';
     name: "outlined info",
     borderRadius: "$r-subtle",
     alignSelf: 'center',
-    borderColor:'#D5EBE6',///singularity[200]
+    borderColor:'$success-outline-border',///singularity[200]
     height: '$s-sm',
     width: '$s-sm',
-    color: '#2F9D83', //singularity[500]
-    icon: <AntDesign name="check" size={24} color="#2F9D83" />
+    color: '$success-outline-text', //singularity[500]
+    icon: <AntDesign name="check" size={24} color="$success-outline-text" />
   })
   
   const SolErrTag = styled(Button, {
@@ -59,10 +59,10 @@ import { Entypo } from '@expo/vector-icons';
     name: "solid info",
     borderRadius: "$r-subtle",
     alignSelf: 'flex-start',
-    backgroundColor: "#DB2777", //bwl[600]
+    backgroundColor: "$error-solid-fill", //bwl[600]
     height: '$s-sm',
     width: '$s-sm',
-    color: '$text-invert',
+    color: '$error-solid-text',
     icon: <FontAwesome6 name="triangle-exclamation" size={24} color="white" />
   })
   
@@ -71,11 +71,11 @@ import { Entypo } from '@expo/vector-icons';
     name: "outlined info",
     borderRadius: "$r-subtle",
     alignSelf: 'center',
-    borderColor:'#FBCFE8',//bwl[200]
+    borderColor:'$error-outline-border',//bwl[200]
     height: '$s-sm',
     width: '$s-sm',
-    color:  '#DB2777', //bwl[600]
-    icon: <FontAwesome6 name="triangle-exclamation" size={24} color="#DB2777" />
+    color:  '$error-outline-text', //bwl[600]
+    icon: <FontAwesome6 name="triangle-exclamation" size={24} color="$error-outline-text" />
   })
   
   const SolWarnTag = styled(Button, {
@@ -83,10 +83,10 @@ import { Entypo } from '@expo/vector-icons';
     name: "solid info",
     borderRadius: "$r-subtle",
     alignSelf: 'flex-start',
-    backgroundColor: "#FB923C", //ptd[400]
+    backgroundColor: "$warning-solid-fill", //ptd[400]
     height: '$s-sm',
     width: '$s-sm',
-    color: '$text-invert',
+    color: '$warning-solid-tex',
     icon: <FontAwesome6 name="triangle-exclamation" size={24} color="white" />
   })
   
@@ -95,11 +95,11 @@ import { Entypo } from '@expo/vector-icons';
     name: "outlined info",
     borderRadius: "$r-subtle",
     alignSelf: 'center',
-    borderColor:'#FEDEC4',//ptd[200]
+    borderColor:'$warning-outline-borde',//ptd[200]
     height: '$s-sm',
     width: '$s-sm',
-    color:  '#FB923C', //ptd[400]
-    icon: <FontAwesome6 name="triangle-exclamation" size={24} color="#FB923C" />
+    color:  '$warning-outline-text', //ptd[400]
+    icon: <FontAwesome6 name="triangle-exclamation" size={24} color="$warning-outline-text" />
   })
   
   const SolDefltTag = styled(Button, {
@@ -107,10 +107,10 @@ import { Entypo } from '@expo/vector-icons';
     name: "solid info",
     borderRadius: "$r-subtle",
     alignSelf: 'flex-start',
-    backgroundColor: "#744FB5", //boraami[600]
+    backgroundColor: "$default-solid-fill", //boraami[600]
     height: '$s-sm',
     width: '$s-sm',
-    color: '$text-invert',
+    color: '$default-solid-text',
     icon: <Entypo name="heart" size={24} color="white" />
   })
   
@@ -119,9 +119,9 @@ import { Entypo } from '@expo/vector-icons';
     name: "outlined info",
     borderRadius: "$r-subtle",
     alignSelf: 'center',
-    borderColor:'#DECCFF',//boraami[200]
+    borderColor:'$default-solid-text',//boraami[200]
     height: '$s-sm',
     width: '$s-sm',
-    color:  '#744FB5', //boraami[600]
-    icon: <Entypo name="heart" size={24} color="#744FB5" />
+    color:  '#$default-outline-text', //boraami[600]
+    icon: <Entypo name="heart" size={24} color="$default-outline-text" />
   })
