@@ -27,18 +27,18 @@ const TDefaultMeta: Meta<typeof TDeftBtn> = {
 
   export const small = {
     args: {
-      text: "Small button",
+      text: "small tertiary",
     },
   };
   
   export const medium = {
     args: {
-      text: "Medium button",
+      text: "medium tertiary",
     },
   };
 
   export const big = {
     args: {
-        text: "Big button",
+        text: "big tertiary",
     }
   };

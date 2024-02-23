@@ -10,9 +10,6 @@ const SDefaultMeta: Meta<typeof SDeftBtn> = {
         onPress: { 
             action: "pressed secondary",
         },
-        height: {
-            height: 'sm',
-        }
     },
     args: {
       text: "Hello secondary",
@@ -30,7 +27,7 @@ const SDefaultMeta: Meta<typeof SDeftBtn> = {
 
   export const small = {
     args: {
-      text: "Small button",
+      text: "small secondary",
       height: '$sm',
       width: '$sm',
       top: '$sm',
@@ -42,24 +39,24 @@ const SDefaultMeta: Meta<typeof SDeftBtn> = {
   
   export const medium = {
     args: {
-      text: "Medium button",
-      height: '$s-md',
-      width: '$s-md',
-      top: '$s-md',
-      left: '$s-md',
-      gap: '$s-md',
-      paddingHorizontal: '$s-md',
+      text: "medium secondary",
+      height: '$md',
+      width: '$md',
+      top: '$md',
+      left: '$md',
+      gap: '$md',
+      paddingHorizontal: '$md',
     },
   };
 
   export const big = {
     args: {
-        text: "Big button",
-        height: '$s-lg',
-        width: '$s-lg',
-        top: '$s-lg',
-        left: '$s-lg',
-        gap: '$s-lg',
-        paddingHorizontal: '$s-lg',
+        text: "big secondary",
+        height: '$lg',
+        width: '$lg',
+        top: '$lg',
+        left: '$lg',
+        gap: '$lg',
+        paddingHorizontal: '$lg',
     }
   };

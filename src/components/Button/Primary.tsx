@@ -12,31 +12,31 @@ const CBtn = styled(Button, {
 
 const PDftBtn = styled(Button, {
   theme: 'light',
-  name: "Default",
+  name: "primary",
   flexDirection: 'row',
   alignSelf: 'center',
   color: '$text-invert',
   icon: <AntDesign name="plus" size={12} color={"white"}/>,
   borderRadius: "$r-subtle",
-  backgroundColor: '$bg-brand-strong',
+  backgroundColor: '$primary-default-btn',
   hoverStyle: {
     borderRadius: "$r-subtle",  
-    borderColor: "#0EA5E9",
-    backgroundColor: "$bg-brand-strong",
+    borderColor: "$primary-hover-btn-border",
+    backgroundColor: "$primary-hover-btn-fill",
     shadowColor: '#0EA5E9',
     shadowOpacity: 1,
     shadowRadius: 12,
     shadowOffset : { width: 0, height: 0},
   },
   focusStyle: {
-    backgroundColor: '$bg-brand-strong',
-    borderColor: '#7957B5',
+    backgroundColor: '$primary-focus-btn-fill',
+    borderColor: '$primary-focus-btn-border',
     shadowColor: '#C2A0FF',
     shadowOpacity: 1,
     shadowRadius: 12,
     shadowOffset : { width: 0, height: 0},
   },
-  variants: {
+/*  variants: {
     sizes: {
       '...spacing': (val, {tokens}) => ({
         paddingHorizontal: tokens.spacing[val],
@@ -47,7 +47,7 @@ const PDftBtn = styled(Button, {
         gap: tokens.spacing[val],
       }),
     }
-  } as const,
+  } as const,*/
   height: '$sm',
   width: '$sm',
   top: '$sm',
@@ -66,7 +66,7 @@ type Props = {
   }
   DefaultBtn.Text = Text*/
   
-export const PDeftBtn = ({text}: Props) => {
-    return <PDftBtn>{text}</PDftBtn>;
+export const PDeftBtn = ({ onPress, text}: Props) => {
+    return <PDftBtn onPress={onPress}>{text}</PDftBtn>;
   };
   

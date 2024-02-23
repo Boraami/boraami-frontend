@@ -17,7 +17,10 @@ const PDefaultMeta: Meta<typeof PDeftBtn> = {
     },
     decorators: [
       (Story) => (
-        <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
+        <View style={{ 
+          alignItems: "center", 
+          justifyContent: "center", 
+          flex: 1, }}>
         <Story />
       </View>
       ),
@@ -28,18 +31,18 @@ const PDefaultMeta: Meta<typeof PDeftBtn> = {
 
   export const small = {
     args: {
-      text: "Small button",
+      text: "small primary",
     },
   };
   
   export const medium = {
     args: {
-      text: "Medium button",
+      text: "medium primary",
     },
   };
 
   export const big = {
     args: {
-        text: "Big button",
+        text: "big primary",
     }
   };

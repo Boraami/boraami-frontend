@@ -6,23 +6,23 @@ import { AntDesign } from '@expo/vector-icons';
 
 const SDftBtn = styled(Button, {
     theme: 'light',
-    name: "Default",
+    name: "secondary",
     flexDirection: 'row',
     alignSelf: 'center',
     borderRadius: "$r-subtle",
     color: '$text-secondary',
     icon: <AntDesign name="plus" size={24} color={"#8F66D6"}/>,
-    borderColor: '$bg-brand-neutral',
+    borderColor: '$secondary-default-btn-border',
     hoverStyle: {
       borderRadius: "$r-subtle",  
-      borderColor: '#0EA5E9',
+      borderColor: '$secondary-hover-btn-border',
       shadowColor: '#38BDF8',
       shadowOpacity: 1,
       shadowRadius: 12,
       shadowOffset : { width: 0, height: 0},
     },
-    pressStyle: {
-      borderColor: '#7957B5',
+    focusStyle: {
+      borderColor: '$secondary-focus-btn-border',
       shadowColor: '#C2A0FF',
       shadowOpacity: 1,
       shadowRadius: 12,
@@ -50,7 +50,7 @@ type Props = {
   text: string;
 };
 
-export const SDeftBtn = ({text}: Props) => {
-return <SDftBtn>{text}</SDftBtn>
+export const SDeftBtn = ({onPress, text}: Props) => {
+return <SDftBtn onPress={onPress}>{text}</SDftBtn>
 };
 

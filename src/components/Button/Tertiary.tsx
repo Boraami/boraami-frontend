@@ -5,14 +5,15 @@ import { AntDesign } from '@expo/vector-icons';
 
 const TDftBtn = styled(Button, {
     theme: 'light',
-    name: "Default",
+    name: "tertiary",
     flexDirection: 'row',
     alignSelf: 'center',
-    color: '$text-secondary',
+    color: '$tertiary-default-text',
     icon: <AntDesign name="plus" size={24} color={"#8F66D6"}/>,
+    chromeless: true,
     hoverStyle: {
       borderBottomWidth: 2,
-      borderBottomColor: '#0EA5E9',
+      borderBottomColor: '$tertiary-hover-border',
       shadowColor: '#38BDF8',
       shadowOpacity: 1,
       shadowRadius: 19,
@@ -47,6 +48,6 @@ type Props = {
   text: string;
 };
 
-export const TDeftBtn = ({text}: Props) => {
-  return <TDftBtn>{text}</TDftBtn>
+export const TDeftBtn = ({onPress, text}: Props) => {
+  return <TDftBtn onPress={onPress}>{text}</TDftBtn>
   };
