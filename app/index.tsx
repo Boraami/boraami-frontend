@@ -9,7 +9,9 @@ function App() {
         <Alerts 
           title="We are going live in July!" 
           content="We are happy to announce that we are going live on 
-          July 28th. Get ready!" >
+          July 28th. Get ready!" 
+          backgroundColor="#5F3D9C"
+          color='#FFFFFF'>
         </Alerts>
     </View>
   );

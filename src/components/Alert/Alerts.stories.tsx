@@ -7,10 +7,13 @@ const AlertsMeta: Meta<typeof Alerts> = {
   title: "Alerts",
   component: Alerts,
   args: {
-    borderColor: '#B48BFF',
     backgroundColor: '#5F3D9C',
     borderLeftColor: '#B48BFF', 
     color: '#FFFFFF', 
+    borderColor: '#5F3D9C',
+    borderWidth: 1,
+    title: 'We are going live in July!',
+    content: 'We are happy to announce that we are going live on July 28th. Get ready!',
   },
 
   decorators: [
@@ -28,14 +31,14 @@ export default AlertsMeta;
 export const LongAlertSolid = {};
 export const LongAlertSubtle = {
   args: {
-    backgroundColor: '$boraami.100',
-    // backgroundColor: '#F0E8FF',
+    backgroundColor: '#F0E8FF',
+    borderLeftColor: '#B48BFF', 
     color: '#322941',
   },
 };
 export const LongAlertOutline = {
   args: {
-    backgroundColor: '#F0E8FF',
+    backgroundColor: '#FFFFFF',
     color: '#322941',
   },
 };
@@ -43,7 +46,8 @@ export const LongAlertOutline = {
 export const ShortAlertSolid = {
   args: {
     backgroundColor: '#5F3D9C',
-    color: '#322941',
+    color: '#FFFFFF',
+    content: '',
   },
 };
 
@@ -51,6 +55,8 @@ export const ShortAlertSubtle = {
   args: {
     backgroundColor: '#F0E8FF',
     color: '#322941',
+    content: '',
+    borderWidth: 0, 
   },
 };
 
@@ -64,44 +70,56 @@ export const ShortAlertOutline = {
 export const SuccessAlertSolid = {
   args: {
     backgroundColor: '#2F9D83',
-    color: '#322941',
+    color: '#FFFFFF',
+    content: 'Selection successfully moved!',
+    title: '',
   },
 };
 
 export const SuccessAlertSubtle = {
   args: {
-    backgroundColor: '#F0E8FF',
+    backgroundColor: '#2F9D83',
+    content: 'Selection successfully moved!',
     color: '#322941',
+    title: '',
   },
 };
 
 export const SuccessAlertOutline = {
   args: {
-    backgroundColor: '#F0E8FF',
-    color: '#322941',
+    backgroundColor: '#FFFFFF',
+    content: 'Selection successfully moved!',
+    color: '#000000',
+    title: '',
+    borderColor: '#2F9D83',
   },
 };
 
 export const ErrorAlertSolid = {
   args: {
-    backgroundColor: '$ptd.400',
-    // backgroundColor: '$bg-ptd.400',
-    // backgroundColor: '#FB923C',
+    backgroundColor: '#FB923C',
     color: '#322941',
+    content: 'Poor internet connection!',
+    title: '',
   },
 };
 
 export const ErrorAlertSubtle = {
   args: {
     backgroundColor: '#FEE8D6',
-    color: '#322941',
+    color: '#500A0A',
+    content: 'Poor internet connection!',
+    title: '',
   },
 };
 
-export const ErrorAlertOutline = {
+export const ErrorOutline = {
   args: {
-    backgroundColor: '#F0E8FF',
-    color: '#FB923C',
+    backgroundColor: '#FFFFFF',
+    color: '#500A0A',
     borderColor: '#FB923C',
+    borderWidth: 1,
+    content: 'Poor internet connection!',
+    title: '',
   },
 };
