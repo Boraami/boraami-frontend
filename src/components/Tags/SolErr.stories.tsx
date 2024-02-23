@@ -1,16 +1,16 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
+import { SolErrTag } from "./SolErr";
 
-
-const MyButtonMeta: Meta<typeof MyButton> = {
-  title: "MyTag",
-  component: MyButton,
+const SolErrMeta: Meta<typeof SolErrTag> = {
+  title: "SolidErr",
+  component: SolErrTag,
   argTypes: {
     onPress: { action: "pressed the button" },
   },
   args: {
-    text: "Hello",
+    text: "solerr",
   },
   decorators: [
     (Story) => (
@@ -20,3 +20,8 @@ const MyButtonMeta: Meta<typeof MyButton> = {
     ),
   ],
 };
+
+export default SolErrMeta;
+
+export const Basic = {};
+
