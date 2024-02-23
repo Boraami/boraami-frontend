@@ -1,6 +1,4 @@
 import { View } from "react-native";
-import Constants from "expo-constants";
-import Storybook from "../.storybook";
 import { Button, H1, styled } from "tamagui";
 import { CheckBox } from "../src/components/Checkbox/Checkbox";
 
@@ -11,7 +9,7 @@ const CBtn = styled(Button, {
   alignSelf: "center",
 });
 
-function App() {
+export default function App() {
   return (
     <View>
       <H1>HOME</H1>
@@ -19,5 +17,3 @@ function App() {
     </View>
   );
 }
-
-export default Constants.expoConfig?.extra?.storybookEnabled ? Storybook : App;

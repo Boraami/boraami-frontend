@@ -2,9 +2,9 @@ import Constants from "expo-constants";
 import Storybook from "../.storybook";
 import { View, SizableText, Text } from "tamagui";
 
-function App() {
+export default function App() {
   return (
-    <View backgroundColor={"$ptd.400"}>
+    <View backgroundColor={"$boraami.200"}>
       <Text color={"$text-primary"} theme="light">
         Test theme
       </Text>
