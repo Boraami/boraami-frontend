@@ -8,10 +8,9 @@ const DreamerBadgeMeta: Meta<typeof DreamerBadgeCard> = {
   component: DreamerBadgeCard,
   // argTypes: {},
   args: {
-    title: 'Playlist no. 6',
-    subtitle: 'btstatsrem',
-    uri: "https://t3.ftcdn.net/jpg/05/63/73/08/240_F_563730870_ciwSsLDxuvUgsu8KYpyRG5J1MhVSVc11.jpg",
-   
+    text: 'I earned the for streaming 3 days in a row!',
+    boldText: 'Dreamer Streamer badge',
+    uri: 'https://t3.ftcdn.net/jpg/05/63/73/08/240_F_563730870_ciwSsLDxuvUgsu8KYpyRG5J1MhVSVc11.jpg'
   },
   decorators: [
     (Story) => (
@@ -24,11 +23,5 @@ const DreamerBadgeMeta: Meta<typeof DreamerBadgeCard> = {
 
 export default DreamerBadgeMeta;
 
-export const LightMode = {};
+export const Default = {};
 
-export const DarkMode = {
-  // args: {
-  //   title: "Playlist no.7",
-  //   size: 'sm',
-  // },
-};

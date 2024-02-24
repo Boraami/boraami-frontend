@@ -13,8 +13,8 @@ const DreamerBadge = styled(Card, {
 });
 
 type DreamerBadgeProps = {
-    text: string,
     uri: string;
+    text: string,
     boldText?: string, 
 }
     

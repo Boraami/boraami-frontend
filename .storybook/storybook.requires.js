@@ -50,7 +50,7 @@ try {
 const getStories = () => {
   return {
     "./src/components/Card/DreamerBadge.stories.tsx": require("../src/components/Card/DreamerBadge.stories.tsx"),
-    "./src/components/Card/PlaylistCard.stories.tsx": require("../src/components/Card/PlaylistCard.stories.tsx"),
+    "./src/components/Card/PlaylistCard.stories.tsx": require("../src/components/Card/PlaylistCard.stories"),
   };
 };
 
