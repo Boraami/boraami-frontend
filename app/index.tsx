@@ -2,6 +2,7 @@ import Constants from "expo-constants";
 import Storybook from "../.storybook";
 import { View } from "tamagui";
 import { Alerts } from '../src/components/Alert/Alerts'
+import { WarningAlertDialog } from '../src/components/Alert/WarningAlertDialog'
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
           iconColor='#FFFFFF'
           closeColor='#FFFFFF'>
         </Alerts>
+
+        {/* <WarningAlertDialog title="Dialogue" content="Dialogue Dialogue Dialogue "></WarningAlertDialog> */}
     </View>)}
 
 export default Constants.expoConfig?.extra?.storybookEnabled ? 

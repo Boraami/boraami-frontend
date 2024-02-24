@@ -32,8 +32,9 @@ export const Alerts = ({ title, color, content, borderColor, backgroundColor, si
         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
         <AntDesign name={icon} size={14} color="white" />
             <View style={{ width: 250, height: 66 }}>
-                <Text fontFamily={'$heading'} fontSize={16} color={color}>{title}</Text> 
-                <Text fontFamily={'$body'}  color={color} fontSize={14}>{{ content: size==='long' ? content : 'null'}}</Text>
+            <Text fontFamily={'$heading'} fontSize={16} color={color}>{title}</Text> 
+                <Text fontFamily={'$body'} fontSize={14} color={color}>{content}</Text> 
+                {/* <Text fontFamily={'$body'}  color={color} fontSize={14}>{{ content: size==='long' ? content : 'null'}}</Text> */}
             </View>
             <AntDesign name="close" size={16} color="white" />
         </View>

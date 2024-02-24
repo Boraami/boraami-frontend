@@ -1,9 +1,9 @@
 import React from 'react';
 import { GestureResponderEvent} from 'react-native';
-import { AlertDialog, View, Text, Button, styled } from 'tamagui';
+import { View, Text, Button, styled } from 'tamagui';
 import { AntDesign } from '@expo/vector-icons';
 
-const WarningDialog = styled(AlertDialog, {
+const WarningDialog = styled(View,{
     // width: '100%',
     width: 300, 
     borderColor: '$border-error-subtle',
