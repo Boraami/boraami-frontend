@@ -1,18 +1,19 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { TDeftBtn } from "./Tertiary";
+import { TerBtn } from "./Tertiary";
 
-const TDefaultMeta: Meta<typeof TDeftBtn> = {
+const TDefaultMeta: Meta<typeof TerBtn> = {
     title: "Tertiary",
-    component: TDeftBtn,
+    component: TerBtn,
     argTypes: {
       onPress: { 
         action: "pressed tertiary",
       }
     },
     args: {
-      text: "Hello tertiary",
+      size: 'lg',
+      labeltxt: 'large'
     },
     decorators: [
       (Story) => (
@@ -25,20 +26,19 @@ const TDefaultMeta: Meta<typeof TDeftBtn> = {
 
   export default TDefaultMeta;
 
+  export const large = {};
+
   export const small = {
     args: {
-      text: "small tertiary",
+      disable: true,
+      size: 'sm',
+      labeltxt: 'small',
     },
   };
   
   export const medium = {
     args: {
-      text: "medium tertiary",
+      size: 'md',
+      labeltxt: 'medium',
     },
-  };
-
-  export const big = {
-    args: {
-        text: "big tertiary",
-    }
   };

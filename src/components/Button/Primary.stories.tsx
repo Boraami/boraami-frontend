@@ -1,19 +1,20 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { PDeftBtn } from "./Primary";
+import { PriBtn } from "./Primary";
 
 
-const PDefaultMeta: Meta<typeof PDeftBtn> = {
+const PDefaultMeta: Meta<typeof PriBtn> = {
     title: "Primary",
-    component: PDeftBtn,
+    component: PriBtn,
     argTypes: {
       onPress: { 
         action: "pressed primary",
       }
     },
     args: {
-      text: "Hello primary",
+      size: 'lg',
+      labeltxt: 'large'
     },
     decorators: [
       (Story) => (
@@ -29,20 +30,19 @@ const PDefaultMeta: Meta<typeof PDeftBtn> = {
   
   export default PDefaultMeta;
 
+  export const large = {};
+
   export const small = {
     args: {
-      text: "small primary",
+      disable: true,
+      size: 'sm',
+      labeltxt: 'small',
     },
   };
   
   export const medium = {
     args: {
-      text: "medium primary",
+      size: 'md',
+      labeltxt: 'medium',
     },
-  };
-
-  export const big = {
-    args: {
-        text: "big primary",
-    }
   };
