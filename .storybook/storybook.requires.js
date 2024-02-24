@@ -14,7 +14,7 @@ global.STORIES = [
     directory: "./src/components",
     files: "**/*.stories.?(ts|tsx|js|jsx)",
     importPathMatcher:
-      "^\\.[\\\\/](?:src[\\\\/]components(?:[\\\\/](?!\\.)(?:(?:(?!(?:^|[\\\\/])\\.).)*?)[\\\\/]|[\\\\/]|$)(?!\\.)(?=.)[^\\\\/]*?\\.stories\\.(?:ts|tsx|js|jsx)?)$",
+      "^\\.[\\\\/](?:src\\/components(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(?:ts|tsx|js|jsx)?)$",
   },
 ];
 
@@ -49,8 +49,8 @@ try {
 
 const getStories = () => {
   return {
-    "./src/components/Card/DreamerBadge.stories.tsx": require("../src/components/Card/DreamerBadge.stories.tsx"),
-    "./src/components/Card/PlaylistCard.stories.tsx": require("../src/components/Card/PlaylistCard.stories"),
+    "./src/components/Card/AchievementCard.stories.tsx": require("../src/components/Card/AchievementCard.stories.tsx"),
+    "./src/components/Card/InfoCard.stories.tsx": require("../src/components/Card/InfoCard.stories.tsx"),
   };
 };
 

@@ -1,11 +1,11 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { DreamerBadgeCard } from "./DreamerBadge";
+import { AchievementCard } from "./AchievementCard";
 
-const DreamerBadgeMeta: Meta<typeof DreamerBadgeCard> = {
-  title: "DreamerBadgeCard",
-  component: DreamerBadgeCard,
+const AchievementMeta: Meta<typeof AchievementCard> = {
+  title: "AchievementCard",
+  component: AchievementCard,
   // argTypes: {},
   args: {
     text: 'I earned the for streaming 3 days in a row!',
@@ -21,7 +21,7 @@ const DreamerBadgeMeta: Meta<typeof DreamerBadgeCard> = {
   ],
 };
 
-export default DreamerBadgeMeta;
+export default AchievementMeta;
 
 export const Default = {};
 

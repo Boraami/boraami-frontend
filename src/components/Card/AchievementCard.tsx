@@ -1,8 +1,8 @@
 import React from 'react'
 import { Card, styled, Text, Image  } from 'tamagui';
 
-const DreamerBadge = styled(Card, {
-    backgroundColor: '$boraami.100',
+const Achievement = styled(Card, {
+    backgroundColor: '$info-card-fill',
     justifyContent: 'space-between',
     alignSelf: 'center',
     display: 'flex',
@@ -12,19 +12,19 @@ const DreamerBadge = styled(Card, {
     width: 329, 
 });
 
-type DreamerBadgeProps = {
+type AchievementProps = {
     uri: string;
     text: string,
     boldText?: string, 
 }
     
-export const DreamerBadgeCard = ({ text, uri, boldText }: DreamerBadgeProps) => {
+export const AchievementCard = ({ text, uri, boldText }: AchievementProps) => {
     return (
-    <DreamerBadge style={{ flexDirection: "row", justifyContent: 'center', width: 278, height: 87,fontWeight: 'bold' ? boldText : '400' }}>
+    <Achievement style={{ flexDirection: "row", justifyContent: 'center', width: 278, height: 87,fontWeight: 'bold' ? boldText : '400' }}>
             <Image source={{ uri: uri,  width: 48, height: 48}}/>
             <Text style={{ padding: 12 }}>{text}</Text>
         {/* </View> */}
-    </DreamerBadge>
+    </Achievement>
 )};
 
 

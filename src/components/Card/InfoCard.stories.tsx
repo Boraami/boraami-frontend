@@ -1,11 +1,11 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { PlaylistCard } from "./PlaylistCard";
+import { InfoCard } from "./InfoCard";
 
-const PlaylistCardMeta: Meta<typeof PlaylistCard> = {
-  title: "PlaylistCard",
-  component: PlaylistCard,
+const InfoCardMeta: Meta<typeof InfoCard> = {
+  title: "InfoCard",
+  component: InfoCard,
   // argTypes: {},
   args: {
     title: 'Playlist no. 10',
@@ -23,7 +23,7 @@ const PlaylistCardMeta: Meta<typeof PlaylistCard> = {
   ],
 };
 
-export default PlaylistCardMeta;
+export default InfoCardMeta;
 
 export const LargeCard = {};
 
