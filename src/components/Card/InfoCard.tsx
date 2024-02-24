@@ -14,8 +14,6 @@ const Info = styled(Card, {
     alignSelf: "center",
     display: 'flex', 
     flexDirection: 'row',
-    margin: 20,
-    height: 110,
     width: 329, 
 });
 
@@ -23,24 +21,33 @@ type InfoProps = {
     title: string;
     subtitle: string;
     uri: string;
-    size?: 'md' | 'sm'; 
+    size?: 'l' | 's'; 
+    textSize: number,
+    spotifySize: number,
+    closeSize: number, 
+    subtextSize: number,
 }
     
-export const InfoCard = ({ title, subtitle, uri, size='md' }: InfoProps) => {
+export const InfoCard = ({ title, subtitle, uri, size, textSize, spotifySize, closeSize, subtextSize }: InfoProps) => {
     return (
-    <Info>
+    <Info style={{ height: size==='l' ? 110 : 76 }}>
         <View style={{ padding: 4}}>
-        <Image source ={{ uri: uri, width: size==='md' ? 115 : 64, height: size==='md' ? 98 : 64 }}/>
+            <Image borderRadius={4} borderWidth={1} borderColor="$mono.50" source ={{ uri: uri, width: size==='l' ? 115 : 64, height: size==='l' ? 98 : 64 }}/>
         </View>
         <View style={{ flexGrow: 1, padding: 8 }}>
-            <View style={{ flexDirection: "row" }}>
-                <Entypo name="spotify" size={24} color="$info-card-music-icon" />
-                <Text fontWeight={"400"} fontFamily={'$body'} fontSize={20} marginTop={2} color="$info-card-text" >{title}</Text>
-                {/* <Text style={{ color: '$info-card-text', fontFamily: 'Poppins', fontSize: 20}}>{title}</Text> */}
-            </View> 
-            <Text color="$info-card-text" >{subtitle}</Text>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
+                <View style={{ flexDirection: 'column'}}>
+                    <View style={{ flexDirection: "row" }}>
+                        <Entypo name="spotify" size={spotifySize} style={{ color: '#5F3D9C' }} />
+                        <Text paddingLeft={4} fontSize={textSize} color="$info-card-text" fontFamily="$heading" >{title}</Text>
+                    </View> 
+                    <Text color="$info-card-text" fontSize={subtextSize} >{subtitle}</Text>
+                </View>
+                <View style={{ paddingTop: 4}}>
+                    <AntDesign name="close" size={closeSize} color="#5F3D9C"/>
+                </View>
+             </View>
         </View> 
-        <AntDesign name="close" size={16} color="black" margin={10}/>
     </Info>
 )};
 

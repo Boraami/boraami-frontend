@@ -8,11 +8,14 @@ const InfoCardMeta: Meta<typeof InfoCard> = {
   component: InfoCard,
   // argTypes: {},
   args: {
-    title: 'Playlist no. 10',
-    subtitle: 'btstatsreminder10',
-    // uri: 'https://t3.ftcdn.net/jpg/05/63/73/08/240_F_563730870_ciwSsLDxuvUgsu8KYpyRG5J1MhVSVc11.jpg',
-    uri: "https://wallpapers.com/images/hd/bts-group-photo-in-classy-suits-p5zcbisaysuxbmvb.jpg" ,
-   
+    title: 'Playlist no. 6',
+    subtitle: 'btstatsreminder2',
+    uri: 'https://i.pinimg.com/736x/4f/18/3d/4f183d54ab9cf6c4ec30c32f8bc3450e.jpg',  
+    textSize: 16,
+    subtextSize: 12,
+    spotifySize: 27,
+    closeSize: 12,
+    height: 110,
   },
   decorators: [
     (Story) => (
@@ -29,8 +32,11 @@ export const LargeCard = {};
 
 export const SmallCard = {
   args: {
-    title: "Playlist no.7",
-    subtitle: 'btstatsreminder10',
     size: 'sm',
+    textSize: 12,
+    subtextSize: 10,
+    spotifySize: 20,
+    closeSize: 8,
+    height: 76,
   },
 };

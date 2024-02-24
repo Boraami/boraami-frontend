@@ -24,14 +24,31 @@ import { AchievementCard } from "../src/components/Card/AchievementCard";
 
 function App() {
   return (
-    <View>
-        <InfoCard title="Playlist no.6" subtitle="btstatsreminder20"
-          uri="https://wallpapers.com/images/hd/bts-group-photo-in-classy-suits-p5zcbisaysuxbmvb.jpg" 
-          // uri="https://www.figma.com/file/aKyJ9V4Cfo5y7BrAydKbAa/Boraami_Design_System?type=design&node-id=1821-15380&mode=dev"
-          size='sm'>
+    <View margin={20}>
+      <View>
+        <InfoCard title="Playlist no.6" subtitle="btstatsreminder2"
+          uri="https://i.pinimg.com/736x/4f/18/3d/4f183d54ab9cf6c4ec30c32f8bc3450e.jpg" 
+          size='l'
+          textSize={16}
+          subtextSize={12}
+          spotifySize={27}
+          closeSize={12}>
         </InfoCard>
+      </View>
+
+      <View margin={20}>
+        <InfoCard title="Playlist no.6" subtitle="btstatsreminder2"
+          uri="https://i.pinimg.com/736x/4f/18/3d/4f183d54ab9cf6c4ec30c32f8bc3450e.jpg" 
+          size='s'
+          textSize={12}
+          subtextSize={10}
+          spotifySize={20}
+          closeSize={8}>
+        </InfoCard>
+      </View>
 
         <AchievementCard text="I earned the Dreamer Streamer badge for streaming 3 days in a row!" uri="https://t3.ftcdn.net/jpg/05/63/73/08/240_F_563730870_ciwSsLDxuvUgsu8KYpyRG5J1MhVSVc11.jpg"></AchievementCard>
+    
     </View>
   );
 }
