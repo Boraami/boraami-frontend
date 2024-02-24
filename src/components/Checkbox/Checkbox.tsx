@@ -74,8 +74,9 @@ if(props.size=='sm'){
       <YStack flexDirection='row' gap={9} alignItems="center" >
         <Checkbox disabled={true}
           borderWidth={bw}
-          borderColor={'rgba(95,61,156, 0.4)'} 
-          backgroundColor={props.checked?'rgba(95,61,156, 0.4)':'transparent'}
+          opacity={0.4}
+          borderColor={'$boraami.700'} 
+          backgroundColor={props.checked?'$boraami.700':'transparent'}
           checked={props.checked}
           sizeAdjust={cs}
           >

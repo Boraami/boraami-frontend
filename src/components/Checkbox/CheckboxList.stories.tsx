@@ -15,6 +15,9 @@ const CheckBoxListMeta: Meta<typeof CheckBoxList> = {
       labeltxt2:'Label 2',
       labeltxt3:'Label 3',
       heading:'Label',
+      disable:true,
+      disable2:false,
+      disable3:false,
       helpertext:'Helper Text'
     },
     decorators: [
@@ -36,7 +39,9 @@ const CheckBoxListMeta: Meta<typeof CheckBoxList> = {
       labeltxt1:'Label 1',
       labeltxt2:'Label 2',
       labeltxt3:'Label 3',
-      heading:'Label',
+      disable:false,
+      disable2:true,
+      disable3:false,      heading:'Label',
       helpertext:'Helper Text'
     },
   };
@@ -48,7 +53,10 @@ const CheckBoxListMeta: Meta<typeof CheckBoxList> = {
       labeltxt1:'Label 1',
       labeltxt2:'Label 2',
       labeltxt3:'Label 3',
-
+      disable:false,
+      disable2:false,
+      disable3:true,
+      checked:true
     },
   };
   

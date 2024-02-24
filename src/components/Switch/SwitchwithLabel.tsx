@@ -22,22 +22,37 @@ if(props.size=='sm'){
 }
   return (
     <XStack flexDirection='column' gap={4}/*size gap diff */>
+       {props.disable?
+       <>
         <Label
         size={ls}
+        opacity={0.5}
         fontFamily={'$heading'}
-        color="$boraami.900">{props.heading}</Label>
-        {props.disable?
+        color="$disabled-label-text">{props.heading}</Label>
+        
           <SwitchDisable checked={props.checked} size={props.size}/>
+          <Text 
+          lineHeight={21}
+          fontWeight={"400"}
+          fontFamily={'$body'}
+          opacity={0.5}
+          fontSize={ts}
+          color="$disabled-helper-text" >{props.helpertext}</Text></>
           :
+          <>
+          <Label
+        size={ls}
+        fontFamily={'$heading'}
+        color="$disabled-label-text">{props.heading}</Label>
         <SwitchDefault size={props.size}/>
-        }
         <Text 
           lineHeight={21}
-          paddingTop={3}
           fontWeight={"400"}
           fontFamily={'$body'}
           fontSize={ts}
-          color="$boraami.500" >{props.helpertext}</Text>
+          color="$disabled-helper-text" >{props.helpertext}</Text></>
+        }
+        
       </XStack>
   )
 }

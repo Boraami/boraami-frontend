@@ -65,10 +65,11 @@ export function SwitchDisable(props: { checked?: boolean, size: string}) {
     h=24
     thumb=20
   }
+  //added opacity to disabled switch thumb, wasnt initially in documentation but design looked a bit off so..
   return (
     <XStack>
       <SwitchDisabled width={w} height={h} disabled checked={props.checked} >
-        <SwitchDisabled.Thumb width={thumb} height={thumb}/>
+        <SwitchDisabled.Thumb opacity={0.5} width={thumb} height={thumb}/>
       </SwitchDisabled>
     </XStack>
   )
