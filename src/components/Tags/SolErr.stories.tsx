@@ -6,22 +6,30 @@ import { SolErrTag } from "./SolErr";
 const SolErrMeta: Meta<typeof SolErrTag> = {
   title: "SolidErr",
   component: SolErrTag,
-  argTypes: {
-    onPress: { action: "pressed the button" },
-  },
+  argTypes: {},
   args: {
-    text: "solerr",
+    size: 'md',
+    labeltxt: 'ERROR'
   },
   decorators: [
-    (Story) => (
-      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-        <Story />
-      </View>
-    ),
-  ],
+  (Story) => (
+    <View style={{ 
+      alignItems: "center", 
+      justifyContent: "center", 
+      flex: 1, }}>
+    <Story />
+  </View>
+  ),
+],
 };
 
 export default SolErrMeta;
 
-export const Basic = {};
+export const medium = {};
 
+export const small = {
+args: {
+  size: 'sm',
+  labeltxt: 'ERROR',
+},
+};

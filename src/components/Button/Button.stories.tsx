@@ -21,67 +21,7 @@ const MyButtonMeta: Meta<typeof MyButton> = {
   ],
 };
 
-const PDefaultMeta: Meta<typeof PDeftBtn> = {
-  title: "Primary",
-  component: PDeftBtn,
-  argTypes: {
-    onPress: { 
-      action: "pressed primary",
-    }
-  },
-  args: {
-    text: "Hello primary",
-  },
-  decorators: [
-    (Story) => (
-      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-      <Story />
-    </View>
-    ),
-  ],
-};
-
-const SDefaultMeta: Meta<typeof SDeftBtn> = {
-  title: "Secondary",
-  component: SDeftBtn,
-  argTypes: {
-    onPress: { 
-      action: "pressed secondary",
-    }
-  },
-  args: {
-    text: "Hello secondary",
-  },
-  decorators: [
-    (Story) => (
-      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-      <Story />
-    </View>
-    ),
-  ],
-};
-
-const TDefaultMeta: Meta<typeof TDeftBtn> = {
-  title: "Tertiary",
-  component: TDeftBtn,
-  argTypes: {
-    onPress: { 
-      action: "pressed tertiary",
-    }
-  },
-  args: {
-    text: "Hello tertiary",
-  },
-  decorators: [
-    (Story) => (
-      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-      <Story />
-    </View>
-    ),
-  ],
-};
-
-export default SDefaultMeta;
+export default MyButtonMeta;
 
 export const Basic = {};
 

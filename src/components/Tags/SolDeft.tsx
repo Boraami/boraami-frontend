@@ -1,26 +1,41 @@
 import React from "react";
-import { GestureResponderEvent} from "react-native";
-import { Button, H1, styled, Text, View } from "tamagui";
+import { Button, Label, XStack, YStack} from "tamagui";
 import { Entypo } from '@expo/vector-icons';
 
-  const SolDeflt = styled(Button, {
-    theme: 'light',
-    name: "solid info",
-    borderRadius: "$r-subtle",
-    alignSelf: 'flex-start',
-    backgroundColor: "$default-solid-fill", //boraami[600]
-    height: '$s-sm',
-    width: '$s-sm',
-    color: '$default-solid-text',
-    icon: <Entypo name="heart" size={24} color="white" />
-  })
-  
-  type Props = {
-    onPress: (event: GestureResponderEvent) => void;
-    text: string;
-  };
-  
-  export const SolDeftTag = ({ onPress, text }: Props) => {
-    return <SolDeflt onPress={onPress}>{text}</SolDeflt>;
-  };
-  
+export function SolDeftTag(props: {size: string,
+                                labeltxt: string}) {
+  var btnH=0;
+  var btnW=0;
+  var size='';
+  if (props.size == 'sm') {
+    btnH=20
+    btnW=74
+    size='$sm'
+  } else if (props.size == 'md') {
+    btnH=24
+    btnW=82
+    size='$md'
+  } else {
+    console.log('incorrect size args')
+  }
+  return (
+    <XStack backgroundColor={'$default-solid-fill'}
+    borderRadius={4}>
+      <YStack>
+        <Button disabled={true}
+        height={btnH}
+        width={btnW}
+        backgroundColor={'$default-solid-fill'}
+        borderRadius={4}
+        icon={<Entypo name="heart" size={10} color="white"/>}
+        ><Label size={size}
+        fontFamily={'$body'}
+        color={'$default-solid-text'}
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="center"
+        >{props.labeltxt}</Label></Button>
+      </YStack>
+    </XStack>
+  )
+  }

@@ -6,21 +6,30 @@ import { SolInfoTag } from "./SolInfo";
 const SolInfoMeta: Meta<typeof SolInfoTag> = {
   title: "SolidInfo",
   component: SolInfoTag,
-  argTypes: {
-    onPress: { action: "pressed the button" },
-  },
+  argTypes: {},
   args: {
-    text: "solinfo",
+    size: 'md',
+    labeltxt: 'INFO'
   },
   decorators: [
-    (Story) => (
-      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-        <Story />
-      </View>
-    ),
-  ],
+  (Story) => (
+    <View style={{ 
+      alignItems: "center", 
+      justifyContent: "center", 
+      flex: 1, }}>
+    <Story />
+  </View>
+  ),
+],
 };
 
 export default SolInfoMeta;
 
-export const Basic = {};
+export const medium = {};
+
+export const small = {
+args: {
+  size: 'sm',
+  labeltxt: 'INFO',
+},
+};

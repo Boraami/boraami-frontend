@@ -6,21 +6,30 @@ import { OutWarnTag } from "./OutWarn";
 const OutWarnMeta: Meta<typeof OutWarnTag> = {
   title: "OutlineWarn",
   component: OutWarnTag,
-  argTypes: {
-    onPress: { action: "pressed the button" },
-  },
+  argTypes: {},
   args: {
-    text: "outwarn",
+    size: 'md',
+    labeltxt: 'WARNING'
   },
   decorators: [
     (Story) => (
-      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-        <Story />
-      </View>
+      <View style={{ 
+        alignItems: "center", 
+        justifyContent: "center", 
+        flex: 1, }}>
+      <Story />
+    </View>
     ),
   ],
 };
 
 export default OutWarnMeta;
 
-export const Basic = {};
+export const medium = {};
+
+export const small = {
+  args: {
+    size: 'sm',
+    labeltxt: 'WARNING',
+  },
+};

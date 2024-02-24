@@ -6,21 +6,30 @@ import { SolWarnTag } from "./SolWarn";
 const SolWarnMeta: Meta<typeof SolWarnTag> = {
   title: "SolidWarn",
   component: SolWarnTag,
-  argTypes: {
-    onPress: { action: "pressed the button" },
-  },
+  argTypes: {},
   args: {
-    text: "solwarn",
+    size: 'md',
+    labeltxt: 'WARNING'
   },
   decorators: [
-    (Story) => (
-      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-        <Story />
-      </View>
-    ),
-  ],
+  (Story) => (
+    <View style={{ 
+      alignItems: "center", 
+      justifyContent: "center", 
+      flex: 1, }}>
+    <Story />
+  </View>
+  ),
+],
 };
 
 export default SolWarnMeta;
 
-export const Basic = {};
+export const medium = {};
+
+export const small = {
+args: {
+  size: 'sm',
+  labeltxt: 'WARNING',
+},
+};

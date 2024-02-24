@@ -6,21 +6,30 @@ import { OutSucTag } from "./OutSuc";
 const OutSucMeta: Meta<typeof OutSucTag> = {
   title: "OutlineSuc",
   component: OutSucTag,
-  argTypes: {
-    onPress: { action: "pressed the button" },
-  },
+  argTypes: {},
   args: {
-    text: "outsuc",
+    size: 'md',
+    labeltxt: 'SUCCESS'
   },
   decorators: [
     (Story) => (
-      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-        <Story />
-      </View>
+      <View style={{ 
+        alignItems: "center", 
+        justifyContent: "center", 
+        flex: 1, }}>
+      <Story />
+    </View>
     ),
   ],
 };
 
 export default OutSucMeta;
 
-export const Basic = {};
+export const medium = {};
+
+export const small = {
+  args: {
+    size: 'sm',
+    labeltxt: 'SUCCESS',
+  },
+};

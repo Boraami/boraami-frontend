@@ -1,15 +1,16 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { SolSucTag } from "./SolSuc";
+import { SolDeftTag } from "./SolDeft";
 
-const SolSucMeta: Meta<typeof SolSucTag> = {
-  title: "SolidSuc",
-  component: SolSucTag,
+
+const SolDeftMeta: Meta<typeof SolDeftTag> = {
+  title: "SolidDeft",
+  component: SolDeftTag,
   argTypes: {},
   args: {
     size: 'md',
-    labeltxt: 'SUCCESS'
+    labeltxt: 'DEFAULT'
   },
   decorators: [
   (Story) => (
@@ -23,13 +24,13 @@ const SolSucMeta: Meta<typeof SolSucTag> = {
 ],
 };
 
-export default SolSucMeta;
+export default SolDeftMeta;
 
 export const medium = {};
 
 export const small = {
 args: {
   size: 'sm',
-  labeltxt: 'SUCCESS',
+  labeltxt: 'DEFAULT',
 },
 };

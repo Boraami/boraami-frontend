@@ -6,21 +6,30 @@ import { OutInfoTag } from "./OutInfo";
 const OutInfoMeta: Meta<typeof OutInfoTag> = {
   title: "OutlineInfo",
   component: OutInfoTag,
-  argTypes: {
-    onPress: { action: "pressed the button" },
-  },
+  argTypes: {},
   args: {
-    text: "outinfo",
+    size: 'md',
+    labeltxt: 'INFO'
   },
   decorators: [
     (Story) => (
-      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-        <Story />
-      </View>
+      <View style={{ 
+        alignItems: "center", 
+        justifyContent: "center", 
+        flex: 1, }}>
+      <Story />
+    </View>
     ),
   ],
 };
 
 export default OutInfoMeta;
 
-export const Basic = {};
+export const medium = {};
+
+export const small = {
+  args: {
+    size: 'sm',
+    labeltxt: 'INFO',
+  },
+};
