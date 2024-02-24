@@ -1,8 +1,8 @@
 import React from 'react';
-import { Separator, styled, XStack, Text} from 'tamagui';
+import { Separator, styled, XStack } from 'tamagui';
 
 const Divider = styled(Separator, {
-    borderColor: '$bg-brand-subtle-light', 
+    borderColor: '$boraami.400', 
     width: 420,
     borderWidth: '1',
 });

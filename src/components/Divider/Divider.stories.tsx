@@ -6,9 +6,9 @@ import { Dividers } from "./Divider";
 const DividerMeta: Meta<typeof Dividers> = {
   title: "Divider",
   component: Dividers,
-//   argTypes: {},
+  argTypes: {},
   args: {
-    borderColor: '$bg-brand-subtle-light',
+    borderColor: '$subtle',
   },
   decorators: [
     (Story) => (
@@ -25,6 +25,6 @@ export const LightColor = {};
 
 export const NeutralColor = {
   args: {
-    borderColor: '$bg-border-neutral', 
+    borderColor: '$Strong', 
   },
 };
