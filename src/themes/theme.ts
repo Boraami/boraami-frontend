@@ -86,53 +86,197 @@ export const colorScheme = {
 };
 
 const light = {
-  // Text
-  "text-primary": colorScheme.mono[800],
-  "text-secondary": colorScheme.boraami[500],
-  "text-brand": colorScheme.boraami[700],
-  "text-success": colorScheme.singularity[500],
-  "text-warning": colorScheme.ptd[600],
-  "text-error": colorScheme.bwl[700],
-  "text-invert": colorScheme.butter[50],
-  "text-inactive": colorScheme.mono[400],
+  //Notes: default-alert-left-border, error-alert-fill, hover-radio-fill
+  // ALert Component
+  "default-alert-solid-fill" : colorScheme.boraami[700],
+  "default-alert-left-border" : colorScheme.boraami[400],
+  "default-alert-subtle-fill" : colorScheme.boraami[100],
+  "default-alert-outline" : colorScheme.boraami[700],
+  "success-alert-solid-fill" : colorScheme.singularity[500],
+  "success-alert-subtle-fill" : colorScheme.singularity[200],
+  "success-alert-outline" : colorScheme.singularity[500],
+  "warning-alert-solid-fill" : colorScheme.ptd[400],
+  "warning-alert-subtle-fill" : colorScheme.ptd[200],
+  "warning-alert-outline" : colorScheme.ptd[500],
+  "error-alert-fill" : colorScheme.mono[50],
+  "error-alert-outline" : colorScheme.bwl[700],
 
-  // Background
-  "bg-neutral-subtle": colorScheme.mono[50],
-  "bg-neutral-reg": colorScheme.mono[400],
-  "bg-neutral-inactive": colorScheme.butter[50],
-  "bg-neutral-strong": colorScheme.boraami[900],
-  "bg-brand-subtle": colorScheme.boraami[200],
-  "bg-brand-subtle-light": colorScheme.boraami[100],
-  "bg-brand-neutral": colorScheme.boraami[500],
-  "bg-brand-strong": colorScheme.boraami[700],
-  "bg-success-subtle": colorScheme.singularity[200],
-  "bg-success-strong": colorScheme.singularity[400],
-  "bg-warning-subtle": colorScheme.ptd[200],
-  "bg-warning-strong": colorScheme.ptd[400],
-  "bg-error-subtle": colorScheme.bwl[200],
-  "bg-error-strong": colorScheme.bwl[700],
+  // Button Component
+  "primary-default-btn" : colorScheme.boraami[700],
+  "primary-disabled-btn" : colorScheme.mono[400],
+  "primary-hover-btn-fill" : colorScheme.boraami[700],
+  "primary-hover-btn-border" : colorScheme.serendipity[500],
+  "primary-focus-btn-fill" : colorScheme.boraami[700],
+  "primary-focus-btn-border" : colorScheme.boraami[400],
+  "secondary-default-btn-border" : colorScheme.boraami[500],
+  "secondary-disabled-btn-border" : colorScheme.mono[400],
+  "secondary-hover-btn-border" : colorScheme.serendipity[500],
+  "secondary-focus-btn-border" : colorScheme.boraami[500],
+  "tertiary-default-text" : colorScheme.boraami[500],
+  "tertiary-disabled-text" : colorScheme.bwl[700],
+  "tertiary-hover-text" : colorScheme.boraami[500],
+  "tertiary-hover-border" : colorScheme.serendipity[500],
+  "tertiary-focus-text" : colorScheme.boraami[500],
+  "tertiary-focus-border" : colorScheme.boraami[500],
 
-  // Background/Hover
-  "bg-warning-subtle-hover": colorScheme.ptd[400],
-  "bg-warning-strong-hover": colorScheme.ptd[600],
-  "bg-error-subtle-hover": colorScheme.bwl[400],
-  "bg-error-strong-hover": colorScheme.bwl[900],
-  "bg-subtle-hover": colorScheme.mono[200],
-  "bg-brand-subtle-hover": colorScheme.serendipity[200],
-  "bg-brand-strong-hover": colorScheme.serendipity[500],
-  "bg-success-subtle-hover": colorScheme.singularity[300],
-  "bg-success-strong-hover": colorScheme.singularity[600],
+  // Checkbox Component
+  "default-fill" : colorScheme.boraami[700],
+  "default-border" : colorScheme.boraami[700],
+  "default-check-icon" : colorScheme.boraami[50],
+  "focus-fill" : colorScheme.boraami[700],
+  "focus-border" : colorScheme.boraami[400],
+  "focus-check-box" : colorScheme.boraami[50],
+  "disabled-fill" : colorScheme.boraami[700],
+  "disabled-border" : colorScheme.boraami[700],
+  "disabled-check-box" : colorScheme.boraami[50],
+  "hover-fill" : colorScheme.boraami[700],
+  "hover-border" : colorScheme.serendipity[500],
+  "hover-check-box" : colorScheme.boraami[50],
 
-  // Border
-  "border-neutral": colorScheme.mono[400],
-  "border-brand-subtle": colorScheme.boraami[400],
-  "border-brand-strong": colorScheme.boraami[600],
-  "border-success-subtle": colorScheme.singularity[200],
-  "border-success-strong": colorScheme.singularity[600],
-  "border-warning-subtle": colorScheme.ptd[400],
-  "border-warning-strong": colorScheme.ptd[800],
-  "border-error-subtle": colorScheme.bwl[500],
-  "border-error-strong": colorScheme.bwl[800],
+  // Card Component
+  "info-card-fill" : colorScheme.boraami[100],
+  "info-card-top-border" : colorScheme.boraami[700],
+  "info-card-music-icon" : colorScheme.boraami[700],
+  "info-card-text" : colorScheme.boraami[700],
+  "achievement-card-fill" : colorScheme.boraami[100],
+  "achievement-card-text" : colorScheme.boraami[700],
+
+  // Tags Component
+  "info-solid-fill" : colorScheme.serendipity[600],
+  "info-outline-border" : colorScheme.serendipity[200],
+  "info-solid-text" : colorScheme.boraami[50],
+  "info-outline-text" : colorScheme.serendipity[600],
+  "success-solid-fill" : colorScheme.singularity[500],
+  "success-outline-border" : colorScheme.singularity[200],
+  "success-solid-text" : colorScheme.boraami[50],
+  "success-outline-text" : colorScheme.singularity[500],
+  "error-solid-fill" : colorScheme.bwl[600],
+  "error-outline-border" : colorScheme.bwl[200],
+  "error-solid-text" : colorScheme.boraami[50],
+  "error-outline-text" : colorScheme.bwl[600],
+  "warning-solid-fill" : colorScheme.ptd[400],
+  "warning-outline-border" : colorScheme.ptd[200],
+  "warning-solid-text" : colorScheme.mono[800],
+  "warning-outline-text" : colorScheme.ptd[700],
+  "default-solid-fill" : colorScheme.boraami[600],
+  "default-outline-border" : colorScheme.boraami[200],
+  "default-solid-text" : colorScheme.boraami[50],
+  "default-outline-text" : colorScheme.boraami[600],
+  "tags-solid-fill" : colorScheme.boraami[600],
+  "tags-outline-border" : colorScheme.boraami[200],
+  "tags-solid-text" : colorScheme.boraami[50],
+  "tags-outline-text" : colorScheme.boraami[600],
+
+  // Input Component 
+  "input-fill" :colorScheme.mono[50],
+  "placeholder-input-border" : colorScheme.boraami[400],
+  "placeholder-input-text" : colorScheme.boraami[400],
+  "placeholder-input-icon" : colorScheme.boraami[700],
+
+  "default-input-border" : colorScheme.boraami[400],
+  "default-input-text" : colorScheme.boraami[700],
+  "default-input-icon" : colorScheme.boraami[700],
+
+  "hover-input-border" : colorScheme.serendipity[500],
+  "hover-input-text" : colorScheme.boraami[700],
+  "hover-input-icon" : colorScheme.boraami[700],
+
+  "focused-input-border" : colorScheme.boraami[700],
+  "focused-input-text" : colorScheme.boraami[700],
+  "focused-input-icon" : colorScheme.boraami[700],
+
+  "error-input-border" : colorScheme.bwl[500],
+  "error-input-text" : colorScheme.boraami[700],
+  "error-input-icon" : colorScheme.bwl[700],
+
+  "inactive-input-border" : colorScheme.mono[400],
+  "inactive-input-text" : colorScheme.mono[400],
+  "inactive-input-icon" : colorScheme.mono[400],
+
+
+  //RadioButton Component
+  "default-radio-fill" : colorScheme.boraami[700],
+  "default-radio-border" : colorScheme.boraami[700],
+  "default-radio-text" : colorScheme.boraami[900],
+  "focus-radio-fill" : colorScheme.boraami[700],
+  "focus-radio-border" : colorScheme.boraami[400],
+  "focus-radio-text" : colorScheme.boraami[900],
+  "disabled-radio-fill" : colorScheme.boraami[400],
+  "disabled-radio-border" : colorScheme.boraami[400],
+  "disabled-radio-text" : colorScheme.boraami[900],
+  "hover-radio-fill" : colorScheme.serendipity[500],
+  "hover-radio-border" : colorScheme.serendipity[500],
+  "hover-radio-text" : colorScheme.boraami[900],
+
+
+  //Switch Component
+  "default-pill" : colorScheme.boraami[300],
+  "default-handle" : colorScheme.boraami[50],
+  "default-label-text" : colorScheme.boraami[900],
+  "default-helper-text" : colorScheme.boraami[500],
+  "disabled-pill" : colorScheme.boraami[300],
+  "disabled-handle" : colorScheme.boraami[50],
+  "disabled-label-text" : colorScheme.boraami[900],
+  "disabled-helper-text" : colorScheme.boraami[500],
+
+  //Tooltip Component
+  "tooltip-fill" : colorScheme.boraami[700],
+  "tooltip-text" : colorScheme.boraami[50],
+
+  //badge component
+  "badge-bg-color" : colorScheme.boraami[700],
+  "large-badge-text" : colorScheme.butter[50],
+  // Divider component
+  "subtle": colorScheme.boraami[100],
+  "Strong" : colorScheme.mono[400],
+  //overflowMenu component
+  "overflow-bg-color" : colorScheme.boraami[700],
+  "text-icon-color" :colorScheme.boraami[50],
+  //Overlay component
+  "overlay-bg-color" : colorScheme.mono[400],
+  //Nav Bar component
+  "screen-title-text" : colorScheme.boraami[700],
+  "icon" : colorScheme.boraami[700],
+  "divider" : colorScheme.boraami[300],
+  "section-purple-bg-color" : colorScheme.boraami[50],
+  "section-tab-text" : colorScheme.boraami[700],
+  "section-tab-bottom-border" : colorScheme.boraami[700],
+  "default-icon":colorScheme.boraami[700],
+  "active-icon" : colorScheme.serendipity[500],
+  "notification-dot" : colorScheme.butter[400],
+  "nav-bg-color" : colorScheme.boraami[50],
+  "bar-bg-color" : colorScheme.mono[50],
+  //TextField component
+  "placeholder-textbox-fill" : colorScheme.boraami[50],
+  "placeholder-textbox-border" : colorScheme.boraami[200],
+  "placeholder-textbox-text" :colorScheme.boraami[500],
+  "placeholder-helper-text" : colorScheme.mono[600],
+  "placeholder-scroll-bar" : colorScheme.boraami[200],
+
+  "default-textbox-fill" : colorScheme.boraami[50],
+  "default-textbox-border" : colorScheme.boraami[300],
+  "default-textbox-text" :colorScheme.mono[800],
+  "default-helper-text-textfield" : colorScheme.mono[600],//change var from doc cuz of redundancy
+  "default-scroll-bar" : colorScheme.boraami[200],
+
+  "focused-textbox-fill" : colorScheme.boraami[100],
+  "focused-textbox-border" : colorScheme.boraami[400],
+  "focused-textbox-text" :colorScheme.mono[800],
+  "focused-helper-text-textfield" : colorScheme.mono[600],
+  "focused-scroll-bar" : colorScheme.boraami[200],
+
+  "error-textbox-fill" : colorScheme.bwl[50],
+  "error-textbox-border" : colorScheme.bwl[700],
+  "error-textbox-text" :colorScheme.mono[800],
+  "error-helper-text-textfield" : colorScheme.bwl[700],
+  "error-scroll-bar" : colorScheme.boraami[200],
+  
+  "disabled-textbox-fill" : colorScheme.boraami[50],
+  "disabled-textbox-border" : colorScheme.boraami[400],
+  "disabled-textbox-text" :colorScheme.boraami[700],
+  "disabled-helper-text-textfield" : colorScheme.mono[600],
+  "disabled-scroll-bar" : colorScheme.mono[600],
+
 };
 // note: we set up a single consistent base type to validate the rest
 
@@ -140,53 +284,197 @@ type BaseTheme = typeof light;
 // the rest of the themes use BaseTheme
 
 const dark: BaseTheme = {
-  // Text
-  "text-primary": colorScheme.mono[100],
-  "text-secondary": colorScheme.boraami[200],
-  "text-brand": colorScheme.boraami[300],
-  "text-success": colorScheme.singularity[200],
-  "text-warning": colorScheme.ptd[200],
-  "text-error": colorScheme.bwl[400],
-  "text-invert": colorScheme.mono[900],
-  "text-inactive": colorScheme.mono[400],
+    // ALert Component
+    "default-alert-solid-fill" : colorScheme.boraami[700],
+    "default-alert-left-border" : colorScheme.boraami[400],
+    "default-alert-subtle-fill" : colorScheme.mono[200],
+    "default-alert-outline" : colorScheme.boraami[600],
+    "success-alert-solid-fill" : colorScheme.singularity[500],
+    "success-alert-subtle-fill" : colorScheme.singularity[200],
+    "success-alert-outline" : colorScheme.singularity[200],
+    "warning-alert-solid-fill" : colorScheme.ptd[500],
+    "warning-alert-subtle-fill" : colorScheme.ptd[200],
+    "warning-alert-outline" : colorScheme.ptd[500],
+    "error-alert-fill" : colorScheme.boraami[900],
+    "error-alert-outline" : colorScheme.bwl[700],
 
-  // Background
-  "bg-neutral-subtle": colorScheme.boraami[800],
-  "bg-neutral-reg": colorScheme.mono[400],
-  "bg-neutral-inactive": colorScheme.mono[700],
-  "bg-neutral-strong": colorScheme.boraami[800],
-  "bg-brand-subtle": colorScheme.boraami[900],
-  "bg-brand-subtle-light": colorScheme.boraami[200],
-  "bg-brand-neutral": colorScheme.boraami[300],
-  "bg-brand-strong": colorScheme.boraami[600],
-  "bg-success-subtle": colorScheme.singularity[400],
-  "bg-success-strong": colorScheme.singularity[200],
-  "bg-warning-subtle": colorScheme.ptd[400],
-  "bg-warning-strong": colorScheme.ptd[200],
-  "bg-error-subtle": colorScheme.bwl[400],
-  "bg-error-strong": colorScheme.bwl[600],
+    // Button Component
+    "primary-default-btn" : colorScheme.boraami[700],
+    "primary-disabled-btn" : colorScheme.mono[400],
+    "primary-hover-btn-fill" : colorScheme.boraami[700],
+    "primary-hover-btn-border" : colorScheme.serendipity[500],
+    "primary-focus-btn-fill" : colorScheme.boraami[700],
+    "primary-focus-btn-border" : colorScheme.boraami[400],
+    "secondary-default-btn-border" : colorScheme.boraami[500],
+    "secondary-disabled-btn-border" : colorScheme.mono[400],
+    "secondary-hover-btn-border" : colorScheme.serendipity[500],
+    "secondary-focus-btn-border" : colorScheme.boraami[500],
+    "tertiary-default-text" : colorScheme.boraami[50],
+    "tertiary-disabled-text" : colorScheme.bwl[700],
+    "tertiary-hover-text" : colorScheme.bwl[700],
+    "tertiary-hover-border" : colorScheme.serendipity[500],
+    "tertiary-focus-text" : colorScheme.boraami[500],
+    "tertiary-focus-border" : colorScheme.boraami[500],
+      
+    // Checkbox Component
+    "default-fill" : colorScheme.boraami[700],
+    "default-border" : colorScheme.boraami[700],
+    "default-check-icon" : colorScheme.boraami[50],
+    "focus-fill" : colorScheme.boraami[700],
+    "focus-border" : colorScheme.boraami[400],
+    "focus-check-box" : colorScheme.boraami[50],
+    "disabled-fill" : colorScheme.mono[400],
+    "disabled-border" : colorScheme.mono[400],
+    "disabled-check-box" : colorScheme.boraami[50],
+    "hover-fill" : colorScheme.boraami[700],
+    "hover-border" : colorScheme.serendipity[500],
+    "hover-check-box" : colorScheme.boraami[50],
 
-  // Background/Hover
-  "bg-warning-subtle-hover": colorScheme.ptd[600],
-  "bg-warning-strong-hover": colorScheme.ptd[400],
-  "bg-error-subtle-hover": colorScheme.bwl[900],
-  "bg-error-strong-hover": colorScheme.bwl[400],
-  "bg-subtle-hover": colorScheme.boraami[300],
-  "bg-brand-subtle-hover": colorScheme.serendipity[500],
-  "bg-brand-strong-hover": colorScheme.serendipity[200],
-  "bg-success-subtle-hover": colorScheme.singularity[600],
-  "bg-success-strong-hover": colorScheme.singularity[300],
+    // Card Component
+    "info-card-fill" : colorScheme.boraami[700],
+    "info-card-top-border" : colorScheme.boraami[400],
+    "info-card-music-icon" : colorScheme.boraami[50],
+    "info-card-text" : colorScheme.boraami[50],
+    "achievement-card-fill" : colorScheme.boraami[500],
+    "achievement-card-text" : colorScheme.boraami[50],
 
-  // Border
-  "border-neutral": colorScheme.mono[400],
-  "border-brand-subtle": colorScheme.boraami[800],
-  "border-brand-strong": colorScheme.boraami[400],
-  "border-success-subtle": colorScheme.singularity[600],
-  "border-success-strong": colorScheme.singularity[200],
-  "border-warning-subtle": colorScheme.ptd[700],
-  "border-warning-strong": colorScheme.ptd[300],
-  "border-error-subtle": colorScheme.bwl[400],
-  "border-error-strong": colorScheme.bwl[600],
+  // Tags Component
+  "info-solid-fill" : colorScheme.serendipity[600],
+  "info-outline-border" : colorScheme.serendipity[200],
+  "info-solid-text" : colorScheme.boraami[50],
+  "info-outline-text" : colorScheme.serendipity[200],
+  "success-solid-fill" : colorScheme.singularity[600],
+  "success-outline-border" : colorScheme.singularity[200],
+  "success-solid-text" : colorScheme.boraami[50],
+  "success-outline-text" : colorScheme.singularity[200],
+  "error-solid-fill" : colorScheme.bwl[700],
+  "error-outline-border" : colorScheme.bwl[200],
+  "error-solid-text" : colorScheme.boraami[50],
+  "error-outline-text" : colorScheme.bwl[600],
+  "warning-solid-fill" : colorScheme.ptd[400],
+  "warning-outline-border" : colorScheme.ptd[200],
+  "warning-solid-text" : colorScheme.mono[800],
+  "warning-outline-text" : colorScheme.ptd[400],
+  "default-solid-fill" : colorScheme.boraami[600],
+  "default-outline-border" : colorScheme.boraami[200],
+  "default-solid-text" : colorScheme.boraami[50],
+  "default-outline-text" : colorScheme.boraami[100],
+  "tags-solid-fill" : colorScheme.boraami[600],
+  "tags-outline-border" : colorScheme.mono[400],
+  "tags-solid-text" : colorScheme.boraami[50],
+  "tags-outline-text" : colorScheme.mono[50],
+    
+  
+  // Input Component 
+  "input-fill" :colorScheme.boraami[900],
+  "placeholder-input-border" : colorScheme.boraami[400],
+  "placeholder-input-text" : colorScheme.boraami[500],
+  "placeholder-input-icon" : colorScheme.boraami[500],
+
+  "default-input-border" : colorScheme.boraami[400],
+  "default-input-text" : colorScheme.boraami[50],
+  "default-input-icon" : colorScheme.boraami[500],
+
+  "hover-input-border" : colorScheme.serendipity[500],
+  "hover-input-text" : colorScheme.boraami[50],
+  "hover-input-icon" : colorScheme.boraami[500],
+
+  "focused-input-border" : colorScheme.boraami[400],
+  "focused-input-text" : colorScheme.boraami[50],
+  "focused-input-icon" : colorScheme.boraami[500],
+
+  "error-input-border" : colorScheme.bwl[400],
+  "error-input-text" : colorScheme.boraami[50],
+  "error-input-icon" : colorScheme.bwl[500],
+
+  "inactive-input-border" : colorScheme.mono[400],
+  "inactive-input-text" : colorScheme.mono[400],
+  "inactive-input-icon" : colorScheme.mono[400],
+
+
+  //RadioButton Component
+  "default-radio-fill" : colorScheme.boraami[700],
+  "default-radio-border" : colorScheme.boraami[700],
+  "default-radio-text" : colorScheme.boraami[50],
+  "focus-radio-fill" : colorScheme.boraami[500],
+  "focus-radio-border" : colorScheme.boraami[300],
+  "focus-radio-text" : colorScheme.boraami[50],
+  "disabled-radio-fill" : colorScheme.boraami[900],
+  "disabled-radio-border" : colorScheme.boraami[500],
+  "disabled-radio-text" : colorScheme.boraami[50],
+  "hover-radio-fill" : colorScheme.serendipity[500],
+  "hover-radio-border" : colorScheme.serendipity[500],
+  "hover-radio-text" : colorScheme.boraami[50],
+ 
+  //Switch Component
+  "default-pill" : colorScheme.boraami[700],
+  "default-handle" : colorScheme.boraami[50],
+  "default-label-text" : colorScheme.boraami[50],
+  "default-helper-text" : colorScheme.boraami[300],
+  "disabled-pill" : colorScheme.boraami[700],
+  "disabled-handle" : colorScheme.boraami[50],
+  "disabled-label-text" : colorScheme.boraami[50],
+  "disabled-helper-text" : colorScheme.boraami[300],
+
+   //Tooltip Component
+   "tooltip-fill" : colorScheme.boraami[700],
+   "tooltip-text" : colorScheme.mono[800],
+   
+  //badge component
+  "badge-bg-color" : colorScheme.boraami[500],
+  "large-badge-text" : colorScheme.butter[50],
+  // Divider component
+  "subtle": colorScheme.boraami[400],
+  "Strong" : colorScheme.boraami[100],
+  // Overflow menu component
+  "overflow-bg-color" : colorScheme.boraami[500],
+  "text-icon-color" :colorScheme.boraami[50],
+  //Overlay component
+  "overlay-bg-color" : colorScheme.mono[400],
+  //Nav Bar component
+  "screen-title-text" : colorScheme.boraami[50],
+  "icon" : colorScheme.boraami[50],
+  "divider" : colorScheme.boraami[600],
+  "section-purple-bg-color" : colorScheme.boraami[900],
+  "section-tab-text" : colorScheme.boraami[400],
+  "section-tab-bottom-border" : colorScheme.boraami[400],
+  "default-icon":colorScheme.boraami[100],
+  "active-icon" : colorScheme.serendipity[300],
+  "notification-dot" : colorScheme.butter[400],
+  "nav-bg-color" : colorScheme.boraami[900],
+  "bar-bg-color" : colorScheme.boraami[700],
+  //TextField component
+  "placeholder-textbox-fill" : colorScheme.boraami[900],
+  "placeholder-textbox-border" : colorScheme.boraami[300],
+  "placeholder-textbox-text" :colorScheme.boraami[500],
+  "placeholder-helper-text" : colorScheme.mono[300],
+  "placeholder-scroll-bar" : colorScheme.boraami[500],
+
+  "default-textbox-fill" : colorScheme.boraami[900],
+  "default-textbox-border" : colorScheme.boraami[300],
+  "default-textbox-text" :colorScheme.boraami[50],
+  "default-helper-text-textfield" : colorScheme.mono[300],//change var from doc cuz of redundancy
+  "default-scroll-bar" : colorScheme.boraami[500],
+
+  "focused-textbox-fill" : colorScheme.boraami[900],
+  "focused-textbox-border" : colorScheme.boraami[400],
+  "focused-textbox-text" :colorScheme.boraami[50],
+  "focused-helper-text-textfield" : colorScheme.mono[300],
+  "focused-scroll-bar" : colorScheme.boraami[500],
+
+  "error-textbox-fill" : colorScheme.bwl[900],
+  "error-textbox-border" : colorScheme.bwl[700],
+  "error-textbox-text" :colorScheme.boraami[50],
+  "error-helper-text-textfield" : colorScheme.bwl[400],
+  "error-scroll-bar" : colorScheme.boraami[500],
+  
+  "disabled-textbox-fill" : colorScheme.boraami[900],
+  "disabled-textbox-border" : colorScheme.boraami[300],
+  "disabled-textbox-text" :colorScheme.boraami[50],
+  "disabled-helper-text-textfield" : colorScheme.mono[300],
+  "disabled-scroll-bar" : colorScheme.boraami[500],
+
+  
 };
 
 const allThemes = {
