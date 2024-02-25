@@ -16,9 +16,9 @@ const AlertsMeta: Meta<typeof Alerts> = {
     color: '#FFFFFF', 
     // borderWidth: 1,
     size: 'long',
-    icon: 'heart',
-    iconColor: '#FFFFFF',
-    closeColor: '#FFFFFF'
+    leftIcon: 'heart',
+    leftIconColor: '#FFFFFF',
+    rightIconColor: '#FFFFFF'
   },
 
   decorators: [
@@ -41,22 +41,22 @@ export const LongAlertSubtle = {
     borderLeftColor: '#B48BFF', 
     borderColor: '#F0E8FF',
     color: '#322941',
-    icon: 'heart',
-    iconColor: '#5F3D9C',
-    closeColor: '#737373'
+    leftIcon: 'heart',
+    leftIconColor: '#5F3D9C',
+    rightIconColor: '#737373'
   },
 };
 export const LongAlertOutline = {
   args: {
     backgroundColor: '#322941',
-    // backgroundColor: '#FFFFFF',
+    borderColor: '#5F3D9C',
     color: '#322941',
-    icon: 'heart',
-    iconColor: '#5F3D9C',
-    closeColor: '#737373',
+    leftIcon: 'heart',
+    leftIconColor: '#5F3D9C', 
+    rightIconColor: '#737373',
     borderLeftWidth: 0, 
-    borderColorWidth: '#FFFFFF', 
-    borderColor: '#7957B5'
+    // borderColorWidth: '#FFFFFF', 
+    // borderColor: '#7957B5'
   },
 };
 
@@ -76,9 +76,10 @@ export const ShortAlertSubtle = {
     // content: '',
     borderWidth: 0, 
     size: 'short',
-    icon: 'heart',
-    iconColor: '#5F3D9C',
-    closeColor: '#737373'
+    leftIcon: 'heart',
+    leftIconColor: '$boraami.700',
+    // rightIconColor: '#737373'
+    rightIconColor: '$mono.800'
   },
 };
 
@@ -88,9 +89,9 @@ export const ShortAlertOutline = {
     color: '#322941',
     // content: '',
     size: 'short',
-    icon: 'heart',
-    iconColor: '#5F3D9C',
-    closeColor: '#737373',
+    leftIcon: 'heart',
+    leftIconColor: '#5F3D9C',
+    rightIconColor: '#737373',
   },
 };
 
@@ -101,10 +102,10 @@ export const SuccessAlertSolid = {
     title: 'Selection successfully moved!',
     // content: '',
     size: 'short',
-    icon: 'checkcircleo',
-    iconSize: 20,
-    iconColor: '#FFFFFF',
-    closeColor: '#FFFFFF',
+    leftIcon: 'checkcircleo',
+    leftIconSize: 20,
+    leftIconColor: '#FFFFFF',
+    rightIconColor: '#FFFFFF',
     borderLeftColor: '#2F9D83'
 
   },
@@ -117,10 +118,10 @@ export const SuccessAlertSubtle = {
     color: '#322941',
     // content: '',
     size: 'short',
-    icon: 'checkcircleo',
-    iconSize: 20,
-    iconColor: '#2F9D83',
-    closeColor: '#737373',
+    leftIcon: 'checkcircleo',
+    leftIconSize: 20,
+    leftIconColor: '#2F9D83',
+    rightIconColor: '#737373',
     borderLeftColor: ''
   },
 };
@@ -135,10 +136,10 @@ export const SuccessAlertOutline = {
     borderLeftColor: '#2F9D83',
     borderLeftWidth: 0,
     size: 'short',
-    icon: 'checkcircleo',
-    iconSize: 20,
-    iconColor: '#2F9D83',
-    closeColor: '#737373',
+    leftIcon: 'checkcircleo',
+    leftIconSize: 20,
+    leftIconColor: '#2F9D83',
+    rightIconColor: '#737373',
   },
 };
 
@@ -149,10 +150,10 @@ export const ErrorAlertSolid = {
     title: 'Poor internet connection!',
     // content: '',
     size: 'short',
-    icon: 'warning',
-    // iconColor: '#240E4D',
-    iconColor: '$bg-neutral-strong',
-    closeColor: '#240E4D'
+    leftIcon: 'warning',
+    // leftIconColor: '#240E4D',
+    leftIconColor: '$bg-neutral-strong',
+    rightIconColor: '#240E4D'
   },
 };
 
@@ -163,9 +164,9 @@ export const ErrorAlertSubtle = {
     title: 'Poor internet connection!',
     // content: '',
     size: 'short',
-    icon: 'warning',
-    iconColor: '#FFFFFF',
-    closeColor: '#FFFFFF'
+    leftIcon: 'warning',
+    leftIconColor: '#FFFFFF',
+    rightIconColor: '#FFFFFF'
   },
 };
 
@@ -178,8 +179,8 @@ export const ErrorOutline = {
     title: 'Poor internet connection!',
     // content: '',
     size: 'short',
-    icon: 'warning',
-    iconColor: '#FFFFFF',
-    closeColor: '#FFFFFF'
+    leftIcon: 'warning',
+    leftIconColor: '#FFFFFF',
+    rightIconColor: '#FFFFFF'
   },
 };

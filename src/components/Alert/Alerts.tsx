@@ -21,16 +21,16 @@ type Props = {
     borderWidth?: number;
     color: string,
     size?: 'long' | 'short',
-    icon: 'heart' | 'checkcircleo' | 'warning',
-    iconColor: string,
-    closeColor: string,
+    leftIcon: 'heart' | 'checkcircleo' | 'warning',
+    leftIconColor: string,
+    rightIconColor: string,
 };
 
-export const Alerts = ({ title, color, content, borderColor, backgroundColor, size='long', icon }: Props) => {
+export const Alerts = ({ title, color, content, borderColor, backgroundColor, size='long', leftIcon }: Props) => {
     return (
     <Alert style={{ borderWidth: 1, borderColor: borderColor, backgroundColor: backgroundColor, height: size==='long' ? 90 : 40}}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-        <AntDesign name={icon} size={14} color="white" />
+        <AntDesign name={leftIcon} size={14} color="white" />
             <View style={{ width: 250, height: 66 }}>
                 <Text fontFamily={'$heading'} fontSize={16} color={color}>{title}</Text> 
                 <Text fontFamily={'$body'}  color={color} fontSize={14}>{content}</Text>
