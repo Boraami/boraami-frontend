@@ -1,48 +1,60 @@
 import React from 'react';
-import { GestureResponderEvent} from 'react-native';
-import { AlertDialog, View, Text, Button, styled } from 'tamagui';
+import { AlertDialog, Separator, View, Text, Button, styled } from 'tamagui';
 import { AntDesign } from '@expo/vector-icons';
+import { GestureResponderEvent } from 'react-native';
 
-const WarningDialog = styled(AlertDialog, {
-    // width: '100%',
-    width: 300, 
-    borderColor: '$border-error-subtle',
-    borderWidth: 2,  
-    borderTopColor: '$text-brand',
-    backgroundColor: '$boraami.100',
-    // borderRadius: "$r-subtle",
-    borderRadius: 100_000_000,
-    alignSelf: "center",
+const WarningAlert = styled(AlertDialog, {
     display: 'flex', 
-    flexDirection: 'row',
+    alignSelf: "center",
 });
 
 type Props = {
     title: string;
     content: string;
+    boldText: string;
 };
 
-const Btn = styled(Button, {
+const CancelBtn = styled(Button, {
     borderRadius: "$r-subtle",
     backgroundColor: "$bg-error-strong",
     color: "$text-invert",
     alignSelf: "center",
 });
 
-type BtnProps = {
+type CancelBtnProps = {
     onPress?: (event: GestureResponderEvent) => void;
     text: string
 };
 
-export const WarningAlertDialog = ({ title, content}: Props) => {
-    return <WarningDialog>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly'}}>
-            <Text style={{ fontFamily: 'Poppins', fontSize: '20'}}>{title}</Text>
-            <AntDesign name="close" size={24} color="black" />
+const DeleteBtn = styled(Button, {
+    borderRadius: "$r-subtle",
+    backgroundColor: "$bg-error-strong",
+    color: "$text-invert",
+    alignSelf: "center",
+});
+
+type DeleteBtnProps = {
+    onPress?: (event: GestureResponderEvent) => void;
+    text: string
+};
+
+export const WarningAlertDialog = ({ title, content, boldText}: Props) => {
+    return (
+    <WarningAlert>
+        <View backgroundColor={'$mono.50'} borderColor={'$error-alert-outline'} borderRadius={8} width={330} borderWidth={2}>
+            <View style={{ flexDirection: 'row', padding: 16, justifyContent: 'space-between'}}>
+                <Text fontFamily={'$heading'}  fontSize={20} color={'$mono.800'}>{title}</Text>
+                <AntDesign name="close" size={24} color="black" />
+            </View>
+            <Separator borderColor={'$error-alert-outline'}/>
+            <View style={{ width: '100%', padding: 16 }}>
+                <Text fontSize={14}>{content}</Text>
+            </View>
+            <Separator borderColor={'$error-alert-outline'}/>
+            <View style={{ flexDirection: 'row'}}>    
+                <CancelBtn>Cancel</CancelBtn>
+                <DeleteBtn>I understand. Delete.</DeleteBtn>
+            </View>
         </View>
-        <View style={{ width: '100%', padding: 16 }}>
-        {/* <View style={{ flexDirection: 'column', justifyContent: 'flex-start'}}> */}
-            <Text>{content}</Text>
-        </View>
-    </WarningDialog>;
-    }
+    </WarningAlert>
+    )}

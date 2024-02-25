@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta } from "@storybook/react-native";
 import { Alerts } from "./Alerts";
-import { Text, View} from 'tamagui';
+import { Text, View } from 'tamagui';
 
 const AlertsMeta: Meta<typeof Alerts> = {
   title: "Alerts",
@@ -33,7 +33,7 @@ const AlertsMeta: Meta<typeof Alerts> = {
 
 export default AlertsMeta;
 
-export const LongAlertSolid = {};
+export const LongSolid = {};
 
 export const LongAlertSubtle = {
   args: {

@@ -1,7 +1,8 @@
 import Constants from "expo-constants";
 import Storybook from "../.storybook";
 import { View } from "tamagui";
-import { Alerts } from '../src/components/Alert/Alerts'
+import { Alerts } from '../src/components/Alert/Alerts';
+import { WarningAlertDialog } from "../src/components/Alert/WarningAlertDialog";
 
 function App() {
   return (
@@ -17,6 +18,15 @@ function App() {
           iconColor='#FFFFFF'
           closeColor='#FFFFFF'>
         </Alerts>
+
+      <View style={{ alignItems: 'center', paddingTop: 40}}>
+        <WarningAlertDialog 
+          title="Delete Customer" 
+          content="This will remove all data relating to Alex. This action cannot be reversed. Deleted data cannot be recovered."
+          boldText=""
+        ></WarningAlertDialog>
+      </View>
+
     </View>)}
 
 export default Constants.expoConfig?.extra?.storybookEnabled ? 
