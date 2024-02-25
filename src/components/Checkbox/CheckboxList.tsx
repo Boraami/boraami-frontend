@@ -31,7 +31,7 @@ if(props.size=='sm'){
         paddingTop={2}
         size={ls}
         fontFamily={'$heading'}
-        color="$boraami.900">{props.heading}</Label>
+        color="$disabled-label-text">{props.heading}</Label>
         <YStack gap={12} marginLeft={5}>
        <CheckBox labeltext={props.labeltxt1}  size={props.size} disable={props.disable} checked={props.checked}/>
        <CheckBox labeltext={props.labeltxt2} size={props.size} disable={props.disable2} checked={props.checked}/>

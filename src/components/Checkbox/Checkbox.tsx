@@ -89,7 +89,7 @@ if(props.size=='sm'){
         size={s}
         opacity={0.4}
         fontFamily={'$body'}
-        color="$mono.800"
+        color="$label-text"
         >{props.labeltext}</Label>
       </YStack>
         :
@@ -115,7 +115,7 @@ if(props.size=='sm'){
         paddingLeft={1}
         size={s}
         fontFamily={'$body'}
-        color="$mono.800"
+        color="$label-text"
         >{props.labeltext}</Label>
       </YStack>
   }
