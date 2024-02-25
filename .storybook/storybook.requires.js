@@ -49,7 +49,10 @@ try {
 
 const getStories = () => {
   return {
+    "./src/components/Badge/Badge.stories.tsx": require("../src/components/Badge/Badge.stories.tsx"),
     "./src/components/Button/Button.stories.tsx": require("../src/components/Button/Button.stories.tsx"),
+    "./src/components/OverflowMenu/OverflowMenu.stories.tsx": require("../src/components/OverflowMenu/OverflowMenu.stories.tsx"),
+    "./src/components/Overlay/Overlay.stories.tsx": require("../src/components/Overlay/Overlay.stories.tsx"),
   };
 };
 
