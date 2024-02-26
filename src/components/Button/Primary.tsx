@@ -30,17 +30,23 @@ export function PriBtn(props: { disable?: boolean,
       {props.disable?
       <YStack flexDirection="row" gap={4} alignItems="center">
         <Button disabled={true}
+        opacity={1}
         height={btnH}
         width={btnW}
-        backgroundColor={props.disable?'$primary-default-btn' : '$primary-disabled-btn'}
+        backgroundColor={props.disable?'$primary-disabled-btn' : '$primary-default-btn'}
         borderRadius={'$r-subtle'}
-        icon={<AntDesign name="plus" size={12} color={"white"}/>}>{props.labeltxt}</Button>
+        icon={<AntDesign name="plus" size={12} color={"white"}/>}>
+          <Label size={size}
+        fontFamily={'$body'}
+        color={'white'}
+        alignItems="center"
+        justifyContent="center">{props.labeltxt}</Label></Button>
       </YStack>
       :
       <YStack flexDirection="row" gap={4} alignItems="center">
         <Button height={btnH}
         width={btnW}
-        icon={<AntDesign name="plus" size={18} color={"white"}/>}
+        icon={<AntDesign name="plus" size={12} color={"white"}/>}
         hoverStyle={{
           borderRadius:'$r-subtle',
           borderColor: "$primary-hover-btn-border",
@@ -62,8 +68,7 @@ export function PriBtn(props: { disable?: boolean,
         ><Label
         size={size}
         fontFamily={'$body'}
-        color={'$text-invert'}
-        flexDirection="row"
+        color={'white'}
         alignItems="center"
         justifyContent="center">{props.labeltxt}</Label></Button>
       </YStack>

@@ -13,7 +13,7 @@ const TDefaultMeta: Meta<typeof TerBtn> = {
     },
     args: {
       size: 'lg',
-      labeltxt: 'large'
+      labeltxt: 'BUTTON'
     },
     decorators: [
       (Story) => (
@@ -30,7 +30,6 @@ const TDefaultMeta: Meta<typeof TerBtn> = {
 
   export const small = {
     args: {
-      disable: true,
       size: 'sm',
       labeltxt: 'small',
     },
@@ -38,6 +37,7 @@ const TDefaultMeta: Meta<typeof TerBtn> = {
   
   export const medium = {
     args: {
+      disable: true,
       size: 'md',
       labeltxt: 'medium',
     },

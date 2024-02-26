@@ -34,7 +34,6 @@ const PDefaultMeta: Meta<typeof PriBtn> = {
 
   export const small = {
     args: {
-      disable: true,
       size: 'sm',
       labeltxt: 'small',
     },
@@ -42,6 +41,7 @@ const PDefaultMeta: Meta<typeof PriBtn> = {
   
   export const medium = {
     args: {
+      disable: true,
       size: 'md',
       labeltxt: 'medium',
     },

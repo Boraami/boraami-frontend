@@ -24,25 +24,21 @@ labeltxt: string}) {
     console.log('incorrect size args')
   }
   return (
-    <XStack
-    borderRadius={'$r-subtle'}>
+    <XStack>
       {props.disable?
-      <YStack flexDirection="row" gap={4} alignItems="center">
+      <YStack>
         <Button disabled={true}
+        opacity={1}
         height={btnH}
         width={btnW}
-        borderColor={props.disable?'$secondary-default-btn-border' : '$secondary-disabled-btn-border'}
-        borderRadius={'$r-subtle'}
-        icon={<AntDesign name="plus" size={12} color={"#8F66D6"}/>}><Label
-        size={size}
+        icon={<AntDesign name="plus" size={18} color={"grey"}/>}>
+          <Label size={size}
         fontFamily={'$body'}
-        color={'$tertiary-disabled-text'}
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="center">{props.labeltxt}</Label></Button>
+        color={'grey'}
+        alignItems="center">{props.labeltxt}</Label></Button>
       </YStack>
       :
-      <YStack flexDirection="row" gap={4} alignItems="center">
+      <YStack>
         <Button height={btnH}
         width={btnW}
         icon={<AntDesign name="plus" size={18} color={"#8F66D6"}/>}
@@ -75,52 +71,3 @@ labeltxt: string}) {
     </XStack>
   )
 }
-
-/*const TDftBtn = styled(Button, {
-    theme: 'light',
-    name: "tertiary",
-    flexDirection: 'row',
-    alignSelf: 'center',
-    color: '$tertiary-default-text',
-    icon: <AntDesign name="plus" size={24} color={"#8F66D6"}/>,
-    chromeless: true,
-    hoverStyle: {
-      borderBottomWidth: 2,
-      borderBottomColor: '$tertiary-hover-border',
-      shadowColor: '#38BDF8',
-      shadowOpacity: 1,
-      shadowRadius: 19,
-      shadowOffset : { width: 0, height: 0},
-    },
-    focusStyle: {
-      borderColor: '#7957B5',
-      shadowColor: '#C2A0FF',
-      shadowOpacity: 1,
-      shadowRadius: 12,
-      shadowOffset : { width: 0, height: 0},
-    },
-    height: '$sm',
-    width: '$sm',
-    top: '$sm',
-    left: '$sm',
-    gap: '$sm',
-    paddingHorizontal: '$sm',
-  })
-
-export const DefaultText = styled(Text, {
-  name: 'DefaultText',
-  color: '$text-invert',
-  fontFamily: '$OpenSansBold',
-  lineHeight: 10,
-  userSelect: 'none',
-})
-
-
-type Props = {
-  onPress: (event: GestureResponderEvent) => void;
-  text: string;
-};
-
-export const TDeftBtn = ({onPress, text}: Props) => {
-  return <TDftBtn onPress={onPress}>{text}</TDftBtn>
-  };*/
