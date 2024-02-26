@@ -31,7 +31,7 @@ export const LongSolid = {
     variant: 'default',
     shade: 'solid',
     content: 'We are happy to announce that we are going live on July 28th. Get ready!',
-    borderLeftWidth: 4,  
+    bdLeftWidth: 4,  
   }
 };
 
@@ -40,7 +40,7 @@ export const LongSubtle = {
     variant: 'default',
     shade: 'subtle',
     content: 'We are happy to announce that we are going live on July 28th. Get ready!',
-    borderLeftWidth: 4,  
+    bdLeftWidth: 4,  
   },
 };
 export const LongOutline = {

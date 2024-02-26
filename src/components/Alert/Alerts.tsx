@@ -15,11 +15,9 @@ type Props = {
     variant: 'default' | 'success' | 'error',
     shade: 'solid' | 'subtle' | 'outline',
     content?: string;
-    borderLeftWidth?: number,  
-    borderLeftColor?: string,
 };
 
-export const Alerts = ({ variant = 'default', shade = 'solid', content, borderLeftWidth, borderLeftColor }: Props) => {
+export const Alerts = ({ variant = 'default', shade = 'solid', content }: Props) => {
 
     let leftIcon : 'heart' | 'checkcircleo' | 'warning' = 'heart';
     let lIconColor;
@@ -27,6 +25,7 @@ export const Alerts = ({ variant = 'default', shade = 'solid', content, borderLe
     let bgColor;
     let bdColor; 
     let bdWidth;
+    let bdLeftWidth;
     let text;
     let textColor;
 
@@ -39,6 +38,7 @@ export const Alerts = ({ variant = 'default', shade = 'solid', content, borderLe
             textColor = '#FFFEF8'
             lIconColor = '#FFFEF8'
             rIconColor = '#FFFEF8'
+            bdLeftWidth = 4
         }
         if (shade === 'subtle'){
             bgColor = '#F0E8FF'
@@ -46,6 +46,7 @@ export const Alerts = ({ variant = 'default', shade = 'solid', content, borderLe
             textColor = '#322A41'
             lIconColor = '#5F3D9C'
             rIconColor = '#322A41'
+            bdLeftWidth = 4
         }
         if (shade === 'outline'){
             bgColor = '#FFFFFF'
@@ -113,8 +114,8 @@ export const Alerts = ({ variant = 'default', shade = 'solid', content, borderLe
     }
 
     return (
-    <Alert style={{ backgroundColor: bgColor, borderColor: bdColor, borderWidth: bdWidth, height: content ? 90 : 40 }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', borderLeftWidth: borderLeftWidth, height: content ? 90 : 40 , borderLeftColor: content ? '#B48BFF' : ' ' }}>
+    <Alert style={{ backgroundColor: bgColor, borderColor: bdColor, borderWidth: bdWidth, borderLeftWidth: bdLeftWidth, borderLeftColor: content ? '#B48BFF' : ' ', height: content ? 90 : 40 }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
         <AntDesign name={leftIcon} size={18} color={lIconColor}/>
             <View style={{ width: 250, height: 66 }}>
                 <Text fontFamily={'$body'} color={textColor} fontSize={14}>{text}</Text>
