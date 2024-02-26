@@ -23,17 +23,16 @@ export function SolDeftTag(props: {size: string,
     borderRadius={4}>
       <YStack>
         <Button disabled={true}
+        gap={-2}
         height={btnH}
-        width={btnW}
+        width={btnW + 30}
         backgroundColor={'$default-solid-fill'}
         borderRadius={4}
         icon={<Entypo name="heart" size={10} color="white"/>}
         ><Label size={size}
         fontFamily={'$body'}
+        fontWeight={"bold"}
         color={'$default-solid-text'}
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="center"
         >{props.labeltxt}</Label></Button>
       </YStack>
     </XStack>

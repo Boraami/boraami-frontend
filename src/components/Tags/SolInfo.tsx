@@ -23,6 +23,7 @@ export function SolInfoTag(props: {size: string,
     borderRadius={4}>
       <YStack>
         <Button disabled={true}
+        gap={-2}
         height={btnH}
         width={btnW}
         backgroundColor={'$info-solid-fill'}
@@ -30,38 +31,11 @@ export function SolInfoTag(props: {size: string,
         icon={<MaterialCommunityIcons name="lightbulb" size={10} color="white"/>}
         ><Label size={size}
         fontFamily={'$body'}
+        fontWeight={"bold"}
         color={'$info-solid-text'}
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="center"
         >{props.labeltxt}</Label></Button>
       </YStack>
     </XStack>
   )
   }
-/*import React from "react";
-import { GestureResponderEvent} from "react-native";
-import { Button, H1, styled, Text, View } from "tamagui";
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-
-  const SolInfo = styled(Button, {
-    theme: 'light',
-    name: "solid info",
-    borderRadius: "$r-subtle",
-    alignSelf: 'flex-start',
-    backgroundColor: "$info-solid-fill", //serendipity[600]
-    height: '$s-sm',
-    width: '$s-sm',
-    color: '$info-solid-text',
-    icon: <MaterialCommunityIcons name="lightbulb" size={20} color="white" />
-  })
   
-  type Props = {
-    onPress: (event: GestureResponderEvent) => void;
-    text: string;
-  };
-  
-  export const SolInfoTag = ({ onPress, text }: Props) => {
-    return <SolInfo onPress={onPress}>{text}</SolInfo>;
-  };
-  */

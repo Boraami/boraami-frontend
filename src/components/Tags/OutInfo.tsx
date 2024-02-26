@@ -23,6 +23,7 @@ export function OutInfoTag(props: { size: string,
     borderRadius={4}>
       <YStack>
         <Button disabled={true}
+        gap={-2}
         height={btnH}
         width={btnW}
         borderColor={'$info-outline-border'}
@@ -31,9 +32,6 @@ export function OutInfoTag(props: { size: string,
         ><Label size={size}
         fontFamily={'$body'}
         color={'$info-outline-text'}
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="center"
         >{props.labeltxt}</Label></Button>
       </YStack>
     </XStack>

@@ -9,7 +9,7 @@ const OutDeftMeta: Meta<typeof OutDeftTag> = {
   argTypes: {},
   args: {
     size: 'md',
-    labeltxt: 'DEFAULT'
+    labeltxt: 'INSTAGRAM'
   },
   decorators: [
     (Story) => (

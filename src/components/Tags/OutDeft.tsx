@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Label, XStack, YStack} from "tamagui";
+import { Button, Label, XStack, YStack, Text} from "tamagui";
 import { Entypo } from '@expo/vector-icons';
 
 export function OutDeftTag(props: { size: string,
@@ -9,7 +9,7 @@ export function OutDeftTag(props: { size: string,
   var size='';
   if (props.size == 'sm') {
     btnH=20
-    btnW=74
+    btnW=76
     size='$sm'
   } else if (props.size == 'md') {
     btnH=24
@@ -23,17 +23,16 @@ export function OutDeftTag(props: { size: string,
     borderRadius={4}>
       <YStack>
         <Button disabled={true}
+        gap={-2}
         height={btnH}
-        width={btnW}
+        width={btnW + 30}
         borderColor={'$default-outline-border'}
         borderRadius={4}
         icon={<Entypo name="heart" size={10} color="#744FB5"/>}
         ><Label size={size}
         fontFamily={'$body'}
+        fontWeight={"bold"}
         color={'$default-outline-text'}
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="center"
         >{props.labeltxt}</Label></Button>
       </YStack>
     </XStack>

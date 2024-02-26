@@ -23,17 +23,16 @@ export function OutWarnTag(props: { size: string,
     borderRadius={4}>
       <YStack>
         <Button disabled={true}
+        gap={-2}
         height={btnH}
-        width={btnW}
+        width={btnW + 20}
         borderColor={'$warning-outline-border'}
         borderRadius={4}
         icon={<FontAwesome6 name="triangle-exclamation" size={10} color="#B95D29" />}
         ><Label size={size}
         fontFamily={'$body'}
+        fontWeight={"bold"}
         color={'$warning-outline-text'}
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="center"
         >{props.labeltxt}</Label></Button>
       </YStack>
     </XStack>

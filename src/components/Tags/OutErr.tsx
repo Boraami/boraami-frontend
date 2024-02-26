@@ -23,6 +23,7 @@ export function OutErrTag(props: { size: string,
     borderRadius={4}>
       <YStack>
         <Button disabled={true}
+        gap={-2}
         height={btnH}
         width={btnW}
         borderColor={'$error-outline-border'}
@@ -30,10 +31,8 @@ export function OutErrTag(props: { size: string,
         icon={<FontAwesome6 name="triangle-exclamation" size={10} color="#DB2777" />}
         ><Label size={size}
         fontFamily={'$body'}
+        fontWeight={"bold"}
         color={'$error-outline-text'}
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="center"
         >{props.labeltxt}</Label></Button>
       </YStack>
     </XStack>

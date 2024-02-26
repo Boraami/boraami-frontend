@@ -23,17 +23,16 @@ export function OutSucTag(props: { size: string,
     borderRadius={4}>
       <YStack>
         <Button disabled={true}
+        gap={-2}
         height={btnH}
-        width={btnW}
+        width={btnW + 20}
         borderColor={'$success-outline-border'}
         borderRadius={4}
         icon={<AntDesign name="check" size={10} color="#27846E"/>}
         ><Label size={size}
         fontFamily={'$body'}
+        fontWeight={"bold"}
         color={'$success-outline-text'}
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="center"
         >{props.labeltxt}</Label></Button>
       </YStack>
     </XStack>
