@@ -11,7 +11,7 @@ const AlertsMeta: Meta<typeof Alerts> = {
     shade: 'solid',
     title: 'We are going live in July!',
     content: '',
-    borderLeftWidth: '',  
+    contentColor: '',
   },
 
   decorators: [
@@ -31,7 +31,7 @@ export const LongSolid = {
     variant: 'default',
     shade: 'solid',
     content: 'We are happy to announce that we are going live on July 28th. Get ready!',
-    bdLeftWidth: 4,  
+    contentColor: '#FFFEF8',
   }
 };
 
@@ -40,7 +40,7 @@ export const LongSubtle = {
     variant: 'default',
     shade: 'subtle',
     content: 'We are happy to announce that we are going live on July 28th. Get ready!',
-    bdLeftWidth: 4,  
+    contentColor: '#322A41',
   },
 };
 export const LongOutline = {
@@ -48,6 +48,7 @@ export const LongOutline = {
     variant: 'default',
     shade: 'outline',
     content: 'We are happy to announce that we are going live on July 28th. Get ready!',
+    contentColor: '#322A41',
   },
 };
 

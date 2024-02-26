@@ -15,9 +15,10 @@ type Props = {
     variant: 'default' | 'success' | 'error',
     shade: 'solid' | 'subtle' | 'outline',
     content?: string;
+    contentColor?: string;
 };
 
-export const Alerts = ({ variant = 'default', shade = 'solid', content }: Props) => {
+export const Alerts = ({ variant = 'default', shade = 'solid', content, contentColor }: Props) => {
 
     let leftIcon : 'heart' | 'checkcircleo' | 'warning' = 'heart';
     let lIconColor;
@@ -116,10 +117,10 @@ export const Alerts = ({ variant = 'default', shade = 'solid', content }: Props)
     return (
     <Alert style={{ backgroundColor: bgColor, borderColor: bdColor, borderWidth: bdWidth, borderLeftWidth: bdLeftWidth, borderLeftColor: content ? '#B48BFF' : ' ', height: content ? 90 : 40 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-        <AntDesign name={leftIcon} size={18} color={lIconColor}/>
-            <View style={{ width: 250, height: 66 }}>
+        <AntDesign name={leftIcon} size={14} color={lIconColor}/>
+            <View width={250} flexDirection='column'>
                 <Text fontFamily={'$body'} color={textColor} fontSize={14}>{text}</Text>
-                <Text fontFamily={'$heading'} fontSize={16} color={textColor}>{content}</Text> 
+                <Text fontFamily={'$body'} fontSize={14} color={contentColor}>{content}</Text> 
             </View>
             <AntDesign name="close" size={16} color={rIconColor} />
         </View>
