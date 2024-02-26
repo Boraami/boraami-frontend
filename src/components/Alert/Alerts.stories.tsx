@@ -7,18 +7,11 @@ const AlertsMeta: Meta<typeof Alerts> = {
   title: "Alerts",
   component: Alerts,
   args: {
+    variant: 'default',
+    shade: 'solid',
     title: 'We are going live in July!',
-    content: 'We are happy to announce that we are going live on July 28th. Get ready!',
-    backgroundColor: '#5F3D9C',
-    borderColor: '#5F3D9C',
-    borderLeftColor: '#B48BFF', 
-    borderLeftWidth: 4,
-    color: '#FFFFFF', 
-    // borderWidth: 1,
-    size: 'long',
-    leftIcon: 'heart',
-    leftIconColor: '#FFFFFF',
-    rightIconColor: '#FFFFFF'
+    content: '',
+    borderLeftWidth: '',  
   },
 
   decorators: [
@@ -33,154 +26,89 @@ const AlertsMeta: Meta<typeof Alerts> = {
 
 export default AlertsMeta;
 
-export const LongSolid = {};
+export const LongSolid = {
+  args:{
+    variant: 'default',
+    shade: 'solid',
+    content: 'We are happy to announce that we are going live on July 28th. Get ready!',
+    borderLeftWidth: 4,  
+  }
+};
 
-export const LongAlertSubtle = {
+export const LongSubtle = {
   args: {
-    backgroundColor: '#F0E8FF',
-    borderLeftColor: '#B48BFF', 
-    borderColor: '#F0E8FF',
-    color: '#322941',
-    leftIcon: 'heart',
-    leftIconColor: '#5F3D9C',
-    rightIconColor: '#737373'
+    variant: 'default',
+    shade: 'subtle',
+    content: 'We are happy to announce that we are going live on July 28th. Get ready!',
+    borderLeftWidth: 4,  
   },
 };
-export const LongAlertOutline = {
+export const LongOutline = {
   args: {
-    backgroundColor: '#322941',
-    borderColor: '#5F3D9C',
-    color: '#322941',
-    leftIcon: 'heart',
-    leftIconColor: '#5F3D9C', 
-    rightIconColor: '#737373',
-    borderLeftWidth: 0, 
-    // borderColorWidth: '#FFFFFF', 
-    // borderColor: '#7957B5'
+    variant: 'default',
+    shade: 'outline',
+    content: 'We are happy to announce that we are going live on July 28th. Get ready!',
   },
 };
 
-export const ShortAlertSolid = {
+export const ShortSolid = {
   args: {
-    backgroundColor: '#5F3D9C',
-    color: '#FFFFFF',
-    // content: '',
-    size: 'short'
+    variant: 'default',
+    shade: 'solid',
   },
 };
 
-export const ShortAlertSubtle = {
+export const ShortSubtle = {
   args: {
-    backgroundColor: '#F0E8FF',
-    color: '#322941',
-    // content: '',
-    borderWidth: 0, 
-    size: 'short',
-    leftIcon: 'heart',
-    leftIconColor: '$boraami.700',
-    // rightIconColor: '#737373'
-    rightIconColor: '$mono.800'
+    variant: 'default',
+    shade: 'subtle',
   },
 };
 
-export const ShortAlertOutline = {
+export const ShortOutline = {
   args: {
-    backgroundColor: '#F0E8FF',
-    color: '#322941',
-    // content: '',
-    size: 'short',
-    leftIcon: 'heart',
-    leftIconColor: '#5F3D9C',
-    rightIconColor: '#737373',
+    variant: 'default',
+    shade: 'outline',
   },
 };
 
-export const SuccessAlertSolid = {
+export const SuccessSolid = {
   args: {
-    backgroundColor: '#2F9D83',
-    color: '#FFFFFF',
-    title: 'Selection successfully moved!',
-    // content: '',
-    size: 'short',
-    leftIcon: 'checkcircleo',
-    leftIconSize: 20,
-    leftIconColor: '#FFFFFF',
-    rightIconColor: '#FFFFFF',
-    borderLeftColor: '#2F9D83'
-
+    variant: 'success',
+    shade: 'solid',
   },
 };
 
-export const SuccessAlertSubtle = {
+export const SuccessSubtle = {
   args: {
-    backgroundColor: '#2F9D83',
-    title: 'Selection successfully moved!',
-    color: '#322941',
-    // content: '',
-    size: 'short',
-    leftIcon: 'checkcircleo',
-    leftIconSize: 20,
-    leftIconColor: '#2F9D83',
-    rightIconColor: '#737373',
-    borderLeftColor: ''
+    variant: 'success',
+    shade: 'subtle',
   },
 };
 
-export const SuccessAlertOutline = {
+export const SuccessOutline = {
   args: {
-    backgroundColor: '#FFFFFF',
-    title: 'Selection successfully moved!',
-    color: '#000000',
-    // content: '',
-    borderColor: '#2F9D83',
-    borderLeftColor: '#2F9D83',
-    borderLeftWidth: 0,
-    size: 'short',
-    leftIcon: 'checkcircleo',
-    leftIconSize: 20,
-    leftIconColor: '#2F9D83',
-    rightIconColor: '#737373',
+    variant: 'success',
+    shade: 'outline',
   },
 };
 
-export const ErrorAlertSolid = {
+export const ErrorSolid = {
   args: {
-    backgroundColor: '#FB923C',
-    color: '#322941',
-    title: 'Poor internet connection!',
-    // content: '',
-    size: 'short',
-    leftIcon: 'warning',
-    // leftIconColor: '#240E4D',
-    leftIconColor: '$bg-neutral-strong',
-    rightIconColor: '#240E4D'
+    variant: 'error',
+    shade: 'solid',
   },
 };
 
-export const ErrorAlertSubtle = {
+export const ErrorSubtle = {
   args: {
-    backgroundColor: '#FEE8D6',
-    color: '#500A0A',
-    title: 'Poor internet connection!',
-    // content: '',
-    size: 'short',
-    leftIcon: 'warning',
-    leftIconColor: '#FFFFFF',
-    rightIconColor: '#FFFFFF'
-  },
+    variant: 'error',
+    shade: 'subtle',  },
 };
 
 export const ErrorOutline = {
   args: {
-    backgroundColor: '#FFFFFF',
-    color: '#500A0A',
-    borderColor: '#FB923C',
-    borderWidth: 1,
-    title: 'Poor internet connection!',
-    // content: '',
-    size: 'short',
-    leftIcon: 'warning',
-    leftIconColor: '#FFFFFF',
-    rightIconColor: '#FFFFFF'
+    variant: 'error',
+    shade: 'outline'
   },
 };
