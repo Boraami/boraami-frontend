@@ -4,12 +4,18 @@ import { Textfields } from "./Textfields";
 import { Text, View } from 'tamagui';
 
 export const TextfieldsMeta: Meta<typeof Textfields> = {
-    title: "TextFields",
+    title: "Textfields",
     component: Textfields,
     args: {
-    
-    },
-
+      display: 'flex',
+      borderRadius: 1,
+      borderColor: '$placeholder-textbox-border',
+      backgroundColor: '$placeholder-textbox-fill',
+      color: '$placeholder-textbox-text',
+      fontSize: 14,
+      height: 136,
+      width: 428
+  },
 
     decorators: [
         (Story) => (
@@ -23,13 +29,9 @@ export const TextfieldsMeta: Meta<typeof Textfields> = {
 
 export default TextfieldsMeta;
 
-export const Default = {};
 
-export const Placeholder = {
-    args: {
-    
-    },
-};
+// Default variant:
+export const Placeholder = {};
 
 export const Focused = {
     args: {
