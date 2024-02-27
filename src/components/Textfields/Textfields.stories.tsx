@@ -3,7 +3,7 @@ import { Meta } from "@storybook/react-native";
 import { Textfields } from "./Textfields";
 import { Text, View } from 'tamagui';
 
-const TextfieldsMeta: Meta<typeof Textfields> = {
+export const TextfieldsMeta: Meta<typeof Textfields> = {
     title: "TextFields",
     component: Textfields,
     args: {
@@ -25,25 +25,25 @@ export default TextfieldsMeta;
 
 export const Default = {};
 
-const Placeholder = {
+export const Placeholder = {
     args: {
     
     },
 };
 
-const Focused = {
+export const Focused = {
     args: {
     
     },
 };
 
-const Error = {
+export const Error = {
     args: {
     
     },
 };
 
-const Disabled = {
+export const Disabled = {
     args: {
     
     },
