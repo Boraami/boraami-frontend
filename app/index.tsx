@@ -4,24 +4,6 @@ import { View } from "tamagui";
 import { InfoCard } from "../src/components/Card/InfoCard";
 import { AchievementCard } from "../src/components/Card/AchievementCard";
 
-
-// Light Theme Card Component: lines 137-142
-//   "info-card-fill" : colorScheme.boraami[100],
-//   "info-card-top-border" : colorScheme.boraami[700],
-//   "info-card-music-icon" : colorScheme.boraami[700],
-//   "info-card-text" : colorScheme.boraami[700],
-//   "achievement-card-fill" : colorScheme.boraami[100],
-//   "achievement-card-text" : colorScheme.boraami[700],
-
-// Dark Theme Card Component: lines 334-339 
-// "info-card-fill" : colorScheme.boraami[700],
-// "info-card-top-border" : colorScheme.boraami[400],
-// "info-card-music-icon" : colorScheme.boraami[50],
-// "info-card-text" : colorScheme.boraami[50],
-// "achievement-card-fill" : colorScheme.boraami[500],
-// "achievement-card-text" : colorScheme.boraami[50],
-
-
 function App() {
   return (
     <View margin={20}>
@@ -47,7 +29,7 @@ function App() {
         </InfoCard>
       </View>
 
-        <AchievementCard text="I earned the Dreamer Streamer badge for streaming 3 days in a row!" uri="https://t3.ftcdn.net/jpg/05/63/73/08/240_F_563730870_ciwSsLDxuvUgsu8KYpyRG5J1MhVSVc11.jpg"></AchievementCard>
+        <AchievementCard text1="I earned the " boldText="Dreamer Streamer badge" text2=" for streaming 3 days in a row!" uri="https://t3.ftcdn.net/jpg/05/63/73/08/240_F_563730870_ciwSsLDxuvUgsu8KYpyRG5J1MhVSVc11.jpg"></AchievementCard>
     
     </View>
   );

@@ -13,18 +13,22 @@ const Achievement = styled(Card, {
 
 type AchievementProps = {
     uri: string;
-    text: string,
+    text1: string,
+    text2: string,
     boldText?: string, 
 }
     
-export const AchievementCard = ({ text, uri, boldText }: AchievementProps) => {
+export const AchievementCard = ({ text1, text2, uri, boldText }: AchievementProps) => {
     return (
     <Achievement>
         <View style={{ flexDirection: 'row', width: 278, height: 87, alignContent: 'center', paddingHorizontal: 25 }}>
             <View style={{ marginTop: 17 }}>
                 <Image source={{ uri: uri,  width: 48, height: 48} }/>
             </View>
-            <Text fontSize={14} style={{ padding: 12 }}>{text}</Text>
+            <Text color={'$boraami.700'} fontSize={14} fontFamily={'$body'} style={{ padding: 12 }}>{text1}
+                <Text fontSize={16} fontFamily={'$heading'}>{boldText}</Text>
+                <Text fontSize={14} fontFamily={'$body'} style={{ padding: 12 }}>{text2}</Text>
+            </Text>
         </View>
     </Achievement>
 )};
