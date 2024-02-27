@@ -29,7 +29,7 @@ function App() {
         </InfoCard>
       </View>
 
-        <AchievementCard text1="I earned the " boldText="Dreamer Streamer badge" text2=" for streaming 3 days in a row!" uri="https://t3.ftcdn.net/jpg/05/63/73/08/240_F_563730870_ciwSsLDxuvUgsu8KYpyRG5J1MhVSVc11.jpg"></AchievementCard>
+      <AchievementCard text1="I earned the " boldText="Dreamer Streamer badge" text2=" for streaming 3 days in a row!" uri="https://t3.ftcdn.net/jpg/05/63/73/08/240_F_563730870_ciwSsLDxuvUgsu8KYpyRG5J1MhVSVc11.jpg"></AchievementCard>
     
     </View>
   );

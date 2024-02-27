@@ -3,6 +3,7 @@ import { Card, styled, Text, Image, View  } from 'tamagui';
 
 const Achievement = styled(Card, {
     backgroundColor: '$info-card-fill',
+    borderRadius: "$r-subtle",
     justifyContent: 'space-between',
     alignSelf: 'center',
     display: 'flex',
@@ -26,7 +27,7 @@ export const AchievementCard = ({ text1, text2, uri, boldText }: AchievementProp
                 <Image source={{ uri: uri,  width: 48, height: 48} }/>
             </View>
             <Text color={'$boraami.700'} fontSize={14} fontFamily={'$body'} style={{ padding: 12 }}>{text1}
-                <Text fontSize={16} fontFamily={'$heading'}>{boldText}</Text>
+                <Text fontSize={14} fontFamily={'$heading'}>{boldText}</Text>
                 <Text fontSize={14} fontFamily={'$body'} style={{ padding: 12 }}>{text2}</Text>
             </Text>
         </View>

@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, styled, View, Text, Image  } from 'tamagui';
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import { SimpleLineIcons } from '@expo/vector-icons';
 
 const Info = styled(Card, {
     alignItems: 'flex-start',
@@ -38,7 +39,8 @@ export const InfoCard = ({ title, subtitle, uri, size, textSize, spotifySize, cl
             <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
                 <View style={{ flexDirection: 'column'}}>
                     <View style={{ flexDirection: "row" }}>
-                        <Entypo name="spotify" size={spotifySize} style={{ color: '#5F3D9C' }} />
+                       {/* <SimpleLineIcons name="social-spotify" size={spotifySize} color="#5F3D9C" /> */}
+                         <Entypo name="spotify" size={spotifySize} style={{ color: '#5F3D9C' }} />
                         <Text paddingLeft={4} fontSize={textSize} color="$info-card-text" fontFamily="$heading" >{title}</Text>
                     </View> 
                     <Text color="$info-card-text" fontSize={subtextSize} >{subtitle}</Text>
