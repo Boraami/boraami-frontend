@@ -34,4 +34,3 @@ export const AchievementCard = ({ text1, text2, uri, boldText }: AchievementProp
     </Achievement>
 )};
 
-
