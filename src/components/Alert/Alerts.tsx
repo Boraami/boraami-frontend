@@ -16,6 +16,7 @@ type Props = {
     shade: 'solid' | 'subtle' | 'outline',
     content?: string;
     contentColor?: string;
+    // opacity?: string;
 };
 
 export const Alerts = ({ variant = 'default', shade = 'solid', content, contentColor }: Props) => {
@@ -26,7 +27,9 @@ export const Alerts = ({ variant = 'default', shade = 'solid', content, contentC
     let bgColor;
     let bdColor; 
     let bdWidth;
+    let bdLeftColor;
     let bdLeftWidth;
+    let bgIconColor;
     let text;
     let textColor;
 
@@ -39,6 +42,7 @@ export const Alerts = ({ variant = 'default', shade = 'solid', content, contentC
             textColor = '#FFFEF8'
             lIconColor = '#FFFEF8'
             rIconColor = '#FFFEF8'
+            bdLeftColor = '#B48BFF'
             bdLeftWidth = 4
         }
         if (shade === 'subtle'){
@@ -47,6 +51,7 @@ export const Alerts = ({ variant = 'default', shade = 'solid', content, contentC
             textColor = '#322A41'
             lIconColor = '#5F3D9C'
             rIconColor = '#322A41'
+            bdLeftColor = '#B48BFF'
             bdLeftWidth = 4
         }
         if (shade === 'outline'){
@@ -63,7 +68,7 @@ export const Alerts = ({ variant = 'default', shade = 'solid', content, contentC
         leftIcon = 'checkcircleo';
         text = 'Selection successfully moved!';
         if (shade === 'solid'){
-            bgColor = '#27846E'
+            bgColor = '#27846E', 
             bdColor = '#FFFEF8'
             textColor = '#FFFEF8'
             lIconColor = '#FFFEF8'
@@ -73,14 +78,14 @@ export const Alerts = ({ variant = 'default', shade = 'solid', content, contentC
             bgColor = '#D5EBE6'
             bdColor = '#D5EBE6'            
             textColor = '#322A41'
-            lIconColor = '#D5EBE6'
+            lIconColor = '#27846E'
             rIconColor = '#322A41'
         }
         if (shade === 'outline'){
             bgColor = '#FFFFFF'
-            bdColor = '#27846E'
+            bdColor = '#D5EBE6'
             textColor = '#322A41'
-            lIconColor = '#D5EBE6'
+            lIconColor = '#27846E'
             rIconColor = '#322A41'
             bdWidth = 1
         }
@@ -115,14 +120,16 @@ export const Alerts = ({ variant = 'default', shade = 'solid', content, contentC
     }
 
     return (
-    <Alert style={{ backgroundColor: bgColor, borderColor: bdColor, borderWidth: bdWidth, borderLeftWidth: bdLeftWidth, borderLeftColor: content ? '#B48BFF' : ' ', height: content ? 90 : 40 }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-        <AntDesign name={leftIcon} size={14} color={lIconColor}/>
-            <View width={250} flexDirection='column'>
-                <Text fontFamily={'$body'} color={textColor} fontSize={14}>{text}</Text>
-                <Text fontFamily={'$body'} fontSize={14} color={contentColor}>{content}</Text> 
+        <Alert style={{ backgroundColor: bgColor, borderColor: bdColor, borderWidth: bdWidth, borderLeftWidth: bdLeftWidth, borderLeftColor: content ? '#B48BFF' : ' ', height: content ? 90 : 40 }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'top', backgroundColor: bgIconColor}}>
+                <AntDesign name={leftIcon} size={14} color={lIconColor} paddingTop={4}/>
+                    <View width={250} flexDirection='column'>
+                        <Text fontFamily={content && shade !== 'subtle' ? '$heading' : (!content ? '$body' : '$PoppinsReg' )} color={textColor} fontSize={content ? 16 : 14}>{text}</Text>
+                        <Text fontFamily={'$body'} fontSize={14} color={contentColor}>{content}</Text> 
+                    </View>
+                <AntDesign name="close" size={16} color={rIconColor} />
             </View>
-            <AntDesign name="close" size={16} color={rIconColor} />
-        </View>
-    </Alert>
+        </Alert>
     )}
+
+    // Wrap the 'AntDesign' icon component inside a 'View' and set the background color to white, change borderRadius.

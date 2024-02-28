@@ -38,10 +38,10 @@ type DeleteBtnProps = {
     text: string
 };
 
-export const WarningAlertDialog = ({ title, content, boldText}: Props) => {
+export const WarningAlertDialog = ({ title, content }: Props) => {
     return (
     <WarningAlert>
-        <View backgroundColor={'$mono.50'} borderColor={'$error-alert-outline'} borderRadius={8} width={330} borderWidth={2}>
+        <View backgroundColor={'$error-alert-fill'} borderColor={'$error-alert-outline'} borderRadius={8} width={330} borderWidth={2}>
             <View style={{ flexDirection: 'row', padding: 16, justifyContent: 'space-between'}}>
                 <Text fontFamily={'$heading'}  fontSize={20} color={'$mono.800'}>{title}</Text>
                 <AntDesign name="close" size={24} color="black" />
@@ -58,3 +58,7 @@ export const WarningAlertDialog = ({ title, content, boldText}: Props) => {
         </View>
     </WarningAlert>
     )}
+
+
+
+    // Is there a variable for the WarningDialog text? 

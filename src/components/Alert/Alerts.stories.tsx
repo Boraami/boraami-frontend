@@ -49,6 +49,7 @@ export const LongOutline = {
     shade: 'outline',
     content: 'We are happy to announce that we are going live on July 28th. Get ready!',
     contentColor: '#322A41',
+    // bgColor: 'rgba(255, 0, 0, 0.0)'
   },
 };
 
@@ -91,6 +92,12 @@ export const SuccessOutline = {
   args: {
     variant: 'success',
     shade: 'outline',
+  },
+};
+
+export const SuccessOutlineDark = {
+  args: {
+  
   },
 };
 
