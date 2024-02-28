@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, styled, TextArea, Button, XStack, YStack } from 'tamagui';
+import { View, Text, styled, TextArea, ScrollView, YStack } from 'tamagui';
 
 const TextBox = styled(TextArea, {
     display: 'flex',
@@ -9,27 +9,35 @@ const TextBox = styled(TextArea, {
     color: '$placeholder-textbox-text',
     fontSize: 14,
     height: 136,
-    width: 428,
+    width: 350,
+    padding: 10, 
 });
 
 type Props = {
-    message: 'string',
-    num1: 'number',
-    num2: 'number',
+    num1: number,
+    num2: number,
+    bdColor: string,
+    bgColor: string,
+    bdWidth: number, 
+    color: string,
+    errorText: string,
+    errorTextColor: string, 
+    
 };
 
-export const Textfields = ({ message, num1, num2 }: Props) => {
+    export const Textfields = ({ num1, num2, bdColor, bgColor, bdWidth, color, errorText, errorTextColor }: Props) => {
 
     return (
-        <TextBox>
-            <View>
-                <Text>'Default input. Maximum height of container to occupy only 5 lines of input texts. Provide a scroll post 5 lines.' </Text>
-            <View flexDirection='row'>
-                <Text>{message}</Text>
-                <Text>{num1}/{num2}</Text>
-            </View>
-            </View>
-        </TextBox>
+        <View>
+            <TextBox borderColor={bdColor} backgroundColor={bgColor} borderRadius={6} borderWidth={bdWidth}>
+                <Text lineHeight={18} color={color}>Default Input. Maximum height of container to occupy only 5 lines of input texts. Provide a scroll post 5 lines.</Text>
+            </TextBox>
+                <View flexDirection='row' justifyContent='space-between'>
+                    <Text color={errorTextColor}>{errorText}</Text>
+                    <Text>{num1}/{num2}</Text>
+                </View> 
+
+       </View>
     )}
 
 
