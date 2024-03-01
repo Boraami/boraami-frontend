@@ -16,21 +16,21 @@ export const headingSizes = {
 } as const;
 
 export const paragraphSizes = {
-  xs: 10,
-  sm: 12,
-  md: 14,
-  lg: 16,
-  xl: 18,
-  true: 18,
-  "2xl": 20,
-  "3xl": 24,
-  "4xl": 30,
-  "5xl": 36,
-  "6xl": 48,
-  "7xl": 60,
-  "8xl": 72,
-  "9xl": 96,
-  "10xl": 128,
+  "2xs": 10,
+  xs: 12,
+  sm: 14,
+  md: 16,
+  lg: 18,
+  xl: 20,
+  true: 20,
+  "2xl": 24,
+  "3xl": 30,
+  "4xl": 36,
+  "5xl": 48,
+  "6xl": 60,
+  "7xl": 72,
+  "8xl": 96,
+  "9xl": 128,
 } as const;
 
 export const headingLineHeights = Object.fromEntries(
