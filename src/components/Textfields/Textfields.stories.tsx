@@ -15,7 +15,6 @@ export const TextfieldsMeta: Meta<typeof Textfields> = {
       num2: 12, 
       bdColor: '$placeholder-textbox-border',
       bgColor: '$placeholder-textbox-fill',
-      bdWidth: 1,
       color: '$placeholder-textbox-text',
       message: 'Default input. Maximum height of container to occupy only 5 lines of input texts. Provide a scroll post 5 lines.',
       fontSize: 14,
@@ -53,7 +52,6 @@ export const Focused = {
       bdColor: '$focused-textbox-border',
       bgColor: '$focused-textbox-fill',
       color: '$focused-textbox-text',
-      bdWidth: 1,
       helperTextColor: '$focused-helper-text-textfield',
     },
 };
@@ -64,7 +62,6 @@ export const Error = {
       bgColor: '$error-textbox-fill',
       color: '$error-textbox-text',
       helperTextColor: '$error-helper-text-textfield',
-      bdWidth: 2,
       helperText: 'Error Text',  
     },
 };
