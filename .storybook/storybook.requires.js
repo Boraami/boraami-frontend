@@ -51,6 +51,11 @@ const getStories = () => {
   return {
     "./src/components/Badge/Badge.stories.tsx": require("../src/components/Badge/Badge.stories.tsx"),
     "./src/components/Button/Button.stories.tsx": require("../src/components/Button/Button.stories.tsx"),
+    "./src/components/Modals/ModalLeftAlignBtns.stories.tsx": require("../src/components/Modals/ModalLeftAlignBtns.stories.tsx"),
+    "./src/components/Modals/ModalSingleActionButton.stories.tsx": require("../src/components/Modals/ModalSingleActionButton.stories.tsx"),
+    "./src/components/Modals/ModalWideActionButtons.stories.tsx": require("../src/components/Modals/ModalWideActionButtons.stories.tsx"),
+    "./src/components/Modals/ModalWithFooter.stories.tsx": require("../src/components/Modals/ModalWithFooter.stories.tsx"),
+    "./src/components/Modals/ModalWithImage.stories.tsx": require("../src/components/Modals/ModalWithImage.stories.tsx"),
     "./src/components/OverflowMenu/OverflowMenu.stories.tsx": require("../src/components/OverflowMenu/OverflowMenu.stories.tsx"),
     "./src/components/Overlay/Overlay.stories.tsx": require("../src/components/Overlay/Overlay.stories.tsx"),
   };
