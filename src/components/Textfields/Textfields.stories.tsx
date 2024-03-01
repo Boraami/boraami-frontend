@@ -19,8 +19,8 @@ export const TextfieldsMeta: Meta<typeof Textfields> = {
       color: '$placeholder-textbox-text',
       message: 'Default input. Maximum height of container to occupy only 5 lines of input texts. Provide a scroll post 5 lines.',
       fontSize: 14,
-      errorText: 'Error Text',
-      errorTextColor: 'black',
+      helperText: 'Error Text',
+      helperTextColor: '$placeholder-helper-text',
   },
 
     decorators: [
@@ -44,8 +44,7 @@ export const Default = {
     bdColor: '$default-textbox-border',
     bgColor: '$default-textbox-fill',
     color: '$default-textbox-text',
-    errorTextColor: 'black',
-
+    helperTextColor: '$default-helper-text-textfield',
   },
 };
 
@@ -55,6 +54,7 @@ export const Focused = {
       bgColor: '$focused-textbox-fill',
       color: '$focused-textbox-text',
       bdWidth: 1,
+      helperTextColor: '$focused-helper-text-textfield',
     },
 };
 
@@ -62,11 +62,10 @@ export const Error = {
     args: {
       bdColor: '$error-textbox-border',
       bgColor: '$error-textbox-fill',
-      // bgColor: '#FDF2F8',
       color: '$error-textbox-text',
-      errorTextColor: '#FDF2F8',
+      helperTextColor: '$error-helper-text-textfield',
       bdWidth: 2,
-      errorText: 'Error Text',  
+      helperText: 'Error Text',  
     },
 };
 
@@ -74,8 +73,8 @@ export const Disabled = {
     args: {
       bdColor: '$disabled-textbox-border',
       bgColor: '$disabled-textbox-fill',
-      color: '$disabled-textbox-text'
-
+      color: '$disabled-textbox-text',
+      helperTextColor: '$disabled-helper-text-textfield',
     },
 };
 
