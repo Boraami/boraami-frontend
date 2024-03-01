@@ -8,11 +8,12 @@ const WarningAlertDialogMeta: Meta<typeof WarningAlertDialog> = {
   component: WarningAlertDialog,
   args: {
     title: 'Delete Customer',
-    content: 'This will remove all data relating to Alex. This action cannot be reversed. Deleted data cannot be recovered.',
+    content: 'This will remove all data relating to Alex. This action cannot be reversed.',
     backgroundColor: '$error-alert-fill',
     borderColor: '$error-alert-outline',
-    color: '$error-text-title', 
-    close: '$error-text-title'
+    color: '$error-alert-title-text', 
+    close: '$error-alert-title-text',
+    boldText: 'Deleted data cannot be recovered'
   },
 
   decorators: [
