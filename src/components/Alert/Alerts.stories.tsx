@@ -11,7 +11,7 @@ const AlertsMeta: Meta<typeof Alerts> = {
     shade: 'solid',
     title: 'We are going live in July!',
     content: '',
-    contentColor: '',
+    // contentColor: '$default-solid-text',
   },
 
   decorators: [
@@ -31,7 +31,7 @@ export const LongSolid = {
     variant: 'default',
     shade: 'solid',
     content: 'We are happy to announce that we are going live on July 28th. Get ready!',
-    contentColor: '#FFFEF8',
+    // contentColor: '$default-solid-text',
   }
 };
 
@@ -40,7 +40,7 @@ export const LongSubtle = {
     variant: 'default',
     shade: 'subtle',
     content: 'We are happy to announce that we are going live on July 28th. Get ready!',
-    contentColor: '#322A41',
+    // contentColor: '$default-subtle-text',
   },
 };
 export const LongOutline = {
@@ -48,8 +48,7 @@ export const LongOutline = {
     variant: 'default',
     shade: 'outline',
     content: 'We are happy to announce that we are going live on July 28th. Get ready!',
-    contentColor: '#322A41',
-    // bgColor: 'rgba(255, 0, 0, 0.0)'
+    // contentColor: '$default-outline-text',
   },
 };
 
@@ -88,16 +87,12 @@ export const SuccessSubtle = {
   },
 };
 
+
+// There are two different variables for this variant in the Figma file
 export const SuccessOutline = {
   args: {
     variant: 'success',
     shade: 'outline',
-  },
-};
-
-export const SuccessOutlineDark = {
-  args: {
-  
   },
 };
 
