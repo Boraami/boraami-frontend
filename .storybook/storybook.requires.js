@@ -50,6 +50,11 @@ try {
 const getStories = () => {
   return {
     "./src/components/Button/Button.stories.tsx": require("../src/components/Button/Button.stories.tsx"),
+    "./src/components/Checkbox/Checkbox.stories.tsx": require("../src/components/Checkbox/Checkbox.stories.tsx"),
+    "./src/components/Checkbox/CheckboxList.stories.tsx": require("../src/components/Checkbox/CheckboxList.stories.tsx"),
+    "./src/components/Switch/Switch.stories.tsx": require("../src/components/Switch/Switch.stories.tsx"),
+    "./src/components/Switch/SwitchDisable.stories.tsx": require("../src/components/Switch/SwitchDisable.stories.tsx"),
+    "./src/components/Switch/SwitchWithLabel.stories.tsx": require("../src/components/Switch/SwitchWithLabel.stories.tsx"),
   };
 };
 
