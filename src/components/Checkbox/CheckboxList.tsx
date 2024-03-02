@@ -1,4 +1,4 @@
-import { XStack,Label, Text, YStack } from 'tamagui'
+import { XStack,Label, Text, YStack, SizableText } from 'tamagui'
 import { CheckBox } from './Checkbox';
 
 export function CheckBoxList(props: {
@@ -16,14 +16,14 @@ var ts=0
 var ls=''
 //for dynamic size of label and helper text
 if(props.size=='sm'){
-  ls='$sm'
+  ls='$xs'
   ts=12
 }else if (props.size=='md'){
-  ls='$md'
+  ls='$sm'
   ts=14
 }else if (props.size=='lg'){
-  ls='$xl'
-  ts=18
+  ls='$md'
+  ts=16
 }
   return (
     <XStack flexDirection='column' gap={10}>
@@ -37,13 +37,13 @@ if(props.size=='sm'){
        <CheckBox labeltext={props.labeltxt2} size={props.size} disable={props.disable2} checked={props.checked}/>
        <CheckBox labeltext={props.labeltxt3} size={props.size} disable={props.disable3} checked={props.checked}/>
        </YStack>
-       <Text 
+       <SizableText 
           lineHeight={21}
           fontWeight={"400"}
           fontFamily={'$body'}
           fontSize={ts}
           marginTop={2}
-          color="$boraami.500" >{props.helpertext}</Text>
+          color="$boraami.500" >{props.helpertext}</SizableText>
     </XStack>
   )
 }

@@ -4,8 +4,7 @@ import { FontAwesome6 } from '@expo/vector-icons';
 import { Label,XStack,YStack } from 'tamagui'
 import React from 'react';
 //-Notes-
-//PENDING: focus state, hover state
-//DONE: checkbox check icon opacity, checkbox size={}, dynamic labels
+//DONE: checkbox check icon opacity, checkbox size={}, dynamic labels,focus state, hover state
 const Frame = styled(Stack, {
   borderColor: "$boraami.700", //gives error if '$bg-brand-strong' is used cuz its alr using themestack
   borderRadius: 2,
@@ -47,21 +46,21 @@ var s='';
 if(props.size=='sm'){
   cs=-5
   is=9
-  s='$md'
+  s='$sm'
   bw=1.2
   console.log(cs,is, bw, s)
 
 } else if(props.size=='md'){
   cs=-2
   is=12
-  s='$xl'
+  s='$md'
   bw=2
   console.log(cs,is, bw,s)
 
 } else if(props.size=='lg'){
   cs=0
   is=15 //label size diff
-  s='$2xl' //size diff than documentation cuz the og measurements didnt work
+  s='$lg' //size diff than documentation cuz the og measurements didnt work
   bw=2
   console.log(cs,is,bw,s)
 
