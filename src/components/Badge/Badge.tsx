@@ -15,7 +15,7 @@ if(props.size=='sm'){
 }else{
     console.log('size incorrect')
 }
-//font changed from 14->12 to adjust the design look accprding to design files
+//font changed from 14->12 to adjust the design look according to design files
     return(
         <>
         {props.size=='lg'?
