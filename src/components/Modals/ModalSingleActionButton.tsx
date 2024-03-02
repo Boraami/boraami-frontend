@@ -1,54 +1,89 @@
-import { XStack, Text, Image, Separator,GetProps, styled, AlertDialog } from "tamagui";
-import { FontAwesome } from '@expo/vector-icons';
-import { FontAwesome6 } from '@expo/vector-icons';
-
-import { Button,  YStack } from 'tamagui'
-
-export const  ModalBox= styled(AlertDialog,{
-  name: 'ModalBox',
-    display:'flex',
-    alignSelf:'center',
-})
-export type ModalBoxProps = GetProps<typeof ModalBox>
-
+import { XStack, SizableText, Image,} from "tamagui";
+import { Ionicons } from '@expo/vector-icons';
+import { Button,  Adapt, Dialog, Sheet } from 'tamagui'
+import {FontAwesome } from '@expo/vector-icons'
 
 export function ModalWithSingleActionButton(props: {modeltitle: string,
                               modeltext: string,
                               btntext: string,}) {
-    return (<ModalBox >
-      <XStack
-      flexDirection="column">
-        <Image
-          source={{
-                  uri: require('../../media/images/sitting1.png'),
-          }}
-          width={59}
-          height={51}
-          resizeMode={'contain'}
-          alignSelf='flex-end'
+    return (
+      <Dialog modal>
+      <Dialog.Trigger asChild>
+        <Button>Show Modal With Single Action Button</Button>
+      </Dialog.Trigger>
+      
+      <Adapt when="sm" platform="touch">
+        <Sheet animation="medium" zIndex={200000} modal dismissOnSnapToBottom>
+          <Sheet.Frame padding="$2" gap="$4">
+            <Adapt.Contents />
+          </Sheet.Frame>
+          <Sheet.Overlay
+            animation="lazy"
+            enterStyle={{ opacity: 0 }}
+            exitStyle={{ opacity: 0 }}
+          />
+        </Sheet>
+      </Adapt>
+
+      <Dialog.Portal>
+        <Dialog.Overlay
+          key="overlay"
+          animation="slow"
+          opacity={0.5}
+          enterStyle={{ opacity: 0 }}
+          exitStyle={{ opacity: 0 }}
         />
-        <XStack
-        backgroundColor={'$error-alert-fill'}
-        width={350}
-        height={113}
-        borderTopLeftRadius={8}
-        borderTopRightRadius={8}
-        padding={16}
-        justifyContent="center"
+
+        <Dialog.Content
+          bordered
+          elevate
+          key="content"
+          animateOnly={['transform', 'opacity']}
+          animation={[
+            'quick',
+            {
+              opacity: {
+                overshootClamping: true,
+              },
+            },
+          ]}
+          enterStyle={{ x: 0, y: -20, opacity: 0, scale: 0.9 }}
+          exitStyle={{ x: 0, y: 10, opacity: 0, scale: 0.95 }}
+          gap="$4"
         >
-          <XStack 
-          flexDirection="column"
-          alignItems='center'
-          justifyContent="center"
-          alignSelf="center"
-          gap={20}>
-            <FontAwesome6 name="check-circle" size={20} color="#2F9D83" />
-            <Text 
-            lineHeight={26}
-            fontWeight={"700"}
-            fontFamily={'$heading'}
-            fontSize={22}
-            color="$title-text" >{props.modeltitle}</Text>
+          <XStack
+          flexDirection="column">
+            <Image
+              source={{
+                      uri: require('../../media/images/sitting1.png'),
+              }}
+              width={59}
+              height={51}
+              resizeMode={'contain'}
+              alignSelf='flex-end'
+            />
+            <XStack
+            backgroundColor={'$error-alert-fill'}
+            width={350}
+            height={113}
+            borderTopLeftRadius={8}
+            borderTopRightRadius={8}
+            padding={16}
+            justifyContent="center"
+            >
+              <XStack 
+              flexDirection="column"
+              alignItems='center'
+              justifyContent="center"
+              alignSelf="center"
+              gap={20}>
+             <Ionicons name="checkmark-circle"  size={22} color="#2F9D83" />
+              <SizableText 
+              fontFamily={'$heading'}
+              paddingTop={1}
+              lineHeight={25}
+              size={'$lg'}
+              color="$title-text" >{props.modeltitle}</SizableText>
           </XStack>
         </XStack>
         <XStack
@@ -58,13 +93,11 @@ export function ModalWithSingleActionButton(props: {modeltitle: string,
         paddingLeft={20}
         paddingRight={20}
         paddingBottom={16}>
-          <Text 
-            lineHeight={23}
-            fontWeight={"400"}
+           <SizableText 
             fontFamily={'$body'}
-            fontSize={16}
-            color="$supporting-text" 
-            >{props.modeltext}</Text>
+            size={'$md'}
+            lineHeight={21}
+            color="$supporting-text" >{props.modeltext}</SizableText>
         </XStack>
         <XStack
           backgroundColor={'$error-alert-fill'}
@@ -76,6 +109,7 @@ export function ModalWithSingleActionButton(props: {modeltitle: string,
           paddingLeft={20}
           paddingRight={20}
           paddingBottom={16}>
+          <Dialog.Close displayWhenAdapted  asChild>
           <Button
             width={310}
             height={40}
@@ -85,16 +119,19 @@ export function ModalWithSingleActionButton(props: {modeltitle: string,
             justifyContent='center'
             alignItems='center'
           >
-          <Text
+          <SizableText
           color='$boraami.50'
-          fontSize='$xl'
+          size='$lg'
           lineHeight={22}
           fontFamily='$btn'
-          >{props.btntext}</Text>
+          >{props.btntext}</SizableText>
           <FontAwesome name="heart" size={14} paddingBottom={3} color="#F7F3FF" /></Button>
+          </Dialog.Close>
         </XStack>
-      </XStack>
-      </ModalBox>
+        </XStack>
+        </Dialog.Content>
+      </Dialog.Portal>
+  </Dialog>
     )
   }
   

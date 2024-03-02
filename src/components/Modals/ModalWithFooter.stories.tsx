@@ -12,7 +12,7 @@ const ModalWithFooterMeta: Meta<typeof ModalWithFooter> = {
     },
     decorators: [
       (Story) => (
-        <View style={{alignItems: "center", justifyContent: "center", flex: 1 }}>
+        <View style={{alignItems: "flex-start", justifyContent:'flex-start', flex: 1 }}>
           <Story />
         </View>
       ),

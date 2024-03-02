@@ -1,57 +1,95 @@
-import { XStack, Text, Image, Separator,GetProps, styled, AlertDialog } from "tamagui";
-import { FontAwesome6 } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
-import { Button,  YStack } from 'tamagui'
-
-export const  ModalBox= styled(AlertDialog,{
-  name: 'ModalBox',
-    display:'flex',
-    alignSelf:'center',
-})
-export type ModalBoxProps = GetProps<typeof ModalBox>
+import { XStack, SizableText, Image, YStack, Separator} from "tamagui";
+import { Ionicons } from '@expo/vector-icons';
+import { Button,  Adapt, Dialog, Sheet } from 'tamagui'
 
 export function ModalWithFooter(props: {modeltitle: string,
                               modeltext: string,
                               btn1text: string,
                               btn2text: string}) {
     return (
-      <ModalBox >
-      <XStack
-      flexDirection="column">
-        <Image
-          source={{
-                  uri: require('../../media/images/sitting1.png'),
-          }}
-          width={59}
-          height={51}
-          resizeMode={'contain'}
-          alignSelf='flex-end'
+      <Dialog modal>
+      <Dialog.Trigger asChild>
+        <Button>Show Modal With Footer</Button>
+      </Dialog.Trigger>
+      <Adapt when="sm" platform="touch">
+        <Sheet animation="medium" zIndex={200000} modal dismissOnSnapToBottom>
+          <Sheet.Frame padding="$2">
+            <Adapt.Contents />
+          </Sheet.Frame>
+          <Sheet.Overlay
+            animation="lazy"
+            enterStyle={{ opacity: 0 }}
+            exitStyle={{ opacity: 0 }}
+          />
+        </Sheet>
+      </Adapt>
+      <Dialog.Portal>
+        <Dialog.Overlay
+          key="overlay"
+          animation="slow"
+          opacity={0.5}
+          enterStyle={{ opacity: 0 }}
+          exitStyle={{ opacity: 0 }}
         />
-        <XStack
-        backgroundColor={'$error-alert-fill'}
-        width={350}
-        height={56}
-        borderTopLeftRadius={8}
-        borderTopRightRadius={8}
-        paddingTop={8}
-        paddingBottom={8}
-        paddingLeft={20}
-        paddingRight={30}
-        flexDirection="row"
-        justifyContent='space-between'
+        <Dialog.Content
+          bordered
+          elevate
+          key="content"
+          animateOnly={['transform', 'opacity']}
+          animation={[
+            'quick',
+            {
+              opacity: {
+                overshootClamping: true,
+              },
+            },
+          ]}
+          enterStyle={{ x: 0, y: -20, opacity: 0, scale: 0.9 }}
+          exitStyle={{ x: 0, y: 10, opacity: 0, scale: 0.95 }}
+          gap="$4"
         >
-          <XStack gap={8} paddingTop={12} >
-            <FontAwesome6 name="check-circle" size={18} color="#2F9D83" />
-            <Text 
-            lineHeight={25}
-            fontWeight={"700"}
-            fontFamily={'$heading'}
-            fontSize={20}
-            color="$title-text" >{props.modeltitle}</Text>
-          </XStack>
-          <YStack paddingTop={10} >
-            <FontAwesome name="close" size={20}  color="#8F66D6" />
+          <XStack
+          flexDirection="column">
+            <Image
+              source={{
+                      uri: require('../../media/images/sitting1.png'),
+              }}
+              width={59}
+              height={51}
+              resizeMode={'contain'}
+              alignSelf='flex-end'
+            />
+            <XStack
+            backgroundColor={'$error-alert-fill'}
+            width={350}
+            height={56}
+            borderTopLeftRadius={8}
+            borderTopRightRadius={8}
+            paddingTop={8}
+            paddingBottom={8}
+            paddingLeft={15}
+            paddingRight={10}
+            flexDirection="row"
+            justifyContent='space-between'
+            >
+            <XStack gap={8} paddingTop={12} >
+            <Ionicons name="checkmark-circle"  size={22} color="#2F9D83" />
+            <SizableText 
+              fontFamily={'$heading'}
+              paddingTop={1}
+              lineHeight={25}
+              size={'$lg'}
+              color="$title-text" >{props.modeltitle}</SizableText>
+            </XStack>
+            <YStack paddingTop={3} >
+              <Dialog.Close displayWhenAdapted  asChild>
+              <Button 
+                  width={60}
+                  height={40}>
+              <Ionicons name="close-sharp" size={26}   color="#8F66D6" /></Button>
+              </Dialog.Close>          
           </YStack>
+          </XStack>
         </XStack>
         <Separator borderColor={"$modal-divider"}/>
         <XStack
@@ -60,17 +98,13 @@ export function ModalWithFooter(props: {modeltitle: string,
         height={95}
         padding={16}
         >
-          <Text 
-            lineHeight={21}
-            fontWeight={"400"}
+          <SizableText 
             fontFamily={'$body'}
-            fontSize={14}
-            color="$title-text" 
-            >{props.modeltext}</Text>
-
+            size={'$md'}
+            lineHeight={21}
+            color="$title-text" >{props.modeltext}</SizableText>
         </XStack>
         <Separator borderColor={"$modal-divider"}/>
-
         <XStack
         backgroundColor={'$error-alert-fill'}
         width={350}
@@ -80,13 +114,14 @@ export function ModalWithFooter(props: {modeltitle: string,
         borderBottomLeftRadius={8}
         borderBottomRightRadius={8}
         >
-          <XStack gap={16}>
+        <XStack gap={16}>
+        <Dialog.Close displayWhenAdapted  asChild>
             <Button
             width={82}
             height={40}
             borderRadius={4}
             borderColor={"$secondary-button-border"}
-            paddingTop={8}
+            paddingTop={9}
             paddingBottom={8}
             paddingLeft={8}
             paddingRight={8}
@@ -99,12 +134,13 @@ export function ModalWithFooter(props: {modeltitle: string,
               fontFamily:'$btn'
             }}  
             >{props.btn1text}</Button>
+            </Dialog.Close>
             <Button
             width={77}
             height={40}
             borderRadius={4}
             backgroundColor={"$primary-button-fill"}
-            paddingTop={8}
+            paddingTop={9}
             paddingBottom={8}
             paddingLeft={8}
             paddingRight={8}
@@ -119,8 +155,8 @@ export function ModalWithFooter(props: {modeltitle: string,
             >{props.btn2text}</Button>
           </XStack>
         </XStack>
-      </XStack>
-      </ModalBox>
-    )
-  }
-  
+        </Dialog.Content>
+      </Dialog.Portal>
+  </Dialog>
+  )
+}

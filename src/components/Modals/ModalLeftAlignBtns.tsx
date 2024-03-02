@@ -1,52 +1,86 @@
-import { XStack, Text, Image, Separator,GetProps, styled, AlertDialog } from "tamagui";
-import { FontAwesome6 } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
-import { Button,  YStack } from 'tamagui'
-
-export const  ModalBox= styled(AlertDialog,{
-  name: 'ModalBox',
-    display:'flex',
-    alignSelf:'center',
-})
-export type ModalBoxProps = GetProps<typeof ModalBox>
-
+import { XStack, SizableText, Image,} from "tamagui";
+import { Ionicons } from '@expo/vector-icons';
+import { Button,  Adapt, Dialog, Sheet } from 'tamagui'
 
 export function ModalLeftAlignButtons(props: {modeltitle: string,
                               modeltext: string,
                               btn1text: string,
                               btn2text: string}) {
     return (
-      <ModalBox >
-      <XStack
-      flexDirection="column">
-        <Image
-          source={{
-                  uri: require('../../media/images/sitting1.png'),
-          }}
-          width={59}
-          height={51}
-          resizeMode={'contain'}
-          alignSelf='flex-end'
+      <Dialog modal>
+      <Dialog.Trigger asChild>
+        <Button>Show Modal With Left Aligned Content</Button>
+      </Dialog.Trigger>
+      
+      <Adapt when="sm" platform="touch">
+        <Sheet animation="medium" zIndex={200000} modal dismissOnSnapToBottom>
+          <Sheet.Frame padding="$2" gap="$4">
+            <Adapt.Contents />
+          </Sheet.Frame>
+          <Sheet.Overlay
+            animation="lazy"
+            enterStyle={{ opacity: 0 }}
+            exitStyle={{ opacity: 0 }}
+          />
+        </Sheet>
+      </Adapt>
+
+      <Dialog.Portal>
+        <Dialog.Overlay
+          key="overlay"
+          animation="slow"
+          opacity={0.5}
+          enterStyle={{ opacity: 0 }}
+          exitStyle={{ opacity: 0 }}
         />
-        <XStack
-        backgroundColor={'$error-alert-fill'}
-        width={350}
-        height={64}
-        borderTopLeftRadius={8}
-        borderTopRightRadius={8}
-        padding={20}
+
+        <Dialog.Content
+          bordered
+          elevate
+          key="content"
+          animateOnly={['transform', 'opacity']}
+          animation={[
+            'quick',
+            {
+              opacity: {
+                overshootClamping: true,
+              },
+            },
+          ]}
+          enterStyle={{ x: 0, y: -20, opacity: 0, scale: 0.9 }}
+          exitStyle={{ x: 0, y: 10, opacity: 0, scale: 0.95 }}
+          gap="$4"
         >
-          <XStack 
-          flexDirection="row"
-          alignContent='space-between'
-          gap={20}>
-          <FontAwesome6 name="check-circle" size={20} color="#2F9D83" />
-          <Text 
-            lineHeight={30}
-            fontWeight={"700"}
-            fontFamily={'$heading'}
-            fontSize={25}
-            color="$title-text" >{props.modeltitle}</Text>
+          <XStack
+          flexDirection="column">
+            <Image
+              source={{
+                      uri: require('../../media/images/sitting1.png'),
+              }}
+              width={59}
+              height={51}
+              resizeMode={'contain'}
+              alignSelf='flex-end'
+            />
+            <XStack
+            backgroundColor={'$error-alert-fill'}
+            width={350}
+            height={64}
+            borderTopLeftRadius={8}
+            borderTopRightRadius={8}
+            padding={20}
+            >
+              <XStack 
+              flexDirection="row"
+              alignContent='space-between'
+              gap={20}>
+              <Ionicons name="checkmark-circle"  size={22} color="#2F9D83" />
+              <SizableText 
+              fontFamily={'$heading'}
+              paddingTop={1}
+              lineHeight={25}
+              size={'$lg'}
+              color="$title-text" >{props.modeltitle}</SizableText>
           </XStack>
         </XStack>
         <XStack
@@ -56,13 +90,11 @@ export function ModalLeftAlignButtons(props: {modeltitle: string,
         paddingLeft={56}
         paddingRight={20}
         paddingBottom={16}>
-          <Text 
-            lineHeight={23}
-            fontWeight={"400"}
-            fontFamily={'$body'}
-            fontSize={16}
-            color="$supporting-text" 
-            >{props.modeltext}</Text>
+          <SizableText 
+          fontFamily={'$body'}
+          size={'$md'}
+          lineHeight={21}
+          color="$supporting-text" >{props.modeltext}</SizableText>
         </XStack>
         <XStack
           backgroundColor={'$error-alert-fill'}
@@ -75,13 +107,14 @@ export function ModalLeftAlignButtons(props: {modeltitle: string,
           paddingRight={20}
           paddingBottom={16}>
          <XStack gap={16}>
+         <Dialog.Close displayWhenAdapted  asChild>
             <Button
             width={129}
             height={40}
             borderRadius={4}
             borderWidth={1}
             borderColor={"$secondary-button-border"}
-            paddingTop={8}
+            paddingTop={9}
             paddingBottom={8}
             paddingLeft={12}
             paddingRight={12}
@@ -89,17 +122,18 @@ export function ModalLeftAlignButtons(props: {modeltitle: string,
             textProps={{
               color:'$tertiary-default-text',
               alignSelf:'center',
-              size:'$xl',
+              size:'$lg',
               lineHeight:16,
               fontFamily:'$btn'
             }}  
             >{props.btn1text}</Button>
+            </Dialog.Close>
             <Button
             width={129}
             height={40}
             borderRadius={4}
             backgroundColor={"$primary-button-fill"}
-            paddingTop={8}
+            paddingTop={9}
             paddingBottom={8}
             paddingLeft={12}
             paddingRight={12}
@@ -107,15 +141,17 @@ export function ModalLeftAlignButtons(props: {modeltitle: string,
             textProps={{
               color:'$boraami.50',
               alignSelf:'center',
-              size:'$xl',
+              size:'$lg',
               lineHeight:16,
               fontFamily:'$btn'
             }}  
             >{props.btn2text}</Button>
           </XStack>
         </XStack>
-        </XStack>
-      </ModalBox>
+          </XStack>
+        </Dialog.Content>
+      </Dialog.Portal>
+  </Dialog>
     )
   }
   
