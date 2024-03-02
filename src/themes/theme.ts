@@ -335,7 +335,60 @@ const dark: BaseTheme = {
    //Tooltip Component
    "tooltip-fill" : colorScheme.boraami[700],
    "tooltip-text" : colorScheme.mono[800],
-  
+   
+  //badge component
+  "badge-bg-color" : colorScheme.boraami[500],
+  "large-badge-text" : colorScheme.butter[50],
+  // Divider component
+  "subtle": colorScheme.boraami[400],
+  "Strong" : colorScheme.boraami[100],
+  // Overflow menu component
+  "overflow-bg-color" : colorScheme.boraami[500],
+  "text-icon-color" :colorScheme.boraami[50],
+  //Overlay component
+  "overlay-bg-color" : colorScheme.mono[400],
+  //Nav Bar component
+  "screen-title-text" : colorScheme.boraami[50],
+  "icon" : colorScheme.boraami[50],
+  "divider" : colorScheme.boraami[600],
+  "section-purple-bg-color" : colorScheme.boraami[900],
+  "section-tab-text" : colorScheme.boraami[400],
+  "section-tab-bottom-border" : colorScheme.boraami[400],
+  "default-icon":colorScheme.boraami[100],
+  "active-icon" : colorScheme.serendipity[300],
+  "notification-dot" : colorScheme.butter[400],
+  "nav-bg-color" : colorScheme.boraami[900],
+  "bar-bg-color" : colorScheme.boraami[700],
+  //TextField component
+  "placeholder-textbox-fill" : colorScheme.boraami[900],
+  "placeholder-textbox-border" : colorScheme.boraami[300],
+  "placeholder-textbox-text" :colorScheme.boraami[500],
+  "placeholder-helper-text" : colorScheme.mono[300],
+  "placeholder-scroll-bar" : colorScheme.boraami[500],
+
+  "default-textbox-fill" : colorScheme.boraami[900],
+  "default-textbox-border" : colorScheme.boraami[300],
+  "default-textbox-text" :colorScheme.boraami[50],
+  "default-helper-text-textfield" : colorScheme.mono[300],//change var from doc cuz of redundancy
+  "default-scroll-bar" : colorScheme.boraami[500],
+
+  "focused-textbox-fill" : colorScheme.boraami[900],
+  "focused-textbox-border" : colorScheme.boraami[400],
+  "focused-textbox-text" :colorScheme.boraami[50],
+  "focused-helper-text-textfield" : colorScheme.mono[300],
+  "focused-scroll-bar" : colorScheme.boraami[500],
+
+  "error-textbox-fill" : colorScheme.bwl[900],
+  "error-textbox-border" : colorScheme.bwl[700],
+  "error-textbox-text" :colorScheme.boraami[50],
+  "error-helper-text-textfield" : colorScheme.bwl[400],
+  "error-scroll-bar" : colorScheme.boraami[500],
+    
+  "disabled-textbox-fill" : colorScheme.boraami[900],
+  "disabled-textbox-border" : colorScheme.boraami[600],
+  "disabled-textbox-text" :colorScheme.boraami[600],
+  "disabled-helper-text-textfield" : colorScheme.mono[500],
+  "disabled-scroll-bar" : colorScheme.boraami[700],
 };
 
 const allThemes = {
