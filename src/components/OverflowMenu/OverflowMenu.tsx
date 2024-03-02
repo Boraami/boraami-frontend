@@ -1,4 +1,4 @@
-import { XStack, Text, Label } from "tamagui";
+import { XStack, Text, Label, SizableText } from "tamagui";
 import { FontAwesome6 } from '@expo/vector-icons';
 
 export function OverflowMenu(){
@@ -14,37 +14,37 @@ export function OverflowMenu(){
         backgroundColor={"$overflow-bg-color"}>
            
             <XStack alignItems='center' gap={8}>
-                <FontAwesome6 name="flag"  size={6} color="#F7F3FF" />
-                <Text
+                <FontAwesome6 name="flag"  size={7} color="#F7F3FF" />
+                <SizableText
                  paddingTop={4}
                  fontFamily={'$btn'}
-                 fontSize={'$sm'}
+                 fontSize={'$xs'}
                  lineHeight={12}
                  color={'$text-icon-color'}
-                 >Report</Text>
+                 >Report</SizableText>
             </XStack>
 
             <XStack alignItems='center'  gap={6}>
-                <FontAwesome6 name="bell-slash" color="#F7F3FF" size={6} />
-                <Text
+                <FontAwesome6 name="bell-slash" color="#F7F3FF" size={7} />
+                <SizableText
                  paddingTop={4}
                  fontFamily={'$btn'}
-                 fontSize={'$sm'}
+                 fontSize={'$xs'}
                  lineHeight={12}
                  color={'$text-icon-color'}
-                 >Mute user</Text>
+                 >Mute user</SizableText>
 
             </XStack>
 
             <XStack alignItems='center'  gap={6}>
-                <FontAwesome6 name="user-slash" color="#F7F3FF"size={6} />
-                <Text
+                <FontAwesome6 name="user-slash" color="#F7F3FF"size={7} />
+                <SizableText
                  paddingTop={4}
                  fontFamily={'$btn'}
-                 fontSize={'$sm'}
+                 fontSize={'$xs'}
                  lineHeight={12}
                  color={'$text-icon-color'}
-                 >Block user</Text>
+                 >Block user</SizableText>
 
             </XStack>
         </XStack>
