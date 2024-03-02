@@ -25,6 +25,7 @@ if(props.size=='sm'){
   ls='$md'
   ts=16
 }
+//can not usesizable text in this file as it gives error if the above variable is applied as size={ts}
   return (
     <XStack flexDirection='column' gap={3}>
         {props.heading==''?

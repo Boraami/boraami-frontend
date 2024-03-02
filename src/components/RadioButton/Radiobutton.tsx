@@ -27,19 +27,19 @@ var dris=0;
 
 if(props.size=='sm'){
   rwh=12
-  ls='$md'
+  ls='$sm'
   ris=6
   dris=5.5
   console.log(rwh,ls,ris)
 } else if(props.size=='md'){
   rwh=16
-  ls='$lg'
+  ls='$md'
   ris=8.5
   dris=9.5
   console.log(rwh,ls,ris)
 } else if(props.size=='lg'){
   rwh=20
-  ls='$xl'
+  ls='$lg'
   ris=10
   dris=12
   console.log(rwh,ls,ris)
