@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { MyButton, PDeftBtn, SDeftBtn, TDeftBtn } from "./Button";
+import { MyButton } from "./Button";
 
 const MyButtonMeta: Meta<typeof MyButton> = {
   title: "MyButton",
@@ -10,7 +10,7 @@ const MyButtonMeta: Meta<typeof MyButton> = {
     onPress: { action: "pressed the button" },
   },
   args: {
-    text: "Hello",
+    text: "Hello world",
   },
   decorators: [
     (Story) => (
