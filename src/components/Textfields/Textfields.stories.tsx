@@ -7,10 +7,6 @@ export const TextfieldsMeta: Meta<typeof Textfields> = {
     title: "Textfields",
     component: Textfields,
     args: {
-      // height: 136,
-      // width: 428, 
-      // display: 'flex',
-      // borderRadius: 6,
       num1: 6,
       num2: 12, 
       bdColor: '$placeholder-textbox-border',
