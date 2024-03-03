@@ -1,8 +1,7 @@
 import React from 'react'
-import { Card, styled, View, Text, Image  } from 'tamagui';
+import { Card, styled, View, XStack, Text, Image, SizableText  } from 'tamagui';
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
-import { SimpleLineIcons } from '@expo/vector-icons';
 
 const Info = styled(Card, {
     alignItems: 'flex-start',
@@ -23,33 +22,58 @@ type InfoProps = {
     subtitle: string;
     uri: string;
     size?: 'l' | 's'; 
-    textSize: number,
-    spotifySize: number,
-    closeSize: number, 
-    subtextSize: number,
 }
     
-export const InfoCard = ({ title, subtitle, uri, size, textSize, spotifySize, closeSize, subtextSize }: InfoProps) => {
+export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
+    
+    let textSize;
+    let subTextSize;
+    let iconSize;
+    let closeSize;
+    let cardHeight;
+
+    if (size === 'l'){
+        textSize = 16;
+        subTextSize = 12;
+        iconSize = 20;
+        closeSize = 16;
+        cardHeight = 110;
+    } else {
+        cardHeight = 76;
+        textSize = 12;
+        subTextSize = 10;
+        iconSize = 12;
+        closeSize = 12;
+    } 
+    
     return (
-    <Info style={{ height: size==='l' ? 110 : 76 }}>
-        <View style={{ padding: 4}}>
-            <Image borderRadius={4} borderWidth={1} borderColor="$mono.50" source ={{ uri: uri, width: size==='l' ? 115 : 64, height: size==='l' ? 98 : 64 }}/>
-        </View>
-        <View style={{ flexGrow: 1, padding: 8 }}>
+    <Info style={{ height: cardHeight }}>
+        <XStack style={{ padding: 4}}>
+            <Image 
+                borderRadius={4} 
+                borderWidth={1} 
+                borderColor="$mono.50" 
+                source ={{  
+                    uri: uri, 
+                    width: size==='l' ? 115 : 64, 
+                    height: size==='l' ? 97 : 64 }}
+                />
+        </XStack>
+        <XStack style={{ flexGrow: 1, padding: 8 }}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
                 <View style={{ flexDirection: 'column'}}>
                     <View style={{ flexDirection: "row" }}>
                        {/* <SimpleLineIcons name="social-spotify" size={spotifySize} color="#5F3D9C" /> */}
-                         <Entypo name="spotify" size={spotifySize} style={{ color: '#5F3D9C' }} />
-                        <Text paddingLeft={4} fontSize={textSize} color="$info-card-text" fontFamily="$heading" >{title}</Text>
+                        <Entypo name="spotify" paddingTop={2} size={iconSize} style={{ color: '#5F3D9C' }} />
+                        <SizableText paddingLeft={4} fontSize={textSize} color="$info-card-text" fontFamily="$heading" >{title}</SizableText>
                     </View> 
-                    <Text color="$info-card-text" fontSize={subtextSize} >{subtitle}</Text>
+                    <SizableText color="$info-card-text" paddingTop={4} fontSize={subTextSize} >{subtitle}</SizableText>
                 </View>
                 <View style={{ paddingTop: 4}}>
                     <AntDesign name="close" size={closeSize} color="#5F3D9C"/>
                 </View>
              </View>
-        </View> 
+        </XStack> 
     </Info>
 )};
 

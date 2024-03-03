@@ -10,11 +10,7 @@ const InfoCardMeta: Meta<typeof InfoCard> = {
   args: {
     title: 'Playlist no. 6',
     subtitle: 'btstatsreminder2',
-    uri: 'https://i.pinimg.com/736x/4f/18/3d/4f183d54ab9cf6c4ec30c32f8bc3450e.jpg',  
-    textSize: 16,
-    spotifySize: 27,
-    closeSize: 12,
-    subtextSize: 12,
+    uri: 'https://assets.vogue.com/photos/59c01f5048f3a2782d4a9742/master/w_1280,c_limit/00-story-image-BTS.jpg',
     size: 'l'
   },
 
@@ -34,9 +30,5 @@ export const LargeCard = {};
 export const SmallCard = {
   args: {
     size: 's',
-    textSize: 12,
-    subtextSize: 10,
-    spotifySize: 20,
-    closeSize: 8,
   },
 };
