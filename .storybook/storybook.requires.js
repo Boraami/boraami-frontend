@@ -49,8 +49,13 @@ try {
 
 const getStories = () => {
   return {
-    "./src/components/Alert/Alerts.stories.tsx": require("../src/components/Alert/Alerts.stories.tsx"),
+    "./src/components/Alert/Default.stories.tsx": require("../src/components/Alert/Default.stories.tsx"),
+    "./src/components/Alert/Error.stories.tsx": require("../src/components/Alert/Error.stories.tsx"),
+    "./src/components/Alert/Long.stories.tsx": require("../src/components/Alert/Long.stories.tsx"),
+    "./src/components/Alert/Success.stories.tsx": require("../src/components/Alert/Success.stories.tsx"),
     "./src/components/Alert/WarningAlertDialog.stories.tsx": require("../src/components/Alert/WarningAlertDialog.stories.tsx"),
+    "./src/components/Card/AchievementCard.stories.tsx": require("../src/components/Card/AchievementCard.stories.tsx"),
+    "./src/components/Card/InfoCard.stories.tsx": require("../src/components/Card/InfoCard.stories.tsx"),
   };
 };
 
