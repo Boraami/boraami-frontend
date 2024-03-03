@@ -4,7 +4,7 @@ import { Entypo } from '@expo/vector-icons';
 
 export function OutDeftTag(props: { size: string,
                                 labeltxt: string}) {
-  var btnH=0;
+  var btnH=0; //manually put button height (btnH), button width (btnW) because the size variables were making the tags square shaped
   var btnW=0;
   var size='';
   if (props.size == 'sm') {
@@ -23,7 +23,7 @@ export function OutDeftTag(props: { size: string,
     borderRadius={4}>
       <YStack>
         <Button disabled={true}
-        gap={-2}
+        gap={-2} //had to change gap size because gap:4 was messing with the tag's appearance
         height={btnH}
         width={btnW + 30}
         borderColor={'$default-outline-border'}
