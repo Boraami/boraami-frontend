@@ -1,11 +1,18 @@
-import Constants from "expo-constants";
-import Storybook from "../.storybook";
-import { Dividers } from '../src/components/Divider/Divider';
+import { View } from "react-native";
+import { Button, H1, styled } from "tamagui";
 
-function App() {
+const CBtn = styled(Button, {
+  borderRadius: "$r-strong",
+  backgroundColor: "$bg-brand-strong",
+  color: "$text-primary",
+  alignSelf: "center",
+});
+
+export default function App() {
   return (
-        <Dividers vertical={false} borderColor="$bg-brand-subtle-light"/>
+    <View>
+      <H1>HOME</H1>
+      <CBtn>Plain</CBtn>
+    </View>
   );
 }
-
-export default Constants.expoConfig?.extra?.storybookEnabled ? Storybook : App;
