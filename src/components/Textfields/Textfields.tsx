@@ -1,18 +1,5 @@
 import React from 'react';
-import { View, Text, TextArea, XStack, ScrollView, YStack } from 'tamagui';
-
-// TextArea for multi-line inputs:
-// const TextBox = styled(TextArea, {
-//     display: 'flex',
-//     borderRadius: 1,
-//     fontSize: 14,
-//     height: 136,
-//     width: 350,
-//     padding: 10, 
-//     borderColor: '$placeholder-textbox-border',
-//     backgroundColor: '$placeholder-textbox-fill',
-//     color: '$placeholder-textbox-text',
-// });
+import { Text, TextArea, XStack, ScrollView, YStack } from 'tamagui';
 
 type Props = {
     num1: number,
