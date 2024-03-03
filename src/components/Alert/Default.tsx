@@ -16,7 +16,7 @@ export const Default = ({ shade }: Props) => {
                 borderWidth={1} 
             >
             <XStack flexDirection={'row'} width={300} height={21} justifyContent={'space-evenly'}> 
-                <AntDesign name={'heart'} paddingHorizontal={12} size={14} color='white' paddingTop={4}/>
+                <AntDesign name={'heart'} paddingHorizontal={4} size={14} color='white' paddingTop={4}/>
                 <XStack width={250} flexDirection='column'>
                     <Text 
                         fontFamily={'$body'} 

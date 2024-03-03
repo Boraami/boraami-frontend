@@ -11,8 +11,8 @@ export const Error = ({ shade }: Props) => {
     return (
         <YStack>
             <XStack style={{ height: 48, width: 330, borderRadius: 4, alignItems:'center' }}
-                backgroundColor={ shade === 'solid' ? '$error-alert-solid-fill' : shade === 'subtle' ? '$error-alert-subtle-fill' : '$error-alert-outline-fill'}
-                borderColor={ shade === 'solid' ? '$error-alert-solid-fill' : shade === 'subtle' ? '$error-alert-subtle-fill' : '$error-alert-solid-fill'}
+                backgroundColor={ shade === 'solid' ? '$warning-alert-solid-fill' : shade === 'subtle' ? '$warning-alert-subtle-fill' : '$warning-alert-outline-fill'}
+                borderColor={ shade === 'solid' ? '$warning-alert-solid-fill' : shade === 'subtle' ? '$warning-alert-subtle-fill' : '$warning-alert-solid-fill'}
                 borderWidth={1} 
             >
             <XStack flexDirection={'row'} width={300} height={21} justifyContent={'space-evenly'}> 
@@ -20,7 +20,7 @@ export const Error = ({ shade }: Props) => {
                 <XStack width={250} flexDirection='column'>
                     <Text 
                         fontFamily={'$body'} 
-                        color={ shade === 'solid' ? '$error-alert-solid-text' : shade === 'subtle' ? '$error-alert-subtle-text' : '$error-alert-outline-text'}
+                        color={ shade === 'solid' ? '$warning-alert-solid-text' : shade === 'subtle' ? '$warning-alert-subtle-text' : '$warning-alert-outline-text'}
                         fontSize={14}>Poor internet connection!</Text>        
                 </XStack>
             </XStack>
