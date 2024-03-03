@@ -1,18 +1,9 @@
-import { View } from "react-native";
-import { Button, H1, styled } from "tamagui";
+import { Redirect, Tabs } from 'expo-router';
+import { Text, View, StyleSheet } from 'react-native';
 
-const CBtn = styled(Button, {
-  borderRadius: "$r-strong",
-  backgroundColor: "$bg-brand-strong",
-  color: "$text-primary",
-  alignSelf: "center",
-});
 
-export default function App() {
+export default function Index() {
   return (
-    <View>
-      <H1>HOME</H1>
-      <CBtn>Plain</CBtn>
-    </View>
-  );
+    <Redirect href={"/(tabs)/home"} />
+    );
 }
