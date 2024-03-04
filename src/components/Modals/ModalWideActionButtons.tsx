@@ -5,7 +5,8 @@ import { Button,  Adapt, Dialog, Sheet } from 'tamagui'
 export function ModalWideActionBtns(props: {modeltitle: string,
                               modeltext: string,
                               btn1text: string,
-                              btn2text: string}) {
+                              btn2text: string,
+                            alignment: string}) {
     return (
       <Dialog modal>
       <Dialog.Trigger asChild>
@@ -58,35 +59,155 @@ export function ModalWideActionBtns(props: {modeltitle: string,
               height={51}
               resizeMode={'contain'}
               alignSelf='flex-end'
-            />
-            <XStack
-        backgroundColor={'$error-alert-fill'}
-        width={350}
-        height={113}
-        borderTopLeftRadius={8}
-        borderTopRightRadius={8}
-        padding={16}
-        justifyContent="center"
-        >
-          <XStack 
-          flexDirection="column"
-          alignItems='center'
-          justifyContent="center"
-          alignSelf="center"
-          gap={20}>
-            <Ionicons name="checkmark-circle"  size={22} color="#2F9D83" />
-            <SizableText 
-              fontFamily={'$heading'}
-              paddingTop={1}
-              lineHeight={25}
-              size={'$lg'}
-              color="$title-text" >{props.modeltitle}</SizableText>
-          </XStack>
-        </XStack>
+            />  
+        {props.alignment=='left'?
+        <>
         <XStack
         backgroundColor={'$error-alert-fill'}
         width={350}
-        height={90}
+        height={65}
+        borderTopLeftRadius={8}
+        borderTopRightRadius={8}
+        justifyContent="flex-start"
+        paddingTop={20}
+        paddingLeft={20}
+        paddingRight={10}
+
+        >
+          
+         
+        <XStack 
+        flexDirection="row"
+        alignItems='flex-start'
+        justifyContent="flex-start"
+        alignSelf='flex-start'
+        gap={5}>
+          <Ionicons name="checkmark-circle"  size={22} color="#2F9D83" />
+          <SizableText
+          paddingRight={10} 
+          paddingLeft={10}
+            fontFamily={'$heading'}
+            paddingTop={1}
+            lineHeight={25}
+            flexWrap='wrap'
+            size={'$lg'}
+            color="$title-text" >{props.modeltitle}</SizableText>
+        </XStack>
+      </XStack>
+        <XStack
+        backgroundColor={'$error-alert-fill'}
+        width={350}
+        height={80}
+        paddingLeft={56}
+        paddingRight={20}
+        paddingBottom={16}>
+          <SizableText 
+          fontFamily={'$body'}
+          size={'$md'}
+          lineHeight={21}
+          color="$supporting-text" >{props.modeltext}</SizableText>
+        </XStack></>
+      : props.alignment=='image'?
+      <>
+      <XStack flexDirection="row">
+              <XStack
+              backgroundColor={'$error-alert-fill'}
+              width={300}
+              height={64}
+              borderTopLeftRadius={8}
+              paddingTop={8}
+              paddingBottom={8}
+              flexDirection="row"
+              justifyContent='center'>
+                <XStack gap={12}
+                  paddingTop={12}>
+                    <Ionicons name="checkmark-circle"  size={22} color="#2F9D83" />
+                    <SizableText 
+                    fontFamily={'$heading'}
+                    paddingTop={1}
+                    lineHeight={25}
+                    size={'$lg'}
+                    color="$title-text" >{props.modeltitle}</SizableText>
+                </XStack>
+              </XStack>
+              <XStack
+              backgroundColor={'$error-alert-fill'}
+              width={50}
+              height={64}
+              borderTopRightRadius={8}
+              paddingTop={9}
+              flexDirection="row"
+              justifyContent='center'>
+                <Dialog.Close displayWhenAdapted  asChild>
+                <Button 
+                width={60}
+                height={40}>
+                <Ionicons name="close-sharp" size={26} paddingTop={4}  color="#8F66D6" /></Button>
+                </Dialog.Close>
+              </XStack>
+            </XStack>
+            <XStack
+            backgroundColor={'$error-alert-fill'}
+            width={350}
+            height={37}
+            justifyContent="center"
+            >
+              <SizableText 
+                fontFamily={'$body'}
+                size={'$md'}
+                lineHeight={21}
+                color="$supporting-text" >{props.modeltext}</SizableText>
+            </XStack>
+            <XStack
+            backgroundColor={'$error-alert-fill'}
+            width={350}
+            height={100}
+            justifyContent="center">
+              <Image
+                  source={{
+                      uri: require('../../media/images/mnet-image.png'),
+                  }}
+                  width={220}
+                  height={98}
+                  resizeMode={'contain'}
+                  />
+            </XStack></>
+        :
+        <>
+      <XStack
+        backgroundColor={'$error-alert-fill'}
+        width={350}
+        height={85}
+        borderTopLeftRadius={8}
+        borderTopRightRadius={8}
+        justifyContent="flex-start"
+        paddingTop={20}
+        paddingLeft={20}
+        paddingRight={10}
+
+        >
+          
+      <XStack 
+          flexDirection="row"
+          alignItems='flex-start'
+          justifyContent="flex-start"
+          alignSelf='flex-start'
+          gap={5}>
+            <Ionicons name="checkmark-circle"  size={22} color="#2F9D83" />
+            <SizableText
+            padding={10} 
+              fontFamily={'$heading'}
+              paddingTop={1}
+              lineHeight={25}
+              flexWrap='wrap'
+              size={'$lg'}
+              color="$title-text" >{props.modeltitle}</SizableText>
+          </XStack>
+          </XStack>
+      <XStack
+        backgroundColor={'$error-alert-fill'}
+        width={350}
+        height={80}
         paddingLeft={20}
         paddingRight={20}
         paddingBottom={16}>
@@ -95,7 +216,9 @@ export function ModalWideActionBtns(props: {modeltitle: string,
             size={'$md'}
             lineHeight={21}
             color="$supporting-text" >{props.modeltext}</SizableText>
-        </XStack>
+        </XStack></>
+      }
+        
         <XStack
           backgroundColor={'$error-alert-fill'}
           width={350}

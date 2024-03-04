@@ -72,11 +72,11 @@ export function ModalWithSingleActionButton(props: {modeltitle: string,
             justifyContent="center"
             >
               <XStack 
-              flexDirection="column"
+              flexDirection="row"
               alignItems='center'
               justifyContent="center"
               alignSelf="center"
-              gap={20}>
+              gap={10}>
              <Ionicons name="checkmark-circle"  size={22} color="#2F9D83" />
               <SizableText 
               fontFamily={'$heading'}
@@ -118,6 +118,7 @@ export function ModalWithSingleActionButton(props: {modeltitle: string,
             backgroundColor={"$primary-button-fill"}
             justifyContent='center'
             alignItems='center'
+            gap={-4}
           >
           <SizableText
           color='$boraami.50'
