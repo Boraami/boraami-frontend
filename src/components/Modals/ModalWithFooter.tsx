@@ -73,12 +73,13 @@ export function ModalWithFooter(props: {modeltitle: string,
             justifyContent='space-between'
             >
             <XStack gap={8} paddingTop={12} >
-            <Ionicons name="checkmark-circle"  size={22} color="#2F9D83" />
+            <Ionicons name="checkmark-circle"  size={20}//22
+             color="#2F9D83" />
             <SizableText 
               fontFamily={'$heading'}
               paddingTop={1}
               lineHeight={25}
-              size={'$lg'}
+              size={'$md'}//lg
               color="$title-text" >{props.modeltitle}</SizableText>
             </XStack>
             <YStack paddingTop={3} >
@@ -86,7 +87,8 @@ export function ModalWithFooter(props: {modeltitle: string,
               <Button 
                   width={60}
                   height={40}>
-              <Ionicons name="close-sharp" size={26}   color="#8F66D6" /></Button>
+              <Ionicons name="close-sharp" size={16}   color="#8F66D6" //size=26
+               /></Button>
               </Dialog.Close>          
           </YStack>
           </XStack>
@@ -100,7 +102,7 @@ export function ModalWithFooter(props: {modeltitle: string,
         >
           <SizableText 
             fontFamily={'$body'}
-            size={'$md'}
+            size={'$sm'}//md
             lineHeight={21}
             color="$title-text" >{props.modeltext}</SizableText>
         </XStack>
@@ -129,7 +131,7 @@ export function ModalWithFooter(props: {modeltitle: string,
             textProps={{
               color:'$tertiary-default-text',
               alignSelf:'center',
-              size:'$lg',
+              size:'$md',//lg
               lineHeight:16,
               fontFamily:'$btn'
             }}  
@@ -148,7 +150,7 @@ export function ModalWithFooter(props: {modeltitle: string,
             textProps={{
               color:'$boraami.50',
               alignSelf:'center',
-              size:'$lg',
+              size:'$md',//lg
               lineHeight:16,
               fontFamily:'$btn'
             }}  
