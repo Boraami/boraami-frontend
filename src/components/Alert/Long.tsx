@@ -15,7 +15,7 @@ export const Long = ({ shade }: Props) => {
                 borderColor={ shade === 'solid' ? '$default-alert-solid-fill' : shade === 'subtle' ? '$default-alert-subtle-fill' : '$default-alert-solid-fill'}
                 borderWidth={1} 
                 borderLeftWidth={ shade === 'outline' ? 1 : 4}
-                borderLeftColor = { shade !== 'outline' ? '$default-alert-left-border' : ''}
+                borderLeftColor = { shade !== 'outline' ? '$default-alert-left-border' : '$default-alert-solid-fill'}
             >
             <XStack flexDirection={'row'} paddingTop={10} width={300} height={66} justifyContent={'space-evenly'}> 
                 <AntDesign name={'heart'} size={14} color='white' paddingTop={4}/>

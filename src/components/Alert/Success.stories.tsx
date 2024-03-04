@@ -3,6 +3,7 @@ import { Meta } from "@storybook/react-native";
 import { Success } from "./Success";
 import { Text, View } from 'tamagui';
 
+
 const SuccessMeta: Meta<typeof Success> = {
   title: "Success",
   component: Success,
@@ -31,6 +32,7 @@ export const Subtle = {
     shade: 'subtle',
   },
 };
+
 export const Outline = {
   args: {
     shade: 'outline',

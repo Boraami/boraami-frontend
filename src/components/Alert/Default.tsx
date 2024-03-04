@@ -1,5 +1,5 @@
 import React from 'react';
-import { XStack, YStack, Text } from 'tamagui';
+import { XStack, YStack, SizableText } from 'tamagui';
 import { AntDesign } from '@expo/vector-icons';
 
 type Props = {
@@ -18,10 +18,10 @@ export const Default = ({ shade }: Props) => {
             <XStack flexDirection={'row'} width={300} height={21} justifyContent={'space-evenly'}> 
                 <AntDesign name={'heart'} paddingHorizontal={4} size={14} color='white' paddingTop={4}/>
                 <XStack width={250} flexDirection='column'>
-                    <Text 
+                    <SizableText 
                         fontFamily={'$body'} 
                         color={ shade === 'solid' ? '$default-alert-solid-text' : shade === 'subtle' ? '$default-alert-subtle-text' : '$default-alert-outline-text'}
-                        fontSize={14}>We are going live in July!</Text>        
+                        fontSize={14}>We are going live in July!</SizableText>        
                 </XStack>
             </XStack>
             <AntDesign name="close" size={16} color='white'/>

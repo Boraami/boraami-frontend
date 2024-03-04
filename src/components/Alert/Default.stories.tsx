@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta } from "@storybook/react-native";
 import { Default } from "./Default";
-import { Text, View } from 'tamagui';
+import { SizableText, View } from 'tamagui';
 
 const DefaultMeta: Meta<typeof Default> = {
   title: "Default",
@@ -15,7 +15,7 @@ const DefaultMeta: Meta<typeof Default> = {
   decorators: [
     (Story) => (
       <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-        <Text style={{ color: 'white'}}></Text>
+        <SizableText style={{ color: 'white'}}></SizableText>
         <Story />
       </View>
     ),
