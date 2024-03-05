@@ -221,13 +221,13 @@ const light = {
   "disabled-helper-text": colorScheme.boraami[500],
 
   //Modal Component
-  "check-icon": colorScheme.singularity[400],
-  "title-text": colorScheme.mono[800],
-  "supporting-text": colorScheme.mono[800],
-  "primary-button-fill": colorScheme.boraami[700],
-  "secondary-button-border": colorScheme.boraami[500],
-  "modal-divider": colorScheme.boraami[300],
-  "close-icon": colorScheme.boraami[500],
+  "check-icon" : colorScheme.singularity[400],
+  "title-text" : colorScheme.mono[800],
+  "supporting-text" : colorScheme.boraami[900],
+  "primary-button-fill" : colorScheme.boraami[700],
+  "secondary-button-border" : colorScheme.boraami[500],
+  "modal-divider" : colorScheme.boraami[300],
+  "close-icon" : colorScheme.boraami[500],
 
   //Tooltip Component
   "tooltip-fill": colorScheme.boraami[700],
