@@ -9,13 +9,9 @@ export const TextfieldsMeta: Meta<typeof Textfields> = {
     args: {
       num1: 6,
       num2: 12, 
-      bdColor: '$placeholder-textbox-border',
-      bgColor: '$placeholder-textbox-fill',
-      color: '$placeholder-textbox-text',
-      message: 'Default input. Maximum height of container to occupy only 5 lines of input texts. Provide a scroll post 5 lines.',
+      defaultText: 'Default input. Maximum height of container to occupy only 5 lines of input texts. Provide a scroll post 5 lines.',
       fontSize: 14,
       helperText: 'Error Text',
-      helperTextColor: '$placeholder-helper-text',
   },
 
     decorators: [
@@ -38,6 +34,7 @@ export const Default = {
     bgColor: '$default-textbox-fill',
     color: '$default-textbox-text',
     helperTextColor: '$default-helper-text-textfield',
+    defaultText: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
   },
 };
 

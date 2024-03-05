@@ -1,32 +1,53 @@
 import React from 'react';
-import { Text, TextArea, XStack, ScrollView, YStack } from 'tamagui';
+import { TextArea, XStack, View, YStack, ScrollView } from 'tamagui';
+import { Text } from 'react-native';
+import { useColorScheme } from 'react-native';
+import { ScrollViewIndicator } from '@fanchenbao/react-native-scroll-indicator';
+import { colorScheme } from '../../themes/theme';
 
 type Props = {
     num1: number,
     num2: number,
-    bdColor: string,
-    bgColor: string,
-    bdWidth: number, 
-    color: string,
     helperText: string,
-    helperTextColor: string, 
+    defaultText: string,
 };
 
-    export const Textfields = ({ num1, num2, bdColor, bgColor, color, helperText, helperTextColor }: Props) => {
+    export const Textfields = ({ num1, num2, defaultText, helperText }: Props) => {
+       const theme = useColorScheme();
+       
+        return (
+            <View
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <View
+                style={{
+                  height: 136,
+                  width: 350,
+                  borderWidth: 1,
+                  borderRadius: 6,
+                  padding: 4, 
+                  borderColor: colorScheme.boraami[300]
+                }}>
+                <View style={{ backgroundColor: theme === 'light' ? colorScheme.boraami[50] : colorScheme.boraami[900]}}>
+                    <ScrollViewIndicator 
+                        indStyle={{ 
+                            backgroundColor: theme === 'light' ? colorScheme.boraami[200] : colorScheme.boraami[500]
+                        }}> 
+                        <Text style={{ 
+                            color: theme === 'light' ? colorScheme.mono[800] : colorScheme.boraami[50] }}>{defaultText}
+                        </Text>
+                    </ScrollViewIndicator>
+                </View>
+                </View>
 
-    return (
-        <ScrollView maxHeight={250} paddingBottom={4}>
-            <YStack>
-                <TextArea borderColor={bdColor} height={136} width={350} backgroundColor={bgColor} borderRadius={6} borderWidth={1}>
-                    <Text fontFamily={'$body'} fontSize={12} lineHeight={18} color={color}>Default Input. Maximum height of container to occupy only 5 lines of input texts. Provide a scroll post 5 lines.</Text>
-                </TextArea>
-                <XStack flexDirection='row' justifyContent='space-between'>
-                    <Text color={helperTextColor}>{helperText}</Text>
-                    <Text color={helperTextColor}>{num1}/{num2}</Text>
+                <XStack width={350} flexDirection='row' justifyContent='space-between'>
+                    <Text style={{ color: theme === 'light' ? colorScheme.mono[600] : colorScheme.mono[300] }}>{helperText}</Text>
+                    <Text style={{ color: theme === 'light' ? colorScheme.mono[600] : colorScheme.mono[300] }}>{num1}/{num2}</Text>
                 </XStack> 
-            </YStack>
-        </ScrollView>
-    )}
-
-
+            </View>
+          );
+        };
 
