@@ -1,7 +1,9 @@
 import React from 'react'
+import { useColorScheme } from "react-native";
 import { Card, styled, View, XStack, Text, Image, SizableText  } from 'tamagui';
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import { colorScheme } from "../../themes/theme";
 
 const Info = styled(Card, {
     alignItems: 'flex-start',
@@ -25,6 +27,7 @@ type InfoProps = {
 }
     
 export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
+    const theme = useColorScheme();
     
     let textSize;
     let subTextSize;
@@ -33,7 +36,7 @@ export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
     let cardHeight;
 
     if (size === 'l'){
-        textSize = 16;
+        textSize = 10;
         subTextSize = 12;
         iconSize = 20;
         closeSize = 16;
@@ -49,28 +52,36 @@ export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
     return (
     <Info style={{ height: cardHeight }}>
         <XStack style={{ padding: 4}}>
-            <Image 
-                borderRadius={4} 
-                borderWidth={1} 
-                borderColor="$mono.50" 
-                source ={{  
-                    uri: uri, 
-                    width: size==='l' ? 115 : 64, 
-                    height: size==='l' ? 97 : 64 }}
-                />
+        <Image 
+            borderRadius={4} 
+            borderWidth={1} 
+            borderColor="$mono.50" 
+            source ={{  
+                uri: uri, 
+                width: size==='l' ? 115 : 64, 
+                height: size==='l' ? 97 : 64 }}
+            />
         </XStack>
         <XStack style={{ flexGrow: 1, padding: 8 }}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
                 <View style={{ flexDirection: 'column'}}>
                     <View style={{ flexDirection: "row" }}>
-                       {/* <SimpleLineIcons name="social-spotify" size={spotifySize} color="#5F3D9C" /> */}
-                        <Entypo name="spotify" paddingTop={2} size={iconSize} style={{ color: '#5F3D9C' }} />
+                        <Entypo 
+                            name="spotify" 
+                            paddingTop={2} 
+                            size={iconSize} 
+                            color={theme === 'dark' ? colorScheme.butter[50] : colorScheme.boraami[700]}    
+                        />
                         <SizableText paddingLeft={4} fontSize={textSize} color="$info-card-text" fontFamily="$heading" >{title}</SizableText>
                     </View> 
                     <SizableText color="$info-card-text" paddingTop={4} fontSize={subTextSize} >{subtitle}</SizableText>
                 </View>
                 <View style={{ paddingTop: 4}}>
-                    <AntDesign name="close" size={closeSize} color="#5F3D9C"/>
+                    <AntDesign 
+                        name="close" 
+                        size={closeSize} 
+                        color={theme === 'dark' ? colorScheme.butter[50] : colorScheme.boraami[700]}    
+                    />
                 </View>
              </View>
         </XStack> 

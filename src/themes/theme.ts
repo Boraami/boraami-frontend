@@ -86,7 +86,7 @@ export const colorScheme = {
 };
 
 const light = {
-  //Notes: default-alert-left-border, error-alert-fill, hover-radio-fill
+  //Notes: default-alert-left-border, error-alert-fill, hover-radio-fill,modal-divider
   // ALert Component
   "default-alert-solid-fill" : colorScheme.boraami[700],
   "default-alert-left-border" : colorScheme.boraami[400],
@@ -123,6 +123,7 @@ const light = {
   "default-fill" : colorScheme.boraami[700],
   "default-border" : colorScheme.boraami[700],
   "default-check-icon" : colorScheme.boraami[50],
+  "label-text" : colorScheme.mono[800],
   "focus-fill" : colorScheme.boraami[700],
   "focus-border" : colorScheme.boraami[400],
   "focus-check-box" : colorScheme.boraami[50],
@@ -218,6 +219,15 @@ const light = {
   "disabled-handle" : colorScheme.boraami[50],
   "disabled-label-text" : colorScheme.boraami[900],
   "disabled-helper-text" : colorScheme.boraami[500],
+
+  //Modal Component
+  "check-icon" : colorScheme.singularity[400],
+  "title-text" : colorScheme.mono[800],
+  "supporting-text" : colorScheme.boraami[900],
+  "primary-button-fill" : colorScheme.boraami[700],
+  "secondary-button-border" : colorScheme.boraami[500],
+  "modal-divider" : colorScheme.boraami[300],
+  "close-icon" : colorScheme.boraami[500],
 
   //Tooltip Component
   "tooltip-fill" : colorScheme.boraami[700],
@@ -320,6 +330,7 @@ const dark: BaseTheme = {
     "default-fill" : colorScheme.boraami[700],
     "default-border" : colorScheme.boraami[700],
     "default-check-icon" : colorScheme.boraami[50],
+    "label-text" : colorScheme.boraami[50],
     "focus-fill" : colorScheme.boraami[700],
     "focus-border" : colorScheme.boraami[400],
     "focus-check-box" : colorScheme.boraami[50],
@@ -415,6 +426,16 @@ const dark: BaseTheme = {
   "disabled-handle" : colorScheme.boraami[50],
   "disabled-label-text" : colorScheme.boraami[50],
   "disabled-helper-text" : colorScheme.boraami[300],
+
+  
+  //Modal Component
+  "check-icon" : colorScheme.singularity[400],
+  "title-text" : colorScheme.butter[50],
+  "supporting-text" : colorScheme.butter[50],
+  "primary-button-fill" : colorScheme.boraami[700],
+  "secondary-button-border" : colorScheme.boraami[500],
+  "modal-divider" : colorScheme.boraami[300],
+  "close-icon" : colorScheme.boraami[500],
 
    //Tooltip Component
    "tooltip-fill" : colorScheme.boraami[700],
