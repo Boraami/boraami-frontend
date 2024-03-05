@@ -26,10 +26,10 @@ export const AchievementCard = ({ text1, text2, uri, boldText }: AchievementProp
             <View style={{ marginTop: 17 }}>
                 <Image source={{ uri: uri,  width: 48, height: 48} }/>
             </View>
-            <SizableText color={'$achievement-card-text'} fontSize={14} fontFamily={'$body'} style={{ padding: 12 }}>{text1}
-                <SizableText fontSize={14} fontFamily={'$heading'}>{boldText}</SizableText>
-                <SizableText fontSize={14} fontFamily={'$body'} style={{ padding: 12 }}>{text2}</SizableText>
-            </SizableText>
+            <Text color={'$achievement-card-text'} fontSize={14} fontFamily={'$body'} style={{ padding: 12 }}>{text1}
+                <Text fontSize={14} fontFamily={'$heading'}>{boldText}</Text>
+                <Text fontSize={14} fontFamily={'$body'} style={{ padding: 12 }}>{text2}</Text>
+            </Text>
         </XStack>
     </Achievement>
 )};

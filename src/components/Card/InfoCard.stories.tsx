@@ -6,7 +6,7 @@ import { InfoCard } from "./InfoCard";
 const InfoCardMeta: Meta<typeof InfoCard> = {
   title: "InfoCard",
   component: InfoCard,
-  // argTypes: {},
+  argTypes: {},
   args: {
     title: 'Playlist no. 6',
     subtitle: 'btstatsreminder2',

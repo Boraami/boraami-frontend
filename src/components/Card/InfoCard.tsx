@@ -1,6 +1,6 @@
 import React from 'react'
 import { useColorScheme } from "react-native";
-import { Card, styled, View, XStack, Text, Image, SizableText  } from 'tamagui';
+import { Card, styled, View, XStack, Text, Image } from 'tamagui';
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { colorScheme } from "../../themes/theme";
@@ -36,7 +36,7 @@ export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
     let cardHeight;
 
     if (size === 'l'){
-        textSize = 10;
+        textSize = 16;
         subTextSize = 12;
         iconSize = 20;
         closeSize = 16;
@@ -62,19 +62,18 @@ export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
                 height: size==='l' ? 97 : 64 }}
             />
         </XStack>
-        <XStack style={{ flexGrow: 1, padding: 8 }}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
+        <XStack style={{ flexGrow: 1, padding: 8, justifyContent: 'space-between' }}>
                 <View style={{ flexDirection: 'column'}}>
-                    <View style={{ flexDirection: "row" }}>
+                    <View style={{ flexDirection: "row"}}>
                         <Entypo 
                             name="spotify" 
                             paddingTop={2} 
                             size={iconSize} 
                             color={theme === 'dark' ? colorScheme.butter[50] : colorScheme.boraami[700]}    
                         />
-                        <SizableText paddingLeft={4} fontSize={textSize} color="$info-card-text" fontFamily="$heading" >{title}</SizableText>
+                        <Text paddingLeft={4} fontSize={textSize} color="$info-card-text" fontFamily="$heading" >{title}</Text>
                     </View> 
-                    <SizableText color="$info-card-text" paddingTop={4} fontSize={subTextSize} >{subtitle}</SizableText>
+                    <Text color="$info-card-text" paddingTop={4} fontSize={subTextSize} >{subtitle}</Text>
                 </View>
                 <View style={{ paddingTop: 4}}>
                     <AntDesign 
@@ -83,7 +82,6 @@ export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
                         color={theme === 'dark' ? colorScheme.butter[50] : colorScheme.boraami[700]}    
                     />
                 </View>
-             </View>
         </XStack> 
     </Info>
 )};

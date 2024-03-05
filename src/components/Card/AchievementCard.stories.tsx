@@ -6,7 +6,7 @@ import { AchievementCard } from "./AchievementCard";
 const AchievementMeta: Meta<typeof AchievementCard> = {
   title: "AchievementCard",
   component: AchievementCard,
-  // argTypes: {},
+  argTypes: {},
   args: {
     text1: 'I earned the ',
     boldText: 'Dreamer Streamer badge',
