@@ -1,6 +1,5 @@
 import React from 'react';
-import { TextArea, XStack, View, YStack, ScrollView } from 'tamagui';
-import { Text } from 'react-native';
+import { XStack, View, YStack, ScrollView, Text } from 'tamagui';
 import { useColorScheme } from 'react-native';
 import { ScrollViewIndicator } from '@fanchenbao/react-native-scroll-indicator';
 import { colorScheme } from '../../themes/theme';
@@ -12,7 +11,7 @@ type Props = {
     defaultText: string,
 };
 
-    export const Textfields = ({ num1, num2, defaultText, helperText }: Props) => {
+    export const Focused = ({ num1, num2, defaultText, helperText }: Props) => {
        const theme = useColorScheme();
        
         return (
@@ -28,22 +27,22 @@ type Props = {
                   width: 350,
                   borderWidth: 1,
                   borderRadius: 6,
-                  padding: 4, 
-                  borderColor: colorScheme.boraami[300]
+                  padding: 2, // padding issues . Without padding the border outline looks wierd, but pading creates white space...between the border and bakground fill ... 
+                  borderColor: colorScheme.boraami[400]
                 }}>
-                <View style={{ backgroundColor: theme === 'light' ? colorScheme.boraami[50] : colorScheme.boraami[900]}}>
+                <View style={{ backgroundColor: theme === 'light' ? colorScheme.boraami[100] : colorScheme.boraami[900]}}>
                     <ScrollViewIndicator 
                         indStyle={{ 
                             backgroundColor: theme === 'light' ? colorScheme.boraami[200] : colorScheme.boraami[500]
                         }}> 
                         <Text style={{ 
-                            color: theme === 'light' ? colorScheme.mono[800] : colorScheme.boraami[50] }}>{defaultText}
+                            color: theme === 'light' ? colorScheme.boraami[800] : colorScheme.boraami[50] }}>{defaultText}
                         </Text>
                     </ScrollViewIndicator>
                 </View>
                 </View>
 
-                <XStack width={350} flexDirection='row' justifyContent='space-between'>
+                <XStack width={350} paddingTop={3} flexDirection='row' justifyContent='space-between'>
                     <Text style={{ color: theme === 'light' ? colorScheme.mono[600] : colorScheme.mono[300] }}>{helperText}</Text>
                     <Text style={{ color: theme === 'light' ? colorScheme.mono[600] : colorScheme.mono[300] }}>{num1}/{num2}</Text>
                 </XStack> 

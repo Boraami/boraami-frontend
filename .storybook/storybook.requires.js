@@ -49,7 +49,11 @@ try {
 
 const getStories = () => {
   return {
-    "./src/components/Textfields/Textfields.stories.tsx": require("../src/components/Textfields/Textfields.stories.tsx"),
+    "./src/components/Textfields/Default.stories.tsx": require("../src/components/Textfields/Default.stories.tsx"),
+    "./src/components/Textfields/Disabled.stories.tsx": require("../src/components/Textfields/Disabled.stories.tsx"),
+    "./src/components/Textfields/Error.stories.tsx": require("../src/components/Textfields/Error.stories.tsx"),
+    "./src/components/Textfields/Focused.stories.tsx": require("../src/components/Textfields/Focused.stories.tsx"),
+    "./src/components/Textfields/Placeholder.stories.tsx": require("../src/components/Textfields/Placeholder.stories.tsx"),
   };
 };
 
