@@ -31,10 +31,35 @@ const InputMeta: Meta<typeof FormInput> = {
 
 export default InputMeta;
 
-export const Basic = {};
-
-export const AnotherExample = {
+export const Default = {
   args: {
-    placeholder: "This in another input",
+    name: "default",
+    placeholder: "Default",
+  },
+};
+
+export const Error = {
+  args: {
+    name: "error",
+    placeholder: "Error",
+    error: true,
+  },
+};
+
+export const Disabled = {
+  args: {
+    name: 'disabled',
+    placeholder: "Disabled",
+    disabled: true,
+    editable: false,
+    selectTextOnFocus: false,
+  },
+};
+
+export const Label = {
+  args: {
+    name: 'labelled',
+    placeholder: "Labelled Input",
+    label: "First Name"
   },
 };
