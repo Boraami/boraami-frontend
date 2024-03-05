@@ -3,14 +3,12 @@ import { Meta } from "@storybook/react-native";
 import { Success } from "./Success";
 import { Text, View } from 'tamagui';
 
-
 const SuccessMeta: Meta<typeof Success> = {
   title: "Success",
   component: Success,
   args: {
-    variant: 'default',
     shade: 'solid',
-    title: 'Selection successfully moved!',
+    alert: 'Selection successfully moved!',
   },
 
   decorators: [
