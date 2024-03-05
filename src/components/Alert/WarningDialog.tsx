@@ -2,6 +2,8 @@ import { XStack, YStack, View, SizableText, Separator, Button,  Adapt, Dialog, S
 import { useColorScheme } from "react-native";
 import { colorScheme } from "../../themes/theme";
 import Icon from '../Alert/Icon';
+import { AntDesign } from '@expo/vector-icons';
+
 
 type Props = {
   title: string,
@@ -68,16 +70,9 @@ return (
             <SizableText color='$error-alert-title-text' fontFamily='$heading' fontSize={16}>{title}</SizableText>
             <Dialog.Close displayWhenAdapted asChild>
               <Button>
-
-                 <Icon
-                    // name='close'
-                    name='window-close'
-                    color={ theme === 'dark' ? colorScheme.butter[50] : colorScheme.boraami[700] }
-                    size={24} 
-                    style={{ paddingTop: 4 }}
-                />         
-
-                {/* <AntDesign name="close" size={24} style={{ color: '$error-alert-title-text'}} />     */}
+                <AntDesign name="close" size={24} 
+                  color={ theme === 'dark' ? colorScheme.butter[50] : colorScheme.boraami[700] }
+                />    
               </Button>
             </Dialog.Close>                 
           </View>
