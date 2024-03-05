@@ -3,7 +3,6 @@ import { useColorScheme } from "react-native";
 import { colorScheme } from "../../themes/theme";
 import { AntDesign } from '@expo/vector-icons';
 
-
 type Props = {
   title: string,
   text1: string,
@@ -20,7 +19,7 @@ export const WarningDialog = ({ title, text1, text2, name, boldtext, btn1text, b
 return (
   <Dialog modal>
     <Dialog.Trigger asChild>
-      <Button>Show Warning Dialog</Button>
+      <Button color='$error-alert-title-text'>Show Warning Dialog</Button>
     </Dialog.Trigger>
       
     <Adapt when="sm" platform="touch">
@@ -78,7 +77,7 @@ return (
           <Separator borderColor={'$error-alert-outline'}/>
             <XStack style={{ width: '100%', padding: 16 }}>
               <SizableText color='$error-alert-title-text' fontSize={14}>{text1}{' '}{name}.
-              <SizableText color='$error-alert-title-text'  fontSize={14}>{' '}{text2}.
+              <SizableText color='$error-alert-title-text' fontSize={14}>{' '}{text2}.
               <SizableText color='$error-alert-highlighted-text' fontFamily="$OpenSansBold" fontSize={14} >{' '}{boldtext}
               <SizableText color='$error-alert-title-text' fontSize={14}>.</SizableText></SizableText></SizableText></SizableText>
             </XStack>
