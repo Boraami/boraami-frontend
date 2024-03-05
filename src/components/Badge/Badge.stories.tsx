@@ -9,7 +9,9 @@ const BadgeMeta: Meta<typeof Badge> = {
       
     },
     args: {
-      size:'sm'
+      size:'sm',
+      color:'$badge-bg-color'
+
     },
     decorators: [
       (Story) => (
@@ -25,12 +27,16 @@ const BadgeMeta: Meta<typeof Badge> = {
   export const badgeSM = {};
   export const badgeMD = {
     args: {
-      size:'md'
+      size:'md',
+      color:'$badge-bg-color'
     },
   };
   export const badgeLG = {
+  
     args: {
       size:'lg',
-      text:'20+'
+      text:'20+',
+      color:'$badge-bg-color'
+
     },
   };

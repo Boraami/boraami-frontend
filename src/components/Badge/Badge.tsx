@@ -1,6 +1,6 @@
 import { XStack,Text} from "tamagui";
 
-export function Badge(props:{size: string, text: string}){
+export function Badge(props:{size: string, text: string, color: string}){
 var w=0
 var h=0
 if(props.size=='sm'){
@@ -23,7 +23,7 @@ if(props.size=='sm'){
         width={w}
         height={h}
         borderRadius={20}
-        backgroundColor={"$badge-bg-color"}
+        backgroundColor={props.color}
         justifyContent="center"
         alignItems="center">
             <Text
@@ -40,7 +40,7 @@ if(props.size=='sm'){
         width={w}
         height={h}
         borderRadius={20}
-        backgroundColor={"$badge-bg-color"}>
+        backgroundColor={props.color}>
         </XStack>
     }
     </>  

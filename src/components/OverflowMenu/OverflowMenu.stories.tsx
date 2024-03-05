@@ -9,10 +9,14 @@ const OverflowMenuMeta: Meta<typeof OverflowMenu> = {
       
     },
     args: {
+      menutext1:'Report',
+      menutext2:'Mute user',
+      menutext3:'Block user',
+
     },
     decorators: [
       (Story) => (
-        <View style={{alignItems: "center", justifyContent: "center", flex: 1 }}>
+        <View style={{ marginTop:100 }}>
           <Story />
         </View>
       ),
