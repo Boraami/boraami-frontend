@@ -1,12 +1,18 @@
 import React from 'react';
+import { useColorScheme } from "react-native";
 import { XStack, YStack, SizableText } from 'tamagui';
 import { AntDesign } from '@expo/vector-icons';
+import { colorScheme } from "../../themes/theme";
+
 
 type Props = {
     shade: 'solid' | 'subtle' | 'outline',
 };
 
 export const Default = ({ shade }: Props) => {
+    const theme = useColorScheme();
+    let solid = shade === 'solid'
+    let subtle = shade === 'subtle'
 
     return (
         <YStack>
@@ -16,7 +22,13 @@ export const Default = ({ shade }: Props) => {
                 borderWidth={1} 
             >
             <XStack flexDirection={'row'} width={300} height={21} justifyContent={'space-evenly'}> 
-                <AntDesign name={'heart'} paddingHorizontal={4} size={14} color='white' paddingTop={4}/>
+                <AntDesign 
+                    name={'heart'} 
+                    paddingHorizontal={4} 
+                    size={14} 
+                    color={ theme === 'dark' && ( subtle ? colorScheme.boraami[700] : colorScheme.butter[50] ) || (theme === 'light' && solid ? colorScheme.butter[50] : colorScheme.boraami[700] )}    
+                    paddingTop={4}
+                />
                 <XStack width={250} flexDirection='column'>
                     <SizableText 
                         fontFamily={'$body'} 
@@ -24,7 +36,11 @@ export const Default = ({ shade }: Props) => {
                         fontSize={14}>We are going live in July!</SizableText>        
                 </XStack>
             </XStack>
-            <AntDesign name="close" size={16} color='white'/>
+                <AntDesign 
+                    name="close" 
+                    size={16} 
+                    color={ theme === 'dark' && ( subtle ? colorScheme.boraami[700] : colorScheme.butter[50] ) || (theme === 'light' && solid ? colorScheme.butter[50] : colorScheme.boraami[700] )}    
+                />
         </XStack>
     </YStack>
 )}

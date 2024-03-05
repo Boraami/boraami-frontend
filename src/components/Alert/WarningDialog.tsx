@@ -1,7 +1,6 @@
 import { XStack, YStack, View, SizableText, Separator, Button,  Adapt, Dialog, Sheet} from "tamagui";
 import { useColorScheme } from "react-native";
 import { colorScheme } from "../../themes/theme";
-import Icon from '../Alert/Icon';
 import { AntDesign } from '@expo/vector-icons';
 
 
@@ -100,7 +99,6 @@ return (
                   height={40} 
                   width={190}
                   margin={10}
-                  // justifyContent='center'
                   alignItems='center'
                   backgroundColor={'$default-alert-solid-fill'} 
                   borderRadius={4}
