@@ -7,9 +7,8 @@ const ErrorMeta: Meta<typeof Error> = {
   title: "Error",
   component: Error,
   args: {
-    variant: 'default',
     shade: 'solid',
-    title: 'Poor intenet connection!',
+    alert: 'Poor intenet connection!',
   },
 
   decorators: [
