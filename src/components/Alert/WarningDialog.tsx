@@ -1,5 +1,7 @@
 import { XStack, YStack, View, SizableText, Separator, Button,  Adapt, Dialog, Sheet} from "tamagui";
-import { AntDesign } from '@expo/vector-icons';
+import { useColorScheme } from "react-native";
+import { colorScheme } from "../../themes/theme";
+import Icon from '../Alert/Icon';
 
 type Props = {
   title: string,
@@ -12,6 +14,7 @@ type Props = {
 }
 
 export const WarningDialog = ({ title, text1, text2, name, boldtext, btn1text, btn2text}: Props) => {
+  const theme = useColorScheme();
 
 return (
   <Dialog modal>
@@ -65,7 +68,16 @@ return (
             <SizableText color='$error-alert-title-text' fontFamily='$heading' fontSize={16}>{title}</SizableText>
             <Dialog.Close displayWhenAdapted asChild>
               <Button>
-                <AntDesign name="close" size={24} style={{ color: '$error-alert-title-text'}} />    
+
+                 <Icon
+                    // name='close'
+                    name='window-close'
+                    color={ theme === 'dark' ? colorScheme.butter[50] : colorScheme.boraami[700] }
+                    size={24} 
+                    style={{ paddingTop: 4 }}
+                />         
+
+                {/* <AntDesign name="close" size={24} style={{ color: '$error-alert-title-text'}} />     */}
               </Button>
             </Dialog.Close>                 
           </View>

@@ -6,10 +6,9 @@ type Props = {
   color: string;
   name: string;
   size: number;
-  borderColor: string;
-  borderWidth: number;
   style: typeof FontAwesome6.style 
-  // | FontAwesome.style; 
+  
+  // style: typeof FontAwesome.style 
 };
 
 const Icon = ({ color, name, style, size }: Props) => {
