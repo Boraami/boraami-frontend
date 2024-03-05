@@ -7,9 +7,8 @@ const DefaultMeta: Meta<typeof Default> = {
   title: "Default",
   component: Default,
   args: {
-    variant: 'default',
     shade: 'solid',
-    title: 'We are going live in July!',
+    alert: 'We are going live in July!',
   },
 
   decorators: [

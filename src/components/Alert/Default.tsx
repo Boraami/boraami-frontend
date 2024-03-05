@@ -1,15 +1,16 @@
 import React from 'react';
 import { useColorScheme } from "react-native";
-import { XStack, YStack, SizableText } from 'tamagui';
+import { XStack, YStack, SizableText, Text } from 'tamagui';
 import { AntDesign } from '@expo/vector-icons';
 import { colorScheme } from "../../themes/theme";
 
 
 type Props = {
     shade: 'solid' | 'subtle' | 'outline',
+    alert: string
 };
 
-export const Default = ({ shade }: Props) => {
+export const Default = ({ shade, alert }: Props) => {
     const theme = useColorScheme();
     let solid = shade === 'solid'
     let subtle = shade === 'subtle'
@@ -26,14 +27,15 @@ export const Default = ({ shade }: Props) => {
                     name={'heart'} 
                     paddingHorizontal={4} 
                     size={14} 
-                    color={ theme === 'dark' && ( subtle ? colorScheme.boraami[700] : colorScheme.butter[50] ) || (theme === 'light' && solid ? colorScheme.butter[50] : colorScheme.boraami[700] )}    
+                    color={ 
+                        theme === 'dark' && ( subtle ? colorScheme.boraami[700] : colorScheme.butter[50] ) || (theme === 'light' && solid ? colorScheme.butter[50] : colorScheme.boraami[700] )}    
                     paddingTop={4}
                 />
                 <XStack width={250} flexDirection='column'>
-                    <SizableText 
+                    <Text 
                         fontFamily={'$body'} 
                         color={ shade === 'solid' ? '$default-alert-solid-text' : shade === 'subtle' ? '$default-alert-subtle-text' : '$default-alert-outline-text'}
-                        fontSize={14}>We are going live in July!</SizableText>        
+                        fontSize={14}>{alert}</Text>        
                 </XStack>
             </XStack>
                 <AntDesign 
