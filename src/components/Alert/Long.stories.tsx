@@ -8,9 +8,9 @@ const LongMeta: Meta<typeof Long> = {
   title: "Long",
   component: Long,
   args: {
-    variant: 'default',
     shade: 'solid',
-    title: 'We are going live in July!',
+    alert: 'We are going live in July!',
+    content: 'We are happy to announce that we are going live on July 28th. Get ready!'
   },
 
   decorators: [
