@@ -6,9 +6,6 @@ import FormInput from "./Input";
 const InputMeta: Meta<typeof FormInput> = {
   title: "FormInput",
   component: FormInput,
-  argTypes: {
-    onPress: { action: "pressed the input" },
-  },
   args: {
     placeholder: "Placeholder",
   },
@@ -31,35 +28,50 @@ const InputMeta: Meta<typeof FormInput> = {
 
 export default InputMeta;
 
-export const Default = {
+export const Default_2xl = {
   args: {
     name: "default",
     placeholder: "Default",
+    size: "2xl",
   },
 };
 
-export const Error = {
+export const Disabled_xl = {
   args: {
-    name: "error",
-    placeholder: "Error",
-    error: true,
-  },
-};
-
-export const Disabled = {
-  args: {
-    name: 'disabled',
+    name: "disabled",
     placeholder: "Disabled",
     disabled: true,
     editable: false,
     selectTextOnFocus: false,
+    size: "xl",
   },
 };
 
-export const Label = {
+export const Error_lg = {
   args: {
-    name: 'labelled',
+    name: "error",
+    placeholder: "Error",
+    error: true,
+    size: "lg",
+  },
+};
+
+export const Label_HelperText_md = {
+  args: {
+    name: "labelled",
     placeholder: "Labelled Input",
-    label: "First Name"
+    label: "First Name",
+    helperText: "Should be 12 char long",
+    maxLength: 12,
+    size: "md",
+  },
+};
+
+export const Label_sm = {
+  args: {
+    name: "labelled",
+    placeholder: "Labelled Input",
+    label: "First Name",
+    size: "sm",
   },
 };
