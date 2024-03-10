@@ -11,7 +11,7 @@ import {
   FontSizeTokens,
 } from "tamagui";
 import Icon from "../Icon/Icon";
-import { useColorScheme } from "react-native";
+import { Platform, useColorScheme } from "react-native";
 import { colorScheme } from "../../themes/theme";
 
 interface CustomInputProps extends FormInputProps {
@@ -153,11 +153,12 @@ const InputField = (props: InputProps) => {
   return (
     <YStack>
       {label && (
-        <Label htmlFor={name}>
+        <Label htmlFor={name} marginBottom={Platform.OS === "android" ? -10 : -2}>
           <SizableText
             color={!!error ? errorColor : "$label-input-text"}
             fontFamily="$body"
             size={inputSizes[size].textSize}
+            lineHeight={28} // android had problems with lineheight so had to adjust with marginBottom of label and lineheight
           >
             {label}
           </SizableText>
@@ -195,24 +196,24 @@ const InputField = (props: InputProps) => {
           {...rest}
         />
       </XStack>
-        {helperText && (
-          <XStack width={"100%"} justifyContent="space-between">
-            <SizableText
-              color={!!error ? errorColor : "$label-input-text"}
-              fontFamily="$body"
-              size={inputSizes[size].textSize}
-            >
-              {helperText}
-            </SizableText>
-            <SizableText
-              color={!!error ? errorColor : "$label-input-text"}
-              fontFamily="$body"
-              size={inputSizes[size].textSize}
-            >
-              {charCount}/{maxLength}
-            </SizableText>
-          </XStack>
-        )}
+      {helperText && (
+        <XStack width={"100%"} justifyContent="space-between">
+          <SizableText
+            color={!!error ? errorColor : "$label-input-text"}
+            fontFamily="$body"
+            size={inputSizes[size].textSize}
+          >
+            {helperText}
+          </SizableText>
+          <SizableText
+            color={!!error ? errorColor : "$label-input-text"}
+            fontFamily="$body"
+            size={inputSizes[size].textSize}
+          >
+            {charCount}/{maxLength}
+          </SizableText>
+        </XStack>
+      )}
     </YStack>
   );
 };
