@@ -10,7 +10,8 @@ const InfoCardMeta: Meta<typeof InfoCard> = {
   args: {
     title: 'Playlist no. 6',
     subtitle: 'btstatsreminder2',
-    uri: 'https://assets.vogue.com/photos/59c01f5048f3a2782d4a9742/master/w_1280,c_limit/00-story-image-BTS.jpg',
+    uri: '../../src/assets/badge_placeholder.jpg',
+    // uri: 'https://assets.vogue.com/photos/59c01f5048f3a2782d4a9742/master/w_1280,c_limit/00-story-image-BTS.jpg',
     size: 'l'
   },
 
