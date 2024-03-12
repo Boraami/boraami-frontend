@@ -9,12 +9,7 @@ const WarningDialogMeta: Meta<typeof WarningDialog> = {
     argTypes: {},
     args: {
       title: 'Delete Customer',
-      text1: 'This will remove all data relating to',
       name: 'Alex',
-      text2: 'This action cannot be reversed',
-      boldtext: 'Deleted data cannot be recovered',
-      btn1text: 'Cancel',
-      btn2text: 'I understand. Delete.'
     },
 
     decorators: [

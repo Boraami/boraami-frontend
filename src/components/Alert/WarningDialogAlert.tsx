@@ -1,19 +1,14 @@
-import { XStack, YStack, View, SizableText, Separator, Button,  Adapt, Dialog, Sheet} from "tamagui";
+import { XStack, YStack, View, SizableText, Separator, Button, Adapt, Dialog, Sheet} from "tamagui";
 import { useColorScheme } from "react-native";
 import { colorScheme } from "../../themes/theme";
 import { AntDesign } from '@expo/vector-icons';
 
 type Props = {
   title: string,
-  text1: string,
-  text2?: string,
   name: string, 
-  boldtext: string,
-  btn1text: string,
-  btn2text: string
 }
 
-export const WarningDialog = ({ title, text1, text2, name, boldtext, btn1text, btn2text}: Props) => {
+export const WarningDialog = ({ title, name }: Props) => {
   const theme = useColorScheme();
 
 return (
@@ -76,9 +71,9 @@ return (
           </View>
           <Separator borderColor={'$error-alert-outline'}/>
             <XStack style={{ width: '100%', padding: 16 }}>
-              <SizableText lineHeight={22} color='$error-alert-title-text' fontSize={14}>{text1}{' '}{name}.
-              <SizableText color='$error-alert-title-text' fontSize={14}>{' '}{text2}.
-              <SizableText color='$error-alert-highlighted-text' fontFamily="$OpenSansBold" fontSize={14} >{' '}{boldtext}
+              <SizableText lineHeight={22} color='$error-alert-title-text' fontSize={14}>This will remove all data relating to {''}{name}.
+              <SizableText color='$error-alert-title-text' fontSize={14}>{' '}This action cannot be reversed.
+              <SizableText color='$error-alert-highlighted-text' fontFamily="$OpenSansBold" fontSize={14} >{' '}Deleted data cannot be recovered.
               <SizableText color='$error-alert-title-text' fontSize={14}>.</SizableText></SizableText></SizableText></SizableText>
             </XStack>
           <Separator borderColor={'$error-alert-outline'}/>
@@ -88,7 +83,7 @@ return (
                 <Button 
                   style={{ color: '$error-alert-title-text'}} 
                     fontFamily={'$btn'} 
-                    fontSize={16}>{btn1text}
+                    fontSize={16}>Cancel
                 </Button>
               </Dialog.Close>     
                 <Button 
@@ -96,12 +91,11 @@ return (
                   fontFamily={'$btn'} 
                   fontSize={14} 
                   height={40} 
-                  width={190}
                   margin={10}
                   alignItems='center'
                   backgroundColor={'$default-alert-solid-fill'} 
                   borderRadius={4}
-                >{btn2text}
+                >I understand. Delete.
                 </Button>      
               </View>
             </XStack>
