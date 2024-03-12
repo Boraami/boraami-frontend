@@ -1,22 +1,15 @@
 import React, { useState } from "react";
 import {
   XStack,
-  View,
-  YStack,
   styled,
-  Label,
   ScrollView,
   TextArea,
   Text,
   SizableText,
 } from "tamagui";
-import { useColorScheme } from "react-native";
-// import { ScrollViewIndicator } from "@fanchenbao/react-native-scroll-indicator";
-import { colorScheme } from "../../themes/theme";
-
 
 type Props = {
-  name: 'placeholder' | 'default' | 'focused' | 'error' | 'disabled';
+  name: "placeholder" | "default" | "focused" | "error" | "disabled";
   helperText: string;
   defaultText: string;
   maxLength?: number;
@@ -24,57 +17,78 @@ type Props = {
 };
 
 const StyledTextbox = styled(TextArea, {
+  height: 136,
+  width: 350,
+  borderRadius: 6,
+  borderWidth: 1,
+
   variants: {
-    placeholder: {
-      true: {
+    variant: {
+      placeholder: {
         backgroundColor: "$placeholder-textbox-fill",
         borderColor: "$placeholder-textbox-border",
-        textColor: "$placeholder-textbook-text",
-        helperTextColor: "$placeholder-helper-text",
-        scrollbarColor: "$placeholder-scroll-bar",
+        color: "$placeholder-textbox-text",
       },
-    },
-    default: {
-      true: {
+      default: {
         backgroundColor: "$default-textbox-fill",
         borderColor: "$default-textbox-border",
-        textColor: "$default-textbook-text",
-        helperTextColor: "$default-helper-text",
-        scrollbarColor: "$default-scroll-bar",
+        color: "$default-textbox-text",
       },
-    },
-    focused: {
-      true: {
+      focused: {
         backgroundColor: "$focused-textbox-fill",
         borderColor: "$focused-textbox-border",
-        textColor: "$focused-textbook-text",
-        helperTextColor: "$focused-helper-text",
-        scrollbarColor: "$focused-scroll-bar",
+        color: "$focused-helper-text-textfield",
       },
-    },
-    error: {
-      true: {
+      error: {
         backgroundColor: "$error-textbox-fill",
         borderColor: "$error-textbox-border",
-        textColor: "$error-textbook-text",
-        helperTextColor: "$error-helper-text",
-        scrollbarColor: "$error-scroll-bar",
+        color: "$error-textbox-text",
       },
-    },
-    disabled: {
-      true: {
+      disabled: {
         backgroundColor: "$disabled-textbox-fill",
         borderColor: "$disabled-textbox-border",
-        textColor: "$disabled-textbook-text",
-        helperTextColor: "$disabled-helper-text",
+        color: "$disabled-textbox-text",
+      },
+    },
+  },
+});
+
+const StyledText = styled(Text, {
+  variants: {
+    variant: {
+      placeholder: {
+        color: "$placeholder-helper-text",
+        // scrollbarColor: "$placeholder-scroll-bar",
+      },
+      default: {
+        color: "$default-helper-text-textfield",
+        // scrollbarColor: "$default-scroll-bar",
+      },
+      focused: {
+        // color: "$focused-helper-text",
+        color: "$focused-helper-text-textfield",
+        // color: "$default-textbox-border",
+        // scrollbarColor: "$focused-scroll-bar",
+      },
+      error: {
+        color: "$error-helper-text-textfield",
+        scrollbarColor: "$error-scroll-bar",
+      },
+      disabled: {
+        color: "$disabled-helper-text-textfield",
         scrollbarColor: "$disabled-scroll-bar",
       },
     },
-  }
-})
+  },
+});
 
-export const Textfields = ({ name, maxLength, defaultText, helperText }: Props) => {
-  const theme = useColorScheme();
+export const Textfields = ({
+  name,
+  maxLength,
+  defaultText,
+  helperText,
+}: Props) => {
+
   const [charCount, setCharCount] = useState(0);
 
   const handleOnChangeText = (text: string) => {
@@ -82,92 +96,14 @@ export const Textfields = ({ name, maxLength, defaultText, helperText }: Props) 
   };
 
   return (
-    <ScrollView maxHeight={161} borderColor={'orange'} borderWidth={2} paddingBottom={4}>
-      <TextArea
-          borderColor={colorScheme.boraami[300]}
-          height={136}
-          width={350}
-          backgroundColor={
-            theme === "light"
-              ? colorScheme.boraami[50]
-              : colorScheme.boraami[900]
-          }
-          borderRadius={6}
-          borderWidth={1}
-          onChangeText={handleOnChangeText}
-        >
-          <Text
-            fontFamily={"$body"}
-            fontSize={12}
-            lineHeight={18}
-            color={
-              theme === "light"
-                ? colorScheme.mono[800]
-                : colorScheme.boraami[50]
-            }
-          >
-            {defaultText}
-          </Text>
-        </TextArea>
-        <XStack flexDirection="row" justifyContent="space-between">
-          <Text
-            style={{
-              color:
-                theme === "light"
-                  ? colorScheme.mono[600]
-                  : colorScheme.mono[300],
-            }}
-          >
-            {helperText}
-          </Text>
-          <Text
-            style={{
-              color:
-                theme === "light"
-                  ? colorScheme.mono[600]
-                  : colorScheme.mono[300],
-            }}
-          >
-            {charCount}/{maxLength}
-          </Text>
+    <ScrollView maxHeight={161} paddingBottom={4}>
+      <StyledTextbox variant={`${name}`} onChangeText={handleOnChangeText}>
+        <SizableText>{defaultText}</SizableText>
+      </StyledTextbox>
+      <XStack flexDirection="row" justifyContent="space-between">
+          <StyledText variant={`${name}`}>{helperText}</StyledText>
+          <StyledText variant={`${name}`}>{charCount}/{maxLength}</StyledText>
         </XStack>
-      {/* </YStack> */}
     </ScrollView>
   );
 };
-
-// return (
-//     <View
-//       style={{
-//         flex: 1,
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//       }}>
-//       <View
-//         style={{
-//           height: 136,
-//           width: 350,
-//           borderWidth: 1,
-//           borderRadius: 6,
-//           padding: 2, // padding issues . Without padding the border outline looks wierd, but pading creates white space...between the border and bakground fill ...
-//           borderColor: colorScheme.boraami[300]
-//         }}>
-//         <View style={{ backgroundColor: theme === 'light' ? colorScheme.boraami[50] : colorScheme.boraami[900]}}>
-//             <ScrollViewIndicator
-//                 indStyle={{
-//                     backgroundColor: theme === 'light' ? colorScheme.boraami[200] : colorScheme.boraami[500]
-//                 }}>
-//                 <Text style={{
-//                     color: theme === 'light' ? colorScheme.mono[800] : colorScheme.boraami[50] }}>{defaultText}
-//                 </Text>
-//             </ScrollViewIndicator>
-//         </View>
-//         </View>
-
-//         <XStack width={350} paddingTop={3} flexDirection='row' justifyContent='space-between'>
-//             <Text style={{ color: theme === 'light' ? colorScheme.mono[600] : colorScheme.mono[300] }}>{helperText}</Text>
-//             <Text style={{ color: theme === 'light' ? colorScheme.mono[600] : colorScheme.mono[300] }}>{num1}/{num2}</Text>
-//         </XStack>
-//     </View>
-//   );
-// };
