@@ -64,8 +64,8 @@ return (
     
       <XStack justifyContent="center" alignItems="center">
         <YStack backgroundColor={'$error-alert-fill'} borderColor={'$error-alert-outline'} style={{ color: '$error-alert-title-text'}} borderRadius={8} width={330} borderWidth={2}>
-          <View style={{ flexDirection: 'row', padding: 16, justifyContent: 'space-between'}}>
-            <SizableText color='$error-alert-title-text' fontFamily='$heading' fontSize={16}>{title}</SizableText>
+          <View style={{ flexDirection: 'row', paddingVertical: 12, justifyContent: 'space-between'}}>
+            <SizableText color='$error-alert-title-text' fontFamily='$heading' paddingTop={5} paddingLeft={16} fontSize={18}>{title}</SizableText>
             <Dialog.Close displayWhenAdapted asChild>
               <Button>
                 <AntDesign name="close" size={24} 
@@ -76,7 +76,7 @@ return (
           </View>
           <Separator borderColor={'$error-alert-outline'}/>
             <XStack style={{ width: '100%', padding: 16 }}>
-              <SizableText color='$error-alert-title-text' fontSize={14}>{text1}{' '}{name}.
+              <SizableText lineHeight={22} color='$error-alert-title-text' fontSize={14}>{text1}{' '}{name}.
               <SizableText color='$error-alert-title-text' fontSize={14}>{' '}{text2}.
               <SizableText color='$error-alert-highlighted-text' fontFamily="$OpenSansBold" fontSize={14} >{' '}{boldtext}
               <SizableText color='$error-alert-title-text' fontSize={14}>.</SizableText></SizableText></SizableText></SizableText>
@@ -88,7 +88,7 @@ return (
                 <Button 
                   style={{ color: '$error-alert-title-text'}} 
                     fontFamily={'$btn'} 
-                    fontSize={14}>{btn1text}
+                    fontSize={16}>{btn1text}
                 </Button>
               </Dialog.Close>     
                 <Button 

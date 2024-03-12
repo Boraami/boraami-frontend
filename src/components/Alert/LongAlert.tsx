@@ -1,8 +1,7 @@
 import React from 'react';
 import { useColorScheme } from "react-native";
-import { XStack, YStack, SizableText, Text } from 'tamagui';
+import { XStack, YStack, SizableText } from 'tamagui';
 import { AntDesign } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons';
 import { colorScheme } from "../../themes/theme";
 
 type Props = {
@@ -15,7 +14,6 @@ export const Long = ({ shade, alert, content }: Props) => {
     const theme = useColorScheme();
     let solid = shade === 'solid'
     let subtle = shade === 'subtle'
-    let outline = shade === 'outline'
 
     return (
         <YStack>
@@ -33,15 +31,15 @@ export const Long = ({ shade, alert, content }: Props) => {
                     color={theme === 'dark' && ( subtle ? colorScheme.boraami[700] : colorScheme.butter[50] ) || (theme === 'light' && solid ? colorScheme.butter[50] : colorScheme.boraami[700] )}    
                     paddingTop={4}/>
                 <XStack width={250} flexDirection='column'>
-                    <Text 
+                    <SizableText 
                         fontFamily={ shade === 'subtle' ? '$btn' : '$heading'} 
                         color={ shade === 'solid' ? '$default-alert-solid-text' : shade === 'subtle' ? '$default-alert-subtle-text' : '$default-alert-outline-text'}
-                        fontSize={16}>{alert}</Text>
-                    <Text 
+                        fontSize={16}>{alert}</SizableText>
+                    <SizableText 
                         fontFamily={'$body'} 
                         color={ shade === 'solid' ? '$default-alert-solid-text' : shade === 'subtle' ? '$default-alert-subtle-text' : '$default-alert-outline-text'}
                         fontSize={14}
-                        >{content}</Text>            
+                        >{content}</SizableText>            
                 </XStack>
             </XStack>
                 <AntDesign 
