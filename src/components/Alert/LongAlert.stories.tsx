@@ -1,14 +1,16 @@
+
 import React from "react";
 import { Meta } from "@storybook/react-native";
-import { Error } from "./Error";
+import { Long } from "./LongAlert";
 import { Text, View } from 'tamagui';
 
-const ErrorMeta: Meta<typeof Error> = {
-  title: "Error",
-  component: Error,
+const LongMeta: Meta<typeof Long> = {
+  title: "Long",
+  component: Long,
   args: {
     shade: 'solid',
-    alert: 'Poor intenet connection!',
+    alert: 'We are going live in July!',
+    content: 'We are happy to announce that we are going live on July 28th. Get ready!'
   },
 
   decorators: [
@@ -21,7 +23,7 @@ const ErrorMeta: Meta<typeof Error> = {
   ],
 };
 
-export default ErrorMeta;
+export default LongMeta;
 
 export const Solid = {};
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { WarningDialog } from "./WarningDialog";
+import { WarningDialog } from "./WarningDialogAlert";
 
 const WarningDialogMeta: Meta<typeof WarningDialog> = {
     title: "Warning Dialog",
