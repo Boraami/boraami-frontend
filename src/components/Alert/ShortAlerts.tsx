@@ -121,6 +121,8 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
           height={21}
           justifyContent={"space-evenly"}
         >
+
+         {/* Render this icon for 'success' and 'default' alerts */}
           {name !== "warning" ? (
             <AntDesign
               name={
@@ -153,7 +155,9 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
                   : colorScheme.mono[800] // return a default value
               }
             />
+
           ) : (
+            // Render this icon if for 'warning' alerts"
             <Entypo
               name={"warning"}
               paddingHorizontal={12}
@@ -179,17 +183,37 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
         <AntDesign
           name="close"
           size={16}
-          color={
-            theme === "dark" && shade === "solid"
-              ? colorScheme.butter[50]
-              : theme === "dark" && shade === "subtle"
-              ? colorScheme.singularity[500]
-              : theme === "dark" && shade === "outline"
-              ? colorScheme.singularity[200]
-              : theme === "light" && shade === "solid"
-              ? colorScheme.butter[50]
-              : colorScheme.singularity[500]
-          }
+          color = {(
+            theme === "dark" && name === "default"
+              ? shade === "subtle"
+                ? colorScheme.mono[800]
+                : colorScheme.butter[50]
+              : theme === "light" && name === "default"
+                ? shade === "solid" || shade === "outline" // missing
+                  ? colorScheme.butter[50]
+                  : colorScheme.mono[800]
+              : theme === "dark" && name === "success"
+                ? shade === "solid"
+                  ? colorScheme.butter[50]
+                  : shade === "subtle"
+                    ? colorScheme.mono[800]
+                    : colorScheme.singularity[200]
+              : theme === "light" && name === "success"
+                ? shade === "solid" || shade === "outline" // missing
+                  ? colorScheme.butter[50]
+                  : colorScheme.mono[800]
+              : theme === "dark" && name === "warning"
+                ? shade === "outline"
+                  ? colorScheme.ptd[500]
+                  : colorScheme.mono[800]
+              : theme === "light" && name === "warning"
+                ? shade === "solid" || shade === "subtle"
+                ? colorScheme.mono[800]
+                : colorScheme.mono[800] 
+            : colorScheme.mono[800] 
+        )}
+          
+          
           onPress={handleClose}
         />
       </StyledAlert>
