@@ -4,7 +4,6 @@ import {
   styled,
   ScrollView,
   TextArea,
-  Text,
   SizableText,
 } from "tamagui";
 
@@ -53,8 +52,11 @@ const StyledTextbox = styled(TextArea, {
   },
 });
 
-const StyledText = styled(Text, {
+
+const StyledText = styled(SizableText, {
   variants: {
+
+    // Scrollbar takes the color of the
     variant: {
       placeholder: {
         color: "$placeholder-helper-text",
@@ -98,11 +100,11 @@ export const Textfields = ({
   return (
     <ScrollView maxHeight={161} paddingBottom={4}>
       <StyledTextbox variant={`${name}`} onChangeText={handleOnChangeText}>
-        <SizableText>{defaultText}</SizableText>
+        <SizableText fontFamily={'$body'} size={'$sm'}>{defaultText}</SizableText>
       </StyledTextbox>
       <XStack flexDirection="row" justifyContent="space-between">
-          <StyledText variant={`${name}`}>{helperText}</StyledText>
-          <StyledText variant={`${name}`}>{charCount}/{maxLength}</StyledText>
+          <StyledText variant={`${name}`} size={"$sm"}>{helperText}</StyledText>
+          <StyledText variant={`${name}`} size={"$sm"}>/{maxLength}</StyledText>
         </XStack>
     </ScrollView>
   );
