@@ -1,20 +1,21 @@
 import React from "react";
 import { Meta } from "@storybook/react-native";
 import { ShortAlert } from "./ShortAlert";
-import { SizableText, View } from 'tamagui';
+import { SizableText, View } from "tamagui";
 
 const ShortAlertMeta: Meta<typeof ShortAlert> = {
   title: "ShortAlert",
   component: ShortAlert,
   args: {
-    shade: 'solid',
-    alert: 'We are going live in AUGUST!',
+    name: "default",
+    shade: "solid",
+    alert: "We are going live in July!",
   },
 
   decorators: [
     (Story) => (
       <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-        <SizableText style={{ color: 'white'}}></SizableText>
+        <SizableText style={{ color: "white" }}></SizableText>
         <Story />
       </View>
     ),
@@ -23,47 +24,65 @@ const ShortAlertMeta: Meta<typeof ShortAlert> = {
 
 export default ShortAlertMeta;
 
-export const SolidShortAlert = {
-  name: 'short',
-  shade: 'solid',
+export const DefaultSolidAlert = {
+  args: {
+    name: "default_solid",
+    shade: "solid",
+  },
 };
 
-export const SubtleShortAlert = {
-  name: 'short',
-  shade: 'subtle',
+export const DefaultShadeAlert = {
+  args: {
+    name: "default",
+    shade: "subtle",
+  },
 };
 
-export const OutlineShortAlert = {
-  name: 'short',
-  shade: 'outline',
+export const DefaultOutlineAlert = {
+  args: {
+    name: "default",
+    shade: "outline",
+  },
 };
 
-export const SolidSuccessAlert = {
-  name: 'success',
-  shade: 'solid',
+export const SuccessSolidAlert = {
+  args: {
+    name: "success",
+    shade: "solid",
+  },
 };
 
-export const SubtleSuccessAlert = {
-  name: 'success',
-  shade: 'subtle',
+export const SuccessSubtleAlert = {
+  args: {
+    name: "success",
+    shade: "subtle",
+  },
 };
 
-export const OutlineSuccessAlert = {
-  name: 'success',
-  shade: 'outline',
+export const SuccessOutlineAlert = {
+  args: {
+    name: "success",
+    shade: "outline",
+  },
 };
 
-export const SolidErrorAlert = {
-  name: 'error',
-  shade: 'solid',
+export const WarningSolidAlert = {
+  args: {
+    name: "warning",
+    shade: "solid",
+  },
 };
 
-export const SubtleErrorAlert = {
-  name: 'error',
-  shade: 'subtle',
+export const WarningSubtleAlert = {
+  args: {
+    name: "warning",
+    shade: "subtle",
+  },
 };
 
-export const OutlineErrorAlert = {
-  name: 'error',
-  shade: 'outline',
+export const WarningOutlineAlert = {
+  args: {
+    name: "warning",
+    shade: "outline",
+  },
 };
