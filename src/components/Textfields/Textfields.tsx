@@ -91,10 +91,10 @@ export const Textfields = ({
   helperText,
 }: Props) => {
 
-  const [charCount, setCharCount] = useState(0);
+  const [count, setCount] = useState(0);
 
   const handleOnChangeText = (text: string) => {
-    setCharCount(text.length);
+    setCount(text.length);
   };
 
   return (
@@ -104,7 +104,7 @@ export const Textfields = ({
       </StyledTextbox>
       <XStack flexDirection="row" justifyContent="space-between">
           <StyledText variant={`${name}`} size={"$sm"}>{helperText}</StyledText>
-          <StyledText variant={`${name}`} size={"$sm"}>/{maxLength}</StyledText>
+          <StyledText variant={`${name}`} size={"$sm"}>{count}/{maxLength}</StyledText>
         </XStack>
     </ScrollView>
   );
