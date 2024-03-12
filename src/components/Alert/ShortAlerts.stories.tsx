@@ -26,7 +26,7 @@ export default ShortAlertsMeta;
 
 export const DefaultSolidAlert = {
   args: {
-    name: "default_solid",
+    name: "default",
     shade: "solid",
   },
 };
@@ -49,6 +49,7 @@ export const SuccessSolidAlert = {
   args: {
     name: "success",
     shade: "solid",
+    alert: "Selection successfully moved!"
   },
 };
 
@@ -56,6 +57,7 @@ export const SuccessSubtleAlert = {
   args: {
     name: "success",
     shade: "subtle",
+    alert: "Selection successfully moved!"
   },
 };
 
@@ -63,6 +65,7 @@ export const SuccessOutlineAlert = {
   args: {
     name: "success",
     shade: "outline",
+    alert: "Selection successfully moved!"
   },
 };
 
@@ -70,6 +73,7 @@ export const WarningSolidAlert = {
   args: {
     name: "warning",
     shade: "solid",
+    alert: "Poor internet connection!"
   },
 };
 
@@ -77,6 +81,7 @@ export const WarningSubtleAlert = {
   args: {
     name: "warning",
     shade: "subtle",
+    alert: "Poor internet connection!"
   },
 };
 
@@ -84,5 +89,6 @@ export const WarningOutlineAlert = {
   args: {
     name: "warning",
     shade: "outline",
+    alert: "Poor internet connection!"
   },
 };
