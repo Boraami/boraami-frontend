@@ -1,12 +1,12 @@
 
 import React from "react";
 import { Meta } from "@storybook/react-native";
-import { Long } from "./LongAlert";
+import { LongAlert } from "./LongAlert";
 import { Text, View } from 'tamagui';
 
-const LongMeta: Meta<typeof Long> = {
-  title: "Long",
-  component: Long,
+const LongAlertMeta: Meta<typeof LongAlert> = {
+  title: "Long Alert",
+  component: LongAlert,
   args: {
     shade: 'solid',
     alert: 'We are going live in July!',
@@ -23,16 +23,16 @@ const LongMeta: Meta<typeof Long> = {
   ],
 };
 
-export default LongMeta;
+export default LongAlertMeta;
 
-export const Solid = {};
+export const SolidLongAlert = {};
 
-export const Subtle = {
+export const SubtleLongAlert = {
   args: {
     shade: 'subtle',
   },
 };
-export const Outline = {
+export const OutlineLongAlert = {
   args: {
     shade: 'outline',
   },

@@ -16,7 +16,7 @@ const StyledAlert = styled(View, {
   borderRadius: 4,
   alignItems: "center",
   flexDirection: "row",
-  
+
   variants: {
     variant: {
       "default.solid": {
@@ -103,7 +103,6 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
   const theme = useColorScheme();
 
   const handleClose = () => {
-    // console.log("Button clicked, close alert");
     setClose(true);
   };
 
@@ -120,8 +119,7 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
           height={21}
           justifyContent={"space-evenly"}
         >
-
-         {/* Render this icon for 'success' and 'default' alerts */}
+          {/* Only render this icon for 'success' and 'default' alerts */}
           {name !== "warning" ? (
             <AntDesign
               name={
@@ -132,6 +130,7 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
                   : "warning"
               }
               paddingTop={2}
+              paddingLeft={8}
               size={16}
               color={
                 theme === "dark" && name === "default"
@@ -155,17 +154,16 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
                   : colorScheme.mono[800] // return a default value
               }
             />
-
           ) : (
             // Render this icon if for 'warning' alerts"
             <Entypo
+              paddingTop={2}
+              paddingLeft={8}
+              size={16}
               name={"warning"}
-              paddingHorizontal={12}
-              size={14}
               color={
                 shade === "solid" ? colorScheme.mono[800] : colorScheme.ptd[500]
               }
-              paddingTop={4}
             />
           )}
 
@@ -175,6 +173,7 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
               fontFamily={"$body"}
               fontSize={14}
               lineHeight={20}
+              paddingLeft={6}
             >
               {alert}
             </StyledText>
@@ -184,36 +183,36 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
         <AntDesign
           name="close"
           size={16}
-          color = {(
+          color={
+            // Default variant:
             theme === "dark" && name === "default"
               ? shade === "subtle"
                 ? colorScheme.mono[800]
                 : colorScheme.butter[50]
               : theme === "light" && name === "default"
-                ? shade === "solid" || shade === "outline" // missing
-                  ? colorScheme.butter[50]
-                  : colorScheme.mono[800]
+              ? shade === "solid" ? colorScheme.butter[50]
+                : colorScheme.mono[800]
+            // Success variant:
               : theme === "dark" && name === "success"
-                ? shade === "solid"
-                  ? colorScheme.butter[50]
-                  : shade === "subtle"
-                    ? colorScheme.mono[800]
-                    : colorScheme.singularity[200]
-              : theme === "light" && name === "success"
-                ? shade === "solid" || shade === "outline" // missing
-                  ? colorScheme.butter[50]
-                  : colorScheme.mono[800]
-              : theme === "dark" && name === "warning"
-                ? shade === "outline"
-                  ? colorScheme.ptd[500]
-                  : colorScheme.mono[800]
-              : theme === "light" && name === "warning"
-                ? shade === "solid" || shade === "subtle"
+              ? shade === "solid"
+                ? colorScheme.butter[50]
+                : shade === "subtle"
                 ? colorScheme.mono[800]
-                : colorScheme.mono[800] 
-            : colorScheme.mono[800] 
-        )}
-          
+                : colorScheme.singularity[200]
+              : theme === "light" && name === "success"
+              ? shade === "solid" ? colorScheme.butter[50]  
+                : colorScheme.mono[800]
+            // Warning variant:
+              : theme === "dark" && name === "warning"
+              ? shade === "outline"
+                ? colorScheme.ptd[500]
+                : colorScheme.mono[800]
+              : theme === "light" && name === "warning"
+              ? shade === "solid" || shade === "subtle"
+                ? colorScheme.mono[800]
+                : colorScheme.mono[800]
+              : colorScheme.mono[800]
+          }
           onPress={handleClose}
         />
       </StyledAlert>
