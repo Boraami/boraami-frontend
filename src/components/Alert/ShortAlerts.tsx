@@ -103,7 +103,7 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
   const theme = useColorScheme();
 
   const handleClose = () => {
-    console.log("Button clicked, close dialog");
+    // console.log("Button clicked, close alert");
     setClose(true);
   };
 
