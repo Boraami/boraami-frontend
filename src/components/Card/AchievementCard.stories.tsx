@@ -8,9 +8,8 @@ const AchievementMeta: Meta<typeof AchievementCard> = {
   component: AchievementCard,
   argTypes: {},
   args: {
-    text1: 'I earned the ',
-    boldText: 'Dreamer Streamer badge',
-    text2: ' for streaming 5 days in a row!',
+    badgeName: 'Dreamer Streamer badge',
+    numOfDays: 3,
     uri: require('../../images/badge-placeholder.png'),
   },
   decorators: [

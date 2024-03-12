@@ -1,60 +1,61 @@
 import React from "react";
-import { Card, styled, Text, Image, View, XStack, SizableText } from "tamagui";
+import { Card, styled, SizableText, Image, View } from "tamagui";
 
-const Achievement = styled(Card, {
+const StyledAchievementCard = styled(Card, {
   backgroundColor: "$achievement-card-fill",
   borderRadius: "$r-subtle",
   justifyContent: "space-between",
   alignSelf: "center",
   display: "flex",
   flexDirection: "row",
-  height: 87,
   width: 329,
+  height: 87,
 });
 
 type AchievementProps = {
   uri: string;
-  text1: string;
-  text2: string;
-  boldText?: string;
+  badgeName: string;
+  numOfDays: number;
+  boldSizableText?: string;
 };
 
 export const AchievementCard = ({
-  text1,
-  text2,
+  numOfDays,
   uri,
-  boldText,
+  badgeName,
 }: AchievementProps) => {
  
   return (
-    <Achievement>
-      <XStack
+    <StyledAchievementCard>
+      <View
         style={{
           flexDirection: "row",
           width: 278,
           height: 87,
           alignContent: "center",
-          paddingHorizontal: 25,
+          paddingTop: 2, 
+          paddingHorizontal: 30,
         }}
       >
         <View style={{ marginTop: 17 }}>
-          <Image source={{ uri: uri, width: 48, height: 48 }} />
+          <Image source={{ uri: uri, width: 48, height: 48 }} marginRight={10} />
         </View>
-        <Text
+        <SizableText
           color={"$achievement-card-text"}
-          fontSize={14}
+          size={"$xs"}
           fontFamily={"$body"}
           style={{ padding: 12 }}
+          lineHeight={18} // There's slightly more padding between the 2nd and 3rd lines when lineHeight is set to any number 
         >
-          {text1}
-          <Text fontSize={14} fontFamily={"$heading"}>
-            {boldText}
-          </Text>
-          <Text fontSize={14} fontFamily={"$body"} style={{ padding: 12 }}>
-            {text2}
-          </Text>
-        </Text>
-      </XStack>
-    </Achievement>
+          I earned the {''}
+          <SizableText size={"$xs"} fontFamily={"$heading"}>
+            {badgeName}
+          </SizableText>
+          <SizableText size={"$xs"} fontFamily={"$body"} style={{ padding: 12 }}>
+          {''} for streaming {numOfDays} days in a row!
+          </SizableText>
+        </SizableText>
+      </View>
+    </StyledAchievementCard>
   );
 };
