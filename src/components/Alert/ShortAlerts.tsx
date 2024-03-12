@@ -15,7 +15,8 @@ const StyledAlert = styled(View, {
   width: 329,
   borderRadius: 4,
   alignItems: "center",
-
+  flexDirection: "row",
+  
   variants: {
     variant: {
       "default.solid": {
@@ -114,8 +115,6 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
     <YStack>
       <StyledAlert variant={`${name}.${shade}`}>
         <XStack
-          borderColor={"red"}
-          borderWidth={1}
           flexDirection={"row"}
           width={300}
           height={21}
@@ -132,6 +131,7 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
                   ? "checkcircle"
                   : "warning"
               }
+              paddingTop={2}
               size={16}
               color={
                 theme === "dark" && name === "default"
@@ -174,6 +174,7 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
               variant={`${name}.${shade}`}
               fontFamily={"$body"}
               fontSize={14}
+              lineHeight={20}
             >
               {alert}
             </StyledText>
@@ -212,7 +213,6 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
                 : colorScheme.mono[800] 
             : colorScheme.mono[800] 
         )}
-          
           
           onPress={handleClose}
         />
