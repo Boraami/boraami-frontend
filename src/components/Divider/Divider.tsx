@@ -1,8 +1,8 @@
 import React from 'react';
-import { Separator, styled, XStack } from 'tamagui';
+import { Separator, styled } from 'tamagui';
 
 const Divider = styled(Separator, {
-    borderColor: '$boraami.400', 
+    borderColor: '$subtle', 
     width: 420,
     borderWidth: '1',
 });
@@ -14,7 +14,5 @@ type Props = {
 
 export const Dividers = ({ vertical, borderColor }: Props) => {
     return (
-        <XStack alignItems="center">
-            <Divider vertical={vertical} borderColor={borderColor}/>
-        </XStack>
+        <Divider vertical={vertical} borderColor={borderColor}/>
     )}
