@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useColorScheme } from "react-native";
 import { XStack, YStack, View, SizableText, styled } from "tamagui";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, Entypo } from "@expo/vector-icons";
 import { colorScheme } from "../../themes/theme";
 
 type Props = {
@@ -121,73 +121,50 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
           height={21}
           justifyContent={"space-evenly"}
         >
-          
-          <AntDesign
-            name={
-              name === "default"
-                ? "heart"
-                : name === "success"
-                ? "checkcircle"
-                : "warning"
-            }
-            size={16}
-            color={
-              (
+          {name !== "warning" ? (
+            <AntDesign
+              name={
+                name === "default"
+                  ? "heart"
+                  : name === "success"
+                  ? "checkcircle"
+                  : "warning"
+              }
+              size={16}
+              color={
                 theme === "dark" && name === "default"
-                  ? (
-                      shade === "subtle"
-                        ? colorScheme.boraami[700]
-                        : colorScheme.butter[50]
-                    )
-                  : (
-                      theme === "light" && name === "default"
-                        ? (
-                            shade === "solid"
-                              ? colorScheme.butter[50]
-                              : colorScheme.boraami[700]
-                          )
-                        : (
-                            theme === "dark" && name === "success"
-                              ? (
-                                  shade === "solid"
-                                    ? colorScheme.butter[50]
-                                    : (
-                                        shade === "subtle"
-                                          ? colorScheme.singularity[500]
-                                          : colorScheme.singularity[200]
-                                      )
-                                )
-                              : (
-                                  theme === "light" && name === "success"
-                                    ? (
-                                        shade === "solid"
-                                          ? colorScheme.butter[50]
-                                          : colorScheme.singularity[500]
-                                      )
-                                    : (
-                                        theme === "dark" && name === "warning"
-                                          ? (
-                                              shade === "solid"
-                                                ? colorScheme.mono[800]
-                                                : colorScheme.ptd[500]
-                                            )
-                                          : (
-                                              theme === "light" && name === "warning"
-                                                ? (
-                                                    shade === "solid"
-                                                      ? colorScheme.mono[800]
-                                                      : colorScheme.ptd[500]
-                                                  )
-                                                : colorScheme.mono[800] // return a default value 
-                                            )
-                                      )
-                                )
-                          )
-                    )
-              )
-            }
-            
-          />
+                  ? shade === "subtle"
+                    ? colorScheme.boraami[700]
+                    : colorScheme.butter[50]
+                  : theme === "light" && name === "default"
+                  ? shade === "solid"
+                    ? colorScheme.butter[50]
+                    : colorScheme.boraami[700]
+                  : theme === "dark" && name === "success"
+                  ? shade === "solid"
+                    ? colorScheme.butter[50]
+                    : shade === "subtle"
+                    ? colorScheme.singularity[500]
+                    : colorScheme.singularity[200]
+                  : theme === "light" && name === "success"
+                  ? shade === "solid"
+                    ? colorScheme.butter[50]
+                    : colorScheme.singularity[500]
+                  : colorScheme.mono[800] // return a default value
+              }
+            />
+          ) : (
+            <Entypo
+              name={"warning"}
+              paddingHorizontal={12}
+              size={14}
+              color={
+                shade === "solid" ? colorScheme.mono[800] : colorScheme.ptd[500]
+              }
+              paddingTop={4}
+            />
+          )}
+
           <XStack width={250} flexDirection="column">
             <StyledText
               variant={`${name}.${shade}`}
