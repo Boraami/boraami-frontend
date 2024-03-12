@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from "react";
 import { useColorScheme } from "react-native";
 import { Card, styled, View, XStack, Text, Image } from 'tamagui';
 import { AntDesign } from '@expo/vector-icons';
@@ -28,7 +28,17 @@ type InfoProps = {
     
 export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
     const theme = useColorScheme();
-    
+    const [close, setClose] = useState(false);
+
+    const handleClose = () => {
+      // console.log("Button clicked, close card");
+      setClose(true);
+    };
+  
+    if (close) {
+      return null;
+    }
+  
     let textSize;
     let subTextSize;
     let iconSize;
@@ -79,6 +89,7 @@ export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
                     <AntDesign 
                         name="close" 
                         size={closeSize} 
+                        onPress={handleClose}
                         color={theme === 'dark' ? colorScheme.butter[50] : colorScheme.boraami[700]}    
                     />
                 </View>
