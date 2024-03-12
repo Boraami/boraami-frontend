@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useColorScheme } from "react-native";
-import { Card, styled, View, XStack, Text, Image } from "tamagui";
+import { Card, styled, View, XStack, SizableText, Image } from "tamagui";
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { colorScheme } from "../../themes/theme";
@@ -38,24 +38,18 @@ export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
     return null;
   }
 
-  let textSize;
-  let subTextSize;
   let iconSize;
   let closeSize;
   let cardHeight;
 
   if (size === "l") {
-    textSize = 16;
-    subTextSize = 12;
     iconSize = 20;
     closeSize = 16;
     cardHeight = 110;
   } else {
-    cardHeight = 76;
-    textSize = 12;
-    subTextSize = 10;
-    iconSize = 12;
+    iconSize = 14;
     closeSize = 12;
+    cardHeight = 76;
   }
 
   return (
@@ -79,7 +73,7 @@ export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
           <View style={{ flexDirection: "row" }}>
             <Entypo
               name="spotify"
-              paddingTop={2}
+              paddingTop={1}
               size={iconSize}
               color={
                 theme === "dark"
@@ -87,22 +81,29 @@ export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
                   : colorScheme.boraami[700]
               }
             />
-            <Text
+            <SizableText
               paddingLeft={4}
-              fontSize={textSize}
+              paddingTop={size === "l" ? 2 : ''}
+              size={size === "l" ? "$sm" : "$xs"}
               color="$info-card-text"
               fontFamily="$heading"
             >
               {title}
-            </Text>
+            </SizableText>
           </View>
-          <Text color="$info-card-text" paddingTop={4} fontSize={subTextSize}>
+          <SizableText
+            color="$info-card-text"
+            paddingTop={4}
+            size={size === "l" ? "$xs" : "$2xs"}
+            // values are correct for text size, although the subtitle appears a little smaller on the small card
+          >
             {subtitle}
-          </Text>
+          </SizableText>
         </View>
-        <View style={{ paddingTop: 4 }}>
+        <View style={{ paddingTop: 2, paddingRight: 4 }}>
           <AntDesign
             name="close"
+            paddingTop={size === "l" ? 1 : ''}
             size={closeSize}
             onPress={handleClose}
             color={
