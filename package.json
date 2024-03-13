@@ -18,6 +18,7 @@
     "@expo-google-fonts/open-sans": "^0.2.3",
     "@expo-google-fonts/poppins": "^0.2.3",
     "@expo/metro-runtime": "^3.1.2",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@tamagui/babel-plugin": "^1.88.16",
     "@tamagui/config": "^1.88.16",
     "@tamagui/metro-plugin": "^1.88.16",
