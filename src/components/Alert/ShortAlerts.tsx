@@ -28,7 +28,6 @@ const StyledAlert = styled(View, {
         color: "$default-alert-subtle-text",
       },
       "default.outline": {
-        backgroundColor: "$default-alert-outline-fill",
         borderColor: "$default-alert-outline",
         borderWidth: 1,
         color: "$default-alert-outline-text",
@@ -207,7 +206,7 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
               ? shade === "outline"
                 ? colorScheme.ptd[500]
                 : colorScheme.mono[800]
-              : theme === "light" && name === "warning"
+                : theme === "light" && name === "warning"
               ? shade === "solid" || shade === "subtle"
                 ? colorScheme.mono[800]
                 : colorScheme.mono[800]
