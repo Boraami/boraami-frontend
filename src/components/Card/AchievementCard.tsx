@@ -42,16 +42,16 @@ export const AchievementCard = ({
         </View>
         <SizableText
           color={"$achievement-card-text"}
-          size={"$xs"}
+          size={"$sm"}
           fontFamily={"$body"}
           style={{ padding: 12 }}
-          lineHeight={18} // There's slightly more padding between the 2nd and 3rd lines when lineHeight is set to any number 
-        >
+          lineHeight={18} 
+          >
           I earned the {''}
           <SizableText size={"$xs"} fontFamily={"$heading"}>
             {badgeName}
           </SizableText>
-          <SizableText size={"$xs"} fontFamily={"$body"} style={{ padding: 12 }}>
+          <SizableText size={"$sm"} fontFamily={"$body"} style={{ padding: 12 }}>
           {''} for streaming {numOfDays} days in a row!
           </SizableText>
         </SizableText>
