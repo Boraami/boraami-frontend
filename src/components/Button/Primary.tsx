@@ -28,6 +28,7 @@ type BtnSizeProps = {
     gap: number;
     txtSize: FontSizeTokens;
     iconSize: number;
+    lineHeight: number;
   };
 };
 
@@ -40,8 +41,9 @@ const btnSizes: BtnSizeProps = {
     border: 1,
     paddingLeft: 4,
     gap: 4,
-    txtSize: '$sm',
+    txtSize: '$xs',
     iconSize: 16,
+    lineHeight: 12,
   },
   md: {
     width: 93,
@@ -51,8 +53,9 @@ const btnSizes: BtnSizeProps = {
     border: 1,
     paddingLeft: 6,
     gap: 6,
-    txtSize: '$md',
+    txtSize: '$sm',
     iconSize: 20,
+    lineHeight: 14,
   },
   lg: {
     width: 107,
@@ -62,8 +65,9 @@ const btnSizes: BtnSizeProps = {
     border: 1,
     paddingLeft: 8,
     gap: 6,
-    txtSize: '$lg',
+    txtSize: '$md',
     iconSize: 24,
+    lineHeight: 16,
   }
 };
 
@@ -73,15 +77,17 @@ const StyledBtn = styled(Btn, {
       disabled: {
         backgroundColor: '$primary-disabled-btn',
         borderRadius: '$r-subtle',
-        opacity: 1.5,
+        position: 'absolute',
         borderWidth: 1.5,
+        opacity: 1.5,
+        color: '#EEEEEE',
       },
       normal: {
         backgroundColor: '$primary-default-btn',
         borderRadius: '$r-subtle',
-        fontFamily: '$PoppinsReg',
         borderWidth: 1.5,
         color: 'white',
+        position: 'absolute',
         hoverStyle: {
           borderRadius: '$r-subtle',
           borderColor: "$primary-hover-btn-border",
@@ -106,13 +112,14 @@ const StyledBtn = styled(Btn, {
       disabled: {
         borderColor: '$secondary-disabled-btn-border',
         borderRadius: '$r-subtle',
+        position: 'absolute',
         borderWidth: 1.5,
-        color: 'grey',
+        color: '#999999',
       },
       normal: {
         borderColor: '$secondary-default-btn-border',
         borderRadius: '$r-subtle',
-        fontFamily: '$PoppinsReg',
+        position: 'absolute',
         borderWidth: 1.5,
         color: '#8F66D6', //boraami.500
         hoverStyle: {
@@ -135,13 +142,13 @@ const StyledBtn = styled(Btn, {
     },
     tertiary: {
       disabled: {
-        fontFamily: '$PoppinsReg',
+        position: 'absolute',
         borderWidth: 1.5,
-        color: 'grey',
+        color: '#999999',
       },
       normal: {
         color: '$tertiary-default-text',
-        fontFamily: '$PoppinsReg',
+        position: 'absolute',
         borderWidth: 1.5,
         hoverStyle: {
           borderRadius: '$r-subtle',
@@ -174,45 +181,67 @@ interface ButtonProps {
   tertiary: string;
   secondary: string;
   disabled?: boolean;
-  size: 'sm' | 'md' | 'lg';
+  size: 'xs' | 'sm' | 'md';
 }
 
 export const BtnField = (props: ButtonProps) => {
   const {
     txt,
     size,
-    disabled,
+    name,
     primary,
     tertiary,
+    disabled,
     secondary,
   } = props;
-  const theme = useColorScheme();
-  const isDarkTheme = theme === "dark";
-  const defaultIconColor = isDarkTheme ? 'white' : 'white';
-  const disabledIconColor = '#9E96AD';
 
+  let iconComponent = null;
+
+  if (primary != null) {
+    iconComponent = (
+      <FontAwesome6 name="plus"
+      size={btnSizes[size].iconSize}
+      color={disabled ? '#EEEEEE' : 'white'}
+      style={{position: 'relative'}}
+      />
+    )
+  } else if (secondary != null) {
+    iconComponent = (
+      <FontAwesome6 name="plus"
+      size={btnSizes[size].iconSize}
+      color={disabled ? '#999999' : '#AA7AFF'}
+      style={{position: 'relative'}}
+      />
+    )
+  } else if (tertiary != null) {
+    iconComponent = (
+      <FontAwesome6 name="plus"
+      size={btnSizes[size].iconSize}
+      color={disabled ? '#999999' : '#AA7AFF'}
+      style={{position: 'relative'}}
+      />
+    )
+  }
   return (
-    <YStack>      
+    <YStack>
       <XStack>
         <Button
-          name={props.name}
+          name={name}
           height={btnSizes[size].height}
           paddingLeft={btnSizes[size].paddingLeft}
           disabled={disabled}
           primary={primary}
           tertiary={tertiary}
           secondary={secondary}
-          icon={<FontAwesome6 name="plus" size={btnSizes[size].iconSize}
-            color={disabled ? disabledIconColor : defaultIconColor}
-            style={{
-              position: 'relative',
-            }} />}>
+          icon={iconComponent}
+          >
           <SizableText
             fontFamily={'$btn'}
             alignItems={'center'}
+            lineHeight={btnSizes[size].lineHeight}
             size={btnSizes[size].txtSize}>{txt}</SizableText>
         </Button>
-      </XStack>      
+      </XStack>
     </YStack>
   )
 }

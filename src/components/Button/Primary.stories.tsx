@@ -29,7 +29,7 @@ const PDefaultMeta: Meta<typeof BtnField> = {
       name: 'primary',
       primary: 'normal',
       size: 'sm',
-      txt: 'small'
+      txt: 'BUTTON'
     },
   };
 
@@ -38,7 +38,7 @@ const PDefaultMeta: Meta<typeof BtnField> = {
       name: 'secondary',
       secondary: 'normal',
       size: 'sm',
-      txt: 'small'
+      txt: 'BUTTON'
     },
   };
 
@@ -47,7 +47,7 @@ const PDefaultMeta: Meta<typeof BtnField> = {
       name: 'tertiary',
       tertiary: 'normal',
       size: 'sm',
-      txt: 'small'
+      txt: 'BUTTON'
     },
   };
 
@@ -56,7 +56,7 @@ const PDefaultMeta: Meta<typeof BtnField> = {
       name: 'primary',
       primary: 'normal',
       size: 'md',
-      txt: 'medium',
+      txt: 'BUTTON',
     },
   };
 
@@ -65,7 +65,7 @@ const PDefaultMeta: Meta<typeof BtnField> = {
       name: 'secondary',
       secondary: 'normal',
       size: 'md',
-      txt: 'medium',
+      txt: 'BUTTON',
     },
   };
 
@@ -74,7 +74,7 @@ const PDefaultMeta: Meta<typeof BtnField> = {
       name: 'tertiary',
       tertiary: 'normal',
       size: 'md',
-      txt: 'medium',
+      txt: 'BUTTON',
     },
   };
   
@@ -82,7 +82,7 @@ const PDefaultMeta: Meta<typeof BtnField> = {
     args: {
       name: 'primary',
       primary: 'disabled',
-      disable: true,
+      disabled: true,
       size: 'lg',
       txt: 'BUTTON',
     },
@@ -92,9 +92,9 @@ const PDefaultMeta: Meta<typeof BtnField> = {
     args: {
       name: 'secondary',
       secondary: 'disabled',
-      disable: true,
+      disabled: true,
       size: 'lg',
-      txt: 'large',
+      txt: 'BUTTON',
     },
   };
 
@@ -102,8 +102,8 @@ const PDefaultMeta: Meta<typeof BtnField> = {
     args: {
       name: 'tertiary',
       tertiary: 'disabled',
-      disable: true,
+      disabled: true,
       size: 'lg',
-      txt: 'large',
+      txt: 'BUTTON',
     },
   };
