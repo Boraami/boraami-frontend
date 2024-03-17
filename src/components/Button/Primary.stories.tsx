@@ -84,7 +84,7 @@ const PDefaultMeta: Meta<typeof BtnField> = {
       primary: 'disabled',
       disable: true,
       size: 'lg',
-      txt: 'large',
+      txt: 'BUTTON',
     },
   };
 

@@ -4,7 +4,7 @@ import {
   ButtonProps as BtnProps,
   XStack, YStack, SizableText, FontSizeTokens, styled
 } from "tamagui";
-import { AntDesign } from '@expo/vector-icons';
+import { FontAwesome6 } from '@expo/vector-icons';
 import { useColorScheme } from "react-native";
 import { colorScheme } from "../../themes/theme";
 
@@ -73,7 +73,7 @@ const StyledBtn = styled(Btn, {
       disabled: {
         backgroundColor: '$primary-disabled-btn',
         borderRadius: '$r-subtle',
-        opacity: 1,
+        opacity: 1.5,
         borderWidth: 1.5,
       },
       normal: {
@@ -166,7 +166,7 @@ const StyledBtn = styled(Btn, {
 });
 
 
-interface ButtonProps extends Btn {
+interface ButtonProps {
   txt: string;
   name: string;
   label: string;
@@ -188,8 +188,8 @@ export const BtnField = (props: ButtonProps) => {
   } = props;
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
-  const defaultIconColor = isDarkTheme ? colorScheme.boraami[500] : colorScheme.boraami[700];
-  const disabledIconColor = colorScheme.mono[100];
+  const defaultIconColor = isDarkTheme ? 'white' : 'white';
+  const disabledIconColor = '#9E96AD';
 
   return (
     <YStack>      
@@ -202,13 +202,14 @@ export const BtnField = (props: ButtonProps) => {
           primary={primary}
           tertiary={tertiary}
           secondary={secondary}
-          icon={<AntDesign name="plus" size={btnSizes[size].iconSize}
+          icon={<FontAwesome6 name="plus" size={btnSizes[size].iconSize}
             color={disabled ? disabledIconColor : defaultIconColor}
             style={{
               position: 'relative',
             }} />}>
           <SizableText
-            fontFamily={'$PoppinsReg'}
+            fontFamily={'$btn'}
+            alignItems={'center'}
             size={btnSizes[size].txtSize}>{txt}</SizableText>
         </Button>
       </XStack>      
