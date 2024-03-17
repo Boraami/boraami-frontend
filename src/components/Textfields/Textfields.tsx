@@ -56,7 +56,7 @@ const StyledTextbox = styled(TextArea, {
 const StyledText = styled(SizableText, {
   variants: {
 
-    // Text color is automaticall applied to the Scrollbar 
+    // Text color is automatically applied to the Scrollbar 
     variant: {
       placeholder: {
         color: "$placeholder-helper-text",
