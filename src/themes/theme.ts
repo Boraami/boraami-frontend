@@ -87,7 +87,7 @@ export const colorScheme = {
 
 const light = {
   //Notes: default-alert-left-border, error-alert-fill, hover-radio-fill,modal-divider
-  // Alert Component
+  // ALert Component
   "default-alert-solid-fill" : colorScheme.boraami[700],
   "default-alert-left-border" : colorScheme.boraami[400],
   "default-alert-subtle-fill" : colorScheme.boraami[100],
