@@ -7,9 +7,14 @@ export const TextfieldsMeta: Meta<typeof Textfields> = {
     title: "Textfields",
     component: Textfields,
     args: {
-      defaultText: 'Default input. Maximum height of container to occupy only 5 lines of input. Provide a scroll post 5 lines.',
+      placeholder: 'Default input. Maximum height of container to occupy only 5 lines of input. Provide a scroll post 5 lines.',
       helperText: 'Error Text',
-      maxLength: 1000
+      // fontFamily: '$body',
+      // size: '$sm',
+      maxLength: 1000,
+      backgroundColor: "$default-textbox-fill",
+      borderColor: "$default-textbox-border",
+      color: "$default-textbox-text",
   },
 
     decorators: [
