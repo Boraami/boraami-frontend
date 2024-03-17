@@ -7,9 +7,6 @@ const TagMeta: Meta<typeof TagField> = {
     title: "Tags",
     component: TagField,
     argTypes: {},
-    args: {
-        txt: 'lol'
-    },
     decorators: [
         (Story) => (
             <View style={{
@@ -63,8 +60,8 @@ export const warning_small = {
 
 export const default_small = {
     args: {
-        name: 'default',
-        default: 'solid',
+        name: 'social',
+        deflt: 'solid',
         size: 'sm',
         txt: 'DEFAULT'
     }
@@ -108,8 +105,8 @@ export const warning_medium_out = {
 
 export const default_medium_out = {
     args: {
-        name: 'default',
-        default: 'outline',
+        name: 'social',
+        deflt: 'outline',
         size: 'md',
         txt: 'DEFAULT'
     }
