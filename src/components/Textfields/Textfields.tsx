@@ -56,21 +56,16 @@ const StyledTextbox = styled(TextArea, {
 const StyledText = styled(SizableText, {
   variants: {
 
-    // Scrollbar takes the color of the
+    // Text color is automaticall applied to the Scrollbar 
     variant: {
       placeholder: {
         color: "$placeholder-helper-text",
-        // scrollbarColor: "$placeholder-scroll-bar",
       },
       default: {
         color: "$default-helper-text-textfield",
-        // scrollbarColor: "$default-scroll-bar",
       },
       focused: {
-        // color: "$focused-helper-text",
         color: "$focused-helper-text-textfield",
-        // color: "$default-textbox-border",
-        // scrollbarColor: "$focused-scroll-bar",
       },
       error: {
         color: "$error-helper-text-textfield",
