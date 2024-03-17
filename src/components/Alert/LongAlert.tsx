@@ -105,7 +105,7 @@ export const LongAlert = ({ shade, alert, content }: Props) => {
           name="close"
           size={18}
           paddingTop={10}
-          paddingRight={10} // Can't move it further left
+          paddingRight={10} 
           color={
             (theme === "dark" &&
               (subtle ? colorScheme.mono[800] : colorScheme.butter[50])) ||
