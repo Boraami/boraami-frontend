@@ -19,7 +19,7 @@ interface CustomTagProps extends BtnProps {
     deflt: string;
 };
 
-const Button: React.FC<CustomTagProps> = (props) => <StyledTag {...props}>{props.children}</StyledTag>
+const Button: React.FC<CustomTagProps> = (props) => <StyledTag {...props}/>
 
 type TagSizeProps = {
     [key: string]: {
@@ -148,7 +148,7 @@ interface ButtonProps {
     size: 'xs' | 'sm';
 }
 
-export const TagField: React.FC<ButtonProps> = (props: ButtonProps) => {
+export const TagField = (props: ButtonProps) => {
     const {
         txt,
         size,
@@ -204,8 +204,8 @@ export const TagField: React.FC<ButtonProps> = (props: ButtonProps) => {
         );
     }
     return (
-        <StyledTag
-            componentName={name}
+        <Button
+            name={name}
             height={tagSizes[size].height}
             width={tagSizes[size].width}
             disabled={true}
@@ -219,10 +219,6 @@ export const TagField: React.FC<ButtonProps> = (props: ButtonProps) => {
                 fontFamily={'$btn'}
                 size={tagSizes[size].txtSize}
                 lineHeight={12}>{txt}</SizableText>
-        </StyledTag>
+        </Button>
     );
 };
-function render() {
-    throw new Error("Function not implemented.");
-}
-
