@@ -1,7 +1,7 @@
 import React from 'react';
-import { Separator, styled } from 'tamagui';
+import { View, styled } from 'tamagui';
 
-const Divider = styled(Separator, {
+const Divider = styled(View, {
     borderColor: '$subtle', 
     width: 420,
     borderWidth: '1',
@@ -12,7 +12,7 @@ type Props = {
     borderColor: string;
 };
 
-export const Dividers = ({ vertical, borderColor }: Props) => {
+export const Dividers = ({ borderColor }: Props) => {
     return (
-        <Divider vertical={vertical} borderColor={borderColor}/>
+        <Divider borderColor={borderColor}/>
     )}
