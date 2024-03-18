@@ -1,84 +1,101 @@
 import { Label, RadioGroup, XStack, YStack } from 'tamagui'
 import { FontAwesome } from '@expo/vector-icons';
-export function RadioButton(props:{disable?: boolean,labeltext: string,value: string, size: string
-  disable2?: boolean,labeltext2: string,value2: string, size2: string}) {
+import { Platform } from "react-native";
+type RadioBtnProps = {
+  value: string
+  disable?: boolean,
+  size: string, 
+  labeltext: string,
+  value2: string
+  disable2?: boolean,
+  size2: string, 
+  labeltext2: string,
+}
+export function RadioButton({ value, disable, size, labeltext, value2, disable2, size2, labeltext2}: RadioBtnProps) {
     return (
       <RadioGroup aria-labelledby="Select one item" defaultValue="1" name="form">
         <YStack alignItems="center">
-          <RadioGroupItemWithLabel value={props.value} labeltext={props.labeltext} size={props.size} disable={props.disable} />
-          <RadioGroupItemWithLabel value={props.value2} labeltext={props.labeltext2} size={props.size2} disable={props.disable2} />
+          <RadioGroupItemWithLabel value={value} labeltext={labeltext} size={size} disable={disable} />
+          <RadioGroupItemWithLabel value={value2} labeltext={labeltext2} size={size2} disable={disable2} />
         </YStack>
       </RadioGroup>
     )
   }
+type RadioSizeProps = {
+    [key: string]: {
+      rwh: number;
+      ls: string;
+      ris: number;
+      dris: number;
+    };
+  };
   
-  export function RadioGroupItemWithLabel(props: {
-                                    value: string
-                                    disable?: boolean,
-                                    size: string, 
-                                    labeltext: string
-                                  }) {
-console.log(props.size)
-console.log(props.disable)
-var rwh=0;
-var ls='';
-var ris= 0;
-var dris=0;
-
-if(props.size=='sm'){
-  rwh=12
-  ls='$sm'
-  ris=6
-  dris=5.5
-  console.log(rwh,ls,ris)
-} else if(props.size=='md'){
-  rwh=16
-  ls='$md'
-  ris=8.5
-  dris=9.5
-  console.log(rwh,ls,ris)
-} else if(props.size=='lg'){
-  rwh=20
-  ls='$lg'
-  ris=10
-  dris=12
-  console.log(rwh,ls,ris)
-}else{
-  console.log('size arguments not correct')
+const radioSizes: RadioSizeProps = {
+  sm: {
+      rwh:12,
+      ls:'$sm',
+      ris:6,
+      dris:5.5
+    },
+  md: {
+      rwh:16,
+      ls:'$md',
+      ris:8.5,
+      dris:9.5
+    },
+  lg: {
+      rwh:20,
+      ls:'$lg',
+      ris:10,
+      dris:12
+    },
+  };
+  
+type Props = {
+  value: string
+  disable?: boolean,
+  size: string, 
+  labeltext: string
 }
+
+export function RadioGroupItemWithLabel({ value, disable, size, labeltext }: Props) {
+  const id = `radiogroup-${value}`
     return (
       <XStack>
-        {props.disable?
+        {disable?
         <YStack alignItems="center" flexDirection='row' gap={8}>
         <RadioGroup.Item
+        id={id}
          borderColor={"rgba(95,61,156,0.3)"}
          disabled={true}
-         value={props.value} 
+         value={value} 
          borderWidth={2}
-         width={rwh}
-         height={rwh}
+         width={radioSizes[size].rwh}
+         height={radioSizes[size].rwh}
          >
           <RadioGroup.Indicator alignItems='center' justifyContent='center' >
-           <FontAwesome name="circle" size={dris} color={"#5F3D9C"} 
+           <FontAwesome name="circle" size={radioSizes[size].dris} color={"#5F3D9C"} 
            style={{marginTop:-5.6, marginRight:-3, marginBottom:-6, marginLeft:-3, opacity:0.5}}/*to position*/ />
           </RadioGroup.Indicator>
         </RadioGroup.Item>
         <Label 
         opacity={0.4}
-        size={ls}
+        htmlFor={id}
+        size={radioSizes[size].ls}
         fontFamily={'$body'}
         color='$default-radio-text'>
-          {props.labeltext}
+          {labeltext}
         </Label>
       </YStack>
       :
       <YStack flexDirection='row'  alignItems="center" gap={8}>
         <RadioGroup.Item
+        id={id}
          borderColor={"#5F3D9C"}         
-         value={props.value} 
+         value={  value} 
          borderWidth={1.2}
-         width={rwh}
-         height={rwh}
+         width={radioSizes[size].rwh}
+         height={radioSizes[size].rwh}
          focusStyle={{
           borderWidth:2,
           borderColor:'$focus-radio-border',
@@ -89,19 +106,28 @@ if(props.size=='sm'){
         }}
          >
           <RadioGroup.Indicator  alignItems='center' justifyContent='center' >
-           <FontAwesome name="circle" size={ris} color={"#5F3D9C"} 
-           style={{
-            marginTop:-6.2, 
-            marginRight:-5, 
-            marginBottom:-6, 
-            marginLeft:-4.9,}}/*to position*/ />
+           <FontAwesome name="circle" size={radioSizes[size].ris} color={"#5F3D9C"} 
+           style={
+            Platform.OS==="android"?
+            {
+              marginTop:-6.2, 
+              marginRight:-5, 
+              marginBottom:-6, 
+              marginLeft:-4.9,}:
+              {
+                marginTop:-5, 
+                marginRight:-5.5, 
+                marginBottom:-5.8, 
+                marginLeft:-4.9,}
+            }/*to position*/ />
           </RadioGroup.Indicator>
         </RadioGroup.Item>
         <Label 
-        size={ls}
+        htmlFor={id}
+        size={radioSizes[size].ls}
         fontFamily={'$body'}
         color='$default-radio-text'>
-          {props.labeltext}
+          {  labeltext}
         </Label>
       </YStack>
       }
