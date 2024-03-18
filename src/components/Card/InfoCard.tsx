@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useColorScheme } from "react-native";
 import { styled, View, XStack, SizableText, Image } from "tamagui";
 import { FontAwesome6 } from '@expo/vector-icons';
-import { Entypo } from "@expo/vector-icons";
 import { colorScheme } from "../../themes/theme";
 
 type CardProps = {
@@ -79,7 +78,7 @@ export const InfoCard = ({ title, subtitle, uri, size }: CardProps) => {
       >
         <View style={{ flexDirection: "column" }}>
           <View style={{ flexDirection: "row" }}>
-            <Entypo
+            <FontAwesome6
               name="spotify"
               paddingTop={1}
               size={cardSizes[size].iconSize}
