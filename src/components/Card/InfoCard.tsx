@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useColorScheme } from "react-native";
 import { styled, View, XStack, SizableText, Image } from "tamagui";
 import { FontAwesome6 } from '@expo/vector-icons';
-// import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { colorScheme } from "../../themes/theme";
 
@@ -120,19 +119,6 @@ export const InfoCard = ({ title, subtitle, uri, size }: CardProps) => {
                 : colorScheme.boraami[700]
             }
           />
-
-          {/* <AntDesign
-            name="close"
-            paddingTop={size === "lg" ? 1 : ''}
-            size={cardSizes[size].closeSize}
-            onPress={handleClose}
-            color={
-              theme === "dark"
-                ? colorScheme.butter[50]
-                : colorScheme.boraami[700]
-            }
-          /> */}
-
         </View>
       </XStack>
     </StyledCard>
