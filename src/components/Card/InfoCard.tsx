@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useColorScheme } from "react-native";
 import { styled, View, XStack, SizableText, Image } from "tamagui";
-import { AntDesign } from "@expo/vector-icons";
+import { FontAwesome6 } from '@expo/vector-icons';
+// import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { colorScheme } from "../../themes/theme";
 
@@ -12,25 +13,13 @@ type CardProps = {
   size?: "lg" | "sm" 
 };
 
-// interface SizeProps extends CardProps { 
-//   // [key: string]: {
-//     iconSize: number;
-//     closeSize: number;
-//     cardHeight: number;
-//   // };
-// };
-
-type CardSize = {
-  iconSize: number;
-  closeSize: number;
-  cardHeight: number;
-}
-
-interface SizeProps {
-  lg: CardSize;
-  sm: CardSize;
-}
-
+interface SizeProps { 
+  [key: string]: {
+    iconSize: number;
+    closeSize: number;
+    cardHeight: number;
+  };
+};
 
 const cardSizes: SizeProps = {
   sm: {
@@ -75,10 +64,10 @@ export const InfoCard = ({ title, subtitle, uri, size }: CardProps) => {
   return (
     <StyledCard style={{ height: cardSizes[size].cardHeight }}>
       <XStack style={{ padding: 4 }}>
-        <Image
+        <Image 
           borderRadius={4}
           borderWidth={1}
-          borderColor="$mono.50"
+          borderColor="$mono.50" 
           source={{
             uri: uri,
             width: size === "lg" ? 115 : 64,
@@ -120,8 +109,8 @@ export const InfoCard = ({ title, subtitle, uri, size }: CardProps) => {
           </SizableText>
         </View>
         <View style={{ paddingTop: 2, paddingRight: 4 }}>
-          <AntDesign
-            name="close"
+          <FontAwesome6
+            name="xmark"
             paddingTop={size === "lg" ? 1 : ''}
             size={cardSizes[size].closeSize}
             onPress={handleClose}
@@ -131,6 +120,19 @@ export const InfoCard = ({ title, subtitle, uri, size }: CardProps) => {
                 : colorScheme.boraami[700]
             }
           />
+
+          {/* <AntDesign
+            name="close"
+            paddingTop={size === "lg" ? 1 : ''}
+            size={cardSizes[size].closeSize}
+            onPress={handleClose}
+            color={
+              theme === "dark"
+                ? colorScheme.butter[50]
+                : colorScheme.boraami[700]
+            }
+          /> */}
+
         </View>
       </XStack>
     </StyledCard>

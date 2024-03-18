@@ -11,7 +11,7 @@ const InfoCardMeta: Meta<typeof InfoCard> = {
     title: 'Playlist no. 6',
     subtitle: 'btstatsreminder2',
     uri: require('../../images/post-image.png'),
-    size: 'l'
+    size: 'lg'
   },
 
   decorators: [
@@ -29,6 +29,6 @@ export const LargeCard = {};
 
 export const SmallCard = {
   args: {
-    size: 's',
+    size: 'sm',
   },
 };
