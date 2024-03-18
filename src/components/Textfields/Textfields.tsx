@@ -2,20 +2,18 @@ import React, { useState } from "react";
 import { TextInput, ScrollView } from 'react-native';
 import { XStack, styled, TextArea, Input, TextAreaProps, SizableText } from "tamagui";
 
-// import { XStack, styled, ScrollView, TextArea, SizableText } from "tamagui";
-
 type Props = {
   name: "placeholder" | "default" | "focused" | "error" | "disabled";
   helperText: string;
   placeholder: string;
   maxLength?: number;
+  onChangeText?: () => void;
   onChange?: () => void;
   disabled?: boolean;
   editable?: boolean;
 };
 
 // TextArea 'disabled' property not showing up on newly created StyledTextbox component ...
-
 // const TextArea: React.FC<CustomTextAreaProps> = (props) => <StyledTextbox {...props} />;
 
 // const StyledTextbox = styled(TextInput, {
@@ -89,26 +87,36 @@ export const Textfields = ({
 }: Props) => {
   const [count, setCount] = useState(0);
   const [input, setInput] = useState("");
+  const [showPlaceholder, setShowPlaceholder] = useState(true)
 
   const handleOnChangeText = (text: string) => {
     setCount(text.length);
+    // setInput(text);
   };
 
-//  const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-//   setInput(e.target.value);
-// };
+  const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  e.preventDefault();
+  if (!disabled){
+    setInput(e.target.value);
+  }
+  setShowPlaceholder(e.target.value === '');
+};
+
+// React Native indicatorStyle = white | black;
 
   return (
-    <ScrollView style={{ maxHeight: 161, paddingBottom: 4 }} showsVerticalScrollIndicator={true}  >
+    <ScrollView style={{ maxHeight: 161, paddingBottom: 4 }} showsVerticalScrollIndicator={true} indicatorStyle="black"   >
       <StyledTextbox
         value={input}
-        placeholder={placeholder}
+        placeholder={showPlaceholder ? placeholder : ''}
+        // placeholder={placeholder}
         variant={`${name}`}
         onChangeText={handleOnChangeText}
+        // onChange={handleInput}
         disabled={disabled} 
       >
 
-      <TextArea disabled={disabled}></TextArea>
+      {/* <TextArea disabled={disabled}></TextArea> */}
 
         {/* <StyledTextbox fontFamily={'$body'} size={'$sm'} placeholder={placeholder} variant={`${name}`} onChangeText={handleOnChangeText}> */}
         <SizableText fontFamily={"$body"} size={"$sm"}>
