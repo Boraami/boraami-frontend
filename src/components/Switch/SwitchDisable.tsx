@@ -1,7 +1,6 @@
 import { Stack, styled } from '@tamagui/core'
 import { createSwitch } from '@tamagui/switch'
-import { View} from 'react-native';
-import { Label, Text, XStack} from 'tamagui'
+import { Label, SizableText, XStack} from 'tamagui'
 
 const Frame = styled(Stack, {
 
@@ -46,31 +45,80 @@ export const SwitchDisabled= createSwitch({
   // @ts-ignore (gives error if removed)
   Thumb,
 })
+type SwSize = {
+  [key: string]: {
+    w:number;
+    h:number,
+    thumb:number
+  };
+};
 
-export function SwitchDisable(props: { checked?: boolean, size: string}) {
-  var w=0;
-  var h=0;
-  var thumb=0;
-  //dynamic sizing
-  if(props.size=='sm'){
-    w=32
-    h=16
-    thumb=12
-  } else if(props.size=='md'){
-    w=40
-    h=20
-    thumb=16
-  } else if(props.size=='lg'){
-    w=48
-    h=24
-    thumb=20
-  }
-  //added opacity to disabled switch thumb, wasnt initially in documentation but design looked a bit off so..
+const SwitchSize: SwSize = {
+sm: {
+  w:32,
+  h:16,
+  thumb:12
+  },
+md: {
+  w:40,
+  h:20,
+  thumb:16
+  },
+lg: {
+  w:48,
+  h:24,
+  thumb:20
+  },
+};
+type SwitchProps = {
+  checked: boolean
+  size: string, 
+  heading: string,
+  helpertext:string
+}
+type SwitchLabelSizeProps = {
+  [key: string]: {
+    ls:string,
+    ts:number
+  };
+};
+const SwitchLabelSizes: SwitchLabelSizeProps = {
+sm: {
+  ls:'$xs',
+  ts:12
+  },
+md: {
+  ls:'$sm',
+  ts:14
+  },
+lg: {
+  ls:'$md',
+  ts:16
+  },
+};
+export function SwitchDisable({ size, heading,checked, helpertext}: SwitchProps) {
   return (
-    <XStack>
-      <SwitchDisabled width={w} height={h} disabled checked={props.checked} >
-        <SwitchDisabled.Thumb opacity={0.5} width={thumb} height={thumb}/>
+    <XStack flexDirection='column' gap={4}/*size gap diff */>
+      {heading==''?
+        <SwitchDisabled width={SwitchSize[size].w} height={SwitchSize[size].h} disabled checked={checked} >
+        <SwitchDisabled.Thumb opacity={0.5} width={SwitchSize[size].thumb} height={SwitchSize[size].thumb}/>
       </SwitchDisabled>
+      :
+      <>
+        <Label
+        size={SwitchLabelSizes[size].ls}
+        fontFamily={'$heading'}
+        color="$disabled-label-text">{heading}</Label>
+        <SwitchDisabled width={SwitchSize[size].w} height={SwitchSize[size].h} disabled checked={checked} >
+        <SwitchDisabled.Thumb opacity={0.5} width={SwitchSize[size].thumb} height={SwitchSize[size].thumb}/>
+      </SwitchDisabled>        
+        <SizableText 
+          lineHeight={21}
+          fontWeight={"400"}
+          fontFamily={'$body'}
+          fontSize={SwitchLabelSizes[size].ts}
+          color="$disabled-helper-text" >{helpertext}</SizableText></>
+      }
     </XStack>
   )
 }

@@ -11,7 +11,9 @@ const CheckBoxMeta: Meta<typeof CheckBox> = {
     },
     args: {
       size:'lg',
-      labeltext:'Label'
+      labeltext:'Label lg',
+      value:'1'
+
 
     },
     decorators: [
@@ -31,7 +33,8 @@ const CheckBoxMeta: Meta<typeof CheckBox> = {
     args: {
       checked:false,
       size:'sm',
-      labeltext:'Label'
+      labeltext:'Label',
+      value:'1'
 
     },
   };
@@ -40,7 +43,9 @@ const CheckBoxMeta: Meta<typeof CheckBox> = {
       disable:true,
       checked:true,
       size:'md',
-      labeltext:'Label'
+      labeltext:'Label',
+      value:'1'
+
     },
   };
   

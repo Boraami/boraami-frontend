@@ -7,7 +7,10 @@ const SwitchDefaultMeta: Meta<typeof SwitchDefault> = {
     title: "Switch",
     component: SwitchDefault,
     args: {
-      size:'lg'
+      size:'lg',
+      heading:'Label',
+      helpertext:'Helper Text',
+      checked:false
 
     },
     decorators: [
@@ -25,13 +28,17 @@ const SwitchDefaultMeta: Meta<typeof SwitchDefault> = {
   
   export const small = {
     args: {
-      size:'sm'
+      size:'sm',
+      heading:'Label',
+      helpertext:'Helper Text',
+      checked:true
       },
   };
   
   export const medium = {
     args: {
-      size:'md'
+      size:'md',
+      heading:'',
       },
   };
   

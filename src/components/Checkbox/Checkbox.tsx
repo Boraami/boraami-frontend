@@ -31,71 +31,83 @@ export const Checkbox = createCheckbox({
   Frame,
   Indicator,
 })
-export function CheckBox(props: { disable?: boolean,
-                                  checked?: boolean, 
-                                  size: string, 
-                                  labeltext: string}) {
+
+type CBSize = {
+  [key: string]: {
+    cs:number;
+    is:number,
+    s:string,
+    bw:number
+  };
+};
+
+const CheckboxSize: CBSize = {
+sm: {
+  cs:-5,
+  is:9,
+  s:'$sm',
+  bw:1.2
+  },
+md: {
+  cs:-2,
+  is:12,
+  s:'$md',
+  bw:2
+  },
+lg: {
+  cs:0,
+  is:15,
+  s:'$lg',
+  bw:2
+  },
+};
+type CheckboxProps = {
+  disable?: boolean,
+  checked?: boolean, 
+  size: string, 
+  labeltext: string,
+  value:string
+}
+export function CheckBox({value, disable, size, labeltext, checked}: CheckboxProps) {
 //sizing=> -6=9, -5=11, -4=13, -3=14, -2=16, no-size=20
 // -4->sm, -2->md, 0->lg(acc to design)
 //in order to make it disabled, u have to give a checked state
-console.log(props.size)
-var cs=0;
-var is=0;
-var bw=0;
-var s='';
-if(props.size=='sm'){
-  cs=-5
-  is=9
-  s='$sm'
-  bw=1.2
-  console.log(cs,is, bw, s)
-
-} else if(props.size=='md'){
-  cs=-2
-  is=12
-  s='$md'
-  bw=2
-  console.log(cs,is, bw,s)
-
-} else if(props.size=='lg'){
-  cs=0
-  is=15 //label size diff
-  s='$lg' //size diff than documentation cuz the og measurements didnt work
-  bw=2
-  console.log(cs,is,bw,s)
-
-}else{
-  console.log('size arguments not correct')
-}
-  return (
+const id = `Checkbox-${value}`
+return (
     <XStack>
-    {props.disable?
+    {disable?
       <YStack flexDirection='row' gap={9} alignItems="center" >
-        <Checkbox disabled={true}
-          borderWidth={bw}
+        <Checkbox 
+          value={value}
+          id={id}
+          disabled={true}
+          borderWidth={CheckboxSize[size].bw}
           opacity={0.4}
           borderColor={'$boraami.700'} 
-          backgroundColor={props.checked?'$boraami.700':'transparent'}
-          checked={props.checked}
-          sizeAdjust={cs}
+          backgroundColor={checked?'$boraami.700':'transparent'}
+          checked={checked}
+          sizeAdjust={CheckboxSize[size].cs}
           >
           <Checkbox.Indicator  paddingBottom={1}>
-            <FontAwesome6 name="check" size={is} color="white"/>
+            <FontAwesome6 name="check" size={CheckboxSize[size].is} color="white"/>
           </Checkbox.Indicator>
         </Checkbox>
-        <Label 
+        <Label
         paddingLeft={1}
-        size={s}
+        htmlFor={id}
+        size={CheckboxSize[size].s}
         opacity={0.4}
         fontFamily={'$body'}
         color="$label-text"
-        >{props.labeltext}</Label>
+        >{labeltext}</Label>
       </YStack>
         :
       <YStack flexDirection='row' gap={9} alignItems="center" >
         <Checkbox
-         borderWidth={bw}          
-         sizeAdjust={cs}
+        value={value}
+        id={id}
+         borderWidth={CheckboxSize[size].bw}          
+         sizeAdjust={CheckboxSize[size].cs}
          hoverStyle={{
           borderWidth:0.75,
           shadowOpacity:0.9,
@@ -107,15 +119,16 @@ if(props.size=='sm'){
           borderColor:'$boraami.400',
         }}>
             <Checkbox.Indicator paddingBottom={1} >
-              <FontAwesome6 name="check" size={is} color="#F7F3FF"/>
+              <FontAwesome6 name="check" size={CheckboxSize[size].is} color="#F7F3FF"/>
             </Checkbox.Indicator>
         </Checkbox>
         <Label 
         paddingLeft={1}
-        size={s}
+        htmlFor={id}
+        size={CheckboxSize[size].s}
         fontFamily={'$body'}
         color="$label-text"
-        >{props.labeltext}</Label>
+        >{labeltext}</Label>
       </YStack>
   }
       </XStack>

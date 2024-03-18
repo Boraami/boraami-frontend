@@ -22,13 +22,18 @@ const SwitchDisableMeta: Meta<typeof SwitchDisable> = {
   
 export const small = {args: {
     checked:false,
-    size:'sm'
+    size:'sm',
+    heading:'Label',
+    helpertext:'Helper Text',
 },};
 export const large = {args: {
-      checked:true,
-      size:'lg'
+    checked:true,
+    size:'lg',
+    heading:'Label',
+    helpertext:'Helper Text',
 },};
 export const medium = {args: {
-  checked:true,
-  size:'md'
+    checked:true,
+    size:'md',
+    heading:''
 },};
