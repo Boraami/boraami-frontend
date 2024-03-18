@@ -1,11 +1,51 @@
 import React, { useState } from "react";
 import { useColorScheme } from "react-native";
-import { Card, styled, View, XStack, SizableText, Image } from "tamagui";
+import { styled, View, XStack, SizableText, Image } from "tamagui";
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { colorScheme } from "../../themes/theme";
 
-const Info = styled(Card, {
+type CardProps = {
+  title: string;
+  subtitle: string;
+  uri: string;
+  size?: "lg" | "sm" 
+};
+
+// interface SizeProps extends CardProps { 
+//   // [key: string]: {
+//     iconSize: number;
+//     closeSize: number;
+//     cardHeight: number;
+//   // };
+// };
+
+type CardSize = {
+  iconSize: number;
+  closeSize: number;
+  cardHeight: number;
+}
+
+interface SizeProps {
+  lg: CardSize;
+  sm: CardSize;
+}
+
+
+const cardSizes: SizeProps = {
+  sm: {
+    iconSize: 14,
+    closeSize: 12,
+    cardHeight: 76,
+  },
+  lg: {
+    iconSize: 20,
+    closeSize: 16,
+    cardHeight: 110,
+  },
+};
+
+const StyledCard = styled(View, {
   alignItems: "flex-start",
   justifyContent: "space-between",
   borderColor: "$border-error-subtle",
@@ -19,14 +59,8 @@ const Info = styled(Card, {
   width: 329,
 });
 
-type InfoProps = {
-  title: string;
-  subtitle: string;
-  uri: string;
-  size?: "l" | "s";
-};
 
-export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
+export const InfoCard = ({ title, subtitle, uri, size }: CardProps) => {
   const theme = useColorScheme();
   const [close, setClose] = useState(false);
 
@@ -34,26 +68,12 @@ export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
     setClose(true);
   };
 
-  if (close) {
+  if (close || ! size) {
     return null;
   }
 
-  let iconSize;
-  let closeSize;
-  let cardHeight;
-
-  if (size === "l") {
-    iconSize = 20;
-    closeSize = 16;
-    cardHeight = 110;
-  } else {
-    iconSize = 14;
-    closeSize = 12;
-    cardHeight = 76;
-  }
-
   return (
-    <Info style={{ height: cardHeight }}>
+    <StyledCard style={{ height: cardSizes[size].cardHeight }}>
       <XStack style={{ padding: 4 }}>
         <Image
           borderRadius={4}
@@ -61,8 +81,8 @@ export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
           borderColor="$mono.50"
           source={{
             uri: uri,
-            width: size === "l" ? 115 : 64,
-            height: size === "l" ? 97 : 64,
+            width: size === "lg" ? 115 : 64,
+            height: size === "lg" ? 97 : 64,
           }}
         />
       </XStack>
@@ -74,7 +94,7 @@ export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
             <Entypo
               name="spotify"
               paddingTop={1}
-              size={iconSize}
+              size={cardSizes[size].iconSize}
               color={
                 theme === "dark"
                   ? colorScheme.butter[50]
@@ -83,8 +103,8 @@ export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
             />
             <SizableText
               paddingLeft={4}
-              paddingTop={size === "l" ? 2 : ''}
-              size={size === "l" ? "$sm" : "$xs"}
+              paddingTop={size === "lg" ? 2 : ''}
+              size={size === "lg" ? "$sm" : "$xs"}
               color="$info-card-text"
               fontFamily="$heading"
             >
@@ -94,8 +114,7 @@ export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
           <SizableText
             color="$info-card-text"
             paddingTop={4}
-            size={size === "l" ? "$xs" : "$2xs"}
-            // values are correct for text size, although the subtitle appears a little smaller on the small card
+            size={size === "lg" ? "$xs" : "$2xs"}
           >
             {subtitle}
           </SizableText>
@@ -103,8 +122,8 @@ export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
         <View style={{ paddingTop: 2, paddingRight: 4 }}>
           <AntDesign
             name="close"
-            paddingTop={size === "l" ? 1 : ''}
-            size={closeSize}
+            paddingTop={size === "lg" ? 1 : ''}
+            size={cardSizes[size].closeSize}
             onPress={handleClose}
             color={
               theme === "dark"
@@ -114,6 +133,6 @@ export const InfoCard = ({ title, subtitle, uri, size }: InfoProps) => {
           />
         </View>
       </XStack>
-    </Info>
+    </StyledCard>
   );
 };
