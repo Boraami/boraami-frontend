@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { XStack, styled, ScrollView, TextArea, SizableText } from "tamagui";
+import { TextInput, ScrollView } from 'react-native';
+import { XStack, styled, TextArea, Input, TextAreaProps, SizableText } from "tamagui";
+
+// import { XStack, styled, ScrollView, TextArea, SizableText } from "tamagui";
 
 type Props = {
   name: "placeholder" | "default" | "focused" | "error" | "disabled";
@@ -7,8 +10,15 @@ type Props = {
   placeholder: string;
   maxLength?: number;
   onChange?: () => void;
+  disabled?: boolean;
+  editable?: boolean;
 };
 
+// TextArea 'disabled' property not showing up on newly created StyledTextbox component ...
+
+// const TextArea: React.FC<CustomTextAreaProps> = (props) => <StyledTextbox {...props} />;
+
+// const StyledTextbox = styled(TextInput, {
 const StyledTextbox = styled(TextArea, {
   height: 136,
   width: 350,
@@ -75,9 +85,10 @@ export const Textfields = ({
   maxLength,
   placeholder,
   helperText,
+  disabled,
 }: Props) => {
   const [count, setCount] = useState(0);
-  // const [input, setInput] = useState("");
+  const [input, setInput] = useState("");
 
   const handleOnChangeText = (text: string) => {
     setCount(text.length);
@@ -88,13 +99,17 @@ export const Textfields = ({
 // };
 
   return (
-    <ScrollView maxHeight={161} paddingBottom={4}>
+    <ScrollView style={{ maxHeight: 161, paddingBottom: 4 }} showsVerticalScrollIndicator={true}  >
       <StyledTextbox
-        // value={input}
+        value={input}
         placeholder={placeholder}
         variant={`${name}`}
         onChangeText={handleOnChangeText}
+        disabled={disabled} 
       >
+
+      <TextArea disabled={disabled}></TextArea>
+
         {/* <StyledTextbox fontFamily={'$body'} size={'$sm'} placeholder={placeholder} variant={`${name}`} onChangeText={handleOnChangeText}> */}
         <SizableText fontFamily={"$body"} size={"$sm"}>
           {placeholder}

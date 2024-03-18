@@ -8,13 +8,17 @@ export const TextfieldsMeta: Meta<typeof Textfields> = {
     component: Textfields,
     args: {
       placeholder: 'Default input. Maximum height of container to occupy only 5 lines of input. Provide a scroll post 5 lines.',
-      helperText: 'Error Text',
+      helperText: 'Helper Text',
       // fontFamily: '$body',
       // size: '$sm',
       maxLength: 1000,
+      disabled: false,
       backgroundColor: "$default-textbox-fill",
       borderColor: "$default-textbox-border",
       color: "$default-textbox-text",
+      name: 'disabled',
+      editable: true,
+      selectTextOnFocus: true,
   },
 
     decorators: [
@@ -50,11 +54,16 @@ export const FocusedTextbox = {
 export const ErrorTextbox = {
   args: {
     name: 'error',
+    helperText: 'Error Text',
   },
 };
 
 export const DisabledTextbox = {
   args: {
     name: 'disabled',
+    disabled: true,
+    editable: false,
+    placeholder: "Disabled Textbox",
+    selectTextOnFocus: false,
   },
 };
