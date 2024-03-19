@@ -1,12 +1,14 @@
 import { XStack, SizableText, Image,} from "tamagui";
 import { Ionicons } from '@expo/vector-icons';
 import { Button,  Adapt, Dialog, Sheet } from 'tamagui'
-
-export function ModalWideActionBtns(props: {modeltitle: string,
-                              modeltext: string,
-                              btn1text: string,
-                              btn2text: string,
-                            alignment: string}) {
+type Props = {
+  modeltitle: string
+  modeltext: string, 
+  btn1text: string,
+  btn2text: string,
+  alignment: string
+}
+export function ModalWideActionBtns({ modeltext, modeltitle, btn1text, btn2text,alignment }: Props) {
     return (
       <Dialog modal>
       <Dialog.Trigger asChild>
@@ -60,7 +62,7 @@ export function ModalWideActionBtns(props: {modeltitle: string,
               resizeMode={'contain'}
               alignSelf='flex-end'
             />  
-        {props.alignment=='left'?
+        {alignment=='left'?
         <>
         <XStack
         backgroundColor={'$error-alert-fill'}
@@ -91,7 +93,7 @@ export function ModalWideActionBtns(props: {modeltitle: string,
             lineHeight={25}
             flexWrap='wrap'
             size={'$lg'}
-            color="$title-text" >{props.modeltitle}</SizableText>
+            color="$title-text" >{modeltitle}</SizableText>
         </XStack>
       </XStack>
         <XStack
@@ -105,9 +107,9 @@ export function ModalWideActionBtns(props: {modeltitle: string,
           fontFamily={'$body'}
           size={'$md'}
           lineHeight={21}
-          color="$supporting-text" >{props.modeltext}</SizableText>
+          color="$supporting-text" >{modeltext}</SizableText>
         </XStack></>
-      : props.alignment=='image'?
+      : alignment=='image'?
       <>
       <XStack flexDirection="row">
               <XStack
@@ -127,7 +129,7 @@ export function ModalWideActionBtns(props: {modeltitle: string,
                     paddingTop={1}
                     lineHeight={25}
                     size={'$lg'}
-                    color="$title-text" >{props.modeltitle}</SizableText>
+                    color="$title-text" >{modeltitle}</SizableText>
                 </XStack>
               </XStack>
               <XStack
@@ -156,7 +158,7 @@ export function ModalWideActionBtns(props: {modeltitle: string,
                 fontFamily={'$body'}
                 size={'$md'}
                 lineHeight={21}
-                color="$supporting-text" >{props.modeltext}</SizableText>
+                color="$supporting-text" >{modeltext}</SizableText>
             </XStack>
             <XStack
             backgroundColor={'$error-alert-fill'}
@@ -201,7 +203,7 @@ export function ModalWideActionBtns(props: {modeltitle: string,
               lineHeight={25}
               flexWrap='wrap'
               size={'$lg'}
-              color="$title-text" >{props.modeltitle}</SizableText>
+              color="$title-text" >{modeltitle}</SizableText>
           </XStack>
           </XStack>
       <XStack
@@ -215,7 +217,7 @@ export function ModalWideActionBtns(props: {modeltitle: string,
             fontFamily={'$body'}
             size={'$md'}
             lineHeight={21}
-            color="$supporting-text" >{props.modeltext}</SizableText>
+            color="$supporting-text" >{modeltext}</SizableText>
         </XStack></>
       }
         
@@ -249,7 +251,7 @@ export function ModalWideActionBtns(props: {modeltitle: string,
               lineHeight:16,
               fontFamily:'$btn'
             }}  
-            >{props.btn1text}</Button>
+            >{btn1text}</Button>
             </Dialog.Close>
             <Button
             width={147}
@@ -268,7 +270,7 @@ export function ModalWideActionBtns(props: {modeltitle: string,
               lineHeight:16,
               fontFamily:'$btn'
             }}  
-            >{props.btn2text}</Button>
+            >{btn2text}</Button>
           </XStack>
         </XStack>
           </XStack>

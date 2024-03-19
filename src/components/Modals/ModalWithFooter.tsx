@@ -1,11 +1,13 @@
 import { XStack, SizableText, Image, YStack, Separator} from "tamagui";
 import { Ionicons } from '@expo/vector-icons';
 import { Button,  Adapt, Dialog, Sheet } from 'tamagui'
-
-export function ModalWithFooter(props: {modeltitle: string,
-                              modeltext: string,
-                              btn1text: string,
-                              btn2text: string}) {
+type Props = {
+  modeltitle: string
+  modeltext: string, 
+  btn1text: string,
+  btn2text: string,
+}
+export function ModalWithFooter({ modeltext, modeltitle, btn1text, btn2text }: Props) {
     return (
       <Dialog modal>
       <Dialog.Trigger asChild>
@@ -80,7 +82,7 @@ export function ModalWithFooter(props: {modeltitle: string,
               paddingTop={1}
               lineHeight={25}
               size={'$md'}//lg
-              color="$title-text" >{props.modeltitle}</SizableText>
+              color="$title-text" >{modeltitle}</SizableText>
             </XStack>
             <YStack paddingTop={3} >
               <Dialog.Close displayWhenAdapted  asChild>
@@ -104,7 +106,7 @@ export function ModalWithFooter(props: {modeltitle: string,
             fontFamily={'$body'}
             size={'$sm'}//md
             lineHeight={21}
-            color="$title-text" >{props.modeltext}</SizableText>
+            color="$title-text" >{modeltext}</SizableText>
         </XStack>
         <Separator borderColor={"$modal-divider"}/>
         <XStack
@@ -135,7 +137,7 @@ export function ModalWithFooter(props: {modeltitle: string,
               lineHeight:16,
               fontFamily:'$btn'
             }}  
-            >{props.btn1text}</Button>
+            >{btn1text}</Button>
             </Dialog.Close>
             <Button
             width={77}
@@ -154,7 +156,7 @@ export function ModalWithFooter(props: {modeltitle: string,
               lineHeight:16,
               fontFamily:'$btn'
             }}  
-            >{props.btn2text}</Button>
+            >{btn2text}</Button>
           </XStack>
         </XStack>
         </Dialog.Content>

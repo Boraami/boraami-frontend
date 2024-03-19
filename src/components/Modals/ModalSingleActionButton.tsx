@@ -2,10 +2,12 @@ import { XStack, SizableText, Image,} from "tamagui";
 import { Ionicons } from '@expo/vector-icons';
 import { Button,  Adapt, Dialog, Sheet } from 'tamagui'
 import {FontAwesome } from '@expo/vector-icons'
-
-export function ModalWithSingleActionButton(props: {modeltitle: string,
-                              modeltext: string,
-                              btntext: string,}) {
+type Props = {
+  modeltitle: string
+  modeltext: string, 
+  btntext: string
+}
+export function ModalWithSingleActionButton({ modeltext, modeltitle, btntext }: Props) {
     return (
       <Dialog modal>
       <Dialog.Trigger asChild>
@@ -83,7 +85,7 @@ export function ModalWithSingleActionButton(props: {modeltitle: string,
               paddingTop={1}
               lineHeight={25}
               size={'$lg'}
-              color="$title-text" >{props.modeltitle}</SizableText>
+              color="$title-text" >{modeltitle}</SizableText>
           </XStack>
         </XStack>
         <XStack
@@ -97,7 +99,7 @@ export function ModalWithSingleActionButton(props: {modeltitle: string,
             fontFamily={'$body'}
             size={'$md'}
             lineHeight={21}
-            color="$supporting-text" >{props.modeltext}</SizableText>
+            color="$supporting-text" >{modeltext}</SizableText>
         </XStack>
         <XStack
           backgroundColor={'$error-alert-fill'}
@@ -125,7 +127,7 @@ export function ModalWithSingleActionButton(props: {modeltitle: string,
           size='$lg'
           lineHeight={22}
           fontFamily='$btn'
-          >{props.btntext}</SizableText>
+          >{btntext}</SizableText>
           <FontAwesome name="heart" size={14} paddingBottom={3} color="#F7F3FF" /></Button>
           </Dialog.Close>
         </XStack>
