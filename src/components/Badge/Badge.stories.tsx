@@ -35,7 +35,7 @@ const BadgeMeta: Meta<typeof Badge> = {
   
     args: {
       size:'lg',
-      text:'20+',
+      count:90,
       color:'$badge-bg-color'
 
     },

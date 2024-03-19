@@ -1,29 +1,48 @@
 import { XStack,Text} from "tamagui";
-
-export function Badge(props:{size: string, text: string, color: string}){
-var w=0
-var h=0
-if(props.size=='sm'){
-    w=8
-    h=8
-} else if(props.size=='md'){
-    w=12
-    h=12
-} else if(props.size=='lg'){
-    w=28
-    h=28
-}else{
-    console.log('size incorrect')
+type BadgeSizeProps = {
+    [key: string]: {
+      w: number;
+      h: number;
+    };
+  };
+  
+const badgeSizes: BadgeSizeProps = {
+  sm: {
+      w:8,
+      h:8,
+    },
+  md: {
+      w:12,
+      h:12,
+    },
+  lg: {
+      w:28,
+      h:28,
+    },
+  };
+  
+type Props = {
+  color: string
+  size: string, 
+  count: number
 }
+export function Badge({ color, size, count }: Props){
 //font changed from 14->12 to adjust the design look according to design files
+let c;
+if(count>20){
+    c='+'
+    count=20
+}else if(count<1){
+    count=0
+}
     return(
         <>
-        {props.size=='lg'?
+        {size=='lg'?
         <XStack 
-        width={w}
-        height={h}
+        width={badgeSizes[size].w}
+        height={badgeSizes[size].w}
         borderRadius={20}
-        backgroundColor={props.color}
+        backgroundColor={color}
         justifyContent="center"
         alignItems="center">
             <Text
@@ -33,14 +52,14 @@ if(props.size=='sm'){
             lineHeight={14}
             paddingTop={4}
             color={'$large-badge-text'}
-            >{props.text}</Text>
+            >{count}{c}</Text>
         </XStack>
         :
         <XStack 
-        width={w}
-        height={h}
+        width={badgeSizes[size].w}
+        height={badgeSizes[size].w}
         borderRadius={20}
-        backgroundColor={props.color}>
+        backgroundColor={color}>
         </XStack>
     }
     </>  
