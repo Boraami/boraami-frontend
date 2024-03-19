@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Button as Btn,
   ButtonProps as BtnProps,
@@ -6,7 +6,6 @@ import {
 } from "tamagui";
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useColorScheme } from "react-native";
-import { colorScheme } from "../../themes/theme";
 
 interface CustomBtnProps extends BtnProps {
   name: string;
@@ -41,7 +40,7 @@ const btnSizes: BtnSizeProps = {
     border: 1,
     paddingLeft: 4,
     gap: 4,
-    txtSize: '$xs',
+    txtSize: '$sm',
     iconSize: 16,
     lineHeight: 12,
   },
@@ -53,7 +52,7 @@ const btnSizes: BtnSizeProps = {
     border: 1,
     paddingLeft: 6,
     gap: 6,
-    txtSize: '$sm',
+    txtSize: '$md',
     iconSize: 20,
     lineHeight: 14,
   },
@@ -65,107 +64,96 @@ const btnSizes: BtnSizeProps = {
     border: 1,
     paddingLeft: 8,
     gap: 6,
-    txtSize: '$md',
+    txtSize: '$lg',
     iconSize: 24,
     lineHeight: 16,
   }
 };
 
 const StyledBtn = styled(Btn, {
+  borderRadius: '$r-subtle',
+  alignSelf: 'center',
+  justifyContent: 'center',
+  position: 'absolute',
   variants: {
     primary: {
       disabled: {
         backgroundColor: '$primary-disabled-btn',
-        borderRadius: '$r-subtle',
-        position: 'absolute',
         borderWidth: 1.5,
         opacity: 1.5,
         color: '#EEEEEE',
       },
       normal: {
         backgroundColor: '$primary-default-btn',
-        borderRadius: '$r-subtle',
         borderWidth: 1.5,
-        color: 'white',
-        position: 'absolute',
         hoverStyle: {
-          borderRadius: '$r-subtle',
           borderColor: "$primary-hover-btn-border",
           backgroundColor: "$primary-hover-btn-fill",
           shadowColor: '#0EA5E9',
           shadowOpacity: 1,
           shadowRadius: 12,
-          shadowOffset: { width: 0, height: 0 }
+          shadowOffset: { width: 1, height: 1 }
         },
         focusStyle: {
-          borderRadius: '$r-subtle',
           backgroundColor: '$primary-focus-btn-fill',
           borderColor: '$primary-focus-btn-border',
           shadowColor: '#C2A0FF',
           shadowOpacity: 1,
           shadowRadius: 12,
-          shadowOffset: { width: 0, height: 0 },
+          shadowOffset: { width: 1, height: 1 },
         },
       },
     },
     secondary: {
       disabled: {
         borderColor: '$secondary-disabled-btn-border',
-        borderRadius: '$r-subtle',
-        position: 'absolute',
         borderWidth: 1.5,
-        color: '#999999',
       },
       normal: {
         borderColor: '$secondary-default-btn-border',
-        borderRadius: '$r-subtle',
-        position: 'absolute',
         borderWidth: 1.5,
-        color: '#8F66D6', //boraami.500
         hoverStyle: {
-          borderRadius: '$r-subtle',
           borderColor: "$secondary-hover-btn-border",
           shadowColor: '#0EA5E9', //serendipity.500
           shadowOpacity: 1,
           shadowRadius: 12,
-          shadowOffset: { width: 0, height: 0 }
+          shadowOffset: { width: 1, height: 1 }
         },
         focusStyle: {
-          borderRadius: '$r-subtle',
           borderColor: '$secondary-focus-btn-border',
           shadowColor: '#8F66D6',
           shadowOpacity: 1,
           shadowRadius: 12,
-          shadowOffset: { width: 0, height: 0 },
+          shadowOffset: { width: -5, height: 5 },
         }
       },
     },
     tertiary: {
       disabled: {
+        borderRadius: '$r-sharp',
         position: 'absolute',
         borderWidth: 1.5,
         color: '#999999',
       },
       normal: {
+        borderRadius: '$r-sharp',
         color: '$tertiary-default-text',
         position: 'absolute',
-        borderWidth: 1.5,
         hoverStyle: {
-          borderRadius: '$r-subtle',
-          borderColor: "$tertiary-hover-border",
+          borderBottomColor: "$tertiary-hover-border",
           shadowColor: '#38BDF8',
           borderBottomWidth: 2,
-          shadowOpacity: 1,
-          shadowRadius: 19,
-          shadowOffset: { width: 0, height: 0 }
+          shadowOpacity: 0.7,
+          shadowRadius: 9,
+          shadowOffset: { width: 0, height: 7 }
         },
         focusStyle: {
-          borderRadius: '$r-subtle',
-          borderColor: '#7957B5',
+          borderBottomColor: '#7957B5',
           shadowColor: '#C2A0FF',
+          borderBottomWidth: 2,
           shadowOpacity: 1,
-          shadowRadius: 12,
-          shadowOffset: { width: 0, height: 0 },
+          shadowRadius: 9,
+          shadowOffset: { width: 0, height: 7 },
         }
       },
     }
@@ -185,6 +173,19 @@ interface ButtonProps {
 }
 
 export const BtnField = (props: ButtonProps) => {
+  const theme = useColorScheme();
+  const isDarkTheme = theme === "dark";
+  const activeOp = isDarkTheme ? 0.5 : 0.8;
+
+  const [isActive, setIsActive] = useState(false);
+
+  const handlePressIn = () => {
+    setIsActive(true);
+  };
+
+  const handlePressOut = () => {
+    setIsActive(false);
+  };
   const {
     txt,
     size,
@@ -195,37 +196,27 @@ export const BtnField = (props: ButtonProps) => {
     secondary,
   } = props;
 
-  let iconComponent = null;
-
-  if (primary != null) {
-    iconComponent = (
-      <FontAwesome6 name="plus"
-      size={btnSizes[size].iconSize}
-      color={disabled ? '#EEEEEE' : 'white'}
-      style={{position: 'relative'}}
-      />
-    )
-  } else if (secondary != null) {
-    iconComponent = (
-      <FontAwesome6 name="plus"
-      size={btnSizes[size].iconSize}
-      color={disabled ? '#999999' : '#AA7AFF'}
-      style={{position: 'relative'}}
-      />
-    )
-  } else if (tertiary != null) {
-    iconComponent = (
-      <FontAwesome6 name="plus"
-      size={btnSizes[size].iconSize}
-      color={disabled ? '#999999' : '#AA7AFF'}
-      style={{position: 'relative'}}
-      />
-    )
+  
+  const textColor = {
+    primary: disabled ? '#EEEEEE' : 'white',
+    secondary: disabled ? '#999999' : '#AA7AFF',
+    tertiary: disabled ? '#999999' : '#AA7AFF'
   }
+  const color = primary ? textColor.primary: secondary ? textColor.secondary: textColor.tertiary
+  
+  let iconComponent = <FontAwesome6 name="plus"
+      size={btnSizes[size].iconSize}
+      color={color}
+      style={{position: 'relative'}}
+      />;
+
   return (
     <YStack>
       <XStack>
         <Button
+        style={{ opacity: isActive ? activeOp : 1 }}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
           name={name}
           height={btnSizes[size].height}
           paddingLeft={btnSizes[size].paddingLeft}
@@ -233,12 +224,13 @@ export const BtnField = (props: ButtonProps) => {
           primary={primary}
           tertiary={tertiary}
           secondary={secondary}
-          icon={iconComponent}
-          >
+          // icon={iconName?iconComponent:null}
+        >
           <SizableText
             fontFamily={'$btn'}
             alignItems={'center'}
             lineHeight={btnSizes[size].lineHeight}
+            color={color}
             size={btnSizes[size].txtSize}>{txt}</SizableText>
         </Button>
       </XStack>
