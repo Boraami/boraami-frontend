@@ -286,7 +286,19 @@ const light = {
   "disabled-textbox-text": colorScheme.boraami[500],
   "disabled-helper-text-textfield": colorScheme.mono[600],
   "disabled-scroll-bar": colorScheme.mono[600],
+
+  // Post component
+  "post-replying-to-text": colorScheme.boraami[100],
+  "post-comment-bg-color": colorScheme.mono[800],
+  "post-placeholder-textbox-fill": colorScheme.boraami[50],
+  "post-placeholder-textbox-border": colorScheme.boraami[200],
+  "post-placeholder-textbox-text": colorScheme.boraami[500],
+  "post-placeholder-helper-text": colorScheme.mono[600],
+  "post-placeholder-scroll-bar": colorScheme.boraami[200],
+  "post-disabled-btn-fill": colorScheme.mono[400],
+  "post-disabled-btn-text": colorScheme.mono[100],
 };
+
 // note: we set up a single consistent base type to validate the rest
 
 type BaseTheme = typeof light;
@@ -492,6 +504,17 @@ const dark: BaseTheme = {
   "disabled-textbox-text": colorScheme.boraami[50],
   "disabled-helper-text-textfield": colorScheme.mono[300],
   "disabled-scroll-bar": colorScheme.boraami[500],
+
+  // Post component
+  "post-replying-to-text": colorScheme.boraami[800],
+  "post-comment-bg-color": colorScheme.butter[50],
+  "post-placeholder-textbox-fill": colorScheme.boraami[900],
+  "post-placeholder-textbox-border": colorScheme.boraami[300],
+  "post-placeholder-textbox-text": colorScheme.boraami[500],
+  "post-placeholder-helper-text": colorScheme.mono[300],
+  "post-placeholder-scroll-bar": colorScheme.boraami[500],
+  "post-disabled-btn-fill": colorScheme.mono[400],
+  "post-disabled-btn-text": colorScheme.mono[100],
 };
 
 const allThemes = {
