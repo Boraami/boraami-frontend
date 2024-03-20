@@ -283,7 +283,7 @@ const light = {
 
   "disabled-textbox-fill": colorScheme.boraami[50],
   "disabled-textbox-border": colorScheme.boraami[400],
-  "disabled-textbox-text": colorScheme.boraami[700],
+  "disabled-textbox-text": colorScheme.boraami[500],
   "disabled-helper-text-textfield": colorScheme.mono[600],
   "disabled-scroll-bar": colorScheme.mono[600],
 };

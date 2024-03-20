@@ -1,18 +1,24 @@
 import React, { useState } from "react";
-import {
-  XStack,
-  styled,
-  ScrollView,
-  TextArea,
-  SizableText,
-} from "tamagui";
+import { XStack, YStack, styled, TextArea, SizableText, ScrollView, TextAreaProps } from "tamagui";
+
+interface TextBoxProps extends TextAreaProps {
+  error?: boolean
+}
+
+const CustomTextBox: React.FC<TextBoxProps> = (props) => <StyledTextbox {...props} />
 
 type Props = {
-  name: "placeholder" | "default" | "focused" | "error" | "disabled";
+  name: "default" ;
   helperText: string;
-  defaultText: string;
+  placeholder: string;
   maxLength?: number;
+  onChangeText?: () => void;
   onChange?: () => void;
+  opacity?: number;
+  disabled?: boolean;
+  editable?: boolean;
+  selectTextOnFocus?: boolean;
+  error?: boolean;
 };
 
 const StyledTextbox = styled(TextArea, {
@@ -20,87 +26,77 @@ const StyledTextbox = styled(TextArea, {
   width: 350,
   borderRadius: 6,
   borderWidth: 1,
-
+  placeholderTextColor: '$placeholder-textbox-text',
+  fontSize: '$sm',
+  lineHeight: 18,
+  color: "$default-textbox-text",
+  backgroundColor: "$default-textbox-fill",
+  borderColor: "$default-textbox-border",
   variants: {
-    variant: {
-      placeholder: {
-        backgroundColor: "$placeholder-textbox-fill",
-        borderColor: "$placeholder-textbox-border",
-        color: "$placeholder-textbox-text",
-      },
-      default: {
-        backgroundColor: "$default-textbox-fill",
-        borderColor: "$default-textbox-border",
-        color: "$default-textbox-text",
-      },
-      focused: {
-        backgroundColor: "$focused-textbox-fill",
-        borderColor: "$focused-textbox-border",
-        color: "$focused-helper-text-textfield",
-      },
-      error: {
+    error: {
+      true: {
         backgroundColor: "$error-textbox-fill",
-        borderColor: "$error-textbox-border",
-        color: "$error-textbox-text",
+        borderColor: "$error-textbox-border"
       },
-      disabled: {
+    },
+    disabled: {
+      true: {
         backgroundColor: "$disabled-textbox-fill",
         borderColor: "$disabled-textbox-border",
-        color: "$disabled-textbox-text",
-      },
-    },
+        color: "$disabled-textbox-text",}
+     },
   },
 });
 
-
-const StyledText = styled(SizableText, {
-  variants: {
-
-    // Text color is automaticall applied to the Scrollbar 
-    variant: {
-      placeholder: {
-        color: "$placeholder-helper-text",
-      },
-      default: {
-        color: "$default-helper-text-textfield",
-      },
-      focused: {
-        color: "$focused-helper-text-textfield",
-      },
-      error: {
-        color: "$error-helper-text-textfield",
-        scrollbarColor: "$error-scroll-bar",
-      },
-      disabled: {
-        color: "$disabled-helper-text-textfield",
-        scrollbarColor: "$disabled-scroll-bar",
-      },
-    },
-  },
-});
 
 export const Textfields = ({
   name,
   maxLength,
-  defaultText,
+  placeholder,
   helperText,
+  disabled,
+  editable,
+  opacity,
+  selectTextOnFocus,
+  error,
+  ...rest
 }: Props) => {
-
   const [count, setCount] = useState(0);
+  const [input, setInput] = useState("");
+  const [index, setIndex] = useState(0);
 
   const handleOnChangeText = (text: string) => {
+    setInput(text);
     setCount(text.length);
   };
 
+  const stateTextColor = disabled ? "$disabled-helper-text-textfield" : "$default-helper-text-textfield";
+
   return (
-    <ScrollView maxHeight={161} paddingBottom={4}>
-      <StyledTextbox variant={`${name}`} onChangeText={handleOnChangeText}>
-        <SizableText fontFamily={'$body'} size={'$sm'}>{defaultText}</SizableText>
-      </StyledTextbox>
-      <XStack flexDirection="row" justifyContent="space-between">
-          <StyledText variant={`${name}`} size={"$sm"}>{helperText}</StyledText>
-          <StyledText variant={`${name}`} size={"$sm"}>{count}/{maxLength}</StyledText>
-        </XStack>
-    </ScrollView>
+      <YStack>
+        <CustomTextBox
+          aria-label={name}
+          value={input}
+          editable={editable}
+          placeholder={placeholder}
+          selectTextOnFocus={selectTextOnFocus}
+          onChangeText={handleOnChangeText}
+          disabled={disabled}
+          error={error}
+          borderWidth={index === 0 ? 1 : 2}
+          onFocus={() => setIndex(1)}
+          onBlur={()=>setIndex(0)}
+          {...rest}
+          />
+          <XStack flexDirection="row" justifyContent="space-between">
+            <SizableText color={stateTextColor} size={"$sm"}>
+              {helperText}
+            </SizableText>
+            <SizableText color={stateTextColor} size={"$sm"}>
+              {count}/{maxLength}
+            </SizableText>
+          </XStack>
+      </YStack>
   );
 };
+

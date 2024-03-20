@@ -7,9 +7,15 @@ export const TextfieldsMeta: Meta<typeof Textfields> = {
     title: "Textfields",
     component: Textfields,
     args: {
-      defaultText: 'Default input. Maximum height of container to occupy only 5 lines of input. Provide a scroll post 5 lines.',
-      helperText: 'Error Text',
-      maxLength: 1000
+      placeholder: 'Default input. Maximum height of container to occupy only 5 lines of input texts. Provide a scroll post 5 lines.',
+      helperText: 'Helper Text',
+      maxLength: 1000,
+      disabled: false,
+      backgroundColor: "$default-textbox-fill",
+      color: "$default-textbox-text",
+      name: 'disabled',
+      editable: true,
+      selectTextOnFocus: true,
   },
 
     decorators: [
@@ -24,32 +30,27 @@ export const TextfieldsMeta: Meta<typeof Textfields> = {
 
 export default TextfieldsMeta;
 
-export const PlaceholderTextbox= {
-  args: {
-    name: 'placeholder',
-  },
-};
-
 export const DefaultTextbox = {
   args: {
     name: 'default',
-  },
-};
-
-export const FocusedTextbox = {
-  args: {
-    name: 'focused',
+    onChange: ()=>console.log('it works')
   },
 };
 
 export const ErrorTextbox = {
   args: {
     name: 'error',
+    error: true,
+    helperText: 'Error Text',
   },
 };
 
 export const DisabledTextbox = {
   args: {
     name: 'disabled',
+    disabled: true,
+    editable: false,
+    selectTextOnFocus: false,
+    opacity: 0.5,
   },
 };
