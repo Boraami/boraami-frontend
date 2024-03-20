@@ -10251,6 +10251,22 @@ react-native-screens@~3.29.0:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
+<<<<<<< HEAD
+=======
+react-native-scroll-indicator-always@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/react-native-scroll-indicator-always/-/react-native-scroll-indicator-always-0.3.4.tgz#be2922edced587222ca614c81c006c4730137953"
+  integrity sha512-PLw+9JbXAu1XsyLQiszz6ia039RIKtNyOJNtuQoEvqvMBujhJZrcQgOAWg0bmhlA5ZAHny1P5vwx/ntVVOCYxQ==
+  dependencies:
+    react-native-keyboard-aware-scroll-view "^0.9.5"
+    react-native-safe-area-context "^4.7.4"
+
+react-native-scroll-indicator@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-scroll-indicator/-/react-native-scroll-indicator-0.1.0.tgz#1b8281d88f15932338ccb8a4b9792142c796408c"
+  integrity sha512-fErMTBZe/aNZgKW1QYKXvQnsnODqBkQ7j/2K89DkimUqUgJAv+mltsj05JUXTu8sJBJznoFXwmW+3h2/Dcfbog==
+
+>>>>>>> 8a851f5ea553fcd5f8efd2e6a6c2106276d86379
 react-native-swipe-gestures@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npmjs.org/react-native-swipe-gestures/-/react-native-swipe-gestures-1.0.5.tgz"

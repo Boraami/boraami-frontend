@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { XStack, YStack, styled, TextArea, SizableText, ScrollView, TextAreaProps } from "tamagui";
+import { XStack, YStack, styled, TextArea, SizableText, TextAreaProps } from "tamagui";
 
 interface TextBoxProps extends TextAreaProps {
   error?: boolean
