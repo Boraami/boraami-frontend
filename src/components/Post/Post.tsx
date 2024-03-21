@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   TextArea,
   SizableText,
@@ -10,9 +10,19 @@ import {
 
 type Props = {
   username: string;
-  count: number;
-  maxCount: number;
+  maxChar: number; 
 };
+
+const StyledView = styled(View, {
+  width: 342,
+  height: 249,
+  borderRadius: 4,
+  borderWidth: 1,
+  justifyContent: "center",
+  alignItems: "center",
+  backgroundColor: "$post-placeholder-textbox-fill",
+  borderColor: "$post-placeholder-textbox-fill",
+});
 
 const StyledTextArea = styled(TextArea, {
   height: 115,
@@ -29,7 +39,6 @@ const StyledTextArea = styled(TextArea, {
   marginVertical: 10,
   alignItems: "center",
   justifyContent: "center",
-  // focus state:
 });
 
 const StyledHelperText = styled(SizableText, {
@@ -39,7 +48,6 @@ const StyledHelperText = styled(SizableText, {
 });
 
 const StyledButton = styled(Button, {
-  //   width: 310,
   height: 40,
   backgroundColor: "$mono.400",
   borderRadius: 4,
@@ -48,25 +56,18 @@ const StyledButton = styled(Button, {
   fontSize: "$xs",
 });
 
-/* Issues:
-- backgroundColor not applying
-- components are not aligned or same width
-- handleIinput
-- handleFocus state */
+export const Post = ({ username, maxChar }: Props) => {
+  const [numChar, setNumChar] = useState(0);
+  const [input, setInput] = useState("");
+  const [index, setIndex] = useState(0);
 
-export const Post = ({ username, count, maxCount }: Props) => {
+  const handleOnChangeText = (text: string) => {
+    setInput(text);
+    setNumChar(text.length);
+}
+
   return (
-    <View
-      style={{
-        width: 342,
-        height: 249,
-        borderRadius: 4,
-        borderWidth: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "$post-placeholder-textbox-fill",
-      }}
-    >
+    <StyledView>
       <View
         style={{
           width: 310,
@@ -82,9 +83,15 @@ export const Post = ({ username, count, maxCount }: Props) => {
         </SizableText>
 
         <ScrollView style={{ height: 114 }}>
-          <StyledTextArea>
-            Have something to contribute to the conversation? Post a reply.
-          </StyledTextArea>
+          <StyledTextArea
+          value={input}
+          placeholder='Have something to contribute to the conversation? Post a reply.'
+            borderWidth={index === 0 ? 1 : 2}
+            onFocus={() => setIndex(1)}
+            onBlur={() => setIndex(0)}
+          onChangeText={handleOnChangeText}
+          >
+        </StyledTextArea>
 
           <View
             style={{
@@ -95,13 +102,13 @@ export const Post = ({ username, count, maxCount }: Props) => {
           >
             <StyledHelperText>Helper text</StyledHelperText>
             <StyledHelperText>
-              {count}/{maxCount}
+              {numChar}/{maxChar}
             </StyledHelperText>
           </View>
         </ScrollView>
 
         <StyledButton>Post</StyledButton>
       </View>
-    </View>
+    </StyledView>
   );
 };

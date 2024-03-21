@@ -8,8 +8,7 @@ export const PostMeta: Meta<typeof Post> = {
     component: Post,
     args: {
         username: 'armyuser1',
-        count: 6,
-        maxCount: 12,
+        maxChar: 1000,
     },
 
     decorators: [
