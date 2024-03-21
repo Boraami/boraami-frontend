@@ -290,7 +290,7 @@ const light = {
   // Post component
   "post-replying-to-text": colorScheme.boraami[100],
   "post-comment-bg-color": colorScheme.mono[800],
-  "post-placeholder-textbox-fill": colorScheme.boraami[50],
+  "post-placeholder-textbox-fill": colorScheme.boraami[100],
   "post-placeholder-textbox-border": colorScheme.boraami[200],
   "post-placeholder-textbox-text": colorScheme.boraami[500],
   "post-placeholder-helper-text": colorScheme.mono[600],
