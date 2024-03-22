@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   Button as Btn,
   ButtonProps as BtnProps,
@@ -23,7 +23,7 @@ type BtnSizeProps = {
     top: number;
     left: number;
     border: number;
-    paddingLeft: number;
+    paddingHorizontal: number;
     gap: number;
     txtSize: FontSizeTokens;
     iconSize: number;
@@ -36,12 +36,12 @@ const btnSizes: BtnSizeProps = {
     width: 76,
     height: 24,
     top: 161,
-    left: 813,
+    left: 105,
     border: 1,
-    paddingLeft: 4,
-    gap: 4,
+    paddingHorizontal: 6,
+    gap: -3,
     txtSize: '$sm',
-    iconSize: 16,
+    iconSize: 12,
     lineHeight: 12,
   },
   md: {
@@ -50,10 +50,10 @@ const btnSizes: BtnSizeProps = {
     top: 209,
     left: 813,
     border: 1,
-    paddingLeft: 6,
-    gap: 6,
+    paddingHorizontal: 6,
+    gap: -1,
     txtSize: '$md',
-    iconSize: 20,
+    iconSize: 16,
     lineHeight: 14,
   },
   lg: {
@@ -62,11 +62,11 @@ const btnSizes: BtnSizeProps = {
     top: 261,
     left: 913,
     border: 1,
-    paddingLeft: 8,
-    gap: 6,
+    paddingHorizontal: 8,
+    gap: 0,
     txtSize: '$lg',
-    iconSize: 24,
-    lineHeight: 16,
+    iconSize: 20,
+    lineHeight: 18,
   }
 };
 
@@ -74,14 +74,15 @@ const StyledBtn = styled(Btn, {
   borderRadius: '$r-subtle',
   alignSelf: 'center',
   justifyContent: 'center',
-  position: 'absolute',
+  position: 'relative',
+  paddingRight: 8,
   variants: {
     primary: {
       disabled: {
         backgroundColor: '$primary-disabled-btn',
         borderWidth: 1.5,
         opacity: 1.5,
-        color: '#EEEEEE',
+        color: '$mono.100',
       },
       normal: {
         backgroundColor: '$primary-default-btn',
@@ -131,14 +132,12 @@ const StyledBtn = styled(Btn, {
     tertiary: {
       disabled: {
         borderRadius: '$r-sharp',
-        position: 'absolute',
         borderWidth: 1.5,
         color: '#999999',
       },
       normal: {
         borderRadius: '$r-sharp',
         color: '$tertiary-default-text',
-        position: 'absolute',
         hoverStyle: {
           borderBottomColor: "$tertiary-hover-border",
           shadowColor: '#38BDF8',
@@ -169,6 +168,7 @@ interface ButtonProps {
   tertiary: string;
   secondary: string;
   disabled?: boolean;
+  iconName: string;
   size: 'xs' | 'sm' | 'md';
 }
 
@@ -194,46 +194,49 @@ export const BtnField = (props: ButtonProps) => {
     tertiary,
     disabled,
     secondary,
+    iconName
   } = props;
 
-  
+
   const textColor = {
-    primary: disabled ? '#EEEEEE' : 'white',
+    primary: disabled ? '#E9E5F0': '#F7F3FF',
     secondary: disabled ? '#999999' : '#AA7AFF',
     tertiary: disabled ? '#999999' : '#AA7AFF'
   }
-  const color = primary ? textColor.primary: secondary ? textColor.secondary: textColor.tertiary
-  
-  let iconComponent = <FontAwesome6 name="plus"
-      size={btnSizes[size].iconSize}
-      color={color}
-      style={{position: 'relative'}}
-      />;
+  const color = primary ? textColor.primary : secondary ? textColor.secondary : textColor.tertiary
+
+
+  let iconComponent = <FontAwesome6 name={iconName}
+    size={btnSizes[size].iconSize}
+    color={color}
+    style={{ position: 'relative' }}
+  />;
 
   return (
-    <YStack>
-      <XStack>
-        <Button
+    <XStack>
+      <Button
         style={{ opacity: isActive ? activeOp : 1 }}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
-          name={name}
-          height={btnSizes[size].height}
-          paddingLeft={btnSizes[size].paddingLeft}
-          disabled={disabled}
-          primary={primary}
-          tertiary={tertiary}
-          secondary={secondary}
-          // icon={iconName?iconComponent:null}
-        >
-          <SizableText
-            fontFamily={'$btn'}
-            alignItems={'center'}
-            lineHeight={btnSizes[size].lineHeight}
-            color={color}
-            size={btnSizes[size].txtSize}>{txt}</SizableText>
-        </Button>
-      </XStack>
-    </YStack>
+        name={name}
+        gap={btnSizes[size].gap}
+        height={btnSizes[size].height}
+        paddingHorizontal={btnSizes[size].paddingHorizontal}
+        disabled={disabled}
+        primary={primary}
+        tertiary={tertiary}
+        secondary={secondary}
+        icon={iconName ? iconComponent : null}
+      >
+        <SizableText
+          fontFamily={'$btn'}
+          textAlign={'center'}
+          lineHeight={btnSizes[size].lineHeight}
+          color={color}
+          size={btnSizes[size].txtSize}
+          top={0.1}
+        >{txt}</SizableText>
+      </Button>
+    </XStack>
   )
 }

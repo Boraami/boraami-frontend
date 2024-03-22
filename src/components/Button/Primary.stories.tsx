@@ -12,16 +12,16 @@ const PDefaultMeta: Meta<typeof BtnField> = {
     },
     decorators: [
       (Story) => (
-        <View style={{ 
-          alignItems: "center", 
-          justifyContent: "center", 
+        <View style={{
+          alignItems: "center",
+          justifyContent: "center",
           flex: 1, }}>
         <Story />
       </View>
       ),
     ],
   };
-  
+
   export default PDefaultMeta;
 
   export const pri_small = {
@@ -29,7 +29,8 @@ const PDefaultMeta: Meta<typeof BtnField> = {
       name: 'primary',
       primary: 'normal',
       size: 'sm',
-      txt: 'BUTTON'
+      txt: 'BUTTON',
+      iconName: 'plus'
     },
   };
 
@@ -57,6 +58,7 @@ const PDefaultMeta: Meta<typeof BtnField> = {
       primary: 'normal',
       size: 'md',
       txt: 'BUTTON',
+      iconName: "gear", //it looks fine to me
     },
   };
 
@@ -77,7 +79,7 @@ const PDefaultMeta: Meta<typeof BtnField> = {
       txt: 'BUTTON',
     },
   };
-  
+
   export const pri_large = {
     args: {
       name: 'primary',
@@ -85,6 +87,7 @@ const PDefaultMeta: Meta<typeof BtnField> = {
       disabled: true,
       size: 'lg',
       txt: 'BUTTON',
+      iconName: 'heart'
     },
   };
 
@@ -105,5 +108,6 @@ const PDefaultMeta: Meta<typeof BtnField> = {
       disabled: true,
       size: 'lg',
       txt: 'BUTTON',
+      iconName: 'gear'
     },
   };
