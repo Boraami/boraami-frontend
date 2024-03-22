@@ -287,6 +287,18 @@ const light = {
   "disabled-helper-text-textfield" : colorScheme.mono[600],
   "disabled-scroll-bar" : colorScheme.mono[600],
 
+  //notifications
+  "notification-type-icon" : colorScheme.boraami[500],
+  "new-notification-badge" : colorScheme.boraami[700],
+  "username-action-taken-text" : colorScheme.mono[800],
+  "user-tag-text" : colorScheme.boraami[600],
+  "date-time-text" : colorScheme.mono[500],
+  "divider-notifications" : colorScheme.boraami[100],
+  "replied-quoted-text" : colorScheme.mono[600],
+  "quoted-post-link" : colorScheme.boraami[600],
+  "quoted-post-bg-color" : colorScheme.mono[50],
+  "quoted-post-username" : colorScheme.mono[800],
+  "quoted-post-user-tag" : colorScheme.mono[600],
 };
 // note: we set up a single consistent base type to validate the rest
 
@@ -495,7 +507,18 @@ const dark: BaseTheme = {
   "disabled-helper-text-textfield" : colorScheme.mono[300],
   "disabled-scroll-bar" : colorScheme.boraami[500],
 
-  
+  //notifications component
+  "notification-type-icon" : colorScheme.boraami[500],
+  "new-notification-badge" : colorScheme.boraami[700],
+  "username-action-taken-text" : colorScheme.butter[500],
+  "user-tag-text" : colorScheme.boraami[400],
+  "date-time-text" : colorScheme.mono[400],
+  "divider-notifications" : colorScheme.boraami[400],
+  "replied-quoted-text" : colorScheme.boraami[100],
+  "quoted-post-link" : colorScheme.boraami[400],
+  "quoted-post-bg-color" : colorScheme.boraami[900],
+  "quoted-post-username" : colorScheme.butter[50],
+  "quoted-post-user-tag" : colorScheme.mono[400],
 };
 
 const allThemes = {
