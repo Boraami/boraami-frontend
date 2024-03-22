@@ -507,7 +507,7 @@ const dark: BaseTheme = {
   "disabled-helper-text-textfield" : colorScheme.mono[300],
   "disabled-scroll-bar" : colorScheme.boraami[500],
 
-  //notifications
+  //notifications component
   "notification-type-icon" : colorScheme.boraami[500],
   "new-notification-badge" : colorScheme.boraami[700],
   "username-action-taken-text" : colorScheme.butter[500],
