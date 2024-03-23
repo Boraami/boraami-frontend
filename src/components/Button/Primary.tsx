@@ -86,9 +86,9 @@ const StyledBtn = styled(Btn, {
       },
       normal: {
         backgroundColor: '$primary-default-btn',
-        borderWidth: 1.5,
+        borderColor: "transparent",
+        borderWidth: 2,
         hoverStyle: {
-          borderColor: "$primary-hover-btn-border",
           backgroundColor: "$primary-hover-btn-fill",
           shadowColor: '#0EA5E9',
           shadowOpacity: 1,
@@ -97,7 +97,6 @@ const StyledBtn = styled(Btn, {
         },
         focusStyle: {
           backgroundColor: '$primary-focus-btn-fill',
-          borderColor: '$primary-focus-btn-border',
           shadowColor: '#C2A0FF',
           shadowOpacity: 1,
           shadowRadius: 12,
@@ -114,14 +113,12 @@ const StyledBtn = styled(Btn, {
         borderColor: '$secondary-default-btn-border',
         borderWidth: 1.5,
         hoverStyle: {
-          borderColor: "$secondary-hover-btn-border",
           shadowColor: '#0EA5E9', //serendipity.500
           shadowOpacity: 1,
           shadowRadius: 12,
           shadowOffset: { width: 1, height: 1 }
         },
         focusStyle: {
-          borderColor: '$secondary-focus-btn-border',
           shadowColor: '#8F66D6',
           shadowOpacity: 1,
           shadowRadius: 12,
@@ -136,10 +133,10 @@ const StyledBtn = styled(Btn, {
         color: '#999999',
       },
       normal: {
-        borderRadius: '$r-sharp',
+        borderRadius: 0,
         color: '$tertiary-default-text',
+        borderBottomWidth: 2,
         hoverStyle: {
-          borderBottomColor: "$tertiary-hover-border",
           shadowColor: '#38BDF8',
           borderBottomWidth: 2,
           shadowOpacity: 0.7,
@@ -147,7 +144,6 @@ const StyledBtn = styled(Btn, {
           shadowOffset: { width: 0, height: 7 }
         },
         focusStyle: {
-          borderBottomColor: '#7957B5',
           shadowColor: '#C2A0FF',
           borderBottomWidth: 2,
           shadowOpacity: 1,
@@ -164,19 +160,15 @@ interface ButtonProps {
   txt: string;
   name: string;
   label: string;
-  primary: string;
-  tertiary: string;
-  secondary: string;
+  primary: 'normal' | 'disabled';
+  tertiary: 'normal' | 'disabled';
+  secondary: 'normal' | 'disabled';
   disabled?: boolean;
   iconName: string;
   size: 'xs' | 'sm' | 'md';
 }
 
 export const BtnField = (props: ButtonProps) => {
-  const theme = useColorScheme();
-  const isDarkTheme = theme === "dark";
-  const activeOp = isDarkTheme ? 0.5 : 0.8;
-
   const [isActive, setIsActive] = useState(false);
 
   const handlePressIn = () => {
@@ -205,6 +197,12 @@ export const BtnField = (props: ButtonProps) => {
   }
   const color = primary ? textColor.primary : secondary ? textColor.secondary : textColor.tertiary
 
+  const bColor = {
+    primary: isActive ? '$boraami.400' : 'transparent',
+    secondary: isActive ? '$boraami.500' : 'transparent',
+    tertiary: isActive ? '$boraami.500' : 'transparent',
+  }
+  const hoverColor = primary ? bColor.primary : secondary ? bColor.secondary : bColor.tertiary
 
   let iconComponent = <FontAwesome6 name={iconName}
     size={btnSizes[size].iconSize}
@@ -215,7 +213,6 @@ export const BtnField = (props: ButtonProps) => {
   return (
     <XStack>
       <Button
-        style={{ opacity: isActive ? activeOp : 1 }}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
         name={name}
@@ -226,6 +223,8 @@ export const BtnField = (props: ButtonProps) => {
         primary={primary}
         tertiary={tertiary}
         secondary={secondary}
+        borderColor={primary || secondary ? hoverColor : 'transparent'}
+        borderBottomColor={tertiary ? hoverColor : 'transparent'}
         icon={iconName ? iconComponent : null}
       >
         <SizableText
