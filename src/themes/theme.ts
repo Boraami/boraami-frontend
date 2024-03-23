@@ -510,7 +510,7 @@ const dark: BaseTheme = {
   //notifications component
   "notification-type-icon" : colorScheme.boraami[500],
   "new-notification-badge" : colorScheme.boraami[700],
-  "username-action-taken-text" : colorScheme.butter[500],
+  "username-action-taken-text" : colorScheme.butter[50],
   "user-tag-text" : colorScheme.boraami[400],
   "date-time-text" : colorScheme.mono[400],
   "divider-notifications" : colorScheme.boraami[400],
