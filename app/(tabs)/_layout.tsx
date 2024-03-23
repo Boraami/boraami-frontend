@@ -6,7 +6,7 @@ import { SimpleLineIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Animated, Dimensions, View } from "react-native";
 
-const Indicator = () => {
+/* const Indicator = () => {
   return (
     <View style={{
       width: 24,
@@ -21,7 +21,7 @@ const Indicator = () => {
       ]
   }}/>
   )
-}
+} */
 
 export default function TabsLayout() {
     const tabOffsetValue = useRef(new Animated.Value(0)).current;
@@ -30,12 +30,12 @@ export default function TabsLayout() {
         <Tabs screenOptions={{
           headerShown: false,
             tabBarShowLabel: false,
-            tabBarActiveTintColor: '#0EA5E9',
-            tabBarInactiveTintColor: '#9B64FF',
+            tabBarActiveTintColor: '$active-icon',
+            tabBarInactiveTintColor: '$default-icon',
             tabBarStyle: {
                 height: 56,
-                backgroundColor: '#F7F3FF', //borami.50
-                borderTopColor: '#9747FF',
+                backgroundColor: '$nav-bg-color', //borami.50
+                borderTopColor: '$divider',
                 shadowColor: '#C2A0FF',
                 shadowOffset: {width: 0, height: -1},
             },
@@ -78,10 +78,10 @@ export default function TabsLayout() {
 
 function getWidth() {
     let width = Dimensions.get("window").width
-  
+
     // Horizontal Padding = 20...
     width = width - 80
-  
+
     // Total five Tabs...
     return width / 5
   }
