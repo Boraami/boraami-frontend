@@ -3,8 +3,8 @@ import { tokens as tamaguiTokens } from "@tamagui/themes";
 import { colorScheme } from "./theme";
 
 const radius = {
-  "r-sharp": 2,
-  true: 2,
+  "r-sharp": 0,
+  true: 0,
   "r-subtle": 4,
   "r-strong": 12,
   "r-full": 64,
