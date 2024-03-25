@@ -30,7 +30,8 @@ const ButtonMeta: Meta<typeof BtnField> = {
       primary: 'normal',
       size: 'sm',
       txt: 'BUTTON',
-      iconName: 'plus'
+      iconName: 'plus',
+      iconPosition: 'right'
     },
   };
 
@@ -58,7 +59,7 @@ const ButtonMeta: Meta<typeof BtnField> = {
       primary: 'normal',
       size: 'md',
       txt: 'BUTTON',
-      iconName: "gear", //it looks fine to me
+      iconName: "gear",
     },
   };
 

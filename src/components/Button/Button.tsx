@@ -159,12 +159,13 @@ interface ButtonProps {
   txt: string;
   name: string;
   label: string;
+  iconName: string;
+  disabled?: boolean;
+  iconPosition: string;
+  size: 'xs' | 'sm' | 'md';
   primary: 'normal' | 'disabled';
   tertiary: 'normal' | 'disabled';
   secondary: 'normal' | 'disabled';
-  disabled?: boolean;
-  iconName: string;
-  size: 'xs' | 'sm' | 'md';
 }
 
 export const BtnField = (props: ButtonProps) => {
@@ -184,13 +185,14 @@ export const BtnField = (props: ButtonProps) => {
     primary,
     tertiary,
     disabled,
+    iconName,
     secondary,
-    iconName
+    iconPosition
   } = props;
 
 
   const textColor = {
-    primary: disabled ? '#E9E5F0': '#F7F3FF',
+    primary: disabled ? '#E9E5F0' : '#F7F3FF',
     secondary: disabled ? '#999999' : '#AA7AFF',
     tertiary: disabled ? '#999999' : '#AA7AFF'
   }
@@ -203,7 +205,7 @@ export const BtnField = (props: ButtonProps) => {
   }
   const hoverColor = primary ? bColor.primary : secondary ? bColor.secondary : bColor.tertiary
 
-  let iconComponent = <FontAwesome6 name={iconName}
+  const iconComponent = <FontAwesome6 name={iconName}
     size={btnSizes[size].iconSize}
     color={color}
     style={{ position: 'relative' }}
@@ -225,6 +227,7 @@ export const BtnField = (props: ButtonProps) => {
         borderColor={primary || secondary ? hoverColor : 'transparent'}
         borderBottomColor={tertiary ? hoverColor : 'transparent'}
         icon={iconName ? iconComponent : null}
+        flexDirection={iconPosition ? "row-reverse" : "row"}
       >
         <SizableText
           fontFamily={'$btn'}
