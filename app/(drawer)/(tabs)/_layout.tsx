@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Tabs } from "expo-router";
-import { FontAwesome6, SimpleLineIcons } from '@expo/vector-icons';
+import { FontAwesome, FontAwesome6, SimpleLineIcons } from '@expo/vector-icons';
 import { Animated, Dimensions, View, useColorScheme } from "react-native";
 import { colorScheme } from "../../../src/themes/theme";
 import { DrawerToggleButton } from "@react-navigation/drawer";
@@ -52,14 +52,13 @@ export default function TabsLayout() {
         shadowColor: '#C2A0FF',
         shadowOffset: {width: 0, height: -1},
       },
-      headerLeft: () => <DrawerToggleButton/>,
     }}>
       <Tabs.Screen name="home"
         options={{
           title: 'Home',
           tabBarShowLabel: false,
           tabBarIcon: ({ color }) => (
-            <FontAwesome6 name="home" size={24} color={color} />)
+            <FontAwesome name="home" size={24} color={color} />)
         }} />
       <Tabs.Screen name="search"
         options={{
@@ -68,7 +67,7 @@ export default function TabsLayout() {
           title: 'Search',
           tabBarShowLabel: false,
           tabBarIcon: ({ color }) => (
-            <FontAwesome6 name="search" size={24} color={color} />)
+            <FontAwesome name="search" size={24} color={color} />)
         }} />
       <Tabs.Screen name="notification"
         options={{

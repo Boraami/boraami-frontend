@@ -24,16 +24,19 @@ export default function SearchLayout() {
     const isDarkTheme = theme === "dark";
     const barColor = isDarkTheme ? '#140233' : '#FFFFFF';
     const borderColor = isDarkTheme ? '#7957B5' : '#C2A0FF';
+    const toodleColor = isDarkTheme ? 'white' : 'black';
 
     return <Stack screenOptions={{
         contentStyle: {
             borderColor: borderColor,
             borderWidth: 1,
         },
+        headerLeft: () => <DrawerToggleButton
+        tintColor={toodleColor}
+        />,
         headerRight: () => <LogoTitle />,
-        headerLeft: () => <DrawerToggleButton/>,
         headerStyle: {
             backgroundColor: barColor
-        }
+        },
     }} />;
 }

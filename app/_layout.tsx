@@ -57,10 +57,8 @@ export default function App() {
         {Constants.expoConfig?.extra?.storybookEnabled ? <Storybook /> :
         <Stack  screenOptions={{
           headerShown: false, }}>
-          <Stack.Screen name="(tabs)" />
+          <Stack.Screen name="(drawer)" />
           </Stack>}
-        {/* <Stack screenOptions={{ headerShown: false }}>
-        </Stack> */}
       </ThemeProvider>
     </TamaguiProvider>
   );

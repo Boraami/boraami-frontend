@@ -1,10 +1,14 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Link } from "expo-router";
+import { Button, StyleSheet, Text, View } from "react-native";
 
 export default function Page() {
   return (
     <View style={styles.container}>
       <View style={styles.main}>
         <Text style={styles.title}>Buy Coffee</Text>
+        <Link href={'/(tabs)/home'} asChild>
+          <Button title="Go to Tabs"/>
+        </Link>
       </View>
     </View>
   );
@@ -25,4 +29,5 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 64,
     fontWeight: "bold",
+    color: 'yellow'
   }});
