@@ -3,7 +3,7 @@ import { useColorScheme } from "react-native";
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { TamaguiProvider } from "tamagui";
 import { config } from "./../tamagui.config";
-import { Tabs } from "expo-router";
+import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
 import Constants from "expo-constants";
 import Storybook from "../.storybook";
@@ -54,7 +54,11 @@ export default function App() {
   return (
     <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        {Constants.expoConfig?.extra?.storybookEnabled ? <Storybook /> : <Tabs />}
+        {Constants.expoConfig?.extra?.storybookEnabled ? <Storybook /> :
+        <Stack  screenOptions={{
+          headerShown: false, }}>
+          <Stack.Screen name="(tabs)" />
+          </Stack>}
         {/* <Stack screenOptions={{ headerShown: false }}>
         </Stack> */}
       </ThemeProvider>
