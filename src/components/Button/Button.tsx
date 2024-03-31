@@ -110,14 +110,16 @@ const StyledBtn = styled(Btn, {
       },
       normal: {
         borderColor: '$secondary-default-btn-border',
-        borderWidth: 1.5,
+        borderWidth: 1,
         hoverStyle: {
-          shadowColor: '#0EA5E9', //serendipity.500
+          borderWidth: 1.5,
+          shadowColor: '#0EA5E9',
           shadowOpacity: 1,
           shadowRadius: 12,
           shadowOffset: { width: 1, height: 1 }
         },
         focusStyle: {
+          borderWidth: 1.5,
           shadowColor: '#8F66D6',
           shadowOpacity: 1,
           shadowRadius: 12,
@@ -161,9 +163,9 @@ interface ButtonProps {
   label: string;
   iconName: string;
   disabled?: boolean;
-  iconPosition: string;
   size: 'xs' | 'sm' | 'md';
   primary: 'normal' | 'disabled';
+  iconPosition: 'left' | 'right';
   tertiary: 'normal' | 'disabled';
   secondary: 'normal' | 'disabled';
 }
@@ -187,7 +189,7 @@ export const BtnField = (props: ButtonProps) => {
     disabled,
     iconName,
     secondary,
-    iconPosition
+    iconPosition = 'left'
   } = props;
 
 
@@ -200,7 +202,7 @@ export const BtnField = (props: ButtonProps) => {
 
   const bColor = {
     primary: isActive ? '$boraami.400' : 'transparent',
-    secondary: isActive ? '$boraami.500' : 'transparent',
+    secondary: isActive ? '$serendipity.500' : disabled ? '$secondary-disabled-btn-border' : '$secondary-default-btn-border',
     tertiary: isActive ? '$boraami.500' : 'transparent',
   }
   const hoverColor = primary ? bColor.primary : secondary ? bColor.secondary : bColor.tertiary
@@ -227,7 +229,7 @@ export const BtnField = (props: ButtonProps) => {
         borderColor={primary || secondary ? hoverColor : 'transparent'}
         borderBottomColor={tertiary ? hoverColor : 'transparent'}
         icon={iconName ? iconComponent : null}
-        flexDirection={iconPosition ? "row-reverse" : "row"}
+        flexDirection={iconPosition === 'right' ? "row-reverse" : "row"}
       >
         <SizableText
           fontFamily={'$btn'}
