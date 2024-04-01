@@ -299,6 +299,16 @@ const light = {
   "quoted-post-bg-color" : colorScheme.mono[50],
   "quoted-post-username" : colorScheme.mono[800],
   "quoted-post-user-tag" : colorScheme.mono[600],
+
+  //avatars
+  "avatar-bg-color" : colorScheme.boraami[700],
+  "avatar-border-color" : colorScheme.boraami[50],
+  "avatar-text" : colorScheme.mono[50],
+  "avatar-username" : colorScheme.mono[800],
+  "avatar-user-tag" : colorScheme.boraami[700],
+  "avatar-btn-border" : colorScheme.boraami[500],
+  "avatar-btn-text" : colorScheme.boraami[500],
+  "avatar-divider" : colorScheme.boraami[100],
 };
 // note: we set up a single consistent base type to validate the rest
 
@@ -519,6 +529,15 @@ const dark: BaseTheme = {
   "quoted-post-bg-color" : colorScheme.boraami[900],
   "quoted-post-username" : colorScheme.butter[50],
   "quoted-post-user-tag" : colorScheme.mono[400],
+  //avatars
+  "avatar-bg-color" : colorScheme.boraami[700],
+  "avatar-border-color" : colorScheme.boraami[400],
+  "avatar-text" : colorScheme.mono[50],
+  "avatar-username" : colorScheme.boraami[50],
+  "avatar-user-tag" : colorScheme.boraami[500],
+  "avatar-btn-border" : colorScheme.boraami[500],
+  "avatar-btn-text" : colorScheme.boraami[50],
+  "avatar-divider" : colorScheme.boraami[400],
 };
 
 const allThemes = {
