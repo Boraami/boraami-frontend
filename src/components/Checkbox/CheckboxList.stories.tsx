@@ -2,7 +2,26 @@ import { CheckBoxList } from "./CheckboxList";
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-
+const CheckboxData = [
+  {
+    disable: false,
+    checked: false, 
+    labeltxt: 'Label 1',
+    value: 1,
+  },
+  {
+    disable: false,
+    checked: false, 
+    labeltxt: 'Label 2',
+    value: 2,
+  },
+  {
+    disable: false,
+    checked: false, 
+    labeltxt: 'Label 3',
+    value: 3,
+  },
+]
 const CheckBoxListMeta: Meta<typeof CheckBoxList> = {
     title: "CheckBoxList",
     component: CheckBoxList,
@@ -11,13 +30,8 @@ const CheckBoxListMeta: Meta<typeof CheckBoxList> = {
     },
     args: {
       size:'sm',
-      labeltxt1:'Label 1',
-      labeltxt2:'Label 2',
-      labeltxt3:'Label 3',
+      data: CheckboxData,
       heading:'Label',
-      disable:true,
-      disable2:false,
-      disable3:false,
       helpertext:'Helper Text'
     },
     decorators: [
@@ -36,27 +50,17 @@ const CheckBoxListMeta: Meta<typeof CheckBoxList> = {
   export const medium = {
     args: {
       size:'md',
-      labeltxt1:'Label 1',
-      labeltxt2:'Label 2',
-      labeltxt3:'Label 3',
-      disable:false,
-      disable2:true,
-      disable3:false,      heading:'Label',
-      helpertext:'Helper Text'
+      data: CheckboxData,      
+      heading:'Label',
+      helpertext:''
     },
   };
   export const large = {
     args: {
-      heading:'Label',
+      heading:'',
+      data: CheckboxData,
       helpertext:'Helper Text',
       size:'lg',
-      labeltxt1:'Label 1',
-      labeltxt2:'Label 2',
-      labeltxt3:'Label 3',
-      disable:false,
-      disable2:false,
-      disable3:true,
-      checked:true
     },
   };
   

@@ -99,26 +99,26 @@ lg: {
 export function SwitchDisable({ size, heading,checked, helpertext}: SwitchProps) {
   return (
     <XStack flexDirection='column' gap={4}/*size gap diff */>
-      {heading==''?
-        <SwitchDisabled width={SwitchSize[size].w} height={SwitchSize[size].h} disabled checked={checked} >
-        <SwitchDisabled.Thumb opacity={0.5} width={SwitchSize[size].thumb} height={SwitchSize[size].thumb}/>
-      </SwitchDisabled>
-      :
-      <>
+      {heading===''?
+      null:
         <Label
         size={SwitchLabelSizes[size].ls}
         fontFamily={'$heading'}
         color="$disabled-label-text">{heading}</Label>
+      }
         <SwitchDisabled width={SwitchSize[size].w} height={SwitchSize[size].h} disabled checked={checked} >
         <SwitchDisabled.Thumb opacity={0.5} width={SwitchSize[size].thumb} height={SwitchSize[size].thumb}/>
-      </SwitchDisabled>        
+        </SwitchDisabled>   
+      {helpertext===''?
+      null:
         <SizableText 
           lineHeight={21}
           fontWeight={"400"}
           fontFamily={'$body'}
           fontSize={SwitchLabelSizes[size].ts}
-          color="$disabled-helper-text" >{helpertext}</SizableText></>
-      }
+          color="$disabled-helper-text" >{helpertext}</SizableText>
+      }     
+        
     </XStack>
   )
 }

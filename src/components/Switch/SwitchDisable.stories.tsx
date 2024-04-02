@@ -24,7 +24,7 @@ export const small = {args: {
     checked:false,
     size:'sm',
     heading:'Label',
-    helpertext:'Helper Text',
+    helpertext:'',
 },};
 export const large = {args: {
     checked:true,
@@ -35,5 +35,6 @@ export const large = {args: {
 export const medium = {args: {
     checked:true,
     size:'md',
-    heading:''
+    heading:'',
+    helpertext:'Helper Text'
 },};

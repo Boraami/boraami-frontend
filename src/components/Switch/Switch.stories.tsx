@@ -30,7 +30,7 @@ const SwitchDefaultMeta: Meta<typeof SwitchDefault> = {
     args: {
       size:'sm',
       heading:'Label',
-      helpertext:'Helper Text',
+      helpertext:'',
       checked:true
       },
   };
@@ -39,6 +39,7 @@ const SwitchDefaultMeta: Meta<typeof SwitchDefault> = {
     args: {
       size:'md',
       heading:'',
+      helpertext:'Helper Text',
       },
   };
   

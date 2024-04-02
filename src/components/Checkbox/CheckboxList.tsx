@@ -21,32 +21,39 @@ lg: {
   },
 };
 type Props = {
-  disable?: boolean,
-  disable2?:boolean,
-  disable3?:boolean,
-  checked?: boolean, 
-  size: string,
-  labeltxt1: string,
-  labeltxt2: string,
-  labeltxt3: string,
+  data:{
+    disable?: boolean,
+    checked?: boolean, 
+    labeltxt: string,
+    value:string
+  }[];
   heading: string,
   helpertext: string,
+  size: string,
 }
 
-export function CheckBoxList({ disable, disable2, disable3, size, labeltxt1, labeltxt2, labeltxt3, heading, helpertext, checked, }: Props) {
+export function CheckBoxList({ size,heading, helpertext, data }: Props) {
 
   return (
     <XStack flexDirection='column' gap={10}>
+      {heading===''?
+      null:
       <Label
         paddingTop={2}
         size={CBSizes[size].ls}
         fontFamily={'$heading'}
         color="$disabled-label-text">{heading}</Label>
-        <YStack gap={12} marginLeft={5}>
-       <CheckBox value='1' labeltext={labeltxt1}  size={size} disable={disable} checked={checked}/>
-       <CheckBox value='2' labeltext={labeltxt2} size={size} disable={disable2} checked={checked}/>
-       <CheckBox value='3' labeltext={labeltxt3} size={size} disable={disable3} checked={checked}/>
+      }
+      
+        <YStack gap={4} marginLeft={5}>
+        {data.map((item,i)=>{
+          return(
+            <CheckBox key={`${item.labeltxt}${item.value}-${i}`} value={item.value} labeltext={item.labeltxt}  size={size} disable={item.disable} checked={item.checked}/>
+          )
+        })}
        </YStack>
+       {helpertext===''?
+       null:
        <SizableText 
           lineHeight={21}
           fontWeight={"400"}
@@ -54,6 +61,8 @@ export function CheckBoxList({ disable, disable2, disable3, size, labeltxt1, lab
           fontSize={CBSizes[size].ts}
           marginTop={2}
           color="$boraami.500" >{helpertext}</SizableText>
+       }
+       
     </XStack>
   )
 }
