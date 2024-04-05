@@ -9,7 +9,7 @@ type Props = {
     // tabs: 
 }
 
-type TagSizeProps = {
+type TabSizeProps = {
     [key: string]: {
       iconSize: number;
       textSize: FontSizeTokens;
@@ -22,7 +22,7 @@ type TagSizeProps = {
 // :active - when the element is currenty activated by the user 
 // :focus - when the element is currently highlighted/selected 
 
-const tabSizes: TagSizeProps = {
+const tabSizes: TabSizeProps = {
     xm: {
         textSize: '$xs',
         iconSize: 8,
