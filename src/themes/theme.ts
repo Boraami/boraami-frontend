@@ -297,6 +297,10 @@ const light = {
   "post-placeholder-scroll-bar": colorScheme.boraami[200],
   "post-disabled-btn-fill": colorScheme.mono[400],
   "post-disabled-btn-text": colorScheme.mono[100],
+
+  // Loading Spinner component
+  "loading-ring": colorScheme.boraami[200],
+  "star-icon": colorScheme.boraami[700],
 };
 
 // note: we set up a single consistent base type to validate the rest
@@ -515,6 +519,10 @@ const dark: BaseTheme = {
   "post-placeholder-scroll-bar": colorScheme.boraami[500],
   "post-disabled-btn-fill": colorScheme.mono[400],
   "post-disabled-btn-text": colorScheme.mono[100],
+
+    // Loading Spinner component
+    "loading-ring": colorScheme.boraami[500],
+    "star-icon": colorScheme.boraami[100],
 };
 
 const allThemes = {

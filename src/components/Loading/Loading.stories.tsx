@@ -1,14 +1,15 @@
 import React from "react";
 import { Meta } from "@storybook/react-native";
-import { Post } from './Post';
-import { Text, View } from 'tamagui';
+import { Loading } from './Loading';
+import { Button, Spinner, View, Text } from 'tamagui';
 
-export const PostMeta: Meta<typeof Post> = {
-    title: "Post",
-    component: Post,
+export const LoadingMeta: Meta<typeof Loading> = {
+    title: "Loading",
+    component: Loading,
     args: {
-        username: 'armyuser1',
-        maxChar: 1000,
+      size: "small",
+      spinnerColor: "$loading-ring",
+      iconColor: "$star-icon",
     },
 
     decorators: [
@@ -21,6 +22,6 @@ export const PostMeta: Meta<typeof Post> = {
       ],
     };
 
-export default PostMeta;
+export default LoadingMeta;
 
 
