@@ -21,7 +21,6 @@ type BtnSizeProps = {
     height: number;
     top: number;
     left: number;
-    border: number;
     paddingHorizontal: number;
     gap: number;
     txtSize: FontSizeTokens;
@@ -36,7 +35,6 @@ const btnSizes: BtnSizeProps = {
     height: 24,
     top: 161,
     left: 105,
-    border: 1,
     paddingHorizontal: 6,
     gap: -3,
     txtSize: '$sm',
@@ -48,7 +46,6 @@ const btnSizes: BtnSizeProps = {
     height: 32,
     top: 209,
     left: 813,
-    border: 1,
     paddingHorizontal: 6,
     gap: -1,
     txtSize: '$md',
@@ -60,7 +57,6 @@ const btnSizes: BtnSizeProps = {
     height: 40,
     top: 261,
     left: 913,
-    border: 1,
     paddingHorizontal: 8,
     gap: 0,
     txtSize: '$lg',
@@ -106,7 +102,7 @@ const StyledBtn = styled(Btn, {
     secondary: {
       disabled: {
         borderColor: '$secondary-disabled-btn-border',
-        borderWidth: 1.5,
+        borderWidth: 1,
       },
       normal: {
         borderColor: '$secondary-default-btn-border',
@@ -119,7 +115,7 @@ const StyledBtn = styled(Btn, {
           shadowOffset: { width: 1, height: 1 }
         },
         focusStyle: {
-          borderWidth: 1.5,
+          borderWidth: 25.5,
           shadowColor: '#8F66D6',
           shadowOpacity: 1,
           shadowRadius: 12,
@@ -207,6 +203,14 @@ export const BtnField = (props: ButtonProps) => {
   }
   const hoverColor = primary ? bColor.primary : secondary ? bColor.secondary : bColor.tertiary
 
+  const bWidth = {
+    primary: isActive ? 1.5 : 1,
+    secondary: isActive ? 1.5 : 1,
+    tertiary: isActive ? 1.5 : 1
+  }
+
+  const width = primary ? bWidth.primary : secondary ? bWidth.secondary : bWidth.tertiary
+
   const iconComponent = <FontAwesome6 name={iconName}
     size={btnSizes[size].iconSize}
     color={color}
@@ -226,6 +230,7 @@ export const BtnField = (props: ButtonProps) => {
         primary={primary}
         tertiary={tertiary}
         secondary={secondary}
+        borderWidth={width}
         borderColor={primary || secondary ? hoverColor : 'transparent'}
         borderBottomColor={tertiary ? hoverColor : 'transparent'}
         icon={iconName ? iconComponent : null}
