@@ -1,9 +1,11 @@
-import { Link } from "expo-router";
+import { Link, Stack } from "expo-router";
 import { Button, StyleSheet, Text, View } from "react-native";
 
-export default function Page() {
-  return (
-    <View style={styles.container}>
+export default function Index() {
+    return (
+      <>
+      <Stack.Screen options={{headerShown: false, title: 'Profile'}} />
+      <View style={styles.container}>
       <View style={styles.main}>
         <Text style={styles.title}>Profile</Text>
         <Link href={'/(tabs)/home'} asChild>
@@ -11,13 +13,15 @@ export default function Page() {
         </Link>
       </View>
     </View>
-  );
-}
+      </>
+      );
+  }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+    backgroundColor: 'white',
     padding: 24,
   },
   main: {
@@ -29,5 +33,4 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 64,
     fontWeight: "bold",
-    color: 'yellow'
   }});

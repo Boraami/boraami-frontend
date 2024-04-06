@@ -1,11 +1,11 @@
-import { Redirect, Tabs, Stack, Link } from 'expo-router';
+import { Stack } from 'expo-router';
 import { Text, View, StyleSheet } from 'react-native';
 
 
 export default function Index() {
   return (
     <>
-    <Stack.Screen options={{headerShown: true, title: 'Home'}} />
+    <Stack.Screen options={{headerShown: false, title: 'Home'}} />
     <View style={styles.container}>
       <Text style={{fontSize: 24}}>Details Tab of Home Tab</Text>
     </View>

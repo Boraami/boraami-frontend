@@ -5,7 +5,7 @@ import { Text, View, StyleSheet } from 'react-native';
 export default function Index() {
   return (
     <>
-    <Stack.Screen options={{headerShown: true, title: 'Search'}} />
+    <Stack.Screen options={{headerShown: false, title: 'Search'}} />
     <View style={styles.container}>
       <Text style={{fontSize: 24}}>Search Tab</Text>
     </View>

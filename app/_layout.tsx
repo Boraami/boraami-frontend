@@ -56,7 +56,8 @@ export default function App() {
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
         {Constants.expoConfig?.extra?.storybookEnabled ? <Storybook /> :
         <Stack  screenOptions={{
-          headerShown: false, }}>
+          headerShown: false,
+          }}>
           <Stack.Screen name="(drawer)" />
           </Stack>}
       </ThemeProvider>

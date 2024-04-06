@@ -1,26 +1,26 @@
 import { useRef, useState } from "react";
 import { Tabs } from "expo-router";
 import { FontAwesome, FontAwesome6, SimpleLineIcons } from '@expo/vector-icons';
-import { Animated, Dimensions, View, useColorScheme } from "react-native";
+import { Image, Dimensions, View, useColorScheme } from "react-native";
 import { colorScheme } from "../../../src/themes/theme";
 import { DrawerToggleButton } from "@react-navigation/drawer";
 
-/* const Indicator = () => {
+function LogoTitle() {
+  const theme = useColorScheme();
+  const isDarkTheme = theme === "dark";
+  const iconTheme = isDarkTheme ?
+      require('/home/kmarguyne/boraami/boraami-frontend/assets/dark.png') :
+      require('/home/kmarguyne/boraami/boraami-frontend/assets/light.png');
   return (
-    <View style={{
-      width: 24,
-      height: 4,
-      backgroundColor: '#0EA5E9',
-      position: 'absolute',
-      bottom: 58,
-      left: 50,
-      borderRadius: 20,
-      transform: [
-          { translateX: tabOffsetValue }
-      ]
-  }}/>
-  )
-} */
+      <View>
+          <Image
+              style={{ alignSelf: 'flex-end', width: 101, height: 48 }}
+              source={iconTheme}
+          />
+      </View>
+  );
+}
+
 
 export default function TabsLayout() {
   const theme = useColorScheme();
@@ -31,6 +31,8 @@ export default function TabsLayout() {
   const dividerColor = isDarkTheme ? colorScheme.boraami[600] : colorScheme.boraami[300];
   const notifDotColor = isDarkTheme ? colorScheme.butter[400] : colorScheme.butter[400];
   const [isActive, setIsActive] = useState(false);
+  const toodleColor = isDarkTheme ? 'white' : 'black';
+  const barColor = isDarkTheme ? '#140233' : '#FFFFFF';
 
   const handleNotificationactive = () => {
     setIsActive(true);
@@ -41,7 +43,14 @@ export default function TabsLayout() {
   };
   return (
     <Tabs screenOptions={{
-      headerShown: false,
+      headerLeft: () => <DrawerToggleButton
+          tintColor={toodleColor}
+        />,
+        headerRight: () => <LogoTitle />,
+        headerStyle: {
+            backgroundColor: barColor
+        },
+      headerShown: true,
       tabBarShowLabel: false,
       tabBarActiveTintColor: activeIconColor,
       tabBarInactiveTintColor: defaultIconColor,
@@ -62,7 +71,6 @@ export default function TabsLayout() {
         }} />
       <Tabs.Screen name="search"
         options={{
-          headerShown: false,
           tabBarLabel: 'Search',
           title: 'Search',
           tabBarShowLabel: false,
