@@ -1,9 +1,11 @@
 import { useRef, useState } from "react";
-import { Tabs } from "expo-router";
+import { Tabs, useNavigation } from "expo-router";
 import { FontAwesome, FontAwesome6, SimpleLineIcons } from '@expo/vector-icons';
 import { Image, Dimensions, View, useColorScheme } from "react-native";
-import { colorScheme } from "../../../src/themes/theme";
+import { colorScheme } from "../../src/themes/theme";
 import { DrawerToggleButton } from "@react-navigation/drawer";
+import { ParamListBase, DrawerActions } from "@react-navigation/native";
+
 
 function LogoTitle() {
   const theme = useColorScheme();
@@ -14,7 +16,12 @@ function LogoTitle() {
   return (
       <View>
           <Image
-              style={{ alignSelf: 'flex-end', width: 101, height: 48 }}
+              style={{
+                alignSelf: 'flex-end',
+                marginRight: 24,
+                marginTop: 7,
+                width: 101,
+                height: 48 }}
               source={iconTheme}
           />
       </View>
@@ -29,7 +36,7 @@ export default function TabsLayout() {
   const activeIconColor = isDarkTheme ? colorScheme.serendipity[300] : colorScheme.serendipity[500];
   const navBarColor = isDarkTheme ? colorScheme.boraami[900] : colorScheme.boraami[50];
   const dividerColor = isDarkTheme ? colorScheme.boraami[600] : colorScheme.boraami[300];
-  const notifDotColor = isDarkTheme ? colorScheme.butter[400] : colorScheme.butter[400];
+  const notifDotColor = colorScheme.butter[400];
   const [isActive, setIsActive] = useState(false);
   const toodleColor = isDarkTheme ? 'white' : 'black';
   const barColor = isDarkTheme ? '#140233' : '#FFFFFF';
@@ -41,6 +48,9 @@ export default function TabsLayout() {
   const handleNotificationInactive = () => {
     setIsActive(false);
   };
+  const notifBag = isActive ? notifDotColor : 'transparent';
+  const navigate = useNavigation();
+
   return (
     <Tabs screenOptions={{
       headerLeft: () => <DrawerToggleButton
@@ -50,7 +60,6 @@ export default function TabsLayout() {
         headerStyle: {
             backgroundColor: barColor
         },
-      headerShown: true,
       tabBarShowLabel: false,
       tabBarActiveTintColor: activeIconColor,
       tabBarInactiveTintColor: defaultIconColor,
@@ -64,6 +73,7 @@ export default function TabsLayout() {
     }}>
       <Tabs.Screen name="home"
         options={{
+          tabBarLabel: 'Home',
           title: 'Home',
           tabBarShowLabel: false,
           tabBarIcon: ({ color }) => (
@@ -82,6 +92,12 @@ export default function TabsLayout() {
           tabBarLabel: 'Notification',
           title: 'Notification',
           tabBarShowLabel: false,
+          tabBarBadge: '',
+          tabBarBadgeStyle: {
+            backgroundColor: notifDotColor,
+            top: 4,
+            left: 1,
+          },
           tabBarIcon: ({ color }) => (
             <FontAwesome6 name="bell" size={24} color={color} />)
         }} />
@@ -93,6 +109,11 @@ export default function TabsLayout() {
           tabBarIcon: ({ color }) => (
             <SimpleLineIcons name="menu" size={24} color={color} />)
         }} />
+        <Tabs.Screen name="(drawer)" options={{
+          title: 'Profile',
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <SimpleLineIcons name="menu" size={24} color={color} />) }} />
     </Tabs>
   )
 }

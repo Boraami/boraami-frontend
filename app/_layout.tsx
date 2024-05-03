@@ -58,7 +58,8 @@ export default function App() {
         <Stack  screenOptions={{
           headerShown: false,
           }}>
-          <Stack.Screen name="(drawer)" />
+          <Stack.Screen name="index"/>
+          <Stack.Screen name="(tabs)"/>
           </Stack>}
       </ThemeProvider>
     </TamaguiProvider>

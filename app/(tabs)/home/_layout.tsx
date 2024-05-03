@@ -11,5 +11,6 @@ export default function HomeLayout() {
             borderColor: borderColor,
             borderWidth: 1,
         },
+        headerShown: false,
     }} />;
 }

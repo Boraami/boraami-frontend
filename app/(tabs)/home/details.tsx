@@ -5,7 +5,7 @@ import { Text, View, StyleSheet } from 'react-native';
 export default function Index() {
   return (
     <>
-    <Stack.Screen options={{headerShown: false, title: 'Home'}} />
+    <Stack.Screen options={{headerShown: true, title: 'Home'}} />
     <View style={styles.container}>
       <Text style={{fontSize: 24}}>Details Tab of Home Tab</Text>
     </View>
