@@ -1,11 +1,11 @@
 import { Drawer } from "expo-router/drawer"
 import { router, usePathname } from "expo-router";
 import { View, Image, useColorScheme } from "react-native";
-import { DrawerContentScrollView, DrawerItem, DrawerToggleButton } from "@react-navigation/drawer";
+import { DrawerContentScrollView, DrawerItem, DrawerToggleButton, createDrawerNavigator } from "@react-navigation/drawer";
 import { FontAwesome6, Feather, FontAwesome } from "@expo/vector-icons";
 import { Avatar, SizableText } from "tamagui";
-import { colorScheme } from "../../../src/themes/theme";
-import { tokens } from "../../../src/themes/tokens";
+import { colorScheme } from "../../src/themes/theme";
+import { tokens } from "../../src/themes/tokens";
 
 function LogoTitle() {
     const theme = useColorScheme();
@@ -221,7 +221,8 @@ const CustomDrawerContent = (props: DrawerProps) => {
                 display: 'flex',
                 gap: 8,
                 marginLeft: 36.5,
-                marginTop: 19
+                marginTop: 19,
+                width: 249
             }}>
             <DrawerItem onPress={() => {
                 router.push('/profile')
@@ -299,6 +300,8 @@ const CustomDrawerContent = (props: DrawerProps) => {
     )
 }
 
+//const Drawer = createDrawerNavigator();
+
 export default function Layout() {
     const theme = useColorScheme();
     const isDarkTheme = theme === "dark";
@@ -311,7 +314,7 @@ export default function Layout() {
             followers={208}
             following={67} {...props} />}
             screenOptions={{
-                headerShown: true,
+                headerShown: false,
                 headerLeft: () => <DrawerToggleButton
                     tintColor={toodleColor}
                 />,
@@ -320,10 +323,10 @@ export default function Layout() {
                     backgroundColor: barColor
                 },
             }}>
-            <Drawer.Screen name="profile" options={{ title: 'Profile', }} />
-            <Drawer.Screen name="coffee" options={{ title: 'Buy us a Coffe', }} />
-            <Drawer.Screen name="conduct" options={{ title: 'Codes of Conduct', }} />
-            <Drawer.Screen name="terms" options={{ title: 'Terms and Conditions', }} />
+            <Drawer.Screen name="profile" options={{ title: 'Profile', headerShown: true,}} />
+            <Drawer.Screen name="coffee" options={{ title: 'Buy us a Coffe', headerShown: true,}} />
+            <Drawer.Screen name="conduct" options={{ title: 'Codes of Conduct', headerShown: true,}} />
+            <Drawer.Screen name="terms" options={{ title: 'Terms', headerShown: true,}} />
         </Drawer>
     )
 }

@@ -2,7 +2,7 @@ import { Stack } from "expo-router";
 import { DrawerToggleButton } from "@react-navigation/drawer";
 import { useColorScheme } from "react-native";
 
-export default function Page() {
+export default function Terms() {
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
   const barColor = isDarkTheme ? '#140233' : '#FFFFFF';

@@ -2,7 +2,7 @@ import { Stack, useLocalSearchParams } from "expo-router";
 import { DrawerToggleButton } from "@react-navigation/drawer";
 import { useColorScheme, Text } from "react-native";
 
-export default function Page() {
+export default function Profile() {
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
   const barColor = isDarkTheme ? '#140233' : '#FFFFFF';

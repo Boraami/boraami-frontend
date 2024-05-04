@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { Tabs, useNavigation } from "expo-router";
 import { FontAwesome, FontAwesome6, SimpleLineIcons } from '@expo/vector-icons';
 import { Image, Dimensions, View, useColorScheme } from "react-native";
-import { colorScheme } from "../../src/themes/theme";
+import { colorScheme } from "../../../src/themes/theme";
 import { DrawerToggleButton } from "@react-navigation/drawer";
 import { ParamListBase, DrawerActions } from "@react-navigation/native";
 
@@ -53,6 +53,7 @@ export default function TabsLayout() {
 
   return (
     <Tabs screenOptions={{
+      headerShown: true,
       headerLeft: () => <DrawerToggleButton
           tintColor={toodleColor}
         />,
@@ -107,13 +108,8 @@ export default function TabsLayout() {
           title: 'Settings',
           tabBarShowLabel: false,
           tabBarIcon: ({ color }) => (
-            <SimpleLineIcons name="menu" size={24} color={color} />)
+            <SimpleLineIcons name="menu" size={24} color={color} />),
         }} />
-        <Tabs.Screen name="(drawer)" options={{
-          title: 'Profile',
-          headerShown: false,
-          tabBarIcon: ({ color }) => (
-            <SimpleLineIcons name="menu" size={24} color={color} />) }} />
     </Tabs>
   )
 }
