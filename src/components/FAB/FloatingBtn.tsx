@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Button as Btn,
   ButtonProps as BtnProps,
@@ -6,14 +7,13 @@ import {
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useColorScheme } from "react-native";
 import { colorScheme } from "../../themes/theme";
-import { useState } from "react";
 
 interface CustomBtnProps extends BtnProps {
   name: string;
   button: string;
 };
 
-const Button: React.FC<CustomBtnProps> = (props) => <StyledBtn {...props} />
+const FAButton: React.FC<CustomBtnProps> = (props) => <StyledBtn {...props} />
 
 type BtnSizeProps = {
   [key: string]: {
@@ -76,7 +76,6 @@ const StyledBtn = styled(Btn, {
   paddingRight: 8,
   variants: {
     button: {
-      color: '$default-FAB-text',
       disabled: {
         backgroundColor: '$disabled-FAB-fill',
         borderWidth: 1.5,
@@ -108,21 +107,11 @@ interface ButtonProps {
   disabled?: boolean;
   iconNameAfter: string;
   iconNameBefore: string;
-  size: 'sm' | 'md' | 'lg';
+  size: 'xs' | 'sm' | 'md';
   button: 'normal' | 'disabled';
 }
 
 export const FloatingBtnField = (props: ButtonProps) => {
-  const {
-    txt,
-    size,
-    name,
-    disabled,
-    button,
-    iconNameAfter,
-    iconNameBefore,
-  } = props;
-
   const [isActive, setIsActive] = useState(false);
 
   const handlePressIn = () => {
@@ -133,6 +122,16 @@ export const FloatingBtnField = (props: ButtonProps) => {
     setIsActive(false);
   };
 
+  const {
+    txt,
+    size,
+    name,
+    disabled,
+    button,
+    iconNameAfter,
+    iconNameBefore,
+  } = props;
+
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
   const iconColor = disabled ? colorScheme.boraami[50] : colorScheme.mono[100];
@@ -142,7 +141,7 @@ export const FloatingBtnField = (props: ButtonProps) => {
   }
   const borderC = borderColor.button;
   const bWidth = {
-    button: isActive ? 2.5 : 0
+    button: isActive ? 2.5 : 1
   }
   const width = bWidth.button;
 
@@ -160,7 +159,7 @@ export const FloatingBtnField = (props: ButtonProps) => {
 
   return (
     <XStack>
-      <Button
+      <FAButton
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
         button={button}
@@ -192,7 +191,7 @@ export const FloatingBtnField = (props: ButtonProps) => {
           size={btnSizes[size].txtSize}
           top={0.1}
         >{txt}</SizableText>
-      </Button>
+      </FAButton>
     </XStack>
   )
 }
