@@ -4,8 +4,8 @@ import { Meta } from "@storybook/react-native";
 import { FloatingBtnField } from "./FloatingBtn";
 
 
-const ButtonMeta: Meta<typeof FloatingBtnField> = {
-    title: "Button",
+const FabMeta: Meta<typeof FloatingBtnField> = {
+    title: "FAB",
     component: FloatingBtnField,
     args: {
       txt: 'small'
@@ -22,12 +22,12 @@ const ButtonMeta: Meta<typeof FloatingBtnField> = {
     ],
   };
 
-  export default ButtonMeta;
+  export default FabMeta;
 
   export const default_small = {
     args: {
-      name: 'floating',
-      floating: 'normal',
+      name: 'button',
+      button: 'normal',
       size: 'sm',
       txt: 'Quickstart',
     },
@@ -35,8 +35,8 @@ const ButtonMeta: Meta<typeof FloatingBtnField> = {
 
   export const default_medium = {
     args: {
-      name: 'floating',
-      floating: 'normal',
+      name: 'button',
+      button: 'normal',
       size: 'md',
       txt: 'Quickstart',
     },
@@ -44,8 +44,8 @@ const ButtonMeta: Meta<typeof FloatingBtnField> = {
 
 export const default_large = {
     args: {
-      name: 'floating',
-      floating: 'normal',
+      name: 'button',
+      button: 'normal',
       size: 'lg',
       txt: 'Quickstart',
     },
@@ -53,8 +53,8 @@ export const default_large = {
 
   export const disabled_small = {
     args: {
-      name: 'floating',
-      floating: 'disabled',
+      name: 'button',
+      button: 'disabled',
       disabled: true,
       size: 'sm',
       txt: 'Quickstart'
@@ -63,8 +63,8 @@ export const default_large = {
 
   export const disabled_medium = {
     args: {
-      name: 'floating',
-      floating: 'disabled',
+      name: 'button',
+      button: 'disabled',
       disabled: true,
       size: 'md',
       txt: 'Quickstart',
@@ -73,8 +73,8 @@ export const default_large = {
 
   export const disabled_large = {
     args: {
-      name: 'floating',
-      floating: 'disabled',
+      name: 'button',
+      button: 'disabled',
       disabled: true,
       size: 'lg',
       txt: 'Quickstart',

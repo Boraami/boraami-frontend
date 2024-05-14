@@ -10,7 +10,7 @@ import { useState } from "react";
 
 interface CustomBtnProps extends BtnProps {
   name: string;
-  floating: string;
+  button: string;
 };
 
 const Button: React.FC<CustomBtnProps> = (props) => <StyledBtn {...props} />
@@ -75,7 +75,8 @@ const StyledBtn = styled(Btn, {
   position: 'relative',
   paddingRight: 8,
   variants: {
-    floating: {
+    button: {
+      color: '$default-FAB-text',
       disabled: {
         backgroundColor: '$disabled-FAB-fill',
         borderWidth: 1.5,
@@ -105,9 +106,10 @@ interface ButtonProps {
   txt: string;
   name: string;
   disabled?: boolean;
-  floating: 'normal' | 'disabled';
+  iconNameAfter: string;
+  iconNameBefore: string;
   size: 'sm' | 'md' | 'lg';
-  state: 'normal' | 'disabled';
+  button: 'normal' | 'disabled';
 }
 
 export const FloatingBtnField = (props: ButtonProps) => {
@@ -116,7 +118,9 @@ export const FloatingBtnField = (props: ButtonProps) => {
     size,
     name,
     disabled,
-    floating,
+    button,
+    iconNameAfter,
+    iconNameBefore,
   } = props;
 
   const [isActive, setIsActive] = useState(false);
@@ -131,26 +135,35 @@ export const FloatingBtnField = (props: ButtonProps) => {
 
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
+  const iconColor = disabled ? colorScheme.boraami[50] : colorScheme.mono[100];
 
-  const txtColor = {
-    state: disabled ? colorScheme.mono[100] : colorScheme.boraami[50]
-  }
-  const textColor = txtColor.state;
   const borderColor = {
-    floating: isActive ? colorScheme.boraami[500] : 'transparent'
+    button: isActive ? '$focus-FAB-outline' : 'transparent'
   }
-  let borderC = borderColor.floating;
-  let bWidth = {
-    floating: isActive ? 2.5 : 0
+  const borderC = borderColor.button;
+  const bWidth = {
+    button: isActive ? 2.5 : 0
   }
-  let width = bWidth.floating;
+  const width = bWidth.button;
+
+  const iconBefore = <FontAwesome6 name={iconNameBefore}
+    size={btnSizes[size].iconSize}
+    color={iconColor}
+    style={{ position: 'relative' }}
+  />;
+
+  const iconAfter = <FontAwesome6 name={iconNameAfter}
+    size={btnSizes[size].iconSize}
+    color={iconColor}
+    style={{ position: 'relative' }}
+  />;
 
   return (
     <XStack>
       <Button
-      onPressIn={handlePressIn}
-      onPressOut={handlePressOut}
-        floating={floating}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
+        button={button}
         name={name}
         disabled={disabled}
         gap={btnSizes[size].gap}
@@ -161,21 +174,21 @@ export const FloatingBtnField = (props: ButtonProps) => {
         borderWidth={width}
         paddingHorizontal={btnSizes[size].paddingHorizontal}
         icon={<FontAwesome6 name={'plus'}
-        size={btnSizes[size].iconSize}
-        color={'white'}
-        style={{ position: 'relative' }}
-      />}
-      iconAfter={<FontAwesome6 name={'heart'}
-      size={btnSizes[size].iconSize}
-      color={'white'}
-      style={{ position: 'relative' }}
-    />}
+          size={btnSizes[size].iconSize}
+          color={iconColor}
+          style={{ position: 'relative' }}
+        />}
+        iconAfter={<FontAwesome6 name={'heart'}
+          size={btnSizes[size].iconSize}
+          color={iconColor}
+          style={{ position: 'relative' }}
+        />}
       >
         <SizableText
           fontFamily={'$btn'}
           textAlign={'center'}
           lineHeight={btnSizes[size].lineHeight}
-          color={textColor}
+          color={'white'}
           size={btnSizes[size].txtSize}
           top={0.1}
         >{txt}</SizableText>
