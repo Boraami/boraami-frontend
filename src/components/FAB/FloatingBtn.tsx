@@ -10,7 +10,7 @@ import { colorScheme } from "../../themes/theme";
 
 interface CustomBtnProps extends BtnProps {
   name: string;
-  button: string;
+  button: 'normal' | 'disabled'; //only way to explicitly specify the type of button
 };
 
 const FAButton: React.FC<CustomBtnProps> = (props) => <StyledBtn {...props} />
@@ -126,8 +126,8 @@ export const FloatingBtnField = (props: ButtonProps) => {
     txt,
     size,
     name,
-    disabled,
     button,
+    disabled,
     iconNameAfter,
     iconNameBefore,
   } = props;
@@ -162,9 +162,9 @@ export const FloatingBtnField = (props: ButtonProps) => {
       <FAButton
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
+        disabled={disabled}
         button={button}
         name={name}
-        disabled={disabled}
         gap={btnSizes[size].gap}
         width={btnSizes[size].width}
         height={btnSizes[size].height}
@@ -172,25 +172,15 @@ export const FloatingBtnField = (props: ButtonProps) => {
         borderColor={borderC}
         borderWidth={width}
         paddingHorizontal={btnSizes[size].paddingHorizontal}
-        icon={<FontAwesome6 name={'plus'}
-          size={btnSizes[size].iconSize}
-          color={iconColor}
-          style={{ position: 'relative' }}
-        />}
-        iconAfter={<FontAwesome6 name={'heart'}
-          size={btnSizes[size].iconSize}
-          color={iconColor}
-          style={{ position: 'relative' }}
-        />}
-      >
+        icon={iconNameBefore ? iconBefore : null}
+        iconAfter={iconNameAfter ? iconAfter : null}>
         <SizableText
           fontFamily={'$btn'}
           textAlign={'center'}
           lineHeight={btnSizes[size].lineHeight}
           color={'white'}
           size={btnSizes[size].txtSize}
-          top={0.1}
-        >{txt}</SizableText>
+          top={0.1}>{txt}</SizableText>
       </FAButton>
     </XStack>
   )

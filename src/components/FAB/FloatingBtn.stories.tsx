@@ -30,6 +30,8 @@ const FabMeta: Meta<typeof FloatingBtnField> = {
       button: 'normal',
       size: 'sm',
       txt: 'Quickstart',
+      iconNameBefore: 'plus',
+      iconNameAfter: 'heart',
     },
   };
 
@@ -78,5 +80,7 @@ export const default_large = {
       disabled: true,
       size: 'lg',
       txt: 'Quickstart',
+      iconNameBefore: 'plus',
+      iconNameAfter: 'heart',
     },
   };
