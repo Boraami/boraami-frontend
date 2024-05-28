@@ -104,7 +104,7 @@ interface ButtonProps {
     status: 'info' | 'success' | 'error' | 'warning' | 'social';
     state: 'solid' | 'outline';
     size: 'sm' | 'md';
-    icoN: boolean;
+    showIcon: boolean;
 }
 
 export const TagField: React.FC<ButtonProps> = (props) => {
@@ -113,20 +113,17 @@ export const TagField: React.FC<ButtonProps> = (props) => {
         size,
         status,
         state,
-        icoN
+        showIcon
     } = props;
 
-    const iconColor = state === 'solid' ? 'white' :
-        (status === 'info' ? '#0284C7' :
-            status === 'success' ? '#27846E' :
-                status === 'error' ? '#DB2777' :
-                    status === 'warning' ? '#B95D29' : '#744FB5');
+    const statusColor =  (status === 'info' ? '#0284C7' :
+    status === 'success' ? '#27846E' :
+        status === 'error' ? '#DB2777' :
+            status === 'warning' ? '#B95D29' : '#744FB5');
 
-    const borColor = state === 'outline' ? 'white' :
-        (status === 'info' ? '#0284C7' :
-            status === 'success' ? '#27846E' :
-                status === 'error' ? '#DB2777' :
-                    status === 'warning' ? '#B95D29' : '#744FB5');
+const iconColor = state === "solid" ? "white" : statusColor;
+
+const borColor = state === "outline" ? "white" : statusColor;
 
     const iconMap: { [key: string]: string } = {
         info: "lightbulb",
@@ -140,7 +137,6 @@ export const TagField: React.FC<ButtonProps> = (props) => {
         name={iconMap[status]}
         size={tagSizes[size].iconSize}
         color={iconColor}
-        style={{ marginRight: 4 }}
     />
 
     return (
@@ -152,7 +148,7 @@ export const TagField: React.FC<ButtonProps> = (props) => {
             borderRadius={4}
             borderColor={state === 'outline' ? iconColor : 'transparent'}
             backgroundColor={state === 'solid' ? borColor : 'transparent'}
-            icon={icoN ? iconComponent : null}
+            icon={showIcon ? iconComponent : null}
             scaleSpace={0.4}
         >
             <SizableText

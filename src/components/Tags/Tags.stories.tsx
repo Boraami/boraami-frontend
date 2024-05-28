@@ -28,7 +28,7 @@ export const info_small = {
         state: 'solid',
         size: 'sm',
         txt: 'INFO',
-        icoN: false,
+        showIcon: false,
     },
 };
 
@@ -38,7 +38,7 @@ export const success_small = {
         state: 'solid',
         size: 'sm',
         txt: 'SUCCESS',
-        icoN: false,
+        showIcon: false,
     },
 };
 
@@ -48,7 +48,7 @@ export const error_small = {
         state: 'solid',
         size: 'sm',
         txt: 'ERROR',
-        icoN: false,
+        showIcon: false,
     },
 };
 
@@ -58,7 +58,7 @@ export const warning_small = {
         state: 'solid',
         size: 'sm',
         txt: 'WARNING',
-        icoN: false,
+        showIcon: false,
     },
 };
 
@@ -68,7 +68,7 @@ export const default_small = {
         state: 'solid',
         size: 'sm',
         txt: 'DEFAULT',
-        icoN: false,
+        showIcon: false,
     }
 };
 
@@ -78,7 +78,7 @@ export const info_medium_out = {
         state: 'outline',
         size: 'md',
         txt: 'INFO',
-        icoN: true
+        showIcon: true
     },
 };
 
@@ -86,7 +86,7 @@ export const success_medium_out = {
     args: {
         status: 'success',
         state: 'outline',
-        icoN: true,
+        showIcon: true,
         size: 'md',
         txt: 'SUCCESS',
     },
@@ -98,7 +98,7 @@ export const error_medium_out = {
         state: 'outline',
         size: 'md',
         txt: 'ERROR',
-        icoN: true
+        showIcon: true
     },
 };
 
@@ -108,7 +108,7 @@ export const warning_medium_out = {
         state: 'outline',
         size: 'md',
         txt: 'WARNING',
-        icoN: true
+        showIcon: true
     },
 };
 
@@ -118,6 +118,6 @@ export const default_medium_out = {
         state: 'outline',
         size: 'md',
         txt: 'DEFAULT',
-        icoN: true
+        showIcon: true
     }
 }
