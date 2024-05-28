@@ -24,8 +24,8 @@ export default TagMeta;
 
 export const info_small = {
     args: {
-        name: 'info',
-        info: 'solid',
+        type: 'info',
+        variant: 'solid',
         size: 'sm',
         txt: 'INFO',
     },
@@ -33,8 +33,8 @@ export const info_small = {
 
 export const success_small = {
     args: {
-        name: 'success',
-        success: 'solid',
+        type: 'success',
+        variant: 'solid',
         size: 'sm',
         txt: 'SUCCESS',
     },
@@ -42,8 +42,8 @@ export const success_small = {
 
 export const error_small = {
     args: {
-        name: 'error',
-        error: 'solid',
+        type: 'error',
+        variant: 'solid',
         size: 'sm',
         txt: 'ERROR',
     },
@@ -51,8 +51,8 @@ export const error_small = {
 
 export const warning_small = {
     args: {
-        name: 'warning',
-        warning: 'solid',
+        type: 'warning',
+        variant: 'solid',
         size: 'sm',
         txt: 'WARNING',
     },
@@ -60,8 +60,8 @@ export const warning_small = {
 
 export const default_small = {
     args: {
-        name: 'social',
-        deflt: 'solid',
+        type: 'social',
+        variant: 'solid',
         size: 'sm',
         txt: 'DEFAULT'
     }
@@ -69,8 +69,8 @@ export const default_small = {
 
 export const info_medium_out = {
     args: {
-        name: 'info',
-        info: 'outline',
+        type: 'info',
+        variant: 'outline',
         size: 'md',
         txt: 'INFO',
     },
@@ -78,8 +78,8 @@ export const info_medium_out = {
 
 export const success_medium_out = {
     args: {
-        name: 'success',
-        success: 'outline',
+        type: 'success',
+        variant: 'outline',
         size: 'md',
         txt: 'SUCCESS',
     },
@@ -87,8 +87,8 @@ export const success_medium_out = {
 
 export const error_medium_out = {
     args: {
-        name: 'error',
-        error: 'outline',
+        type: 'error',
+        variant: 'outline',
         size: 'md',
         txt: 'ERROR',
     },
@@ -96,8 +96,8 @@ export const error_medium_out = {
 
 export const warning_medium_out = {
     args: {
-        name: 'warning',
-        warning: 'outline',
+        type: 'warning',
+        variant: 'outline',
         size: 'md',
         txt: 'WARNING',
     },
@@ -105,8 +105,8 @@ export const warning_medium_out = {
 
 export const default_medium_out = {
     args: {
-        name: 'social',
-        deflt: 'outline',
+        type: 'social',
+        variant: 'outline',
         size: 'md',
         txt: 'DEFAULT'
     }
