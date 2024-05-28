@@ -25,7 +25,7 @@ export default TagMeta;
 export const info_small = {
     args: {
         status: 'info',
-        variant: 'solid',
+        state: 'solid',
         size: 'sm',
         txt: 'INFO',
         icoN: false,
