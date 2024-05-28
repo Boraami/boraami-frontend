@@ -24,62 +24,69 @@ export default TagMeta;
 
 export const info_small = {
     args: {
-        type: 'info',
+        status: 'info',
         variant: 'solid',
         size: 'sm',
         txt: 'INFO',
+        icoN: false,
     },
 };
 
 export const success_small = {
     args: {
-        type: 'success',
-        variant: 'solid',
+        status: 'success',
+        state: 'solid',
         size: 'sm',
         txt: 'SUCCESS',
+        icoN: false,
     },
 };
 
 export const error_small = {
     args: {
-        type: 'error',
-        variant: 'solid',
+        status: 'error',
+        state: 'solid',
         size: 'sm',
         txt: 'ERROR',
+        icoN: false,
     },
 };
 
 export const warning_small = {
     args: {
-        type: 'warning',
-        variant: 'solid',
+        status: 'warning',
+        state: 'solid',
         size: 'sm',
         txt: 'WARNING',
+        icoN: false,
     },
 };
 
 export const default_small = {
     args: {
-        type: 'social',
-        variant: 'solid',
+        status: 'social',
+        state: 'solid',
         size: 'sm',
-        txt: 'DEFAULT'
+        txt: 'DEFAULT',
+        icoN: false,
     }
 };
 
 export const info_medium_out = {
     args: {
-        type: 'info',
-        variant: 'outline',
+        status: 'info',
+        state: 'outline',
         size: 'md',
         txt: 'INFO',
+        icoN: true
     },
 };
 
 export const success_medium_out = {
     args: {
-        type: 'success',
-        variant: 'outline',
+        status: 'success',
+        state: 'outline',
+        icoN: true,
         size: 'md',
         txt: 'SUCCESS',
     },
@@ -87,27 +94,30 @@ export const success_medium_out = {
 
 export const error_medium_out = {
     args: {
-        type: 'error',
-        variant: 'outline',
+        status: 'error',
+        state: 'outline',
         size: 'md',
         txt: 'ERROR',
+        icoN: true
     },
 };
 
 export const warning_medium_out = {
     args: {
-        type: 'warning',
-        variant: 'outline',
+        status: 'warning',
+        state: 'outline',
         size: 'md',
         txt: 'WARNING',
+        icoN: true
     },
 };
 
 export const default_medium_out = {
     args: {
-        type: 'social',
-        variant: 'outline',
+        status: 'social',
+        state: 'outline',
         size: 'md',
-        txt: 'DEFAULT'
+        txt: 'DEFAULT',
+        icoN: true
     }
 }
