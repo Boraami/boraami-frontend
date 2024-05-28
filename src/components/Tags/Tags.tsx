@@ -42,18 +42,17 @@ const StyledTag = styled(Btn, {
     borderRadius: 4,
     paddingLeft: 6,
     paddingRight: 6,
+    alignItems: 'center',
     variants: {
         status: {
             info: {
                 solid: {
                     backgroundColor: '$info-solid-fill',
                     color: '$info-solid-text',
-                    alignItems: 'center',
                 },
                 outline: {
                     borderColor: '$info-outline-border',
                     color: '$info-outline-text',
-                    alignItems: 'center',
                 },
             },
             success: {
@@ -70,36 +69,30 @@ const StyledTag = styled(Btn, {
                 solid: {
                     backgroundColor: '$error-solid-fill',
                     color: '$error-solid-text',
-                    alignItems: 'center',
                 },
                 outline: {
                     borderColor: '$error-outline-border',
                     color: '$error-outline-text',
-                    alignItems: 'center',
                 },
             },
             warning: {
                 solid: {
                     backgroundColor: '$warning-solid-fill',
                     color: '$warning-solid-text',
-                    alignItems: 'center',
                 },
                 outline: {
                     borderColor: '$warning-outline-border',
                     color: '$warning-outline-text',
-                    alignItems: 'center',
                 },
             },
             social: {
                 solid: {
                     backgroundColor: '$default-solid-fill',
                     color: '$default-solid-text',
-                    alignContent: 'center',
                 },
                 outline: {
                     borderColor: '$default-outline-border',
                     color: '$default-outline-text',
-                    alignItems: 'center',
                 },
             },
         },
