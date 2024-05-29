@@ -1,18 +1,17 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Tabs, useNavigation } from "expo-router";
 import { FontAwesome, FontAwesome6, SimpleLineIcons } from '@expo/vector-icons';
 import { Image, Dimensions, View, useColorScheme } from "react-native";
 import { colorScheme } from "../../../src/themes/theme";
 import { DrawerToggleButton } from "@react-navigation/drawer";
-import { ParamListBase, DrawerActions } from "@react-navigation/native";
 
 
 function LogoTitle() {
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
   const iconTheme = isDarkTheme ?
-      require('/home/kmarguyne/boraami/boraami-frontend/assets/dark.png') :
-      require('/home/kmarguyne/boraami/boraami-frontend/assets/light.png');
+      require('../../../assets/dark.png') :
+      require('../../../assets/light.png');
   return (
       <View>
           <Image

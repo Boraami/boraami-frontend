@@ -1,18 +1,17 @@
 import { Drawer } from "expo-router/drawer"
 import { router, usePathname } from "expo-router";
 import { View, Image, useColorScheme } from "react-native";
-import { DrawerContentScrollView, DrawerItem, DrawerToggleButton, createDrawerNavigator } from "@react-navigation/drawer";
-import { FontAwesome6, Feather, FontAwesome } from "@expo/vector-icons";
+import { DrawerContentScrollView, DrawerItem, DrawerToggleButton } from "@react-navigation/drawer";
+import { FontAwesome6, FontAwesome } from "@expo/vector-icons";
 import { Avatar, SizableText } from "tamagui";
 import { colorScheme } from "../../src/themes/theme";
-import { tokens } from "../../src/themes/tokens";
 
 function LogoTitle() {
     const theme = useColorScheme();
     const isDarkTheme = theme === "dark";
     const iconTheme = isDarkTheme ?
-        require('/home/kmarguyne/boraami/boraami-frontend/assets/dark.png') :
-        require('/home/kmarguyne/boraami/boraami-frontend/assets/light.png');
+        require('../../assets/dark.png') :
+        require('../../assets/light.png');
     return (
         <View>
             <Image
