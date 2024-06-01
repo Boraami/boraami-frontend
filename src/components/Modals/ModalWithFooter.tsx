@@ -3,7 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Button,  Adapt, Dialog, Sheet } from 'tamagui'
 type Props = {
   modeltitle: string
-  modeltext: string, 
+  modeltext: string,
   btn1text: string,
   btn2text: string,
 }
@@ -77,7 +77,7 @@ export function ModalWithFooter({ modeltext, modeltitle, btn1text, btn2text }: P
             <XStack gap={8} paddingTop={12} >
             <Ionicons name="checkmark-circle"  size={20}//22
              color="#2F9D83" />
-            <SizableText 
+            <SizableText
               fontFamily={'$heading'}
               paddingTop={1}
               lineHeight={25}
@@ -86,12 +86,12 @@ export function ModalWithFooter({ modeltext, modeltitle, btn1text, btn2text }: P
             </XStack>
             <YStack paddingTop={3} >
               <Dialog.Close displayWhenAdapted  asChild>
-              <Button 
+              <Button
                   width={60}
                   height={40}>
               <Ionicons name="close-sharp" size={16}   color="#8F66D6" //size=26
                /></Button>
-              </Dialog.Close>          
+              </Dialog.Close>
           </YStack>
           </XStack>
         </XStack>
@@ -102,7 +102,7 @@ export function ModalWithFooter({ modeltext, modeltitle, btn1text, btn2text }: P
         height={95}
         padding={16}
         >
-          <SizableText 
+          <SizableText
             fontFamily={'$body'}
             size={'$sm'}//md
             lineHeight={21}
@@ -136,7 +136,7 @@ export function ModalWithFooter({ modeltext, modeltitle, btn1text, btn2text }: P
               size:'$md',//lg
               lineHeight:16,
               fontFamily:'$btn'
-            }}  
+            }}
             >{btn1text}</Button>
             </Dialog.Close>
             <Button
@@ -155,7 +155,7 @@ export function ModalWithFooter({ modeltext, modeltitle, btn1text, btn2text }: P
               size:'$md',//lg
               lineHeight:16,
               fontFamily:'$btn'
-            }}  
+            }}
             >{btn2text}</Button>
           </XStack>
         </XStack>

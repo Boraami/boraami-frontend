@@ -3,7 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Button,  Adapt, Dialog, Sheet } from 'tamagui'
 type Props = {
   modeltitle: string
-  modeltext: string, 
+  modeltext: string,
   btn1text: string,
   btn2text: string,
   alignment: string
@@ -61,7 +61,7 @@ export function ModalWideActionBtns({ modeltext, modeltitle, btn1text, btn2text,
               height={51}
               resizeMode={'contain'}
               alignSelf='flex-end'
-            />  
+            />
         {alignment=='left'?
         <>
         <XStack
@@ -76,9 +76,9 @@ export function ModalWideActionBtns({ modeltext, modeltitle, btn1text, btn2text,
         paddingRight={10}
 
         >
-          
-         
-        <XStack 
+
+
+        <XStack
         flexDirection="row"
         alignItems='flex-start'
         justifyContent="flex-start"
@@ -86,7 +86,7 @@ export function ModalWideActionBtns({ modeltext, modeltitle, btn1text, btn2text,
         gap={5}>
           <Ionicons name="checkmark-circle"  size={22} color="#2F9D83" />
           <SizableText
-          paddingRight={10} 
+          paddingRight={10}
           paddingLeft={10}
             fontFamily={'$heading'}
             paddingTop={1}
@@ -99,11 +99,10 @@ export function ModalWideActionBtns({ modeltext, modeltitle, btn1text, btn2text,
         <XStack
         backgroundColor={'$error-alert-fill'}
         width={350}
-        height={80}
         paddingLeft={56}
         paddingRight={20}
         paddingBottom={16}>
-          <SizableText 
+          <SizableText
           fontFamily={'$body'}
           size={'$md'}
           lineHeight={21}
@@ -124,7 +123,7 @@ export function ModalWideActionBtns({ modeltext, modeltitle, btn1text, btn2text,
                 <XStack gap={12}
                   paddingTop={12}>
                     <Ionicons name="checkmark-circle"  size={22} color="#2F9D83" />
-                    <SizableText 
+                    <SizableText
                     fontFamily={'$heading'}
                     paddingTop={1}
                     lineHeight={25}
@@ -141,7 +140,7 @@ export function ModalWideActionBtns({ modeltext, modeltitle, btn1text, btn2text,
               flexDirection="row"
               justifyContent='center'>
                 <Dialog.Close displayWhenAdapted  asChild>
-                <Button 
+                <Button
                 width={60}
                 height={40}>
                 <Ionicons name="close-sharp" size={26} paddingTop={4}  color="#8F66D6" /></Button>
@@ -151,10 +150,9 @@ export function ModalWideActionBtns({ modeltext, modeltitle, btn1text, btn2text,
             <XStack
             backgroundColor={'$error-alert-fill'}
             width={350}
-            height={37}
             justifyContent="center"
             >
-              <SizableText 
+              <SizableText
                 fontFamily={'$body'}
                 size={'$md'}
                 lineHeight={21}
@@ -179,7 +177,6 @@ export function ModalWideActionBtns({ modeltext, modeltitle, btn1text, btn2text,
       <XStack
         backgroundColor={'$error-alert-fill'}
         width={350}
-        height={85}
         borderTopLeftRadius={8}
         borderTopRightRadius={8}
         justifyContent="flex-start"
@@ -188,8 +185,8 @@ export function ModalWideActionBtns({ modeltext, modeltitle, btn1text, btn2text,
         paddingRight={10}
 
         >
-          
-      <XStack 
+
+      <XStack
           flexDirection="row"
           alignItems='flex-start'
           justifyContent="flex-start"
@@ -197,7 +194,7 @@ export function ModalWideActionBtns({ modeltext, modeltitle, btn1text, btn2text,
           gap={5}>
             <Ionicons name="checkmark-circle"  size={22} color="#2F9D83" />
             <SizableText
-            padding={10} 
+            padding={10}
               fontFamily={'$heading'}
               paddingTop={1}
               lineHeight={25}
@@ -209,22 +206,20 @@ export function ModalWideActionBtns({ modeltext, modeltitle, btn1text, btn2text,
       <XStack
         backgroundColor={'$error-alert-fill'}
         width={350}
-        height={80}
         paddingLeft={20}
         paddingRight={20}
         paddingBottom={16}>
-           <SizableText 
+           <SizableText
             fontFamily={'$body'}
             size={'$md'}
             lineHeight={21}
             color="$supporting-text" >{modeltext}</SizableText>
         </XStack></>
       }
-        
+
         <XStack
           backgroundColor={'$error-alert-fill'}
           width={350}
-          height={72}
           borderBottomLeftRadius={8}
           borderBottomRightRadius={8}
           paddingTop={16}
@@ -250,7 +245,7 @@ export function ModalWideActionBtns({ modeltext, modeltitle, btn1text, btn2text,
               size:'$lg',
               lineHeight:16,
               fontFamily:'$btn'
-            }}  
+            }}
             >{btn1text}</Button>
             </Dialog.Close>
             <Button
@@ -269,7 +264,7 @@ export function ModalWideActionBtns({ modeltext, modeltitle, btn1text, btn2text,
               size:'$lg',
               lineHeight:16,
               fontFamily:'$btn'
-            }}  
+            }}
             >{btn2text}</Button>
           </XStack>
         </XStack>
