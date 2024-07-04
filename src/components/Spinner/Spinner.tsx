@@ -29,12 +29,12 @@ const spinnerSizes: SpinnerSizesProps = {
     height: 16,
   },
   md: {
-    width: 20,
-    height: 20,
+    width: 30,
+    height: 30,
   },
   lg: {
-    width: 28,
-    height: 28,
+    width: 50,
+    height: 50,
   },
 };
 
@@ -43,28 +43,18 @@ const SpinnerLoading: React.FC<SpinnerProps> = ({ size }) => {
   const isDarkTheme = theme === "dark";
 
   const images: Record<string, Record<string, ImageSourcePropType>> = {
-    dark: {
-      xs: require("../../assets/loader/dark_xs.png"),
-      sm: require("../../assets/loader/dark_small.png"),
-      md: require("../../assets/loader/dark_medium.png"),
-      lg: require("../../assets/loader/dark_large.png"),
-    },
-    light: {
-      xs: require("../../assets/loader/light_xs.png"),
-      sm: require("../../assets/loader/light_small.png"),
-      md: require("../../assets/loader/light_medium.png"),
-      lg: require("../../assets/loader/light_large.png"),
-    },
+    dark: require("../../assets/loader/dark-spinner.png"),
+    light: require("../../assets/loader/light-spinner.png"),
   };
 
-  const iconTheme = isDarkTheme ? images.dark[size] : images.light[size];
+  const iconTheme = isDarkTheme ? images.dark : images.light;
   const rotateValueHolder = new Animated.Value(0);
 
   const StartImageRotation = () => {
     rotateValueHolder.setValue(0);
     Animated.timing(rotateValueHolder, {
       toValue: 1,
-      duration: 1000,
+      duration: 10000,
       easing: Easing.linear,
       useNativeDriver: false,
     }).start(() => StartImageRotation());
@@ -78,7 +68,13 @@ const SpinnerLoading: React.FC<SpinnerProps> = ({ size }) => {
     outputRange: ["0deg", "360deg"],
   });
   return (
-    <View style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+    <View
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Animated.Image
         style={{
           width: spinnerSizes[size].width,
@@ -96,7 +92,7 @@ export const SpinnerComp = (props: SpinnerProps) => {
 
   return (
     <SafeAreaView>
-      <View style={{ flex: 1, padding: 20, justifyContent: "center", alignItems: "center" }}>
+      <View style={{ flex: 1, padding: 0, justifyContent: "center", alignItems: "center" }}>
         <SpinnerLoading size={size} />
       </View>
     </SafeAreaView>

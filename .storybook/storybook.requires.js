@@ -14,7 +14,7 @@ global.STORIES = [
     directory: "./src/components",
     files: "**/*.stories.?(ts|tsx|js|jsx)",
     importPathMatcher:
-      "^\\.[\\\\/](?:src[\\\\/]components(?:[\\\\/](?!\\.)(?:(?:(?!(?:^|[\\\\/])\\.).)*?)[\\\\/]|[\\\\/]|$)(?!\\.)(?=.)[^\\\\/]*?\\.stories\\.(?:ts|tsx|js|jsx)?)$",
+      "^\\.[\\\\/](?:src\\/components(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(?:ts|tsx|js|jsx)?)$",
   },
 ];
 
@@ -50,6 +50,8 @@ try {
 const getStories = () => {
   return {
     "./src/components/Button/Button.stories.tsx": require("../src/components/Button/Button.stories.tsx"),
+    "./src/components/FAB/FloatingBtn.stories.tsx": require("../src/components/FAB/FloatingBtn.stories.tsx"),
+    "./src/components/Spinner/Spinner.stories.tsx": require("../src/components/Spinner/Spinner.stories.tsx"),
   };
 };
 
