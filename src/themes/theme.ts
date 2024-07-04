@@ -123,7 +123,9 @@ const light = {
   "default-fill": colorScheme.boraami[700],
   "default-border": colorScheme.boraami[700],
   "default-check-icon": colorScheme.boraami[50],
+
   "label-text": colorScheme.mono[800],
+  
   "focus-fill": colorScheme.boraami[700],
   "focus-border": colorScheme.boraami[400],
   "focus-check-box": colorScheme.boraami[50],
@@ -167,6 +169,21 @@ const light = {
   "tags-outline-border": colorScheme.boraami[200],
   "tags-solid-text": colorScheme.boraami[50],
   "tags-outline-text": colorScheme.boraami[600],
+
+
+  //RadioButton Component
+  "default-radio-fill": colorScheme.boraami[700],
+  "default-radio-border": colorScheme.boraami[700],
+  "default-radio-text": colorScheme.boraami[900],
+  "focus-radio-fill": colorScheme.boraami[700],
+  "focus-radio-border": colorScheme.boraami[400],
+  "focus-radio-text": colorScheme.boraami[900],
+  "disabled-radio-fill": colorScheme.boraami[400],
+  "disabled-radio-border": colorScheme.boraami[400],
+  "disabled-radio-text": colorScheme.boraami[900],
+  "hover-radio-fill": colorScheme.serendipity[500],
+  "hover-radio-border": colorScheme.serendipity[500],
+  "hover-radio-text": colorScheme.boraami[900],
 
   // Input Component
   "input-fill": colorScheme.mono[50],
@@ -232,6 +249,18 @@ const light = {
   //Tooltip Component
   "tooltip-fill": colorScheme.boraami[700],
   "tooltip-text": colorScheme.boraami[50],
+
+  //Floating button Component
+  "default-FAB-fill": colorScheme.boraami[700],
+  "default-FAB-text": colorScheme.boraami[50],
+  "default-FAB-icon": colorScheme.boraami[50],
+  "disabled-FAB-fill": colorScheme.mono[400],
+  "disabled-FAB-text": colorScheme.mono[100],
+  "disabled-FAB-icon": colorScheme.mono[100],
+  "focus-FAB-fill": colorScheme.boraami[700],
+  "focus-FAB-outline": colorScheme.boraami[500],
+  "focus-FAB-text": colorScheme.boraami[50],
+  "focus-FAB-icon": colorScheme.boraami[50],
 
   //badge component
   "badge-bg-color": colorScheme.boraami[700],
@@ -351,7 +380,9 @@ const dark: BaseTheme = {
   "default-fill": colorScheme.boraami[700],
   "default-border": colorScheme.boraami[700],
   "default-check-icon": colorScheme.boraami[50],
+
   "label-text": colorScheme.boraami[50],
+
   "focus-fill": colorScheme.boraami[700],
   "focus-border": colorScheme.boraami[400],
   "focus-check-box": colorScheme.boraami[50],
@@ -395,6 +426,7 @@ const dark: BaseTheme = {
   "tags-outline-border": colorScheme.mono[400],
   "tags-solid-text": colorScheme.boraami[50],
   "tags-outline-text": colorScheme.mono[50],
+
 
   // Input Component
   "input-fill": colorScheme.boraami[900],
@@ -448,6 +480,7 @@ const dark: BaseTheme = {
   "disabled-label-text": colorScheme.boraami[50],
   "disabled-helper-text": colorScheme.boraami[300],
 
+
   //Modal Component
   "check-icon": colorScheme.singularity[400],
   "title-text": colorScheme.butter[50],
@@ -461,6 +494,18 @@ const dark: BaseTheme = {
   "tooltip-fill": colorScheme.boraami[700],
   "tooltip-text": colorScheme.mono[800],
 
+  //Floating button Component
+  "default-FAB-fill": colorScheme.boraami[700],
+  "default-FAB-text": colorScheme.boraami[50],
+  "default-FAB-icon": colorScheme.boraami[50],
+  "disabled-FAB-fill": colorScheme.mono[400],
+  "disabled-FAB-text": colorScheme.mono[100],
+  "disabled-FAB-icon": colorScheme.mono[100],
+  "focus-FAB-fill": colorScheme.boraami[700],
+  "focus-FAB-outline": colorScheme.boraami[500],
+  "focus-FAB-text": colorScheme.boraami[50],
+  "focus-FAB-icon": colorScheme.boraami[50],
+=======
   //badge component
   "badge-bg-color": colorScheme.boraami[500],
   "large-badge-text": colorScheme.butter[50],
