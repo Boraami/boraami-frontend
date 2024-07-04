@@ -1,6 +1,5 @@
-import { Stack, styled } from '@tamagui/core'
 import { createSwitch } from '@tamagui/switch'
-import { XStack, SizableText, Label } from 'tamagui'
+import { XStack, SizableText, Label, Stack, styled } from 'tamagui'
 
 const Frame = styled(Stack, {
   borderRadius: 20,
