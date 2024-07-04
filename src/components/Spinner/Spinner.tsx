@@ -29,12 +29,12 @@ const spinnerSizes: SpinnerSizesProps = {
     height: 16,
   },
   md: {
-    width: 30,
-    height: 30,
+    width: 20,
+    height: 20,
   },
   lg: {
-    width: 50,
-    height: 50,
+    width: 28,
+    height: 28,
   },
 };
 
@@ -54,14 +54,14 @@ const SpinnerLoading: React.FC<SpinnerProps> = ({ size }) => {
     rotateValueHolder.setValue(0);
     Animated.timing(rotateValueHolder, {
       toValue: 1,
-      duration: 10000,
+      duration: 1500,
       easing: Easing.linear,
       useNativeDriver: false,
     }).start(() => StartImageRotation());
   };
   useEffect(() => {
     StartImageRotation();
-  }, []);
+  }, [theme]);
 
   const RotateData = rotateValueHolder.interpolate({
     inputRange: [0, 1],
