@@ -21,25 +21,26 @@ const SwitchDefaultMeta: Meta<typeof SwitchDefault> = {
       ),
     ],
   };
-  
+
   export default SwitchDefaultMeta;
-  
+
   export const large = {};
-  
+
   export const small = {
     args: {
       size:'sm',
       heading:'Label',
       helpertext:'',
-      checked:true
+      checked:false,
+      disabled: false
       },
   };
-  
+
   export const medium = {
     args: {
       size:'md',
       heading:'',
       helpertext:'Helper Text',
+      disabled: true
       },
   };
-  

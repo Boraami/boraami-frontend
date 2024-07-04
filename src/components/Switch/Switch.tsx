@@ -1,10 +1,10 @@
 import { Stack, styled } from '@tamagui/core'
 import { createSwitch } from '@tamagui/switch'
-import {  XStack, SizableText, Label} from 'tamagui'
+import { XStack, SizableText, Label } from 'tamagui'
 
 const Frame = styled(Stack, {
   borderRadius: 20,
-  padding:2,
+  padding: 2,
   variants: {
     checked: {
       true: {
@@ -22,7 +22,7 @@ const Frame = styled(Stack, {
 const Thumb = styled(Stack, {
   backgroundColor: '$boraami.50',
   borderRadius: 20,
-  animation:'medium',
+  animation: 'medium',
   variants: {
     checked: {
       true: {
@@ -39,77 +39,83 @@ export const SwitchBasic = createSwitch({
 })
 type SwSize = {
   [key: string]: {
-    w:number;
-    h:number,
-    thumb:number
+    w: number;
+    h: number,
+    thumb: number
   };
 };
 
 const SwitchSize: SwSize = {
-sm: {
-  w:32,
-  h:16,
-  thumb:12
+  sm: {
+    w: 32,
+    h: 16,
+    thumb: 12
   },
-md: {
-  w:40,
-  h:20,
-  thumb:16
+  md: {
+    w: 40,
+    h: 20,
+    thumb: 16
   },
-lg: {
-  w:48,
-  h:24,
-  thumb:20
+  lg: {
+    w: 48,
+    h: 24,
+    thumb: 20
   },
 };
 type SwitchProps = {
-  
-  size: string, 
+  size: string,
   heading: string,
-  helpertext:string
+  helpertext: string,
+  disabled: boolean,
 }
 type SwitchLabelSizeProps = {
   [key: string]: {
-    ls:string,
-    ts:number
+    ls: string,
+    ts: number
   };
 };
 const SwitchLabelSizes: SwitchLabelSizeProps = {
-sm: {
-  ls:'$xs',
-  ts:12
+  sm: {
+    ls: '$xs',
+    ts: 12
   },
-md: {
-  ls:'$sm',
-  ts:14
+  md: {
+    ls: '$sm',
+    ts: 14
   },
-lg: {
-  ls:'$md',
-  ts:16
+  lg: {
+    ls: '$md',
+    ts: 16
   },
 };
-export function SwitchDefault({ size, heading, helpertext}: SwitchProps) {
+export function SwitchDefault({ size, heading, helpertext, disabled }: SwitchProps) {
   return (
     <XStack flexDirection='column' gap={4}/*size gap diff */>
-      {heading==''?
-      null:
-      <Label
-        size={SwitchLabelSizes[size].ls}
-        fontFamily={'$heading'}
-        color="$disabled-label-text">{heading}</Label>
+      {heading == '' ?
+        null :
+        <Label
+          size={SwitchLabelSizes[size].ls}
+          fontFamily={'$heading'}
+          color="$disabled-label-text">{heading}</Label>
       }
-        <SwitchBasic width={SwitchSize[size].w} height={SwitchSize[size].h}>
-        <SwitchBasic.Thumb width={SwitchSize[size].thumb} height={SwitchSize[size].thumb}/>
-        </SwitchBasic>  
-      {helpertext==''?
-      null:
-      <SizableText 
+      <SwitchBasic
+        disabled={disabled}
+        opacity={disabled ? 0.5 : 1}
+        width={SwitchSize[size].w}
+        height={SwitchSize[size].h}>
+        <SwitchBasic.Thumb
+          width={SwitchSize[size].thumb}
+          height={SwitchSize[size].thumb} />
+      </SwitchBasic>
+      {helpertext == '' ?
+        null :
+        <SizableText
           lineHeight={21}
           fontWeight={"400"}
           fontFamily={'$body'}
           fontSize={SwitchLabelSizes[size].ts}
           color="$disabled-helper-text" >{helpertext}</SizableText>
       }
-      </XStack>
+    </XStack>
   )
 }
