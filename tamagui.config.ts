@@ -4,6 +4,7 @@ import { OpenSansReg, OpenSansBold } from "./src/themes/fonts/fontOpenSans";
 import { PoppinsBold, PoppinsMed, PoppinsReg } from "./src/themes/fonts/fontPoppins";
 import { themes } from "./src/themes/theme";
 import { tokens } from "./src/themes/tokens";
+
 // import { tokens } from "@tamagui/themes";
 
 export const config = createTamagui({

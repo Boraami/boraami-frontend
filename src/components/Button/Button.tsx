@@ -13,6 +13,7 @@ interface CustomBtnProps extends BtnProps {
   secondary: string;
 };
 
+
 const Button: React.FC<CustomBtnProps> = (props) => <StyledBtn {...props} />
 
 type BtnSizeProps = {
