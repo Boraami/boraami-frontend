@@ -171,20 +171,6 @@ const light = {
   "tags-outline-text": colorScheme.boraami[600],
 
 
-  //RadioButton Component
-  "default-radio-fill": colorScheme.boraami[700],
-  "default-radio-border": colorScheme.boraami[700],
-  "default-radio-text": colorScheme.boraami[900],
-  "focus-radio-fill": colorScheme.boraami[700],
-  "focus-radio-border": colorScheme.boraami[400],
-  "focus-radio-text": colorScheme.boraami[900],
-  "disabled-radio-fill": colorScheme.boraami[400],
-  "disabled-radio-border": colorScheme.boraami[400],
-  "disabled-radio-text": colorScheme.boraami[900],
-  "hover-radio-fill": colorScheme.serendipity[500],
-  "hover-radio-border": colorScheme.serendipity[500],
-  "hover-radio-text": colorScheme.boraami[900],
-
   // Input Component
   "input-fill": colorScheme.mono[50],
   "placeholder-input-border": colorScheme.boraami[400],
@@ -505,7 +491,6 @@ const dark: BaseTheme = {
   "focus-FAB-outline": colorScheme.boraami[500],
   "focus-FAB-text": colorScheme.boraami[50],
   "focus-FAB-icon": colorScheme.boraami[50],
-=======
   //badge component
   "badge-bg-color": colorScheme.boraami[500],
   "large-badge-text": colorScheme.butter[50],
