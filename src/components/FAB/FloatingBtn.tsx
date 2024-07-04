@@ -2,25 +2,25 @@ import React, { useState } from "react";
 import {
   Button as Btn,
   ButtonProps as BtnProps,
-  XStack, SizableText, FontSizeTokens, styled
+  XStack,
+  SizableText,
+  FontSizeTokens,
+  styled,
 } from "tamagui";
-import { FontAwesome6 } from '@expo/vector-icons';
+import { FontAwesome6 } from "@expo/vector-icons";
 import { useColorScheme } from "react-native";
 import { colorScheme } from "../../themes/theme";
 
 interface CustomBtnProps extends BtnProps {
   name: string;
-  button: 'normal' | 'disabled'; //only way to explicitly specify the type of button
-};
+  button: "normal" | "disabled"; //only way to explicitly specify the type of button
+}
 
-const FAButton: React.FC<CustomBtnProps> = (props) => <StyledBtn {...props} />
+const FAButton: React.FC<CustomBtnProps> = (props) => <StyledBtn {...props} />;
 
 type BtnSizeProps = {
   [key: string]: {
-    width: number;
     height: number;
-    top: number;
-    left: number;
     paddingHorizontal: number;
     gap: number;
     txtSize: FontSizeTokens;
@@ -32,74 +32,64 @@ type BtnSizeProps = {
 
 const btnSizes: BtnSizeProps = {
   sm: {
-    width: 127,
     height: 24,
-    top: 161,
-    left: 105,
-    paddingHorizontal: 6,
+    paddingHorizontal: 8,
     gap: -3,
-    txtSize: '$sm',
+    txtSize: "$sm",
     iconSize: 8,
     lineHeight: 12,
-    borderRadius: 90
+    borderRadius: 90,
   },
   md: {
-    width: 172,
     height: 36,
-    top: 209,
-    left: 813,
-    paddingHorizontal: 6,
+    paddingHorizontal: 16,
     gap: -1,
-    txtSize: '$md',
+    txtSize: "$md",
     iconSize: 15,
     lineHeight: 16,
-    borderRadius: 90
+    borderRadius: 90,
   },
   lg: {
-    width: 186,
     height: 60,
-    top: 261,
-    left: 913,
-    paddingHorizontal: 8,
+    paddingHorizontal: 24,
     gap: 0,
-    txtSize: '$lg',
+    txtSize: "$lg",
     iconSize: 19,
     lineHeight: 18,
-    borderRadius: 90
-  }
+    borderRadius: 90,
+  },
 };
 
 const StyledBtn = styled(Btn, {
-  alignSelf: 'center',
-  justifyContent: 'center',
-  position: 'relative',
+  alignSelf: "center",
+  justifyContent: "center",
+  position: "relative",
   paddingRight: 8,
   variants: {
     button: {
       disabled: {
-        backgroundColor: '$disabled-FAB-fill',
+        backgroundColor: "$disabled-FAB-fill",
         borderWidth: 1.5,
-        color: '$disabled-FAB-text',
+        color: "$disabled-FAB-text",
       },
       normal: {
-        backgroundColor: '$default-FAB-fill',
+        backgroundColor: "$default-FAB-fill",
         borderColor: "transparent",
         borderWidth: 2,
-        color: '$default-FAB-text',
+        color: "$default-FAB-text",
         focusStyle: {
-          backgroundColor: '$focus-FAB-fill',
-          color: '$focus-FAB-text',
-          borderColor: '$focus-FAB-outline',
-          shadowColor: '#C2A0FF',
+          backgroundColor: "$focus-FAB-fill",
+          color: "$focus-FAB-text",
+          borderColor: "$focus-FAB-outline",
+          shadowColor: "#C2A0FF",
           shadowOpacity: 1,
           shadowRadius: 12,
           shadowOffset: { width: 1, height: 1 },
         },
       },
     },
-  }
+  },
 });
-
 
 interface ButtonProps {
   txt: string;
@@ -107,8 +97,8 @@ interface ButtonProps {
   disabled?: boolean;
   iconNameAfter: string;
   iconNameBefore: string;
-  size: 'xs' | 'sm' | 'md';
-  button: 'normal' | 'disabled';
+  size: "sm" | "md" | "lg";
+  button: "normal" | "disabled";
 }
 
 export const FloatingBtnField = (props: ButtonProps) => {
@@ -122,40 +112,38 @@ export const FloatingBtnField = (props: ButtonProps) => {
     setIsActive(false);
   };
 
-  const {
-    txt,
-    size,
-    name,
-    button,
-    disabled,
-    iconNameAfter,
-    iconNameBefore,
-  } = props;
+  const { txt, size, name, button, disabled, iconNameAfter, iconNameBefore } = props;
 
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
   const iconColor = disabled ? colorScheme.boraami[50] : colorScheme.mono[100];
 
   const borderColor = {
-    button: isActive ? '$focus-FAB-outline' : 'transparent'
-  }
+    button: isActive ? "$focus-FAB-outline" : "transparent",
+  };
   const borderC = borderColor.button;
   const bWidth = {
-    button: isActive ? 2.5 : 1
-  }
+    button: isActive ? 2.5 : 1,
+  };
   const width = bWidth.button;
 
-  const iconBefore = <FontAwesome6 name={iconNameBefore}
-    size={btnSizes[size].iconSize}
-    color={iconColor}
-    style={{ position: 'relative' }}
-  />;
+  const iconBefore = (
+    <FontAwesome6
+      name={iconNameBefore}
+      size={btnSizes[size].iconSize}
+      color={iconColor}
+      style={{ position: "relative" }}
+    />
+  );
 
-  const iconAfter = <FontAwesome6 name={iconNameAfter}
-    size={btnSizes[size].iconSize}
-    color={iconColor}
-    style={{ position: 'relative' }}
-  />;
+  const iconAfter = (
+    <FontAwesome6
+      name={iconNameAfter}
+      size={btnSizes[size].iconSize}
+      color={iconColor}
+      style={{ position: "relative" }}
+    />
+  );
 
   return (
     <XStack>
@@ -166,22 +154,26 @@ export const FloatingBtnField = (props: ButtonProps) => {
         button={button}
         name={name}
         gap={btnSizes[size].gap}
-        width={btnSizes[size].width}
+        scaleIcon={size === "sm" ? 0.6 : 1}
         height={btnSizes[size].height}
         borderRadius={btnSizes[size].borderRadius}
         borderColor={borderC}
         borderWidth={width}
         paddingHorizontal={btnSizes[size].paddingHorizontal}
         icon={iconNameBefore ? iconBefore : null}
-        iconAfter={iconNameAfter ? iconAfter : null}>
+        iconAfter={iconNameAfter ? iconAfter : null}
+      >
         <SizableText
-          fontFamily={'$btn'}
-          textAlign={'center'}
+          fontFamily={"$btn"}
+          textAlign={"center"}
           lineHeight={btnSizes[size].lineHeight}
-          color={'white'}
+          color={"white"}
           size={btnSizes[size].txtSize}
-          top={0.1}>{txt}</SizableText>
+          top={0.1}
+        >
+          {txt}
+        </SizableText>
       </FAButton>
     </XStack>
-  )
-}
+  );
+};
