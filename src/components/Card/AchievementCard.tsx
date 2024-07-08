@@ -5,11 +5,12 @@ const StyledAchievementCard = styled(Card, {
   backgroundColor: "$achievement-card-fill",
   borderRadius: "$r-subtle",
   justifyContent: "space-between",
-  alignSelf: "center",
+  alignItems: "center",
   display: "flex",
   flexDirection: "row",
   width: 329,
   height: 87,
+  paddingHorizontal: 15,
 });
 
 type AchievementProps = {
@@ -19,43 +20,26 @@ type AchievementProps = {
   boldSizableText?: string;
 };
 
-export const AchievementCard = ({
-  numOfDays,
-  uri,
-  badgeName,
-}: AchievementProps) => {
- 
+export const AchievementCard = ({ numOfDays, uri, badgeName }: AchievementProps) => {
   return (
     <StyledAchievementCard>
-      <View
-        style={{
-          flexDirection: "row",
-          width: 278,
-          height: 87,
-          alignContent: "center",
-          paddingTop: 2, 
-          paddingHorizontal: 30,
-        }}
-      >
-        <View style={{ marginTop: 17 }}>
-          <Image source={{ uri: uri, width: 48, height: 48 }} marginRight={10} />
-        </View>
-        <SizableText
-          color={"$achievement-card-text"}
-          size={"$sm"}
-          fontFamily={"$body"}
-          style={{ padding: 12 }}
-          lineHeight={18} 
-          >
-          I earned the {''}
-          <SizableText size={"$xs"} fontFamily={"$heading"}>
-            {badgeName}
-          </SizableText>
-          <SizableText size={"$sm"} fontFamily={"$body"} style={{ padding: 12 }}>
-          {''} for streaming {numOfDays} days in a row!
-          </SizableText>
-        </SizableText>
+      <View width="25%">
+        <Image source={{ uri: uri, width: 86, height: 86 }} />
       </View>
+      <SizableText
+        color={"$achievement-card-text"}
+        size={"$sm"}
+        fontFamily={"$body"}
+        width={"65%"}
+      >
+        I earned the {""}
+        <SizableText size={"$xs"} fontFamily={"$heading"}>
+          {badgeName}
+        </SizableText>
+        <SizableText size={"$sm"} fontFamily={"$body"} style={{ padding: 12 }}>
+          {""} for streaming {numOfDays} days in a row!
+        </SizableText>
+      </SizableText>
     </StyledAchievementCard>
   );
 };
