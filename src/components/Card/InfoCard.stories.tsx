@@ -8,10 +8,10 @@ const InfoCardMeta: Meta<typeof InfoCard> = {
   component: InfoCard,
   argTypes: {},
   args: {
-    title: 'Playlist no. 6',
-    subtitle: 'btstatsreminder2',
-    uri: require('../../images/post-image.png'),
-    size: 'lg'
+    title: "Playlist no. 6",
+    subtitle: "btstatsreminder2",
+    uri: require("../../assets/Cards/post-image.png"),
+    size: "lg",
   },
 
   decorators: [
@@ -29,6 +29,6 @@ export const LargeCard = {};
 
 export const SmallCard = {
   args: {
-    size: 'sm',
+    size: "sm",
   },
 };

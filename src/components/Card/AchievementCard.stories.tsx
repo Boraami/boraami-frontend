@@ -8,9 +8,9 @@ const AchievementMeta: Meta<typeof AchievementCard> = {
   component: AchievementCard,
   argTypes: {},
   args: {
-    badgeName: 'Dreamer Streamer badge',
+    badgeName: "Dreamer Streamer badge",
     numOfDays: 3,
-    uri: require('../../images/badge-placeholder.png'),
+    uri: require("../../assets/Cards/badge-placeholder.png"),
   },
   decorators: [
     (Story) => (
@@ -24,4 +24,3 @@ const AchievementMeta: Meta<typeof AchievementCard> = {
 export default AchievementMeta;
 
 export const Default = {};
-
