@@ -10,6 +10,7 @@
     "storybook-generate": "sb-rn-get-stories",
     "storybook-watch": "sb-rn-watcher",
     "storybook:start": "sb-rn-get-stories && cross-env STORYBOOK=1 expo start",
+    "storybook": "storybook dev",
     "storybook:ios": "sb-rn-get-stories && cross-env STORYBOOK=1 expo start --ios",
     "storybook:android": "sb-rn-get-stories && cross-env STORYBOOK=1 expo start --android",
     "storybook:web": "sb-rn-get-stories && cross-env STORYBOOK=1 expo start --web"

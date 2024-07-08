@@ -43,8 +43,8 @@ const SpinnerLoading: React.FC<SpinnerProps> = ({ size }) => {
   const isDarkTheme = theme === "dark";
 
   const images: Record<string, Record<string, ImageSourcePropType>> = {
-    dark: require("../../assets/loader/dark-spinner.png"),
-    light: require("../../assets/loader/light-spinner.png"),
+    dark: require("../../assets/Loader/dark-spinner.png"),
+    light: require("../../assets/Loader/light-spinner.png"),
   };
 
   const iconTheme = isDarkTheme ? images.dark : images.light;
