@@ -280,7 +280,7 @@ const light = {
   "error-textbox-text" :colorScheme.mono[800],
   "error-helper-text-textfield" : colorScheme.bwl[700],
   "error-scroll-bar" : colorScheme.boraami[200],
-  
+
   "disabled-textbox-fill" : colorScheme.boraami[50],
   "disabled-textbox-border" : colorScheme.boraami[400],
   "disabled-textbox-text" :colorScheme.boraami[700],
@@ -500,7 +500,7 @@ const dark: BaseTheme = {
   "error-textbox-text" :colorScheme.boraami[50],
   "error-helper-text-textfield" : colorScheme.bwl[400],
   "error-scroll-bar" : colorScheme.boraami[500],
-  
+
   "disabled-textbox-fill" : colorScheme.boraami[900],
   "disabled-textbox-border" : colorScheme.boraami[300],
   "disabled-textbox-text" :colorScheme.boraami[50],
@@ -510,7 +510,7 @@ const dark: BaseTheme = {
   //notifications component
   "notification-type-icon" : colorScheme.boraami[500],
   "new-notification-badge" : colorScheme.boraami[700],
-  "username-action-taken-text" : colorScheme.butter[500],
+  "username-action-taken-text" : colorScheme.butter[50],
   "user-tag-text" : colorScheme.boraami[400],
   "date-time-text" : colorScheme.mono[400],
   "divider-notifications" : colorScheme.boraami[400],
