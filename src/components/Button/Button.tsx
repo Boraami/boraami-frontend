@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import {
   Button as Btn,
   ButtonProps as BtnProps,
-  XStack,
   SizableText,
   FontSizeTokens,
   styled,
 } from "tamagui";
 import { FontAwesome6 } from "@expo/vector-icons";
+import { ButtonProps } from "react-native";
 
 interface CustomBtnProps extends BtnProps {
   name: string;
@@ -156,7 +156,7 @@ const StyledBtn = styled(Btn, {
 });
 
 export interface BtnFieldProps {
-  txt: string;
+  title: string;
   name: string;
   iconName?: string;
   disabled?: boolean;
@@ -166,8 +166,9 @@ export interface BtnFieldProps {
   tertiary?: "normal" | "disabled";
   secondary?: "normal" | "disabled";
 }
+type x = BtnFieldProps & ButtonProps;
 
-export const BtnField = (props: BtnFieldProps) => {
+export const BtnField = (props: x) => {
   const [isActive, setIsActive] = useState(false);
 
   const handlePressIn = () => {
@@ -178,7 +179,7 @@ export const BtnField = (props: BtnFieldProps) => {
     setIsActive(false);
   };
   const {
-    txt,
+    title,
     size,
     name,
     primary,
@@ -187,6 +188,7 @@ export const BtnField = (props: BtnFieldProps) => {
     iconName,
     secondary,
     iconPosition = "left",
+    ...rest
   } = props;
 
   const textColor = {
@@ -225,35 +227,34 @@ export const BtnField = (props: BtnFieldProps) => {
   );
 
   return (
-    <XStack>
-      <Button
-        onPressIn={handlePressIn}
-        onPressOut={handlePressOut}
-        name={name}
-        gap={btnSizes[size].gap}
-        height={btnSizes[size].height}
-        paddingHorizontal={btnSizes[size].paddingHorizontal}
-        disabled={disabled}
-        primary={primary ? primary : undefined}
-        tertiary={tertiary ? tertiary : undefined}
-        secondary={secondary ? secondary : undefined}
-        borderWidth={width}
-        borderColor={primary || secondary ? hoverColor : "transparent"}
-        borderBottomColor={tertiary ? hoverColor : "transparent"}
-        icon={iconName ? iconComponent : null}
-        flexDirection={iconPosition === "right" ? "row-reverse" : "row"}
+    <Button
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
+      name={name}
+      gap={btnSizes[size].gap}
+      height={btnSizes[size].height}
+      paddingHorizontal={btnSizes[size].paddingHorizontal}
+      disabled={disabled}
+      primary={primary ? primary : undefined}
+      tertiary={tertiary ? tertiary : undefined}
+      secondary={secondary ? secondary : undefined}
+      borderWidth={width}
+      borderColor={primary || secondary ? hoverColor : "transparent"}
+      borderBottomColor={tertiary ? hoverColor : "transparent"}
+      icon={iconName ? iconComponent : null}
+      flexDirection={iconPosition === "right" ? "row-reverse" : "row"}
+      {...rest}
+    >
+      <SizableText
+        fontFamily={"$btn"}
+        textAlign={"center"}
+        lineHeight={btnSizes[size].lineHeight}
+        color={color}
+        size={btnSizes[size].txtSize}
+        top={0.1}
       >
-        <SizableText
-          fontFamily={"$btn"}
-          textAlign={"center"}
-          lineHeight={btnSizes[size].lineHeight}
-          color={color}
-          size={btnSizes[size].txtSize}
-          top={0.1}
-        >
-          {txt}
-        </SizableText>
-      </Button>
-    </XStack>
+        {title}
+      </SizableText>
+    </Button>
   );
 };
