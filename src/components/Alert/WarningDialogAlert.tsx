@@ -11,9 +11,9 @@ import {
 } from "tamagui";
 import { useColorScheme } from "react-native";
 import { colorScheme } from "../../themes/theme";
-import { AntDesign } from "@expo/vector-icons";
+import { FontAwesome6 } from "@expo/vector-icons";
 import { BtnField, BtnFieldProps } from "../Button/Button";
-import React, { forwardRef, useState } from "react";
+import React, { useState } from "react";
 
 type Props = {
   title: string;
@@ -96,8 +96,8 @@ export const WarningDialog = ({ title, name, btnStyles }: Props) => {
                   </SizableText>
                   <Dialog.Close displayWhenAdapted asChild>
                     <Button>
-                      <AntDesign
-                        name="close"
+                      <FontAwesome6
+                        name="xmark"
                         size={24}
                         color={theme === "dark" ? colorScheme.butter[50] : colorScheme.boraami[700]}
                       />

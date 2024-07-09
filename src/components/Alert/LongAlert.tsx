@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useColorScheme } from "react-native";
 import { XStack, YStack, SizableText } from "tamagui";
-import { AntDesign } from "@expo/vector-icons";
+import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 import { colorScheme } from "../../themes/theme";
 
 type Props = {
@@ -45,9 +45,7 @@ export const LongAlert = ({ shade, alert, content }: Props) => {
         borderWidth={1}
         borderLeftWidth={shade === "outline" ? 1 : 4}
         borderLeftColor={
-          shade !== "outline"
-            ? "$default-alert-left-border"
-            : "$default-alert-solid-fill"
+          shade !== "outline" ? "$default-alert-left-border" : "$default-alert-solid-fill"
         }
       >
         <XStack
@@ -57,15 +55,12 @@ export const LongAlert = ({ shade, alert, content }: Props) => {
           height={66}
           justifyContent={"space-evenly"}
         >
-          <AntDesign
+          <FontAwesome
             name={"heart"}
             size={14}
             color={
-              (theme === "dark" &&
-                (subtle ? colorScheme.boraami[700] : colorScheme.butter[50])) ||
-              (theme === "light" && solid
-                ? colorScheme.butter[50]
-                : colorScheme.boraami[700])
+              (theme === "dark" && (subtle ? colorScheme.boraami[700] : colorScheme.butter[50])) ||
+              (theme === "light" && solid ? colorScheme.butter[50] : colorScheme.boraami[700])
             }
             paddingTop={4}
           />
@@ -79,10 +74,9 @@ export const LongAlert = ({ shade, alert, content }: Props) => {
                   ? "$default-alert-subtle-text"
                   : "$default-alert-outline-text"
               }
-              size={'$sm'}
+              size={"$sm"}
               paddingVertical={2}
               lineHeight={20}
-
             >
               {alert}
             </SizableText>
@@ -95,23 +89,20 @@ export const LongAlert = ({ shade, alert, content }: Props) => {
                   ? "$default-alert-subtle-text"
                   : "$default-alert-outline-text"
               }
-              size={'$sm'}
+              size={"$sm"}
             >
               {content}
             </SizableText>
           </XStack>
         </XStack>
-        <AntDesign
-          name="close"
+        <FontAwesome6
+          name="xmark"
           size={18}
           paddingTop={10}
-          paddingRight={10} 
+          paddingRight={10}
           color={
-            (theme === "dark" &&
-              (subtle ? colorScheme.mono[800] : colorScheme.butter[50])) ||
-            (theme === "light" && solid
-              ? colorScheme.butter[50]
-              : colorScheme.mono[800])
+            (theme === "dark" && (subtle ? colorScheme.mono[800] : colorScheme.butter[50])) ||
+            (theme === "light" && solid ? colorScheme.butter[50] : colorScheme.mono[800])
           }
           onPress={handleClose}
         />
