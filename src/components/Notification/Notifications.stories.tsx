@@ -7,11 +7,8 @@ const NotificationsMeta: Meta<typeof Notifications> = {
   title: "Notifications",
   component: Notifications,
   argTypes: {
-
   },
   args: {
-
-
   },
   decorators: [
     (Story) => (

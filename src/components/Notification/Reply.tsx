@@ -3,7 +3,7 @@ import { XStack, YStack, SizableText, Separator } from "tamagui";
 import Icon from "../Icon/Icon";
 import Badge from "./Badges";
 
-export type ReplyProps = {
+type ReplyProps = {
   iconName: string;
   displayName: string;
   userName: string;
@@ -12,14 +12,14 @@ export type ReplyProps = {
   replyMsg: string;
 };
 
-const ReplyNotification: React.FC<ReplyProps> = ({
+export default function ReplyNotification({
   iconName,
   displayName,
   userName,
   message,
   dateTime,
   replyMsg
-}) => {
+}: ReplyProps) {
   return (
     <>
     <XStack flexDirection="column">
@@ -67,5 +67,3 @@ const ReplyNotification: React.FC<ReplyProps> = ({
     </>
   );
 };
-
-export default ReplyNotification;
