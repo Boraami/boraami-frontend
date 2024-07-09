@@ -8,7 +8,6 @@ type QuotedNotificationProps = {
   iconName: string;
   displayName: string;
   userName: string;
-  message: string;
   dateTime: string;
   replyMsg: string;
   quotedUsername: string;
@@ -22,7 +21,6 @@ export default function QuotedNotification({
   iconName,
   displayName,
   userName,
-  message,
   dateTime,
   replyMsg,
   quotedUsername,
@@ -31,6 +29,8 @@ export default function QuotedNotification({
   quotedPostText,
   quotedPostImg
 }: QuotedNotificationProps) {
+
+  const message = "  quoted your post";
   return (
     <>
       <XStack flexDirection="column">
@@ -42,7 +42,7 @@ export default function QuotedNotification({
               <SizableText fontFamily={'$heading'} color={'$username-action-taken-text'} size={'$xs'} paddingLeft={1} paddingTop={1}>
                 {displayName}
               </SizableText>
-              <SizableText fontFamily={'$heading'} size={'$xs'} color={'$username-action-taken-text'} paddingLeft={1} paddingTop={1}>
+              <SizableText fontFamily={'$body'} size={'$xs'} color={'$username-action-taken-text'} paddingLeft={1} paddingTop={1}>
                 {message}
               </SizableText>
             </XStack>
