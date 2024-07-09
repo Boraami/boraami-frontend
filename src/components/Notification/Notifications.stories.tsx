@@ -27,16 +27,10 @@ export default NotificationsMeta;
 export const liked = {
   args: {
     iconName: "heart",
-    displayName: "Alice Smith",
-    notificationType: "liked your post",
+    displayName: "Alice Smith ",
+    notificationType: "like",
     userName: "@alicesmith",
     dateTime: "3h ago",
-    replyMsg: "",
-    quotedUsername: "",
-    quotedAvatarText: "",
-    quotedDisplayName: "",
-    quotedPostText: "",
-    quotedPostImg: "",
   }
 }
 
@@ -44,7 +38,7 @@ export const followed = {
   args: {
     iconName: "user-large" ,
     displayName: 'Luna',
-    notificationType: 'followed you',
+    notificationType: 'follow',
     userName: '@Lunandseokjin7',
     dateTime: '02/18/2024 19:48',
     replyMsg:'',
@@ -56,7 +50,7 @@ export const replied = {
   args: {
     iconName:  "comment" ,
     displayName: 'Luna',
-    notificationType: 'replied to your post',
+    notificationType: 'reply',
     userName: '@Lunandseokjin7',
     dateTime: '02/18/2024 19:48',
     replyMsg: 'That means when <suga/agust d> will release music, we will finally get ddaeng on spotify under RM, j-hope and agust d/SUGA',
@@ -68,7 +62,7 @@ export const mentioned = {
   args: {
     iconName:  "comment" ,
     displayName: 'Luna',
-    notificationType: 'mentioned you',
+    notificationType: 'mention',
     userName: '@Lunandseokjin7',
     dateTime: '02/18/2024 19:48',
     replyMsg:'',
@@ -84,7 +78,7 @@ export const reposted = {
   args: {
   iconName:  "retweet" ,
   displayName: 'Luna',
-  notificationType: 'quoted your post',
+  notificationType: 'repost',
   userName: '@Lunandseokjin7',
   dateTime: '02/18/2024 19:48',
   replyMsg: '4 years ago, today, BTS won Top Due/Group on BBMAs for the first time (and Top Social Artist for the 3rd year in a row) https://www.youtube.com/watch?v=iy9qZR_OGa0',

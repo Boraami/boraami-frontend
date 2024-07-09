@@ -1,14 +1,14 @@
 import React from "react";
-import { XStack, YStack, SizableText, Separator } from "tamagui";
-import Icon from "../Icon/Icon";
-import Badge from "./Badges";
-import QuotedPost from "../Post/QuotedPost";
 import { SafeAreaView, ScrollView } from "react-native";
+import UserNotification from "./LikeFollow";
+import ReplyNotification from "./Reply";
+import QuotedNotification from "./Quoted";
 
 export type Props = {
   iconName: "user-large" | "comment" | "retweet" | "heart";
   displayName: string,
-  notificationType: string,
+  notificationType: "like" | "follow" | "mention" | "reply" | "repost",
+  msg: " liked your post" | " followed you" | " replied to your post" | " mentioned you" | " quoted your post",
   userName: string,
   dateTime: string,
   replyMsg: string,
@@ -32,95 +32,80 @@ export default function Notifications({
   quotedPostText,
   quotedPostImg,
 }: Props) {
+  const getMessage = () => {
+    switch (notificationType) {
+      case "reply":
+        return "\treplied to your post";
+      case "like":
+        return "\tliked your post";
+      case "follow":
+        return "\tfollowed you";
+      case "mention":
+        return "\tmentioned you in a post";
+      case "repost":
+        return "\tquoted your post";
+      default:
+        return "";
+    }
+  };
+  const message = getMessage()
+
   return (
     <SafeAreaView>
       <ScrollView>
-    <XStack flexDirection="column">
-      <XStack
-        gap={12}
-        height={60}
-        paddingTop={10}
-        paddingBottom={10}
-        paddingLeft={5}
-        paddingRight={5}
-      >
-        <Icon
-          name={iconName}
-          size={17}
-          style={{ paddingTop: 8 }}
-          color={'#AA7AFF'}
-        />
-        <YStack gap={4} width={'90%'}>
-          <XStack justifyContent='space-between' paddingTop={5}>
-            <XStack>
-              <SizableText
-                fontFamily={'$heading'}
-                color={'$username-action-taken-text'}
-                size={'$xs'}
-                paddingLeft={1}
-                paddingTop={1}
-              >
-                {displayName}
-              </SizableText>
-              <SizableText
-                fontFamily={'$body'}
-                size={'$xs'}
-                color={'$username-action-taken-text'}
-                paddingLeft={5}
-                wordWrap='normal'
-              >
-                {notificationType}
-              </SizableText>
-            </XStack>
-            <Badge color={'$boraami.700'} size="sm" count={0} />
-          </XStack>
-          <XStack justifyContent='space-between'>
-            <SizableText
-              fontFamily={'$body'}
-              size={'$xs'}
-              color={'$user-tag-text'}
-            >
-              {userName}
-            </SizableText>
-            <SizableText
-              fontFamily={'$body'}
-              size={'$2xs'}
-              color={'$date-time-text'}
-            >
-              {dateTime}
-            </SizableText>
-          </XStack>
-        </YStack>
-      </XStack>
-      {replyMsg !== "" && (
-        <XStack>
-          <SizableText
-            fontFamily={'$body'}
-            size={'$sm'}
-            color={'$replied-quoted-text'}
-            paddingLeft={3}
-            paddingBottom={15}
-            wordWrap='normal'
-            selectable
-          >
-            {replyMsg}
-          </SizableText>
-        </XStack>
-      )}
-      {quotedDisplayName !== "" && (
-        <XStack paddingBottom={15}>
-          <QuotedPost
+        {notificationType === "like" && (
+          <UserNotification
+            iconName={iconName}
+            displayName={displayName}
+            userName={userName}
+            message={message}
+            dateTime={dateTime}
+          />
+        )}
+        {notificationType === "follow" && (
+          <UserNotification
+            iconName={iconName}
+            displayName={displayName}
+            userName={userName}
+            message={message}
+            dateTime={dateTime}
+          />
+        )}
+        {notificationType === "mention" && (
+          <UserNotification
+            iconName={iconName}
+            displayName={displayName}
+            userName={userName}
+            message={message}
+            dateTime={dateTime}
+          />
+        )}
+        {notificationType === "reply" && (
+          <ReplyNotification
+            iconName={iconName}
+            displayName={displayName}
+            userName={userName}
+            message={message}
+            dateTime={dateTime}
+            replyMsg={replyMsg}
+          />
+        )}
+        {notificationType === "repost" && (
+          <QuotedNotification
+            iconName={iconName}
+            displayName={displayName}
+            userName={userName}
+            message={message}
+            dateTime={dateTime}
+            replyMsg={replyMsg}
+            quotedUsername={quotedUsername}
             quotedAvatarText={quotedAvatarText}
             quotedDisplayName={quotedDisplayName}
-            quotedPostImg={quotedPostImg}
             quotedPostText={quotedPostText}
-            quotedUsername={quotedUsername}
+            quotedPostImg={quotedPostImg}
           />
-        </XStack>
-      )}
-      <Separator borderColor={'$boraami.100'} />
-    </XStack>
-    </ScrollView>
+        )}
+      </ScrollView>
     </SafeAreaView>
   );
 };
