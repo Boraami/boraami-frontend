@@ -4,7 +4,7 @@ import Icon from "../Icon/Icon";
 import Badge from "./Badges";
 import QuotedPost from "../Post/QuotedPost";
 
-export type QuotedNotificationProps = {
+type QuotedNotificationProps = {
   iconName: string;
   displayName: string;
   userName: string;
@@ -18,7 +18,7 @@ export type QuotedNotificationProps = {
   quotedPostImg: string;
 };
 
-const QuotedNotification: React.FC<QuotedNotificationProps> = ({
+export default function QuotedNotification({
   iconName,
   displayName,
   userName,
@@ -30,7 +30,7 @@ const QuotedNotification: React.FC<QuotedNotificationProps> = ({
   quotedDisplayName,
   quotedPostText,
   quotedPostImg
-}) => {
+}: QuotedNotificationProps) {
   return (
     <>
       <XStack flexDirection="column">
@@ -89,5 +89,3 @@ const QuotedNotification: React.FC<QuotedNotificationProps> = ({
     </>
   );
 };
-
-export default QuotedNotification;

@@ -3,7 +3,7 @@ import { XStack, YStack, SizableText, Separator } from "tamagui";
 import Icon from "../Icon/Icon";
 import Badge from "./Badges";
 
-export type LikeFollowProps = {
+type LikeFollowProps = {
   iconName: string;
   displayName: string;
   userName: string;
@@ -11,13 +11,13 @@ export type LikeFollowProps = {
   dateTime: string;
 };
 
-const UserNotification: React.FC<LikeFollowProps> = ({
+export default function UserNotification({
   iconName,
   displayName,
   userName,
   message,
   dateTime
-}) => {
+}: LikeFollowProps) {
   return (
     <>
       <XStack gap={12} height={60} paddingTop={10} paddingBottom={10} paddingLeft={5} paddingRight={5}>
@@ -48,5 +48,3 @@ const UserNotification: React.FC<LikeFollowProps> = ({
     </>
   );
 };
-
-export default UserNotification;

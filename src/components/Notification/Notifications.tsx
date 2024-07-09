@@ -8,15 +8,14 @@ export type Props = {
   iconName: "user-large" | "comment" | "retweet" | "heart";
   displayName: string,
   notificationType: "like" | "follow" | "mention" | "reply" | "repost",
-  msg: " liked your post" | " followed you" | " replied to your post" | " mentioned you" | " quoted your post",
   userName: string,
   dateTime: string,
-  replyMsg: string,
-  quotedUsername: string,
-  quotedAvatarText: string,
-  quotedDisplayName: string,
-  quotedPostText: string,
-  quotedPostImg: string,
+  replyMsg?: string,
+  quotedUsername?: string,
+  quotedAvatarText?: string,
+  quotedDisplayName?: string,
+  quotedPostText?: string,
+  quotedPostImg?: string,
 };
 
 export default function Notifications({
@@ -25,12 +24,12 @@ export default function Notifications({
   notificationType,
   userName,
   dateTime,
-  replyMsg,
-  quotedUsername,
-  quotedAvatarText,
-  quotedDisplayName,
-  quotedPostText,
-  quotedPostImg,
+  replyMsg = "",
+  quotedUsername = "",
+  quotedAvatarText = "",
+  quotedDisplayName = "",
+  quotedPostText = "",
+  quotedPostImg = "",
 }: Props) {
   const getMessage = () => {
     switch (notificationType) {
