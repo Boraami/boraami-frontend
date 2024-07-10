@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import {
   Button as Btn,
-  ButtonProps as BtnProps,
+  ButtonProps as TamaguiBtnProps,
   SizableText,
   FontSizeTokens,
   styled,
 } from "tamagui";
 import { FontAwesome6 } from "@expo/vector-icons";
-import { ButtonProps } from "react-native";
 
-interface CustomBtnProps extends BtnProps {
+interface CustomBtnProps extends TamaguiBtnProps {
   name: string;
   primary?: string;
   tertiary?: string;
@@ -156,7 +155,7 @@ const StyledBtn = styled(Btn, {
 });
 
 export interface BtnFieldProps {
-  title: string;
+  txt: string;
   name: string;
   iconName?: string;
   disabled?: boolean;
@@ -165,8 +164,10 @@ export interface BtnFieldProps {
   primary?: "normal" | "disabled";
   tertiary?: "normal" | "disabled";
   secondary?: "normal" | "disabled";
+  iconFromParent?: React.JSX.Element;
 }
-type x = BtnFieldProps & ButtonProps;
+
+type x = BtnFieldProps & CustomBtnProps;
 
 export const BtnField = (props: x) => {
   const [isActive, setIsActive] = useState(false);
@@ -179,7 +180,7 @@ export const BtnField = (props: x) => {
     setIsActive(false);
   };
   const {
-    title,
+    txt,
     size,
     name,
     primary,
@@ -187,6 +188,7 @@ export const BtnField = (props: x) => {
     disabled,
     iconName,
     secondary,
+    iconFromParent,
     iconPosition = "left",
     ...rest
   } = props;
@@ -217,7 +219,9 @@ export const BtnField = (props: x) => {
 
   const width = primary ? bWidth.primary : secondary ? bWidth.secondary : bWidth.tertiary;
 
-  const iconComponent = (
+  const iconComponent = iconFromParent ? (
+    iconFromParent
+  ) : (
     <FontAwesome6
       name={iconName}
       size={btnSizes[size].iconSize}
@@ -253,7 +257,7 @@ export const BtnField = (props: x) => {
         size={btnSizes[size].txtSize}
         top={0.1}
       >
-        {title}
+        {txt}
       </SizableText>
     </Button>
   );
