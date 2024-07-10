@@ -199,7 +199,7 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
                 ? colorScheme.mono[800]
                 : colorScheme.singularity[200]
               : theme === "light" && name === "success"
-              ? shade === "solid" ? colorScheme.butter[50]  
+              ? shade === "solid" ? colorScheme.butter[50]
                 : colorScheme.mono[800]
             // Warning variant:
               : theme === "dark" && name === "warning"
