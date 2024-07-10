@@ -4,7 +4,7 @@ import { View } from "tamagui";
 
 type IconProps = {
   name: string;
-  style: typeof FontAwesome6.style;
+  style?: typeof FontAwesome6.style;
   size: number;
   color: string;
 };
