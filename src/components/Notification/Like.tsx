@@ -3,27 +3,23 @@ import { XStack, YStack, SizableText, Separator } from "tamagui";
 import Icon from "../Icon/Icon";
 import Badge from "./Badges";
 
-type ReplyProps = {
+type LikeFollowProps = {
   iconName: string;
   displayName: string;
   userName: string;
   dateTime: string;
-  replyMsg: string;
 };
 
-export default function ReplyNotification({
+export default function LikeNotification({
   iconName,
   displayName,
   userName,
-  dateTime,
-  replyMsg
-}: ReplyProps) {
-  const message = " replied to your post";
-
+  dateTime
+}: LikeFollowProps) {
+    const message = "  liked your post";
   return (
     <>
-    <XStack flexDirection="column">
-      <XStack gap={12} paddingTop={10} paddingBottom={10} paddingLeft={5} paddingRight={5}>
+      <XStack gap={12} height={60} paddingTop={10} paddingBottom={10} paddingLeft={5} paddingRight={5}>
         <Icon name={iconName} size={17} style={{ paddingTop: 8 }} color={'#AA7AFF'} />
         <YStack gap={4} width={'90%'}>
           <XStack justifyContent='space-between' paddingTop={5}>
@@ -46,22 +42,6 @@ export default function ReplyNotification({
             </SizableText>
           </XStack>
         </YStack>
-      </XStack>
-      {replyMsg !== "" && (
-            <XStack>
-              <SizableText
-                fontFamily={'$body'}
-                size={'$sm'}
-                color={'$replied-quoted-text'}
-                paddingLeft={3}
-                paddingBottom={15}
-                wordWrap='normal'
-                selectable
-              >
-                {replyMsg}
-              </SizableText>
-            </XStack>
-          )}
       </XStack>
       <Separator borderColor={'$boraami.100'} />
     </>

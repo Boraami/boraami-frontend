@@ -7,17 +7,16 @@ type LikeFollowProps = {
   iconName: string;
   displayName: string;
   userName: string;
-  message: string;
   dateTime: string;
 };
 
-export default function UserNotification({
+export default function FollowNotification({
   iconName,
   displayName,
   userName,
-  message,
   dateTime
 }: LikeFollowProps) {
+  const message = "  followed you"
   return (
     <>
       <XStack gap={12} height={60} paddingTop={10} paddingBottom={10} paddingLeft={5} paddingRight={5}>
@@ -28,7 +27,7 @@ export default function UserNotification({
               <SizableText fontFamily={'$heading'} color={'$username-action-taken-text'} size={'$xs'} paddingLeft={1} paddingTop={1}>
                 {displayName}
               </SizableText>
-              <SizableText fontFamily={'$heading'} size={'$xs'} color={'$username-action-taken-text'} paddingLeft={1} paddingTop={1}>
+              <SizableText fontFamily={'$body'} size={'$xs'} color={'$username-action-taken-text'} paddingLeft={1} paddingTop={1}>
                 {message}
               </SizableText>
             </XStack>
