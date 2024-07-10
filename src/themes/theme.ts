@@ -539,7 +539,7 @@ const dark: BaseTheme = {
   "error-textbox-text" :colorScheme.boraami[50],
   "error-helper-text-textfield" : colorScheme.bwl[400],
   "error-scroll-bar" : colorScheme.boraami[500],
-  
+
   "disabled-textbox-fill" : colorScheme.boraami[900],
   "disabled-textbox-border" : colorScheme.boraami[300],
   "disabled-textbox-text" :colorScheme.boraami[50],
