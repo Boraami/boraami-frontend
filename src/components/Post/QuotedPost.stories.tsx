@@ -13,7 +13,7 @@ const QuotedPostMeta: Meta<typeof QuotedPost> = {
         quotedDisplayName:'Bessie Cooper',
         quotedUsername:'@armyuser1',
         quotedPostText: 'I miss them.',
-        quotedPostImg: require('../../media/Image.png'),
+        quotedPostImg: require('../../assets/Notification/Image.png'),
     },
     decorators: [
       (Story) => (
