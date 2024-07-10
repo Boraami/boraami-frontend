@@ -25,10 +25,8 @@ const ReplyMeta: Meta<typeof ReplyNotification> = {
     args: {
       iconName:  "comment" ,
       displayName: 'Luna',
-      notificationType: 'reply',
       userName: '@Lunandseokjin7',
       dateTime: '02/18/2024 19:48',
       replyMsg: 'That means when <suga/agust d> will release music, we will finally get ddaeng on spotify under RM, j-hope and agust d/SUGA',
-      quotedDisplayName:'',
     }
   }

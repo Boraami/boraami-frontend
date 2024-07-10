@@ -25,7 +25,6 @@ const MentionNotificationMeta: Meta<typeof MentionNotification> = {
     args: {
       iconName:  "comment" ,
       displayName: 'Luna',
-      notificationType: 'mention',
       userName: '@Lunandseokjin7',
       dateTime: '02/18/2024 19:48',
     }
