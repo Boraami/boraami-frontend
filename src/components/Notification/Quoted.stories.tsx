@@ -25,7 +25,6 @@ const QuotedMeta: Meta<typeof QuotedNotification> = {
     args: {
     iconName:  "retweet" ,
     displayName: 'Luna',
-    notificationType: 'repost',
     userName: '@Lunandseokjin7',
     dateTime: '02/18/2024 19:48',
     replyMsg: '4 years ago, today, BTS won Top Due/Group on BBMAs for the first time (and Top Social Artist for the 3rd year in a row) https://www.youtube.com/watch?v=iy9qZR_OGa0',
