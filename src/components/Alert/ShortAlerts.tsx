@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useColorScheme } from "react-native";
 import { XStack, YStack, View, SizableText, styled } from "tamagui";
-import { AntDesign, Entypo } from "@expo/vector-icons";
+import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 import { colorScheme } from "../../themes/theme";
 
 type Props = {
@@ -112,22 +112,11 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
   return (
     <YStack>
       <StyledAlert variant={`${name}.${shade}`}>
-        <XStack
-          flexDirection={"row"}
-          width={300}
-          height={21}
-          justifyContent={"space-evenly"}
-        >
+        <XStack flexDirection={"row"} width={300} height={21} justifyContent={"space-evenly"}>
           {/* Only render this icon for 'success' and 'default' alerts */}
           {name !== "warning" ? (
-            <AntDesign
-              name={
-                name === "default"
-                  ? "heart"
-                  : name === "success"
-                  ? "checkcircle"
-                  : "warning"
-              }
+            <FontAwesome
+              name={name === "default" ? "heart" : name === "success" ? "check-circle" : "warning"}
               paddingTop={2}
               paddingLeft={8}
               size={16}
@@ -155,14 +144,12 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
             />
           ) : (
             // Render this icon if for 'warning' alerts"
-            <Entypo
+            <FontAwesome
               paddingTop={2}
               paddingLeft={8}
               size={16}
               name={"warning"}
-              color={
-                shade === "solid" ? colorScheme.mono[800] : colorScheme.ptd[500]
-              }
+              color={shade === "solid" ? colorScheme.mono[800] : colorScheme.ptd[500]}
             />
           )}
 
@@ -179,8 +166,8 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
           </XStack>
         </XStack>
 
-        <AntDesign
-          name="close"
+        <FontAwesome6
+          name="xmark"
           size={16}
           color={
             // Default variant:
@@ -189,24 +176,26 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
                 ? colorScheme.mono[800]
                 : colorScheme.butter[50]
               : theme === "light" && name === "default"
-              ? shade === "solid" ? colorScheme.butter[50]
+              ? shade === "solid"
+                ? colorScheme.butter[50]
                 : colorScheme.mono[800]
-            // Success variant:
-              : theme === "dark" && name === "success"
+              : // Success variant:
+              theme === "dark" && name === "success"
               ? shade === "solid"
                 ? colorScheme.butter[50]
                 : shade === "subtle"
                 ? colorScheme.mono[800]
                 : colorScheme.singularity[200]
               : theme === "light" && name === "success"
-              ? shade === "solid" ? colorScheme.butter[50]
+              ? shade === "solid"
+                ? colorScheme.butter[50]
                 : colorScheme.mono[800]
-            // Warning variant:
-              : theme === "dark" && name === "warning"
+              : // Warning variant:
+              theme === "dark" && name === "warning"
               ? shade === "outline"
                 ? colorScheme.ptd[500]
                 : colorScheme.mono[800]
-                : theme === "light" && name === "warning"
+              : theme === "light" && name === "warning"
               ? shade === "solid" || shade === "subtle"
                 ? colorScheme.mono[800]
                 : colorScheme.mono[800]
