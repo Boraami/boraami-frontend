@@ -56,7 +56,6 @@ export default function ReplyNotification({
                 paddingLeft={3}
                 paddingBottom={15}
                 wordWrap='normal'
-                selectable
               >
                 {replyMsg}
               </SizableText>
