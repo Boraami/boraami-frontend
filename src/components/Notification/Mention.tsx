@@ -3,7 +3,7 @@ import { XStack, YStack, SizableText, Separator } from "tamagui";
 import Icon from "../Icon/Icon";
 import Badge from "./Badges";
 
-type LikeFollowProps = {
+type MentionProps = {
   iconName: string;
   displayName: string;
   userName: string;
@@ -15,7 +15,7 @@ export default function MentionNotification({
   displayName,
   userName,
   dateTime
-}: LikeFollowProps) {
+}: MentionProps) {
     const message = "  mentioned you";
   return (
     <>
