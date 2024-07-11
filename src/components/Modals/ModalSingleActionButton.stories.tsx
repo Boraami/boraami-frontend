@@ -29,6 +29,10 @@ export const Modal1 = {
       name: "application-close",
       size: "md",
     },
+    handleAction: () => {
+      // This function is optional
+      alert("Its OKAY BRO");
+    },
     closeBtnText: "Alright",
     modeltext:
       "Your application has been received. We will review your application and respond within the next 48 hours.",

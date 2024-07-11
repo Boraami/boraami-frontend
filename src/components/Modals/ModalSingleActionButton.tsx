@@ -4,7 +4,6 @@ import { Adapt, Dialog, Sheet } from "tamagui";
 import { FontAwesome } from "@expo/vector-icons";
 import { BtnField, BtnFieldProps } from "../Button/Button";
 import { useState } from "react";
-import { GestureResponderEvent } from "react-native";
 
 type Props = {
   modeltitle: string;
@@ -12,7 +11,7 @@ type Props = {
   btnText: string;
   closeBtnText: string;
   btnStyles: BtnFieldProps;
-  onPress?: (...args: any[]) => void; // since there could be any action attached to btn
+  handleAction?: (...args: any[]) => void; // since there could be any action attached to btn
 };
 
 export function ModalWithSingleActionButton({
@@ -20,12 +19,12 @@ export function ModalWithSingleActionButton({
   modeltitle,
   closeBtnText,
   btnStyles,
-  onPress,
+  handleAction,
 }: Props) {
   const [isDialogOpen, setDialogOpen] = useState(false);
 
   const handleCloseBtn = () => {
-    onPress && onPress();
+    handleAction && handleAction();
     setDialogOpen(false);
   };
 
@@ -70,7 +69,7 @@ export function ModalWithSingleActionButton({
             exitStyle={{ x: 0, y: 10, opacity: 0, scale: 0.95 }}
             gap="$4"
           >
-            <Stack width={"100vw"} justifyContent="center" alignItems="center">
+            <YStack width={"100vw"} justifyContent="center" alignItems="center">
               <YStack width={350}>
                 <Image
                   source={{
@@ -85,23 +84,13 @@ export function ModalWithSingleActionButton({
                   width={350}
                   borderTopLeftRadius={8}
                   borderTopRightRadius={8}
-                  paddingVertical={28}
+                  paddingTop={28}
+                  paddingBottom={20}
                   justifyContent="center"
                 >
-                  <XStack
-                    flexDirection="row"
-                    alignItems="center"
-                    justifyContent="center"
-                    alignSelf="center"
-                    gap={10}
-                  >
+                  <XStack flexDirection="row" alignItems="center" justifyContent="center" gap={10}>
                     <Ionicons name="checkmark-circle" size={22} color="#2F9D83" />
-                    <SizableText
-                      fontFamily={"$heading"}
-                      paddingTop={1}
-                      size={"$lg"}
-                      color="$title-text"
-                    >
+                    <SizableText fontFamily={"$heading"} size={"$lg"} color="$title-text">
                       {modeltitle}
                     </SizableText>
                   </XStack>
@@ -111,12 +100,7 @@ export function ModalWithSingleActionButton({
                   paddingHorizontal={20}
                   paddingBottom={16}
                 >
-                  <SizableText
-                    fontFamily={"$body"}
-                    size={"$md"}
-                    lineHeight={21}
-                    color="$supporting-text"
-                  >
+                  <SizableText fontFamily={"$body"} size={"$md"} color="$supporting-text">
                     {modeltext}
                   </SizableText>
                 </XStack>
@@ -129,7 +113,7 @@ export function ModalWithSingleActionButton({
                   paddingTop={16}
                   paddingLeft={20}
                   paddingRight={20}
-                  paddingBottom={16}
+                  paddingBottom={20}
                 >
                   <BtnField
                     txt={closeBtnText}
@@ -142,7 +126,7 @@ export function ModalWithSingleActionButton({
                   />
                 </XStack>
               </YStack>
-            </Stack>
+            </YStack>
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog>
