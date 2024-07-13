@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Animated, Dimensions, StyleSheet } from 'react-native';
-import { ShortAlerts } from './ShortAlerts';
+import { LongAlert } from './LongAlert';
 
-Dimensions.get('window');
-
-interface ShortToastProps {
+interface LongCustomToastProps {
   shade?: "solid" | "subtle" | "outline";
-  variant?: "default" | "success" | "warning";
-  text1?: string;
-  props?: any;
-  index?: number;
+  alert: string;
+  content: string;
+  index: number;
 }
 
-const ShortCustomToast = ({ shade = "solid", variant = "default", text1 = "", index = 0 }: ShortToastProps) => {
+const LongCustomToast = ({ shade='solid', alert, content, index }: LongCustomToastProps) => {
   const [opacity] = useState(new Animated.Value(0));
 
   useEffect(() => {
@@ -32,8 +29,8 @@ const ShortCustomToast = ({ shade = "solid", variant = "default", text1 = "", in
   }, []);
 
   return (
-    <Animated.View style={[styles.toast, { opacity, top: 50 + (index * 60) }]}>
-      <ShortAlerts shade={shade} name={variant} alert={text1} />
+    <Animated.View style={[styles.toast, { opacity, top: 50 + index * 100 }]}>
+      <LongAlert shade={shade} alert={alert} content={content} />
     </Animated.View>
   );
 };
@@ -45,4 +42,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ShortCustomToast;
+export default LongCustomToast;
