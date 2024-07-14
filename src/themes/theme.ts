@@ -125,7 +125,7 @@ const light = {
   "default-check-icon": colorScheme.boraami[50],
 
   "label-text": colorScheme.mono[800],
-  
+
   "focus-fill": colorScheme.boraami[700],
   "focus-border": colorScheme.boraami[400],
   "focus-check-box": colorScheme.boraami[50],
@@ -305,15 +305,15 @@ const light = {
   //notifications component
   "notification-type-icon" : colorScheme.boraami[500],
   "new-notification-badge" : colorScheme.boraami[700],
-  "username-action-taken-text" : colorScheme.butter[50],
-  "user-tag-text" : colorScheme.boraami[400],
-  "date-time-text" : colorScheme.mono[400],
-  "divider-notifications" : colorScheme.boraami[400],
-  "replied-quoted-text" : colorScheme.boraami[100],
-  "quoted-post-link" : colorScheme.boraami[400],
-  "quoted-post-bg-color" : colorScheme.boraami[900],
-  "quoted-post-username" : colorScheme.butter[50],
-  "quoted-post-user-tag" : colorScheme.mono[400],
+  "username-action-taken-text" : colorScheme.mono[800],
+  "user-tag-text" : colorScheme.boraami[600],
+  "date-time-text" : colorScheme.mono[500],
+  "divider-notifications" : colorScheme.boraami[100],
+  "replied-quoted-text" : colorScheme.mono[600],
+  "quoted-post-link" : colorScheme.boraami[600],
+  "quoted-post-bg-color" : colorScheme.mono[50],
+  "quoted-post-username" : colorScheme.mono[800],
+  "quoted-post-user-tag" : colorScheme.mono[600],
   //avatars
   "avatar-bg-color" : colorScheme.boraami[700],
   "avatar-border-color" : colorScheme.boraami[400],
