@@ -7,6 +7,9 @@ import { Tabs } from "expo-router";
 import { useFonts } from "expo-font";
 import Constants from "expo-constants";
 import Storybook from "../.storybook";
+import { Toasts } from '@backpackapp-io/react-native-toast';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {
   Poppins_400Regular,
   Poppins_400Regular_Italic,
@@ -42,22 +45,26 @@ export default function App() {
     OpenSans_700Bold_Italic,
   });
   const colorScheme = useColorScheme();
+
   useEffect(() => {
     if (fontsLoaded) {
-      // can hide splash screen here
     }
   }, [fontsLoaded]);
 
   if (!fontsLoaded && !fontError) {
-    return null;
+    return null; // Display nothing while fonts are loading
   }
+
   return (
-    <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        {Constants.expoConfig?.extra?.storybookEnabled ? <Storybook /> : <Tabs />}
-        {/* <Stack screenOptions={{ headerShown: false }}>
-        </Stack> */}
-      </ThemeProvider>
-    </TamaguiProvider>
+    <SafeAreaProvider>
+      <GestureHandlerRootView>
+        <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
+          <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+            {Constants.expoConfig?.extra?.storybookEnabled ? <Storybook /> : <Tabs />}
+            <Toasts />
+          </ThemeProvider>
+        </TamaguiProvider>
+      </GestureHandlerRootView>
+    </SafeAreaProvider>
   );
 }
