@@ -25,88 +25,87 @@ export const LongAlert = ({ shade, alert, content }: Props) => {
   }
 
   return (
-    <YStack>
+    <XStack
+      width={330}
+      borderRadius={4}
+      backgroundColor={
+        shade === "solid"
+          ? "$default-alert-solid-fill"
+          : shade === "subtle"
+          ? "$default-alert-subtle-fill"
+          : "$default-alert-outline"
+      }
+      borderColor={
+        shade === "solid"
+          ? "$default-alert-solid-fill"
+          : shade === "subtle"
+          ? "$default-alert-subtle-fill"
+          : "$default-alert-solid-fill"
+      }
+      borderWidth={1}
+      borderLeftWidth={shade === "outline" ? 1 : 4}
+      borderLeftColor={
+        shade !== "outline" ? "$default-alert-left-border" : "$default-alert-solid-fill"
+      }
+    >
       <XStack
-        style={{ height: 90, width: 330, borderRadius: 4 }}
-        backgroundColor={
-          shade === "solid"
-            ? "$default-alert-solid-fill"
-            : shade === "subtle"
-            ? "$default-alert-subtle-fill"
-            : "$default-alert-outline-fill"
-        }
-        borderColor={
-          shade === "solid"
-            ? "$default-alert-solid-fill"
-            : shade === "subtle"
-            ? "$default-alert-subtle-fill"
-            : "$default-alert-solid-fill"
-        }
-        borderWidth={1}
-        borderLeftWidth={shade === "outline" ? 1 : 4}
-        borderLeftColor={
-          shade !== "outline" ? "$default-alert-left-border" : "$default-alert-solid-fill"
-        }
+        flexDirection={"row"}
+        paddingTop={10}
+        paddingBottom={14}
+        width={300}
+        justifyContent={"space-evenly"}
       >
-        <XStack
-          flexDirection={"row"}
-          paddingTop={10}
-          width={300}
-          height={66}
-          justifyContent={"space-evenly"}
-        >
-          <FontAwesome
-            name={"heart"}
-            size={14}
-            color={
-              (theme === "dark" && (subtle ? colorScheme.boraami[700] : colorScheme.butter[50])) ||
-              (theme === "light" && solid ? colorScheme.butter[50] : colorScheme.boraami[700])
-            }
-            paddingTop={4}
-          />
-          <XStack width={250} flexDirection="column">
-            <SizableText
-              fontFamily={"$heading"}
-              color={
-                shade === "solid"
-                  ? "$default-alert-solid-text"
-                  : shade === "subtle"
-                  ? "$default-alert-subtle-text"
-                  : "$default-alert-outline-text"
-              }
-              size={"$sm"}
-              paddingVertical={2}
-              lineHeight={20}
-            >
-              {alert}
-            </SizableText>
-            <SizableText
-              fontFamily={"$body"}
-              color={
-                shade === "solid"
-                  ? "$default-alert-solid-text"
-                  : shade === "subtle"
-                  ? "$default-alert-subtle-text"
-                  : "$default-alert-outline-text"
-              }
-              size={"$sm"}
-            >
-              {content}
-            </SizableText>
-          </XStack>
-        </XStack>
-        <FontAwesome6
-          name="xmark"
-          size={18}
-          paddingTop={10}
-          paddingRight={10}
+        <FontAwesome
+          name={"heart"}
+          size={14}
           color={
-            (theme === "dark" && (subtle ? colorScheme.mono[800] : colorScheme.butter[50])) ||
-            (theme === "light" && solid ? colorScheme.butter[50] : colorScheme.mono[800])
+            (theme === "dark" && (subtle ? colorScheme.boraami[700] : colorScheme.butter[50])) ||
+            (theme === "light" && solid ? colorScheme.butter[50] : colorScheme.boraami[700])
           }
-          onPress={handleClose}
+          paddingTop={4}
         />
+        <XStack width={250} flexDirection="column">
+          <SizableText
+            fontFamily={"$heading"}
+            color={
+              shade === "solid"
+                ? "$default-alert-solid-text"
+                : shade === "subtle"
+                ? "$default-alert-subtle-text"
+                : "$default-alert-outline-text"
+            }
+            size={"$sm"}
+            paddingVertical={2}
+            lineHeight={20}
+          >
+            {alert}
+          </SizableText>
+          <SizableText
+            fontFamily={"$body"}
+            color={
+              shade === "solid"
+                ? "$default-alert-solid-text"
+                : shade === "subtle"
+                ? "$default-alert-subtle-text"
+                : "$default-alert-outline-text"
+            }
+            size={"$sm"}
+          >
+            {content}
+          </SizableText>
+        </XStack>
       </XStack>
-    </YStack>
+      <FontAwesome6
+        name="xmark"
+        size={18}
+        paddingTop={10}
+        paddingRight={10}
+        color={
+          (theme === "dark" && (subtle ? colorScheme.mono[800] : colorScheme.butter[50])) ||
+          (theme === "light" && solid ? colorScheme.butter[50] : colorScheme.mono[800])
+        }
+        onPress={handleClose}
+      />
+    </XStack>
   );
 };
