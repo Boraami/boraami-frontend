@@ -27,65 +27,75 @@ export default function QuotedNotification({
   quotedAvatarText,
   quotedDisplayName,
   quotedPostText,
-  quotedPostImg
+  quotedPostImg,
 }: QuotedNotificationProps) {
-
-  const message = "  quoted your post";
   return (
     <>
       <XStack flexDirection="column">
-      <XStack gap={12} paddingTop={10} paddingBottom={10} paddingLeft={5} paddingRight={5}>
-        <Icon name={iconName} size={17} style={{ paddingTop: 8 }} color={'#AA7AFF'} />
-        <YStack gap={4} width={'90%'}>
-          <XStack justifyContent='space-between' paddingTop={5}>
+        <YStack paddingHorizontal={10}>
+          <XStack gap={10} paddingVertical={10} justifyContent="center" alignItems="flex-start">
+            <Icon name={iconName} size={17} style={{ paddingTop: 10 }} color={"#AA7AFF"} />
+            <YStack gap={4} width={"90%"}>
+              <XStack justifyContent="space-between" paddingTop={5} paddingRight={5}>
+                <XStack justifyContent="center" alignItems="center">
+                  <SizableText
+                    fontFamily={"$heading"}
+                    color={"$username-action-taken-text"}
+                    size={"$sm"}
+                    paddingLeft={1}
+                    lineHeight={24} // to keep it same as md text of same line
+                  >
+                    {displayName}
+                  </SizableText>
+                  <SizableText
+                    fontFamily={"$body"}
+                    size={"$md"}
+                    color={"$username-action-taken-text"}
+                    paddingLeft={4}
+                  >
+                    quoted your post
+                  </SizableText>
+                </XStack>
+                <Badge color={"$boraami.700"} size="sm" count={0} />
+              </XStack>
+              <XStack justifyContent="space-between" alignItems="center">
+                <SizableText fontFamily={"$body"} size={"$sm"} color={"$user-tag-text"}>
+                  {userName}
+                </SizableText>
+                <SizableText fontFamily={"$body"} size={"$xs"} color={"$date-time-text"}>
+                  {dateTime}
+                </SizableText>
+              </XStack>
+            </YStack>
+          </XStack>
+          {replyMsg !== "" && (
             <XStack>
-              <SizableText fontFamily={'$heading'} color={'$username-action-taken-text'} size={'$xs'} paddingLeft={1} paddingTop={1}>
-                {displayName}
-              </SizableText>
-              <SizableText fontFamily={'$body'} size={'$xs'} color={'$username-action-taken-text'} paddingLeft={1} paddingTop={1}>
-                {message}
+              <SizableText
+                fontFamily={"$body"}
+                size={"$md"}
+                color={"$replied-quoted-text"}
+                paddingLeft={3}
+                paddingBottom={15}
+                wordWrap="normal"
+              >
+                {replyMsg}
               </SizableText>
             </XStack>
-            <Badge color={'$boraami.700'} size="sm" count={0} />
-          </XStack>
-          <XStack justifyContent='space-between'>
-            <SizableText fontFamily={'$body'} size={'$xs'} color={'$user-tag-text'}>
-              {userName}
-            </SizableText>
-            <SizableText fontFamily={'$body'} size={'$2xs'} color={'$date-time-text'}>
-              {dateTime}
-            </SizableText>
-          </XStack>
+          )}
         </YStack>
+        {quotedDisplayName !== "" && (
+          <XStack justifyContent="center" alignItems="center">
+            <QuotedPost
+              avatarText={quotedAvatarText}
+              displayName={quotedDisplayName}
+              postImg={quotedPostImg}
+              postText={quotedPostText}
+              username={quotedUsername}
+            />
+          </XStack>
+        )}
       </XStack>
-      {replyMsg !== "" && (
-        <XStack>
-          <SizableText
-            fontFamily={'$body'}
-            size={'$sm'}
-            color={'$replied-quoted-text'}
-            paddingLeft={3}
-            paddingBottom={15}
-            wordWrap='normal'
-            selectable
-          >
-            {replyMsg}
-          </SizableText>
-        </XStack>
-      )}
-          {quotedDisplayName !== "" && (
-        <XStack>
-          <QuotedPost
-            quotedAvatarText={quotedAvatarText}
-            quotedDisplayName={quotedDisplayName}
-            quotedPostImg={quotedPostImg}
-            quotedPostText={quotedPostText}
-            quotedUsername={quotedUsername}
-          />
-        </XStack>
-      )}
-      </XStack>
-      <Separator borderColor={'$boraami.100'} />
+      <Separator borderColor={"$boraami.100"} />
     </>
   );
-};
+}

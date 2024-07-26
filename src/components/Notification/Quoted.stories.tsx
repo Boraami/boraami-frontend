@@ -19,7 +19,7 @@ const QuotedMeta: Meta<typeof QuotedNotification> = {
 
 export default QuotedMeta;
 
-export const reposted = {
+export const reposted_noti = {
   args: {
     iconName: "retweet",
     displayName: "Luna",

@@ -21,7 +21,7 @@ const ReplyMeta: Meta<typeof ReplyNotification> = {
 
   export default ReplyMeta;
 
-  export const replied = {
+  export const replied_noti = {
     args: {
       iconName:  "comment" ,
       displayName: 'Luna',

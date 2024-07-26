@@ -9,11 +9,11 @@ const QuotedPostMeta: Meta<typeof QuotedPost> = {
       
     },
     args: {
-        quotedAvatarText:'TT',
-        quotedDisplayName:'Bessie Cooper',
-        quotedUsername:'@armyuser1',
-        quotedPostText: 'I miss them.',
-        quotedPostImg: require('../../assets/Notification/Image.png'),
+        avatarText:'TT',
+        displayName:'Bessie Cooper',
+        username:'@armyuser1',
+        postText: 'I miss them.',
+        postImg: require('../../assets/Notification/Image.png'),
     },
     decorators: [
       (Story) => (
