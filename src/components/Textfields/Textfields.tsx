@@ -28,7 +28,6 @@ const StyledTextbox = styled(TextArea, {
   borderWidth: 1,
   placeholderTextColor: "$placeholder-textbox-text",
   fontSize: "$sm",
-  lineHeight: 18,
   color: "$default-textbox-text",
   backgroundColor: "$default-textbox-fill",
   borderColor: "$default-textbox-border",

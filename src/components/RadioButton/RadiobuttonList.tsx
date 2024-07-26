@@ -66,8 +66,6 @@ const RadiobuttonList = ({ data, heading, size, helperText }: radioBtnProps) => 
       </RadioGroup>
       {helperText !== "" && (
         <Text
-          lineHeight={21}
-          fontWeight={"400"}
           fontFamily={"$body"}
           fontSize={radioSizes[size].ts}
           marginTop={2}

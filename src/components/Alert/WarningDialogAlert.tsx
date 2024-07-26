@@ -123,13 +123,19 @@ const WarningDialog = ({
                 </View>
                 <Separator borderColor={"$error-alert-outline"} />
                 <XStack style={{ width: "100%", padding: 16 }}>
-                  <SizableText lineHeight={22} color="$error-alert-title-text" fontSize={14}>
+                  <SizableText
+                    fontFamily={"$body"}
+                    fontSize={"$sm"}
+                    color="$error-alert-title-text"
+                    lineHeight={22}
+                  >
                     {dialogText}
+
                     {highlightedText !== "" && (
                       <SizableText
                         color="$error-alert-highlighted-text"
                         fontFamily="$OpenSansBold"
-                        fontSize={14}
+                        fontSize={"$sm"}
                       >
                         {" "}
                         {highlightedText}

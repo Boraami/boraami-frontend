@@ -114,8 +114,6 @@ const SwitchDefault = ({ size, heading, helpertext, disabled }: SwitchProps) => 
       </SwitchBasic>
       {helpertext == "" ? null : (
         <SizableText
-          lineHeight={21}
-          fontWeight={"400"}
           fontFamily={"$body"}
           fontSize={SwitchLabelSizes[size].ts}
           color="$disabled-helper-text"

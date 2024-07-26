@@ -65,8 +65,6 @@ const CheckBoxList = ({ size, heading, helpertext, data }: Props) => {
       </YStack>
       {helpertext === "" ? null : (
         <SizableText
-          lineHeight={21}
-          fontWeight={"400"}
           fontFamily={"$body"}
           fontSize={CBSizes[size].ts}
           marginTop={2}
