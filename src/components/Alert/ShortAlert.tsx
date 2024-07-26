@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useColorScheme } from "react-native";
+import { Dimensions, useColorScheme } from "react-native";
 import { XStack, YStack, View, SizableText, styled } from "tamagui";
 import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 import { colorScheme } from "../../themes/theme";
@@ -11,12 +11,13 @@ type Props = {
 };
 
 const StyledAlert = styled(View, {
-  height: 48,
-  width: 329,
+  width: "85%",
   borderRadius: 4,
   alignItems: "center",
   flexDirection: "row",
-
+  justifyContent: "space-between",
+  paddingHorizontal: 16,
+  paddingVertical: 8,
   variants: {
     variant: {
       "default.solid": {
@@ -28,6 +29,7 @@ const StyledAlert = styled(View, {
         color: "$default-alert-subtle-text",
       },
       "default.outline": {
+        backgroundColor: "$app-bg",
         borderColor: "$default-alert-outline",
         borderWidth: 1,
         color: "$default-alert-outline-text",
@@ -41,6 +43,7 @@ const StyledAlert = styled(View, {
         color: "$success-alert-subtle-text",
       },
       "success.outline": {
+        backgroundColor: "$app-bg",
         borderColor: "$success-alert-outline",
         borderWidth: 1,
         color: "$success-alert-outline-text",
@@ -54,7 +57,7 @@ const StyledAlert = styled(View, {
         color: "$warning-alert-subtle-text",
       },
       "warning.outline": {
-        backgroundColor: "$warning-alert-outline-fill",
+        backgroundColor: "$app-bg",
         borderColor: "$warning-alert-outline",
         borderWidth: 1,
         color: "$warning-alert-outline-text",
@@ -97,7 +100,7 @@ const StyledText = styled(SizableText, {
   },
 });
 
-export const ShortAlerts = ({ shade, name, alert }: Props) => {
+export const ShortAlert = ({ shade, name, alert }: Props) => {
   const [close, setClose] = useState(false);
   const theme = useColorScheme();
 
@@ -110,15 +113,13 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
   }
 
   return (
-    <YStack>
+    <View width={Dimensions.get("window").width} justifyContent="center" alignItems="center">
       <StyledAlert variant={`${name}.${shade}`}>
-        <XStack flexDirection={"row"} width={300} height={21} justifyContent={"space-evenly"}>
+        <XStack flexDirection={"row"} justifyContent={"space-evenly"} alignItems="center">
           {/* Only render this icon for 'success' and 'default' alerts */}
           {name !== "warning" ? (
             <FontAwesome
               name={name === "default" ? "heart" : name === "success" ? "check-circle" : "warning"}
-              paddingTop={2}
-              paddingLeft={8}
               size={16}
               color={
                 theme === "dark" && name === "default"
@@ -145,21 +146,18 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
           ) : (
             // Render this icon if for 'warning' alerts"
             <FontAwesome
-              paddingTop={2}
-              paddingLeft={8}
               size={16}
               name={"warning"}
               color={shade === "solid" ? colorScheme.mono[800] : colorScheme.ptd[500]}
             />
           )}
 
-          <XStack width={250} flexDirection="column">
+          <XStack flexDirection="column" alignItems="flex-start">
             <StyledText
               variant={`${name}.${shade}`}
               fontFamily={"$body"}
               fontSize={14}
-              lineHeight={20}
-              paddingLeft={6}
+              paddingLeft={10}
             >
               {alert}
             </StyledText>
@@ -204,6 +202,6 @@ export const ShortAlerts = ({ shade, name, alert }: Props) => {
           onPress={handleClose}
         />
       </StyledAlert>
-    </YStack>
+    </View>
   );
 };

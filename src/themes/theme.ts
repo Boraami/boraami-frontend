@@ -92,7 +92,7 @@ const light = {
   "default-alert-solid-fill": colorScheme.boraami[700],
   "default-alert-left-border": colorScheme.boraami[400],
   "default-alert-subtle-fill": colorScheme.boraami[100],
-  "default-alert-outline": colorScheme.butter[50],
+  "default-alert-outline": colorScheme.boraami[700],
   "default-alert-solid-text": colorScheme.butter[50],
   "default-alert-subtle-text": colorScheme.mono[800],
   "default-alert-outline-text": colorScheme.mono[800],
@@ -347,7 +347,7 @@ const dark: BaseTheme = {
   "default-alert-solid-fill": colorScheme.boraami[700],
   "default-alert-left-border": colorScheme.boraami[400],
   "default-alert-subtle-fill": colorScheme.mono[200],
-  "default-alert-outline": "#140233", // this is same as app background color
+  "default-alert-outline": colorScheme.boraami[600],
   "default-alert-solid-text": colorScheme.butter[50],
   "default-alert-subtle-text": colorScheme.mono[800],
   "default-alert-outline-text": colorScheme.butter[50],

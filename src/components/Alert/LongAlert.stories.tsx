@@ -1,35 +1,82 @@
 import React, { useEffect } from "react";
 import { Meta } from "@storybook/react-native";
 import { LongAlert } from "./LongAlert";
-import { Text, View } from 'tamagui';
-import { ToastProvider, useToast } from "./LongToastContext";
+import { toast } from "@backpackapp-io/react-native-toast";
+import { Dimensions, View } from "react-native";
 
 const LongAlertMeta: Meta<typeof LongAlert> = {
   title: "Long Alert",
+  component: LongAlert,
+  args: {},
+  decorators: [
+    (Story) => {
+      const screenWidth = Dimensions.get("window").width;
+      useEffect(() => {
+        toast("", {
+          width: screenWidth,
+          disableShadow: true,
+          duration: 7000,
+          customToast: () => {
+            return (
+              <LongAlert
+                shade={"outline"}
+                alert={"Outline Alert"}
+                content={"This is outline alert bish"}
+              />
+            );
+          },
+        });
+        toast("", {
+          width: screenWidth,
+          disableShadow: true,
+          duration: 5000,
+          position: 2,
+          customToast: () => {
+            return (
+              <LongAlert
+                shade={"subtle"}
+                alert={"Subtle Alert"}
+                content={"Whatever needs to be alerted im sick okie"}
+              />
+            );
+          },
+        });
+        toast("", {
+          width: screenWidth,
+          disableShadow: true,
+          duration: 6000,
+          customToast: () => {
+            return (
+              <LongAlert
+                shade={"solid"}
+                alert={"Solid Alert"}
+                content={"OH MY GOD IT WORKS FINALLY!!!"}
+              />
+            );
+          },
+        });
+      }, []);
+      return (
+        <View
+          style={{
+            alignItems: "center",
+            justifyContent: "center",
+            flex: 1,
+          }}
+        >
+          <Story />
+        </View>
+      );
+    },
+  ],
 };
 
 export default LongAlertMeta;
 
-const Toasts: React.FC = () => {
-  const { showToast } = useToast();
-
-  useEffect(() => {
-    const intervals = [
-      setTimeout(() => showToast('We are going live in July!', 'We are happy to announce that we are going live on July 28th. Get ready!', 'outline'), 1000),
-      setTimeout(() => showToast('We are going live in July!', 'We are happy to announce that we are going live on July 28th. Get ready!', 'solid'), 3000),
-      setTimeout(() => showToast('We are going live in July!', 'We are happy to announce that we are going live on July 28th. Get ready!', 'subtle'), 5000),
-    ];
-
-    return () => {
-      intervals.forEach(clearTimeout);
-    };
-  }, [showToast]);
-
-  return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} />;
+export const LongAlerts = {
+  args: {
+    shade: "solid",
+    alert: "Solid Alert",
+    content: "OH MY GOD IT WORKS FINALLY!!!",
+  },
 };
-
-export const MultipleToasts: React.FC = () => (
-  <ToastProvider>
-    <Toasts />
-  </ToastProvider>
-)

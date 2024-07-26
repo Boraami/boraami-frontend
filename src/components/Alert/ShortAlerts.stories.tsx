@@ -1,35 +1,103 @@
-import React, { useEffect } from 'react';
-import { Meta } from '@storybook/react-native';
-import { View, Text } from 'react-native';
-import { ToastProvider, useToast } from './ShortToastContext';
+import React, { useEffect } from "react";
+import { Meta } from "@storybook/react-native";
+import { ShortAlert } from "./ShortAlert";
+import { toast } from "@backpackapp-io/react-native-toast";
+import { Dimensions, View } from "react-native";
 
-const ShortAlertsMeta: Meta = {
-  title: 'Short Alerts with Toast',
+const ShortAlertMeta: Meta = {
+  title: "Short Alerts with Toast",
+  component: ShortAlert,
+  args: {},
+  decorators: [
+    (Story) => {
+      const screenWidth = Dimensions.get("window").width;
+      useEffect(() => {
+        toast("", {
+          width: screenWidth,
+          disableShadow: true,
+          duration: 100000,
+          customToast: () => {
+            return <ShortAlert name={"default"} shade={"outline"} alert={"Outline Alert"} />;
+          },
+        });
+        toast("", {
+          width: screenWidth,
+          disableShadow: true,
+          duration: 10000,
+          customToast: () => {
+            return <ShortAlert name={"default"} shade={"subtle"} alert={"Subtle Alert"} />;
+          },
+        });
+        toast("", {
+          width: screenWidth,
+          disableShadow: true,
+          duration: 60000,
+          customToast: () => {
+            return <ShortAlert name={"default"} shade={"solid"} alert={"Solid Alert"} />;
+          },
+        });
+        toast("", {
+          width: screenWidth,
+          disableShadow: true,
+          duration: 100000,
+          customToast: () => {
+            return <ShortAlert name={"success"} shade={"outline"} alert={"Outline Alert"} />;
+          },
+        });
+        toast("", {
+          width: screenWidth,
+          disableShadow: true,
+          duration: 10000,
+          customToast: () => {
+            return <ShortAlert name={"success"} shade={"subtle"} alert={"Subtle Alert"} />;
+          },
+        });
+        toast("", {
+          width: screenWidth,
+          disableShadow: true,
+          duration: 60000,
+          customToast: () => {
+            return <ShortAlert name={"success"} shade={"solid"} alert={"Solid Alert"} />;
+          },
+        });
+        toast("", {
+          width: screenWidth,
+          disableShadow: true,
+          duration: 100000,
+          customToast: () => {
+            return <ShortAlert name={"warning"} shade={"outline"} alert={"Outline Alert"} />;
+          },
+        });
+        toast("", {
+          width: screenWidth,
+          disableShadow: true,
+          duration: 10000,
+          customToast: () => {
+            return <ShortAlert name={"warning"} shade={"subtle"} alert={"Subtle Alert"} />;
+          },
+        });
+        toast("", {
+          width: screenWidth,
+          disableShadow: true,
+          duration: 60000,
+          customToast: () => {
+            return <ShortAlert name={"warning"} shade={"solid"} alert={"Solid Alert"} />;
+          },
+        });
+      }, []);
+      return (
+        <View
+          style={{
+            alignItems: "center",
+            justifyContent: "center",
+            flex: 1,
+          }}
+        ></View>
+      );
+    },
+  ],
 };
 
-export default ShortAlertsMeta;
+export default ShortAlertMeta;
 
-const Toasts: React.FC = () => {
-  const { showToast } = useToast();
-
-  useEffect(() => {
-    const intervals = [
-      setTimeout(() => showToast('Success!', 'success'), 2000),
-      setTimeout(() => showToast('Warning!', 'warning'), 3000),
-      setTimeout(() => showToast('hi', 'warning', 'subtle'), 3000),
-      setTimeout(() => showToast('message', 'success', 'outline'), 4000),
-    ];
-
-    return () => {
-      intervals.forEach(clearTimeout);
-    };
-  }, [showToast]);
-
-  return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} />;
-};
-
-export const MultipleToasts: React.FC = () => (
-  <ToastProvider>
-    <Toasts />
-  </ToastProvider>
-)
+export const LongAlerts = {};
