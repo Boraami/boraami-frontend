@@ -153,6 +153,7 @@ export const WarningDialog = ({
                       name="dialog-close"
                       maxWidth="48%"
                       tertiary="normal"
+                      btnTextStyles={{ color: "$default-alert-outline-text" }}
                       onPress={handleCloseBtn}
                     />
                     <BtnField
