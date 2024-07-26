@@ -163,11 +163,12 @@ export function ModalWideActionBtns({
                         </Dialog.Close>
                       </XStack>
                     </XStack>
-                    <XStack
-                      backgroundColor={"$error-alert-fill"}
-                      justifyContent="center"
-                    >
-                      <SizableText fontFamily={"$body"} size={"$md"} color="$supporting-text">
+                    <XStack backgroundColor={"$error-alert-fill"} justifyContent="center">
+                      <SizableText
+                        fontFamily={"$body"}
+                        size={"$md"}
+                        color="$supporting-text"
+                      >
                         {modeltext}
                       </SizableText>
                     </XStack>
