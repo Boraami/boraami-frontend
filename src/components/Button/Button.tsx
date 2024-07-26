@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import {
   Button as Btn,
-  ButtonProps as BtnProps,
+  ButtonProps as TamaguiBtnProps,
   SizableText,
   FontSizeTokens,
   styled,
 } from "tamagui";
 import { FontAwesome6 } from "@expo/vector-icons";
-import { ButtonProps } from "react-native";
 
-interface CustomBtnProps extends BtnProps {
+interface CustomBtnProps extends TamaguiBtnProps {
   name: string;
   primary?: string;
   tertiary?: string;
@@ -20,51 +19,31 @@ const Button: React.FC<CustomBtnProps> = (props) => <StyledBtn {...props} />;
 
 type BtnSizeProps = {
   [key: string]: {
-    width: number;
     height: number;
-    top: number;
-    left: number;
     paddingHorizontal: number;
-    gap: number;
     txtSize: FontSizeTokens;
     iconSize: number;
-    lineHeight: number;
   };
 };
 
 const btnSizes: BtnSizeProps = {
   sm: {
-    width: 76,
     height: 24,
-    top: 161,
-    left: 105,
     paddingHorizontal: 6,
-    gap: -3,
     txtSize: "$sm",
     iconSize: 12,
-    lineHeight: 12,
   },
   md: {
-    width: 93,
     height: 32,
-    top: 209,
-    left: 813,
     paddingHorizontal: 6,
-    gap: -1,
     txtSize: "$md",
     iconSize: 16,
-    lineHeight: 14,
   },
   lg: {
-    width: 107,
     height: 40,
-    top: 261,
-    left: 913,
     paddingHorizontal: 8,
-    gap: 0,
     txtSize: "$lg",
     iconSize: 20,
-    lineHeight: 18,
   },
 };
 
@@ -156,19 +135,21 @@ const StyledBtn = styled(Btn, {
 });
 
 export interface BtnFieldProps {
-  title: string;
+  txt: string;
   name: string;
   iconName?: string;
   disabled?: boolean;
-  size: "xs" | "sm" | "md";
+  size: "sm" | "md" | "lg";
   iconPosition?: "left" | "right";
   primary?: "normal" | "disabled";
   tertiary?: "normal" | "disabled";
   secondary?: "normal" | "disabled";
+  iconFromParent?: React.JSX.Element;
 }
-type x = BtnFieldProps & ButtonProps;
 
-export const BtnField = (props: x) => {
+type CustomBtnFieldProps = BtnFieldProps & CustomBtnProps;
+
+export const BtnField = (props: CustomBtnFieldProps) => {
   const [isActive, setIsActive] = useState(false);
 
   const handlePressIn = () => {
@@ -179,7 +160,7 @@ export const BtnField = (props: x) => {
     setIsActive(false);
   };
   const {
-    title,
+    txt,
     size,
     name,
     primary,
@@ -187,6 +168,7 @@ export const BtnField = (props: x) => {
     disabled,
     iconName,
     secondary,
+    iconFromParent,
     iconPosition = "left",
     ...rest
   } = props;
@@ -217,7 +199,9 @@ export const BtnField = (props: x) => {
 
   const width = primary ? bWidth.primary : secondary ? bWidth.secondary : bWidth.tertiary;
 
-  const iconComponent = (
+  const iconComponent = iconFromParent ? (
+    iconFromParent
+  ) : (
     <FontAwesome6
       name={iconName}
       size={btnSizes[size].iconSize}
@@ -231,7 +215,7 @@ export const BtnField = (props: x) => {
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
       name={name}
-      gap={btnSizes[size].gap}
+      scaleIcon={size === "sm" ? 0.4 : 0.8}
       height={btnSizes[size].height}
       paddingHorizontal={btnSizes[size].paddingHorizontal}
       disabled={disabled}
@@ -241,19 +225,18 @@ export const BtnField = (props: x) => {
       borderWidth={width}
       borderColor={primary || secondary ? hoverColor : "transparent"}
       borderBottomColor={tertiary ? hoverColor : "transparent"}
-      icon={iconName ? iconComponent : null}
+      icon={iconName || iconFromParent ? iconComponent : null}
       flexDirection={iconPosition === "right" ? "row-reverse" : "row"}
       {...rest}
     >
       <SizableText
         fontFamily={"$btn"}
         textAlign={"center"}
-        lineHeight={btnSizes[size].lineHeight}
         color={color}
         size={btnSizes[size].txtSize}
         top={0.1}
       >
-        {title}
+        {txt}
       </SizableText>
     </Button>
   );

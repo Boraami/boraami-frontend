@@ -5,8 +5,10 @@ import {
   useColorScheme,
   Animated,
   Easing,
-  ImageSourcePropType,
 } from "react-native";
+
+import Dark from '../../assets/loader/Dark_loader.svg';
+import Light from '../../assets/loader/Light_loader.svg';
 
 interface SpinnerProps {
   size: "xs" | "sm" | "md" | "lg";
@@ -38,16 +40,23 @@ const spinnerSizes: SpinnerSizesProps = {
   },
 };
 
+type ThemeType = 'dark' | 'light';
+
+const getSizeProps = (size: SpinnerProps["size"]) => ({
+  width: spinnerSizes[size].width,
+  height: spinnerSizes[size].height,
+});
+
 const SpinnerLoading: React.FC<SpinnerProps> = ({ size }) => {
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
 
-  const images: Record<string, Record<string, ImageSourcePropType>> = {
-    dark: require("../../assets/loader/dark-spinner.png"),
-    light: require("../../assets/loader/light-spinner.png"),
+  const images: Record<ThemeType, React.FC<{ width: number, height: number }>> = {
+    dark: (props) => <Dark {...props} />,
+    light: (props) => <Light {...props} />,
   };
 
-  const iconTheme = isDarkTheme ? images.dark : images.light;
+  const IconComponent = isDarkTheme ? images.dark : images.light;
   const rotateValueHolder = new Animated.Value(0);
 
   const StartImageRotation = () => {
@@ -56,7 +65,7 @@ const SpinnerLoading: React.FC<SpinnerProps> = ({ size }) => {
       toValue: 1,
       duration: 1500,
       easing: Easing.linear,
-      useNativeDriver: false,
+      useNativeDriver: true,
     }).start(() => StartImageRotation());
   };
   useEffect(() => {
@@ -67,22 +76,23 @@ const SpinnerLoading: React.FC<SpinnerProps> = ({ size }) => {
     inputRange: [0, 1],
     outputRange: ["0deg", "360deg"],
   });
+  const sizeProps = getSizeProps(size);
+
   return (
     <View
       style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-      }}
-    >
-      <Animated.Image
+      }}>
+      <Animated.View
         style={{
-          width: spinnerSizes[size].width,
-          height: spinnerSizes[size].height,
+          width: sizeProps.width,
+          height: sizeProps.height,
           transform: [{ rotate: RotateData }],
-        }}
-        source={iconTheme}
-      />
+        }}>
+          <IconComponent width={sizeProps.width} height={sizeProps.height} />
+        </Animated.View>
     </View>
   );
 };
