@@ -9,13 +9,13 @@ const ShortAlertMeta: Meta = {
   component: ShortAlert,
   args: {},
   decorators: [
-    (Story) => {
+    () => {
       const screenWidth = Dimensions.get("window").width;
       useEffect(() => {
         toast("", {
           width: screenWidth,
           disableShadow: true,
-          duration: 100000,
+          duration: 7000,
           customToast: () => {
             return <ShortAlert name={"default"} shade={"outline"} alert={"Outline Alert"} />;
           },
@@ -23,7 +23,7 @@ const ShortAlertMeta: Meta = {
         toast("", {
           width: screenWidth,
           disableShadow: true,
-          duration: 10000,
+          duration: 7000,
           customToast: () => {
             return <ShortAlert name={"default"} shade={"subtle"} alert={"Subtle Alert"} />;
           },
@@ -31,7 +31,7 @@ const ShortAlertMeta: Meta = {
         toast("", {
           width: screenWidth,
           disableShadow: true,
-          duration: 60000,
+          duration: 6000,
           customToast: () => {
             return <ShortAlert name={"default"} shade={"solid"} alert={"Solid Alert"} />;
           },
@@ -39,7 +39,7 @@ const ShortAlertMeta: Meta = {
         toast("", {
           width: screenWidth,
           disableShadow: true,
-          duration: 100000,
+          duration: 8000,
           customToast: () => {
             return <ShortAlert name={"success"} shade={"outline"} alert={"Outline Alert"} />;
           },
@@ -47,7 +47,7 @@ const ShortAlertMeta: Meta = {
         toast("", {
           width: screenWidth,
           disableShadow: true,
-          duration: 10000,
+          duration: 9000,
           customToast: () => {
             return <ShortAlert name={"success"} shade={"subtle"} alert={"Subtle Alert"} />;
           },
@@ -55,7 +55,7 @@ const ShortAlertMeta: Meta = {
         toast("", {
           width: screenWidth,
           disableShadow: true,
-          duration: 60000,
+          duration: 7000,
           customToast: () => {
             return <ShortAlert name={"success"} shade={"solid"} alert={"Solid Alert"} />;
           },
@@ -63,7 +63,7 @@ const ShortAlertMeta: Meta = {
         toast("", {
           width: screenWidth,
           disableShadow: true,
-          duration: 100000,
+          duration: 7000,
           customToast: () => {
             return <ShortAlert name={"warning"} shade={"outline"} alert={"Outline Alert"} />;
           },
@@ -71,7 +71,7 @@ const ShortAlertMeta: Meta = {
         toast("", {
           width: screenWidth,
           disableShadow: true,
-          duration: 10000,
+          duration: 9000,
           customToast: () => {
             return <ShortAlert name={"warning"} shade={"subtle"} alert={"Subtle Alert"} />;
           },
@@ -79,7 +79,7 @@ const ShortAlertMeta: Meta = {
         toast("", {
           width: screenWidth,
           disableShadow: true,
-          duration: 60000,
+          duration: 6000,
           customToast: () => {
             return <ShortAlert name={"warning"} shade={"solid"} alert={"Solid Alert"} />;
           },
