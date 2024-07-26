@@ -86,20 +86,34 @@ export const colorScheme = {
 };
 
 const light = {
+  "app-bg": "#ffffff",
   //Notes: default-alert-left-border, error-alert-fill, hover-radio-fill,modal-divider
   // ALert Component
   "default-alert-solid-fill": colorScheme.boraami[700],
   "default-alert-left-border": colorScheme.boraami[400],
   "default-alert-subtle-fill": colorScheme.boraami[100],
   "default-alert-outline": colorScheme.boraami[700],
+  "default-alert-solid-text": colorScheme.butter[50],
+  "default-alert-subtle-text": colorScheme.mono[800],
+  "default-alert-outline-text": colorScheme.mono[800],
   "success-alert-solid-fill": colorScheme.singularity[500],
   "success-alert-subtle-fill": colorScheme.singularity[200],
   "success-alert-outline": colorScheme.singularity[500],
+  "success-alert-solid-text": colorScheme.butter[50],
+  "success-alert-subtle-text": colorScheme.mono[800],
+  "success-alert-outline-text": colorScheme.mono[800],
   "warning-alert-solid-fill": colorScheme.ptd[400],
   "warning-alert-subtle-fill": colorScheme.ptd[200],
+  "warning-alert-solid-text": colorScheme.mono[800],
+  "warning-alert-subtle-text": colorScheme.mono[800],
+  "warning-alert-outline-text": colorScheme.mono[800],
   "warning-alert-outline": colorScheme.ptd[500],
   "error-alert-fill": colorScheme.mono[50],
   "error-alert-outline": colorScheme.bwl[700],
+  "error-alert-title-text": colorScheme.mono[800],
+  "error-alert-highlighted-text": colorScheme.bwl[700],
+  "error-alert-divider": colorScheme.bwl[700],
+ 
 
   // Button Component
   "primary-default-btn": colorScheme.boraami[700],
@@ -170,7 +184,6 @@ const light = {
   "tags-solid-text": colorScheme.boraami[50],
   "tags-outline-text": colorScheme.boraami[600],
 
-
   // Input Component
   "input-fill": colorScheme.mono[50],
   "placeholder-input-border": colorScheme.boraami[400],
@@ -224,13 +237,13 @@ const light = {
   "disabled-helper-text": colorScheme.boraami[500],
 
   //Modal Component
-  "check-icon" : colorScheme.singularity[400],
-  "title-text" : colorScheme.mono[800],
-  "supporting-text" : colorScheme.boraami[900],
-  "primary-button-fill" : colorScheme.boraami[700],
-  "secondary-button-border" : colorScheme.boraami[500],
-  "modal-divider" : colorScheme.boraami[300],
-  "close-icon" : colorScheme.boraami[500],
+  "check-icon": colorScheme.singularity[400],
+  "title-text": colorScheme.mono[800],
+  "supporting-text": colorScheme.boraami[900],
+  "primary-button-fill": colorScheme.boraami[700],
+  "secondary-button-border": colorScheme.boraami[500],
+  "modal-divider": colorScheme.boraami[300],
+  "close-icon": colorScheme.boraami[500],
 
   //Tooltip Component
   "tooltip-fill": colorScheme.boraami[700],
@@ -272,23 +285,23 @@ const light = {
   "nav-bg-color": colorScheme.boraami[50],
   "bar-bg-color": colorScheme.mono[50],
   //TextField component
-  "placeholder-textbox-fill" : colorScheme.boraami[50],
-  "placeholder-textbox-border" : colorScheme.boraami[200],
-  "placeholder-textbox-text" :colorScheme.boraami[500],
-  "placeholder-helper-text" : colorScheme.mono[600],
-  "placeholder-scroll-bar" : colorScheme.boraami[200],
+  "placeholder-textbox-fill": colorScheme.boraami[50],
+  "placeholder-textbox-border": colorScheme.boraami[200],
+  "placeholder-textbox-text": colorScheme.boraami[500],
+  "placeholder-helper-text": colorScheme.mono[600],
+  "placeholder-scroll-bar": colorScheme.boraami[200],
 
-  "default-textbox-fill" : colorScheme.boraami[50],
-  "default-textbox-border" : colorScheme.boraami[300],
-  "default-textbox-text" :colorScheme.mono[800],
-  "default-helper-text-textfield" : colorScheme.mono[600],//change var from doc cuz of redundancy
-  "default-scroll-bar" : colorScheme.boraami[200],
+  "default-textbox-fill": colorScheme.boraami[50],
+  "default-textbox-border": colorScheme.boraami[300],
+  "default-textbox-text": colorScheme.mono[800],
+  "default-helper-text-textfield": colorScheme.mono[600], //change var from doc cuz of redundancy
+  "default-scroll-bar": colorScheme.boraami[200],
 
-  "focused-textbox-fill" : colorScheme.boraami[100],
-  "focused-textbox-border" : colorScheme.boraami[400],
-  "focused-textbox-text" :colorScheme.mono[800],
-  "focused-helper-text-textfield" : colorScheme.mono[600],
-  "focused-scroll-bar" : colorScheme.boraami[200],
+  "focused-textbox-fill": colorScheme.boraami[100],
+  "focused-textbox-border": colorScheme.boraami[400],
+  "focused-textbox-text": colorScheme.mono[800],
+  "focused-helper-text-textfield": colorScheme.mono[600],
+  "focused-scroll-bar": colorScheme.boraami[200],
 
   "error-textbox-fill": colorScheme.bwl[50],
   "error-textbox-border": colorScheme.bwl[700],
@@ -315,14 +328,14 @@ const light = {
   "quoted-post-username" : colorScheme.mono[800],
   "quoted-post-user-tag" : colorScheme.mono[600],
   //avatars
-  "avatar-bg-color" : colorScheme.boraami[700],
-  "avatar-border-color" : colorScheme.boraami[400],
-  "avatar-text" : colorScheme.mono[50],
-  "avatar-username" : colorScheme.boraami[50],
-  "avatar-user-tag" : colorScheme.boraami[500],
-  "avatar-btn-border" : colorScheme.boraami[500],
-  "avatar-btn-text" : colorScheme.boraami[50],
-  "avatar-divider" : colorScheme.boraami[400],
+  "avatar-bg-color": colorScheme.boraami[700],
+  "avatar-border-color": colorScheme.boraami[400],
+  "avatar-text": colorScheme.mono[50],
+  "avatar-username": colorScheme.boraami[50],
+  "avatar-user-tag": colorScheme.boraami[500],
+  "avatar-btn-border": colorScheme.boraami[500],
+  "avatar-btn-text": colorScheme.boraami[50],
+  "avatar-divider": colorScheme.boraami[400],
 };
 // note: we set up a single consistent base type to validate the rest
 
@@ -330,11 +343,24 @@ type BaseTheme = typeof light;
 // the rest of the themes use BaseTheme
 
 const dark: BaseTheme = {
+  "app-bg": "#140233",
   // ALert Component
   "default-alert-solid-fill": colorScheme.boraami[700],
   "default-alert-left-border": colorScheme.boraami[400],
   "default-alert-subtle-fill": colorScheme.mono[200],
   "default-alert-outline": colorScheme.boraami[600],
+  "default-alert-solid-text": colorScheme.butter[50],
+  "default-alert-subtle-text": colorScheme.mono[800],
+  "default-alert-outline-text": colorScheme.butter[50],
+  "success-alert-subtle-text": colorScheme.mono[800],
+  "success-alert-outline-text": colorScheme.singularity[200],
+  "success-alert-solid-text": colorScheme.butter[50],
+  "warning-alert-solid-text": colorScheme.mono[800],
+  "warning-alert-subtle-text": colorScheme.mono[800],
+  "warning-alert-outline-text": colorScheme.ptd[400],
+  "error-alert-highlighted-text": colorScheme.bwl[700],
+  "error-alert-title-text": colorScheme.butter[50],
+  "error-alert-divider": colorScheme.bwl[700],
   "success-alert-solid-fill": colorScheme.singularity[500],
   "success-alert-subtle-fill": colorScheme.singularity[200],
   "success-alert-outline": colorScheme.singularity[200],
@@ -413,7 +439,6 @@ const dark: BaseTheme = {
   "tags-solid-text": colorScheme.boraami[50],
   "tags-outline-text": colorScheme.mono[50],
 
-
   // Input Component
   "input-fill": colorScheme.boraami[900],
   "placeholder-input-border": colorScheme.boraami[400],
@@ -466,7 +491,6 @@ const dark: BaseTheme = {
   "disabled-label-text": colorScheme.boraami[50],
   "disabled-helper-text": colorScheme.boraami[300],
 
-
   //Modal Component
   "check-icon": colorScheme.singularity[400],
   "title-text": colorScheme.butter[50],
@@ -516,23 +540,24 @@ const dark: BaseTheme = {
   "bar-bg-color": colorScheme.boraami[700],
   //TextField component
 
-  "placeholder-textbox-fill" : colorScheme.boraami[900],
-  "placeholder-textbox-border" : colorScheme.boraami[300],
-  "placeholder-textbox-text" :colorScheme.boraami[500],
-  "placeholder-helper-text" : colorScheme.mono[300],
-  "placeholder-scroll-bar" : colorScheme.boraami[500],
+  "placeholder-textbox-fill": colorScheme.boraami[900],
+  "placeholder-textbox-border": colorScheme.boraami[300],
+  "placeholder-textbox-text": colorScheme.boraami[500],
+  "placeholder-helper-text": colorScheme.mono[300],
+  "placeholder-scroll-bar": colorScheme.boraami[500],
 
-  "default-textbox-fill" : colorScheme.boraami[900],
-  "default-textbox-border" : colorScheme.boraami[300],
-  "default-textbox-text" :colorScheme.boraami[50],
-  "default-helper-text-textfield" : colorScheme.mono[300],//change var from doc cuz of redundancy
-  "default-scroll-bar" : colorScheme.boraami[500],
+  "default-textbox-fill": colorScheme.boraami[900],
+  "default-textbox-border": colorScheme.boraami[300],
+  "default-textbox-text": colorScheme.boraami[50],
+  "default-helper-text-textfield": colorScheme.mono[300], //change var from doc cuz of redundancy
+  "default-scroll-bar": colorScheme.boraami[500],
 
-  "focused-textbox-fill" : colorScheme.boraami[900],
-  "focused-textbox-border" : colorScheme.boraami[400],
-  "focused-textbox-text" :colorScheme.boraami[50],
-  "focused-helper-text-textfield" : colorScheme.mono[300],
-  "focused-scroll-bar" : colorScheme.boraami[500],
+  "focused-textbox-fill": colorScheme.boraami[900],
+  "focused-textbox-border": colorScheme.boraami[400],
+  "focused-textbox-text": colorScheme.boraami[50],
+  "focused-helper-text-textfield": colorScheme.mono[300],
+  "focused-scroll-bar": colorScheme.boraami[500],
+
 
   "error-textbox-fill" : colorScheme.bwl[900],
   "error-textbox-border" : colorScheme.bwl[700],
@@ -547,26 +572,26 @@ const dark: BaseTheme = {
   "disabled-scroll-bar" : colorScheme.boraami[500],
 
   //notifications component
-  "notification-type-icon" : colorScheme.boraami[500],
-  "new-notification-badge" : colorScheme.boraami[700],
-  "username-action-taken-text" : colorScheme.butter[50],
-  "user-tag-text" : colorScheme.boraami[400],
-  "date-time-text" : colorScheme.mono[400],
-  "divider-notifications" : colorScheme.boraami[400],
-  "replied-quoted-text" : colorScheme.boraami[100],
-  "quoted-post-link" : colorScheme.boraami[400],
-  "quoted-post-bg-color" : colorScheme.boraami[900],
-  "quoted-post-username" : colorScheme.butter[50],
-  "quoted-post-user-tag" : colorScheme.mono[400],
+  "notification-type-icon": colorScheme.boraami[500],
+  "new-notification-badge": colorScheme.boraami[700],
+  "username-action-taken-text": colorScheme.butter[50],
+  "user-tag-text": colorScheme.boraami[400],
+  "date-time-text": colorScheme.mono[400],
+  "divider-notifications": colorScheme.boraami[400],
+  "replied-quoted-text": colorScheme.boraami[100],
+  "quoted-post-link": colorScheme.boraami[400],
+  "quoted-post-bg-color": colorScheme.boraami[900],
+  "quoted-post-username": colorScheme.butter[50],
+  "quoted-post-user-tag": colorScheme.mono[400],
   //avatars
-  "avatar-bg-color" : colorScheme.boraami[700],
-  "avatar-border-color" : colorScheme.boraami[400],
-  "avatar-text" : colorScheme.mono[50],
-  "avatar-username" : colorScheme.boraami[50],
-  "avatar-user-tag" : colorScheme.boraami[500],
-  "avatar-btn-border" : colorScheme.boraami[500],
-  "avatar-btn-text" : colorScheme.boraami[50],
-  "avatar-divider" : colorScheme.boraami[400],
+  "avatar-bg-color": colorScheme.boraami[700],
+  "avatar-border-color": colorScheme.boraami[400],
+  "avatar-text": colorScheme.mono[50],
+  "avatar-username": colorScheme.boraami[50],
+  "avatar-user-tag": colorScheme.boraami[500],
+  "avatar-btn-border": colorScheme.boraami[500],
+  "avatar-btn-text": colorScheme.boraami[50],
+  "avatar-divider": colorScheme.boraami[400],
 };
 
 const allThemes = {

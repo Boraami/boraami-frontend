@@ -5,6 +5,7 @@ import {
   SizableText,
   FontSizeTokens,
   styled,
+  SizableTextProps,
 } from "tamagui";
 import { FontAwesome6 } from "@expo/vector-icons";
 
@@ -145,6 +146,7 @@ export interface BtnFieldProps {
   tertiary?: "normal" | "disabled";
   secondary?: "normal" | "disabled";
   iconFromParent?: React.JSX.Element;
+  btnTextStyles?: SizableTextProps;
 }
 
 type CustomBtnFieldProps = BtnFieldProps & CustomBtnProps;
@@ -170,6 +172,7 @@ export const BtnField = (props: CustomBtnFieldProps) => {
     secondary,
     iconFromParent,
     iconPosition = "left",
+    btnTextStyles,
     ...rest
   } = props;
 
@@ -235,6 +238,7 @@ export const BtnField = (props: CustomBtnFieldProps) => {
         color={color}
         size={btnSizes[size].txtSize}
         top={0.1}
+        {...btnTextStyles}
       >
         {txt}
       </SizableText>
