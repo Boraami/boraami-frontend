@@ -23,8 +23,13 @@ export const Default = {
   args: {
     title: "Delete Customer",
     name: "Sun",
+    closeBtnText: "Cancel",
+    btnText: "Delete",
+    handleAction: () => {
+      alert("It WORKSSSSS");
+    },
     btnStyles: {
-      title: "Open Me",
+      txt: "Open Me",
       name: "open me",
       primary: "normal",
       size: "lg",

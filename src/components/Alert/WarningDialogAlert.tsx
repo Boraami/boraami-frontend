@@ -11,22 +11,37 @@ import {
 } from "tamagui";
 import { useColorScheme } from "react-native";
 import { colorScheme } from "../../themes/theme";
-import { FontAwesome6 } from "@expo/vector-icons";
+import { FontAwesome6, FontAwesome } from "@expo/vector-icons";
 import { BtnField, BtnFieldProps } from "../Button/Button";
 import React, { useState } from "react";
 
 type Props = {
   title: string;
   name: string;
+  btnText: string;
+  closeBtnText: string;
   btnStyles: BtnFieldProps;
-};
-const Textbtn = () => {
-  return <Button>Hello</Button>;
+  handleAction?: (...args: any[]) => void; // since there could be any action attached to btn
 };
 
-export const WarningDialog = ({ title, name, btnStyles }: Props) => {
+export const WarningDialog = ({
+  title,
+  name,
+  btnText,
+  closeBtnText,
+  btnStyles,
+  handleAction,
+}: Props) => {
   const theme = useColorScheme();
   const [isDialogOpen, setDialogOpen] = useState(false);
+  const handleCloseBtn = () => {
+    setDialogOpen(false);
+  };
+
+  const handleActionPress = () => {
+    setDialogOpen(false);
+    handleAction && handleAction();
+  };
 
   return (
     <View>
@@ -120,30 +135,32 @@ export const WarningDialog = ({ title, name, btnStyles }: Props) => {
                   </SizableText>
                 </XStack>
                 <Separator borderColor={"$error-alert-outline"} />
-                <XStack justifyContent="flex-end">
-                  <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <Dialog.Close displayWhenAdapted asChild>
-                      <Button
-                        style={{ color: "$error-alert-title-text" }}
-                        fontFamily={"$btn"}
-                        fontSize={16}
-                      >
-                        Cancel
-                      </Button>
-                    </Dialog.Close>
-                    <Button
-                      style={{ color: "$butter.50" }}
-                      fontFamily={"$btn"}
-                      fontSize={14}
-                      height={40}
-                      margin={10}
-                      alignItems="center"
-                      backgroundColor={"$default-alert-solid-fill"}
-                      borderRadius={4}
-                    >
-                      I understand. Delete.
-                    </Button>
-                  </View>
+                <XStack
+                  justifyContent="flex-end"
+                  borderBottomLeftRadius={8}
+                  borderBottomRightRadius={8}
+                  paddingVertical={16}
+                  paddingHorizontal={20}
+                >
+                  <XStack justifyContent="flex-end" width={"100%"} gap={6}>
+                    <BtnField
+                      txt={closeBtnText}
+                      size="lg"
+                      fontSize={"$sm"}
+                      name="dialog-close"
+                      maxWidth="48%"
+                      tertiary="normal"
+                      onPress={handleCloseBtn}
+                    />
+                    <BtnField
+                      txt={btnText}
+                      size="lg"
+                      name="dialog-close"
+                      maxWidth="48%"
+                      primary="normal"
+                      onPress={handleActionPress}
+                    />
+                  </XStack>
                 </XStack>
               </YStack>
             </XStack>
