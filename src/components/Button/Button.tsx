@@ -30,19 +30,19 @@ type BtnSizeProps = {
 const btnSizes: BtnSizeProps = {
   sm: {
     height: 24,
-    paddingHorizontal: 6,
+    paddingHorizontal: 10,
     txtSize: "$sm",
     iconSize: 12,
   },
   md: {
     height: 32,
-    paddingHorizontal: 6,
+    paddingHorizontal: 10,
     txtSize: "$md",
     iconSize: 16,
   },
   lg: {
     height: 40,
-    paddingHorizontal: 8,
+    paddingHorizontal: 12,
     txtSize: "$lg",
     iconSize: 20,
   },
@@ -186,7 +186,7 @@ export const BtnField = (props: CustomBtnFieldProps) => {
   const bColor = {
     primary: isActive ? "$boraami.400" : "transparent",
     secondary: isActive
-      ? "$serendipity.500"
+      ? "$boraami.400"
       : disabled
       ? "$secondary-disabled-btn-border"
       : "$secondary-default-btn-border",
