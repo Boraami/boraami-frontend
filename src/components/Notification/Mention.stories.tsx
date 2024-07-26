@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import MentionNotification from "./Follow";
+import MentionNotification from "./Mention";
 
 const MentionNotificationMeta: Meta<typeof MentionNotification> = {
     title: "Mention",
