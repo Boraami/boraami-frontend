@@ -20,21 +20,21 @@ const OverflowMenuMeta: Meta<typeof OverflowMenu> = {
     title: "OverflowMenu",
     component: OverflowMenu,
     argTypes: {
-      
+
     },
     args: {
       data: overflowmenuItems,
     },
     decorators: [
       (Story) => (
-        <View style={{ marginTop:100 }}>
+        <View style={{     flex: 1,
+        marginTop:500 }}>
           <Story />
         </View>
       ),
     ],
   };
-  
+
   export default OverflowMenuMeta;
-  
+
   export const menu = {};
-  
