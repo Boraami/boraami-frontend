@@ -11,6 +11,9 @@ const config = getDefaultConfig(__dirname, {
 // } not needed cz we need to do it without condition - https://github.com/storybookjs/react-native/issues/469
 config.resolver.resolverMainFields.unshift("sbmodern");
 
+config.resolver.assetExts = config.resolver.assetExts.filter(ext => ext !== 'svg');
+config.resolver.sourceExts.push('svg');
+config.transformer.babelTransformerPath = require.resolve('react-native-svg-transformer');
 // Enable Tamagui
 const { withTamagui } = require("@tamagui/metro-plugin");
 module.exports = withTamagui(config, {

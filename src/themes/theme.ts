@@ -123,7 +123,9 @@ const light = {
   "default-fill": colorScheme.boraami[700],
   "default-border": colorScheme.boraami[700],
   "default-check-icon": colorScheme.boraami[50],
+
   "label-text": colorScheme.mono[800],
+
   "focus-fill": colorScheme.boraami[700],
   "focus-border": colorScheme.boraami[400],
   "focus-check-box": colorScheme.boraami[50],
@@ -167,6 +169,7 @@ const light = {
   "tags-outline-border": colorScheme.boraami[200],
   "tags-solid-text": colorScheme.boraami[50],
   "tags-outline-text": colorScheme.boraami[600],
+
 
   // Input Component
   "input-fill": colorScheme.mono[50],
@@ -233,6 +236,18 @@ const light = {
   "tooltip-fill": colorScheme.boraami[700],
   "tooltip-text": colorScheme.boraami[50],
 
+  //Floating button Component
+  "default-FAB-fill": colorScheme.boraami[700],
+  "default-FAB-text": colorScheme.boraami[50],
+  "default-FAB-icon": colorScheme.boraami[50],
+  "disabled-FAB-fill": colorScheme.mono[400],
+  "disabled-FAB-text": colorScheme.mono[100],
+  "disabled-FAB-icon": colorScheme.mono[100],
+  "focus-FAB-fill": colorScheme.boraami[700],
+  "focus-FAB-outline": colorScheme.boraami[500],
+  "focus-FAB-text": colorScheme.boraami[50],
+  "focus-FAB-icon": colorScheme.boraami[50],
+
   //badge component
   "badge-bg-color": colorScheme.boraami[700],
   "large-badge-text": colorScheme.butter[50],
@@ -275,19 +290,19 @@ const light = {
   "focused-helper-text-textfield" : colorScheme.mono[600],
   "focused-scroll-bar" : colorScheme.boraami[200],
 
-  "error-textbox-fill" : colorScheme.bwl[50],
-  "error-textbox-border" : colorScheme.bwl[700],
-  "error-textbox-text" :colorScheme.mono[800],
-  "error-helper-text-textfield" : colorScheme.bwl[700],
-  "error-scroll-bar" : colorScheme.boraami[200],
-  
-  "disabled-textbox-fill" : colorScheme.boraami[50],
-  "disabled-textbox-border" : colorScheme.boraami[400],
-  "disabled-textbox-text" :colorScheme.boraami[700],
-  "disabled-helper-text-textfield" : colorScheme.mono[600],
-  "disabled-scroll-bar" : colorScheme.mono[600],
+  "error-textbox-fill": colorScheme.bwl[50],
+  "error-textbox-border": colorScheme.bwl[700],
+  "error-textbox-text": colorScheme.mono[800],
+  "error-helper-text-textfield": colorScheme.bwl[700],
+  "error-scroll-bar": colorScheme.boraami[200],
 
-  //notifications
+  "disabled-textbox-fill": colorScheme.boraami[50],
+  "disabled-textbox-border": colorScheme.boraami[400],
+  "disabled-textbox-text": colorScheme.boraami[700],
+  "disabled-helper-text-textfield": colorScheme.mono[600],
+  "disabled-scroll-bar": colorScheme.mono[600],
+
+  //notifications component
   "notification-type-icon" : colorScheme.boraami[500],
   "new-notification-badge" : colorScheme.boraami[700],
   "username-action-taken-text" : colorScheme.mono[800],
@@ -299,6 +314,15 @@ const light = {
   "quoted-post-bg-color" : colorScheme.mono[50],
   "quoted-post-username" : colorScheme.mono[800],
   "quoted-post-user-tag" : colorScheme.mono[600],
+  //avatars
+  "avatar-bg-color" : colorScheme.boraami[700],
+  "avatar-border-color" : colorScheme.boraami[400],
+  "avatar-text" : colorScheme.mono[50],
+  "avatar-username" : colorScheme.boraami[50],
+  "avatar-user-tag" : colorScheme.boraami[500],
+  "avatar-btn-border" : colorScheme.boraami[500],
+  "avatar-btn-text" : colorScheme.boraami[50],
+  "avatar-divider" : colorScheme.boraami[400],
 };
 // note: we set up a single consistent base type to validate the rest
 
@@ -342,7 +366,9 @@ const dark: BaseTheme = {
   "default-fill": colorScheme.boraami[700],
   "default-border": colorScheme.boraami[700],
   "default-check-icon": colorScheme.boraami[50],
+
   "label-text": colorScheme.boraami[50],
+
   "focus-fill": colorScheme.boraami[700],
   "focus-border": colorScheme.boraami[400],
   "focus-check-box": colorScheme.boraami[50],
@@ -386,6 +412,7 @@ const dark: BaseTheme = {
   "tags-outline-border": colorScheme.mono[400],
   "tags-solid-text": colorScheme.boraami[50],
   "tags-outline-text": colorScheme.mono[50],
+
 
   // Input Component
   "input-fill": colorScheme.boraami[900],
@@ -439,6 +466,7 @@ const dark: BaseTheme = {
   "disabled-label-text": colorScheme.boraami[50],
   "disabled-helper-text": colorScheme.boraami[300],
 
+
   //Modal Component
   "check-icon": colorScheme.singularity[400],
   "title-text": colorScheme.butter[50],
@@ -452,6 +480,17 @@ const dark: BaseTheme = {
   "tooltip-fill": colorScheme.boraami[700],
   "tooltip-text": colorScheme.mono[800],
 
+  //Floating button Component
+  "default-FAB-fill": colorScheme.boraami[700],
+  "default-FAB-text": colorScheme.boraami[50],
+  "default-FAB-icon": colorScheme.boraami[50],
+  "disabled-FAB-fill": colorScheme.mono[400],
+  "disabled-FAB-text": colorScheme.mono[100],
+  "disabled-FAB-icon": colorScheme.mono[100],
+  "focus-FAB-fill": colorScheme.boraami[700],
+  "focus-FAB-outline": colorScheme.boraami[500],
+  "focus-FAB-text": colorScheme.boraami[50],
+  "focus-FAB-icon": colorScheme.boraami[50],
   //badge component
   "badge-bg-color": colorScheme.boraami[500],
   "large-badge-text": colorScheme.butter[50],
@@ -500,7 +539,7 @@ const dark: BaseTheme = {
   "error-textbox-text" :colorScheme.boraami[50],
   "error-helper-text-textfield" : colorScheme.bwl[400],
   "error-scroll-bar" : colorScheme.boraami[500],
-  
+
   "disabled-textbox-fill" : colorScheme.boraami[900],
   "disabled-textbox-border" : colorScheme.boraami[300],
   "disabled-textbox-text" :colorScheme.boraami[50],
@@ -510,7 +549,7 @@ const dark: BaseTheme = {
   //notifications component
   "notification-type-icon" : colorScheme.boraami[500],
   "new-notification-badge" : colorScheme.boraami[700],
-  "username-action-taken-text" : colorScheme.butter[500],
+  "username-action-taken-text" : colorScheme.butter[50],
   "user-tag-text" : colorScheme.boraami[400],
   "date-time-text" : colorScheme.mono[400],
   "divider-notifications" : colorScheme.boraami[400],
@@ -519,6 +558,15 @@ const dark: BaseTheme = {
   "quoted-post-bg-color" : colorScheme.boraami[900],
   "quoted-post-username" : colorScheme.butter[50],
   "quoted-post-user-tag" : colorScheme.mono[400],
+  //avatars
+  "avatar-bg-color" : colorScheme.boraami[700],
+  "avatar-border-color" : colorScheme.boraami[400],
+  "avatar-text" : colorScheme.mono[50],
+  "avatar-username" : colorScheme.boraami[50],
+  "avatar-user-tag" : colorScheme.boraami[500],
+  "avatar-btn-border" : colorScheme.boraami[500],
+  "avatar-btn-text" : colorScheme.boraami[50],
+  "avatar-divider" : colorScheme.boraami[400],
 };
 
 const allThemes = {
