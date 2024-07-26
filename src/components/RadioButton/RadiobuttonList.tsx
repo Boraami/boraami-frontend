@@ -48,7 +48,7 @@ export default function RadiobuttonList({ data, heading, size, helperText }: rad
         </Label>
       )}
       <RadioGroup aria-labelledby="Select one item" defaultValue="1" name="form">
-        <YStack gap={3} marginLeft={5}>
+        <YStack gap={10} marginLeft={5}> 
           {data.map((item, i) => {
             return (
               <RadioItem

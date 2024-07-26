@@ -45,7 +45,7 @@ export function CheckBoxList({ size,heading, helpertext, data }: Props) {
         color="$disabled-label-text">{heading}</Label>
       }
       
-        <YStack gap={4} marginLeft={5}>
+        <YStack gap={10} marginLeft={5}>
         {data.map((item,i)=>{
           return(
             <CheckBox key={`${item.labeltxt}${item.value}-${i}`} value={item.value} labeltext={item.labeltxt}  size={size} disable={item.disable} checked={item.checked}/>
