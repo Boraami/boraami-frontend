@@ -9,7 +9,7 @@ type MentionProps = {
   dateTime: string;
 };
 
-export default function MentionNotification({ displayName, userName, dateTime }: MentionProps) {
+const MentionNotification = ({ displayName, userName, dateTime }: MentionProps) => {
   return (
     <>
       <XStack gap={12} padding={10}>
@@ -50,4 +50,6 @@ export default function MentionNotification({ displayName, userName, dateTime }:
       <Separator borderColor={"$boraami.100"} />
     </>
   );
-}
+};
+
+export default MentionNotification;

@@ -20,18 +20,13 @@ type AchievementProps = {
   boldSizableText?: string;
 };
 
-export const AchievementCard = ({ numOfDays, uri, badgeName }: AchievementProps) => {
+const AchievementCard = ({ numOfDays, uri, badgeName }: AchievementProps) => {
   return (
     <StyledAchievementCard>
       <View width="25%">
         <Image source={{ uri: uri, width: 86, height: 86 }} />
       </View>
-      <SizableText
-        color={"$achievement-card-text"}
-        size={"$sm"}
-        fontFamily={"$body"}
-        width={"65%"}
-      >
+      <SizableText color={"$achievement-card-text"} size={"$sm"} fontFamily={"$body"} width={"65%"}>
         I earned the {""}
         <SizableText size={"$xs"} fontFamily={"$heading"}>
           {badgeName}
@@ -43,3 +38,5 @@ export const AchievementCard = ({ numOfDays, uri, badgeName }: AchievementProps)
     </StyledAchievementCard>
   );
 };
+
+export default AchievementCard;

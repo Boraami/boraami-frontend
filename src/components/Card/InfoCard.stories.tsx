@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Dimensions } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { InfoCard } from "./InfoCard";
+import InfoCard from "./InfoCard";
 import { toast } from "@backpackapp-io/react-native-toast";
 import { View } from "tamagui";
 

@@ -1,9 +1,10 @@
+import React from "react";
 import { createCheckbox } from "@tamagui/checkbox";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { Label, XStack, YStack, Stack, styled } from "tamagui";
-import React from "react";
 //-Notes-
 //DONE: checkbox check icon opacity, checkbox size={}, dynamic labels,focus state, hover state
+
 const Frame = styled(Stack, {
   borderColor: "$boraami.700", //gives error if '$bg-brand-strong' is used cuz its alr using themestack
   borderRadius: 2,
@@ -65,7 +66,8 @@ type CheckboxProps = {
   labeltext: string;
   value: string;
 };
-export function CheckBox({ value, disable, size, labeltext, checked }: CheckboxProps) {
+
+const CheckBox = ({ value, disable, size, labeltext, checked }: CheckboxProps) => {
   //sizing=> -6=9, -5=11, -4=13, -3=14, -2=16, no-size=20
   // -4->sm, -2->md, 0->lg(acc to design)
   //in order to make it disabled, u have to give a checked state
@@ -135,4 +137,6 @@ export function CheckBox({ value, disable, size, labeltext, checked }: CheckboxP
       )}
     </XStack>
   );
-}
+};
+
+export default CheckBox;

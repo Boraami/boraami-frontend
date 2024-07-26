@@ -1,3 +1,4 @@
+import React from "react";
 import { Avatar, SizableText, XStack, Image } from "tamagui";
 import Icon from "../Icon/Icon";
 
@@ -9,13 +10,7 @@ export type Props = {
   postImg: string;
 };
 
-export default function Post({
-  avatarText,
-  displayName,
-  username,
-  postText,
-  postImg,
-}: Props) {
+const Post = ({ avatarText, displayName, username, postText, postImg }: Props) => {
   return (
     <XStack
       backgroundColor={"$quoted-post-bg-color"}
@@ -87,4 +82,6 @@ export default function Post({
       />
     </XStack>
   );
-}
+};
+
+export default Post;

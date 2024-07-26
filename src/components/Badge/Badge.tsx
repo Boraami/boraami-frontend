@@ -1,4 +1,5 @@
-import { XStack, Text, SizableText } from "tamagui";
+import React from "react";
+import { XStack, SizableText } from "tamagui";
 type BadgeSizeProps = {
   [key: string]: {
     w: number;
@@ -26,7 +27,7 @@ type Props = {
   size: string;
   count: number;
 };
-export default function Badge({ color, size, count }: Props) {
+const Badge = ({ color, size, count }: Props) => {
   //font changed from 14->12 to adjust the design look according to design files
   let c = count < 1 ? "0" : count <= 20 ? count : count > 20 && "20+";
   return (
@@ -59,4 +60,6 @@ export default function Badge({ color, size, count }: Props) {
       )}
     </>
   );
-}
+};
+
+export default Badge;

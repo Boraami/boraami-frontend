@@ -1,6 +1,8 @@
+import React from "react";
 import { XStack, Label, Text, YStack } from "tamagui";
 import RadioItem from "./Radiobutton";
 import { RadioGroup } from "tamagui";
+
 type RadioListSizeProps = {
   [key: string]: {
     ls: string;
@@ -34,7 +36,7 @@ const radioSizes: RadioListSizeProps = {
   },
 };
 
-export default function RadiobuttonList({ data, heading, size, helperText }: radioBtnProps) {
+const RadiobuttonList = ({ data, heading, size, helperText }: radioBtnProps) => {
   return (
     <XStack flexDirection="column" gap={3}>
       {heading !== "" && (
@@ -48,7 +50,7 @@ export default function RadiobuttonList({ data, heading, size, helperText }: rad
         </Label>
       )}
       <RadioGroup aria-labelledby="Select one item" defaultValue="1" name="form">
-        <YStack gap={10} marginLeft={5}> 
+        <YStack gap={10} marginLeft={5}>
           {data.map((item, i) => {
             return (
               <RadioItem
@@ -76,4 +78,6 @@ export default function RadiobuttonList({ data, heading, size, helperText }: rad
       )}
     </XStack>
   );
-}
+};
+
+export default RadiobuttonList;

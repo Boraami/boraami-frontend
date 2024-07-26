@@ -46,7 +46,7 @@ const StyledCard = styled(View, {
   width: "90%",
 });
 
-export const InfoCard = ({ title, subtitle, uri, size }: CardProps) => {
+const InfoCard = ({ title, subtitle, uri, size }: CardProps) => {
   const theme = useColorScheme();
   const [close, setClose] = useState(false);
 
@@ -114,3 +114,5 @@ export const InfoCard = ({ title, subtitle, uri, size }: CardProps) => {
     </View>
   );
 };
+
+export default InfoCard;

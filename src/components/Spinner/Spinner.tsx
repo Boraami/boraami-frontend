@@ -1,14 +1,8 @@
 import React, { useEffect } from "react";
-import {
-  SafeAreaView,
-  View,
-  useColorScheme,
-  Animated,
-  Easing,
-} from "react-native";
+import { SafeAreaView, View, useColorScheme, Animated, Easing } from "react-native";
 
-import Dark from '../../assets/loader/Dark_loader.svg';
-import Light from '../../assets/loader/Light_loader.svg';
+import Dark from "../../assets/loader/Dark_loader.svg";
+import Light from "../../assets/loader/Light_loader.svg";
 
 interface SpinnerProps {
   size: "xs" | "sm" | "md" | "lg";
@@ -40,7 +34,7 @@ const spinnerSizes: SpinnerSizesProps = {
   },
 };
 
-type ThemeType = 'dark' | 'light';
+type ThemeType = "dark" | "light";
 
 const getSizeProps = (size: SpinnerProps["size"]) => ({
   width: spinnerSizes[size].width,
@@ -51,7 +45,7 @@ const SpinnerLoading: React.FC<SpinnerProps> = ({ size }) => {
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
 
-  const images: Record<ThemeType, React.FC<{ width: number, height: number }>> = {
+  const images: Record<ThemeType, React.FC<{ width: number; height: number }>> = {
     dark: (props) => <Dark {...props} />,
     light: (props) => <Light {...props} />,
   };
@@ -84,20 +78,22 @@ const SpinnerLoading: React.FC<SpinnerProps> = ({ size }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-      }}>
+      }}
+    >
       <Animated.View
         style={{
           width: sizeProps.width,
           height: sizeProps.height,
           transform: [{ rotate: RotateData }],
-        }}>
-          <IconComponent width={sizeProps.width} height={sizeProps.height} />
-        </Animated.View>
+        }}
+      >
+        <IconComponent width={sizeProps.width} height={sizeProps.height} />
+      </Animated.View>
     </View>
   );
 };
 
-export const SpinnerComp = (props: SpinnerProps) => {
+const SpinnerComp = (props: SpinnerProps) => {
   const { size } = props;
 
   return (
@@ -108,3 +104,5 @@ export const SpinnerComp = (props: SpinnerProps) => {
     </SafeAreaView>
   );
 };
+
+export default SpinnerComp;

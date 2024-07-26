@@ -1,8 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { BtnField } from "./Button";
-import { FontAwesome6 } from "@expo/vector-icons";
+import BtnField from "./Button";
 
 const ButtonMeta: Meta<typeof BtnField> = {
   title: "Button",

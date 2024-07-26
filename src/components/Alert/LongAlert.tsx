@@ -10,7 +10,7 @@ type Props = {
   content: string;
 };
 
-export const LongAlert = ({ shade, alert, content }: Props) => {
+const LongAlert = ({ shade, alert, content }: Props) => {
   const [close, setClose] = useState(false);
   const theme = useColorScheme();
   let solid = shade === "solid";
@@ -112,3 +112,5 @@ export const LongAlert = ({ shade, alert, content }: Props) => {
     </View>
   );
 };
+
+export default LongAlert;

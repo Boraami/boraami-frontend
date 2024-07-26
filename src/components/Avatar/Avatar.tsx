@@ -5,7 +5,7 @@ export type Props = {
   AvatarText: string;
 };
 
-export default function AvatarUserProfile({ AvatarText }: Props) {
+const AvatarUserProfile = ({ AvatarText }: Props) => {
   return (
     <Avatar
       circular
@@ -20,4 +20,6 @@ export default function AvatarUserProfile({ AvatarText }: Props) {
       </SizableText>
     </Avatar>
   );
-}
+};
+
+export default Avatar;

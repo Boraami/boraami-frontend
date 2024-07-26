@@ -1,14 +1,14 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { Dividers } from "./Divider";
+import Dividers from "./Divider";
 
 const DividerMeta: Meta<typeof Dividers> = {
   title: "Divider",
   component: Dividers,
   argTypes: {},
   args: {
-    borderColor: '$subtle',
+    borderColor: "$subtle",
   },
   decorators: [
     (Story) => (
@@ -25,6 +25,6 @@ export const LightColor = {};
 
 export const NeutralColor = {
   args: {
-    borderColor: '$Strong', 
+    borderColor: "$Strong",
   },
 };

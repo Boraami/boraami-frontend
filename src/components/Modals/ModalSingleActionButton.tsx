@@ -1,8 +1,9 @@
+import React from "react";
 import { XStack, SizableText, Image, YStack, Stack, View } from "tamagui";
 import { Ionicons } from "@expo/vector-icons";
 import { Adapt, Dialog, Sheet } from "tamagui";
 import { FontAwesome } from "@expo/vector-icons";
-import { BtnField, BtnFieldProps } from "../Button/Button";
+import BtnField, { BtnFieldProps } from "../Button/Button";
 import { useState } from "react";
 
 type Props = {
@@ -14,13 +15,13 @@ type Props = {
   handleAction?: (...args: any[]) => void; // since there could be any action attached to btn
 };
 
-export function ModalWithSingleActionButton({
+const ModalWithSingleActionButton = ({
   modeltext,
   modeltitle,
   closeBtnText,
   btnStyles,
   handleAction,
-}: Props) {
+}: Props) => {
   const [isDialogOpen, setDialogOpen] = useState(false);
 
   const handleCloseBtn = () => {
@@ -132,4 +133,6 @@ export function ModalWithSingleActionButton({
       </Dialog>
     </View>
   );
-}
+};
+
+export default ModalWithSingleActionButton;

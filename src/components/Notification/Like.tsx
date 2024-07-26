@@ -1,7 +1,6 @@
 import React from "react";
 import { XStack, YStack, SizableText, Separator } from "tamagui";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import Icon from "../Icon/Icon";
 import Badge from "../Badge/Badge";
 
 type LikeProps = {
@@ -10,7 +9,7 @@ type LikeProps = {
   dateTime: string;
 };
 
-export default function LikeNotification({ displayName, userName, dateTime }: LikeProps) {
+const LikeNotification = ({ displayName, userName, dateTime }: LikeProps) => {
   return (
     <>
       <XStack gap={12} padding={10}>
@@ -51,4 +50,6 @@ export default function LikeNotification({ displayName, userName, dateTime }: Li
       <Separator borderColor={"$boraami.100"} />
     </>
   );
-}
+};
+
+export default LikeNotification;

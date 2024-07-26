@@ -1,7 +1,8 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { ModalWideActionBtns } from "./ModalWideActionButtons";
+import ModalWideActionBtns from "./ModalWideActionButtons";
+
 const ModalWideActionBtnsMeta: Meta<typeof ModalWideActionBtns> = {
   title: "Modal With Wide Action Buttons",
   component: ModalWideActionBtns,

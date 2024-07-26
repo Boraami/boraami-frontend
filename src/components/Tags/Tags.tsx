@@ -106,7 +106,7 @@ interface ButtonProps {
   handleAction?: (...args: any[]) => void; // since there could be any action attached to btn
 }
 
-export const TagField: React.FC<ButtonProps> = (props) => {
+const TagField = (props: ButtonProps) => {
   const { txt, size, status, state, showIcon, handleAction } = props;
   const [stateVar, setStatusVar] = useState(state);
 
@@ -166,3 +166,5 @@ export const TagField: React.FC<ButtonProps> = (props) => {
     </Button>
   );
 };
+
+export default TagField;

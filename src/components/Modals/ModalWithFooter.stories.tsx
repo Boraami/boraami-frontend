@@ -1,7 +1,8 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { ModalWithFooter } from "./ModalWithFooter";
+import ModalWithFooter from "./ModalWithFooter";
+
 const ModalWithFooterMeta: Meta<typeof ModalWithFooter> = {
   title: "Modal With Footer",
   component: ModalWithFooter,

@@ -1,5 +1,4 @@
 import React from "react";
-import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
 import FollowNotification from "./Follow";
 import LikeNotification from "./Like";

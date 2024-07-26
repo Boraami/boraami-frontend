@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Dimensions, useColorScheme } from "react-native";
-import { XStack, YStack, View, SizableText, styled } from "tamagui";
+import { XStack, View, SizableText, styled } from "tamagui";
 import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 import { colorScheme } from "../../themes/theme";
 
@@ -100,7 +100,7 @@ const StyledText = styled(SizableText, {
   },
 });
 
-export const ShortAlert = ({ shade, name, alert }: Props) => {
+const ShortAlert = ({ shade, name, alert }: Props) => {
   const [close, setClose] = useState(false);
   const theme = useColorScheme();
 
@@ -205,3 +205,5 @@ export const ShortAlert = ({ shade, name, alert }: Props) => {
     </View>
   );
 };
+
+export default ShortAlert;

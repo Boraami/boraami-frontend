@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   XStack,
   YStack,
@@ -11,9 +12,8 @@ import {
 } from "tamagui";
 import { useColorScheme } from "react-native";
 import { colorScheme } from "../../themes/theme";
-import { FontAwesome6, FontAwesome } from "@expo/vector-icons";
-import { BtnField, BtnFieldProps } from "../Button/Button";
-import React, { useState } from "react";
+import { FontAwesome6 } from "@expo/vector-icons";
+import BtnField, { BtnFieldProps } from "../Button/Button";
 
 type Props = {
   title: string;
@@ -25,7 +25,7 @@ type Props = {
   handleAction?: (...args: any[]) => void; // since there could be any action attached to btn
 };
 
-export const WarningDialog = ({
+const WarningDialog = ({
   title,
   dialogText,
   highlightedText,
@@ -174,3 +174,5 @@ export const WarningDialog = ({
     </View>
   );
 };
+
+export default WarningDialog;

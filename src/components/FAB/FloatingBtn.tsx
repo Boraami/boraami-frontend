@@ -93,7 +93,7 @@ interface ButtonProps {
   button: "normal" | "disabled";
 }
 
-export const FloatingBtnField = (props: ButtonProps) => {
+const FloatingBtnField = (props: ButtonProps) => {
   const [isActive, setIsActive] = useState(false);
 
   const handlePressIn = () => {
@@ -168,3 +168,5 @@ export const FloatingBtnField = (props: ButtonProps) => {
     </XStack>
   );
 };
+
+export default FloatingBtnField;

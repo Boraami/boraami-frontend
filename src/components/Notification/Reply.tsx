@@ -10,12 +10,7 @@ type ReplyProps = {
   replyMsg: string;
 };
 
-export default function ReplyNotification({
-  displayName,
-  userName,
-  dateTime,
-  replyMsg,
-}: ReplyProps) {
+const ReplyNotification = ({ displayName, userName, dateTime, replyMsg }: ReplyProps) => {
   return (
     <>
       <XStack flexDirection="column">
@@ -72,4 +67,6 @@ export default function ReplyNotification({
       <Separator borderColor={"$boraami.100"} />
     </>
   );
-}
+};
+
+export default ReplyNotification;

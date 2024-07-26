@@ -1,9 +1,9 @@
+import React from "react";
 import { XStack, SizableText, Image, View, Stack, YStack } from "tamagui";
 import { Ionicons } from "@expo/vector-icons";
 import { Button, Adapt, Dialog, Sheet } from "tamagui";
 import { useState } from "react";
-import { BtnField, BtnFieldProps } from "../Button/Button";
-import { FontAwesome } from "@expo/vector-icons";
+import BtnField, { BtnFieldProps } from "../Button/Button";
 
 type Props = {
   modeltitle: string;
@@ -15,7 +15,7 @@ type Props = {
   alignment: string;
   handleAction?: (...args: any[]) => void; // since there could be any action attached to btn
 };
-export function ModalWideActionBtns({
+const ModalWideActionBtns = ({
   modeltext,
   modeltitle,
   btn1text,
@@ -23,7 +23,7 @@ export function ModalWideActionBtns({
   alignment,
   btnStyles,
   handleAction,
-}: Props) {
+}: Props) => {
   const [isDialogOpen, setDialogOpen] = useState(false);
 
   const handleCloseBtn = () => {
@@ -164,11 +164,7 @@ export function ModalWideActionBtns({
                       </XStack>
                     </XStack>
                     <XStack backgroundColor={"$error-alert-fill"} justifyContent="center">
-                      <SizableText
-                        fontFamily={"$body"}
-                        size={"$md"}
-                        color="$supporting-text"
-                      >
+                      <SizableText fontFamily={"$body"} size={"$md"} color="$supporting-text">
                         {modeltext}
                       </SizableText>
                     </XStack>
@@ -223,4 +219,6 @@ export function ModalWideActionBtns({
       </Dialog>
     </View>
   );
-}
+};
+
+export default ModalWideActionBtns;

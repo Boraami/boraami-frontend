@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { FloatingBtnField } from "./FloatingBtn";
+import FloatingBtnField from "./FloatingBtn";
 
 const FabMeta: Meta<typeof FloatingBtnField> = {
   title: "FAB",

@@ -1,7 +1,8 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { ModalWithSingleActionButton } from "./ModalSingleActionButton";
+import ModalWithSingleActionButton from "./ModalSingleActionButton";
+
 const ModalWithSingleActionButtonMeta: Meta<typeof ModalWithSingleActionButton> = {
   title: "Modal With single Action Button",
   component: ModalWithSingleActionButton,

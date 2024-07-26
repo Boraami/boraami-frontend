@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { TagField } from "./Tags";
+import TagField from "./Tags";
 
 const TagMeta: Meta<typeof TagField> = {
   title: "Tags",

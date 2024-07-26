@@ -17,7 +17,7 @@ type QuotedNotificationProps = {
   quotedPostImg: string;
 };
 
-export default function QuotedNotification({
+const QuotedNotification = ({
   iconName,
   displayName,
   userName,
@@ -28,7 +28,7 @@ export default function QuotedNotification({
   quotedDisplayName,
   quotedPostText,
   quotedPostImg,
-}: QuotedNotificationProps) {
+}: QuotedNotificationProps) => {
   return (
     <>
       <XStack flexDirection="column">
@@ -98,4 +98,6 @@ export default function QuotedNotification({
       <Separator borderColor={"$boraami.100"} />
     </>
   );
-}
+};
+
+export default QuotedNotification;

@@ -151,7 +151,7 @@ export interface BtnFieldProps {
 
 type CustomBtnFieldProps = BtnFieldProps & CustomBtnProps;
 
-export const BtnField = (props: CustomBtnFieldProps) => {
+const BtnField = (props: CustomBtnFieldProps) => {
   const [isActive, setIsActive] = useState(false);
 
   const handlePressIn = () => {
@@ -245,3 +245,5 @@ export const BtnField = (props: CustomBtnFieldProps) => {
     </Button>
   );
 };
+
+export default BtnField;

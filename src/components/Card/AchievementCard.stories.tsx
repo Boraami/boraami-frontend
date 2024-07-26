@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { AchievementCard } from "./AchievementCard";
+import AchievementCard from "./AchievementCard";
 
 const AchievementMeta: Meta<typeof AchievementCard> = {
   title: "AchievementCard",

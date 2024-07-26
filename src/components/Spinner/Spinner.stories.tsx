@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import { SpinnerComp } from "./Spinner";
+import SpinnerComp from "./Spinner";
 
 const SpinnerMeta: Meta<typeof SpinnerComp> = {
   title: "Spinner",

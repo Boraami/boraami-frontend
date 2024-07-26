@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Meta } from "@storybook/react-native";
-import { ShortAlert } from "./ShortAlert";
+import ShortAlert from "./ShortAlert";
 import { toast } from "@backpackapp-io/react-native-toast";
 import { Dimensions, View } from "react-native";
 

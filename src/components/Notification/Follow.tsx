@@ -10,12 +10,7 @@ type FollowProps = {
   dateTime: string;
 };
 
-export default function FollowNotification({
-  iconName,
-  displayName,
-  userName,
-  dateTime,
-}: FollowProps) {
+const FollowNotification = ({ iconName, displayName, userName, dateTime }: FollowProps) => {
   return (
     <>
       <XStack gap={12} padding={10}>
@@ -56,4 +51,6 @@ export default function FollowNotification({
       <Separator borderColor={"$boraami.100"} />
     </>
   );
-}
+};
+
+export default FollowNotification;

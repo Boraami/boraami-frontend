@@ -1,3 +1,4 @@
+import React from "react";
 import { Label, RadioGroup, XStack, YStack } from "tamagui";
 import { FontAwesome } from "@expo/vector-icons";
 import { Platform } from "react-native";
@@ -39,7 +40,7 @@ type Props = {
   labelText: string;
 };
 
-export default function RadioItem({ value, disable, size, labelText }: Props) {
+const RadioItem = ({ value, disable, size, labelText }: Props) => {
   const id = `radiogroup-${value}`;
   return (
     <XStack>
@@ -97,4 +98,6 @@ export default function RadioItem({ value, disable, size, labelText }: Props) {
       </YStack>
     </XStack>
   );
-}
+};
+
+export default RadioItem;
