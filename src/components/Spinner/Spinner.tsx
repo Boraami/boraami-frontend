@@ -23,20 +23,20 @@ type SpinnerSizesProps = {
 
 const spinnerSizes: SpinnerSizesProps = {
   xs: {
-    width: 12,
-    height: 12,
+    width: 30,
+    height: 30,
   },
   sm: {
-    width: 16,
-    height: 16,
+    width: 36,
+    height: 36,
   },
   md: {
-    width: 20,
-    height: 20,
+    width: 40,
+    height: 40,
   },
   lg: {
-    width: 28,
-    height: 28,
+    width: 48,
+    height: 48,
   },
 };
 
