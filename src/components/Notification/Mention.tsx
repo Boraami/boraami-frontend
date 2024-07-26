@@ -1,7 +1,7 @@
 import React from "react";
 import { XStack, YStack, SizableText, Separator } from "tamagui";
 import { FontAwesome } from "@expo/vector-icons";
-import Badge from "./Badges";
+import Badge from "../Badge/Badge";
 
 type MentionProps = {
   displayName: string;

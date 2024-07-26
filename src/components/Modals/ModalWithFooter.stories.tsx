@@ -18,7 +18,7 @@ const ModalWithFooterMeta: Meta<typeof ModalWithFooter> = {
 
 export default ModalWithFooterMeta;
 
-export const Modal1 = {
+export const Modal = {
   args: {
     modeltitle: "Title",
     btn1text: "Cancel",

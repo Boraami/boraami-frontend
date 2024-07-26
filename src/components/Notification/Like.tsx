@@ -2,7 +2,7 @@ import React from "react";
 import { XStack, YStack, SizableText, Separator } from "tamagui";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Icon from "../Icon/Icon";
-import Badge from "./Badges";
+import Badge from "../Badge/Badge";
 
 type LikeProps = {
   displayName: string;

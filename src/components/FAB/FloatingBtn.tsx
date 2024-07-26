@@ -20,42 +20,34 @@ const FAButton: React.FC<CustomBtnProps> = (props) => <StyledBtn {...props} />;
 
 type BtnSizeProps = {
   [key: string]: {
-    height: number;
     paddingHorizontal: number;
     gap: number;
     txtSize: FontSizeTokens;
     iconSize: number;
-    lineHeight: number;
     borderRadius: number;
   };
 };
 
 const btnSizes: BtnSizeProps = {
   sm: {
-    height: 24,
     paddingHorizontal: 8,
     gap: -3,
     txtSize: "$sm",
     iconSize: 8,
-    lineHeight: 12,
     borderRadius: 90,
   },
   md: {
-    height: 36,
     paddingHorizontal: 16,
     gap: -1,
     txtSize: "$md",
     iconSize: 15,
-    lineHeight: 16,
     borderRadius: 90,
   },
   lg: {
-    height: 60,
     paddingHorizontal: 24,
     gap: 0,
     txtSize: "$lg",
     iconSize: 19,
-    lineHeight: 18,
     borderRadius: 90,
   },
 };
@@ -155,7 +147,7 @@ export const FloatingBtnField = (props: ButtonProps) => {
         name={name}
         gap={btnSizes[size].gap}
         scaleIcon={size === "sm" ? 0.6 : 1}
-        height={btnSizes[size].height}
+        // height={btnSizes[size].height}
         borderRadius={btnSizes[size].borderRadius}
         borderColor={borderC}
         borderWidth={width}
@@ -166,7 +158,6 @@ export const FloatingBtnField = (props: ButtonProps) => {
         <SizableText
           fontFamily={"$btn"}
           textAlign={"center"}
-          lineHeight={btnSizes[size].lineHeight}
           color={"white"}
           size={btnSizes[size].txtSize}
           top={0.1}

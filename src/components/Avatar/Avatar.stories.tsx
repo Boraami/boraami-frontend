@@ -19,7 +19,7 @@ const AvatarUserProfileMeta: Meta<typeof AvatarUserProfile> = {
 
 export default AvatarUserProfileMeta;
 
-export const AvatarUser1 = {
+export const AvatarUser = {
   args: {
     AvatarText: "FA",
   },

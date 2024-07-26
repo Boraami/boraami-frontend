@@ -27,7 +27,7 @@ const ButtonMeta: Meta<typeof BtnField> = {
 
 export default ButtonMeta;
 
-export const pri_small = {
+export const prSmall = {
   args: {
     name: "primary",
     primary: "normal",
@@ -38,7 +38,7 @@ export const pri_small = {
   },
 };
 
-export const sec_small = {
+export const secSmall = {
   args: {
     name: "secondary",
     secondary: "normal",
@@ -47,7 +47,7 @@ export const sec_small = {
   },
 };
 
-export const ter_small = {
+export const terSmall = {
   args: {
     name: "tertiary",
     tertiary: "normal",
@@ -56,7 +56,7 @@ export const ter_small = {
   },
 };
 
-export const pri_medium = {
+export const priMedium = {
   args: {
     name: "primary",
     primary: "normal",
@@ -65,7 +65,7 @@ export const pri_medium = {
   },
 };
 
-export const sec_medium = {
+export const secMedium = {
   args: {
     name: "secondary",
     secondary: "normal",
@@ -74,7 +74,7 @@ export const sec_medium = {
   },
 };
 
-export const ter_medium = {
+export const terMedium = {
   args: {
     name: "tertiary",
     tertiary: "normal",
@@ -83,7 +83,7 @@ export const ter_medium = {
   },
 };
 
-export const pri_large = {
+export const priLarge = {
   args: {
     name: "primary",
     primary: "disabled",
@@ -94,7 +94,7 @@ export const pri_large = {
   },
 };
 
-export const sec_large = {
+export const secLarge = {
   args: {
     name: "secondary",
     secondary: "disabled",
@@ -104,7 +104,7 @@ export const sec_large = {
   },
 };
 
-export const ter_large = {
+export const terLarge = {
   args: {
     name: "tertiary",
     tertiary: "disabled",

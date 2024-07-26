@@ -28,7 +28,7 @@ const InputMeta: Meta<typeof FormInput> = {
 
 export default InputMeta;
 
-export const Default_2xl = {
+export const default2xl = {
   args: {
     name: "default",
     placeholder: "Default",
@@ -36,7 +36,7 @@ export const Default_2xl = {
   },
 };
 
-export const Disabled_xl = {
+export const disabledXl = {
   args: {
     name: "disabled",
     placeholder: "Disabled",
@@ -47,7 +47,7 @@ export const Disabled_xl = {
   },
 };
 
-export const Error_lg = {
+export const errorLg = {
   args: {
     name: "error",
     placeholder: "Error",
@@ -56,7 +56,7 @@ export const Error_lg = {
   },
 };
 
-export const Label_HelperText_md = {
+export const labelHelpertextMd = {
   args: {
     name: "labelled",
     placeholder: "Labelled Input",
@@ -67,7 +67,7 @@ export const Label_HelperText_md = {
   },
 };
 
-export const Label_sm = {
+export const labelSm = {
   args: {
     name: "labelled",
     placeholder: "Labelled Input",

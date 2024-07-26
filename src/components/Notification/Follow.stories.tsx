@@ -5,11 +5,11 @@ import FollowNotification from "./Follow";
 import LikeNotification from "./Like";
 import MentionNotification from "./Mention";
 import QuotedNotification from "./Quoted";
-import { reposted_noti } from "./Quoted.stories";
+import { repostedNoti } from "./Quoted.stories";
 import ReplyNotification from "./Reply";
-import { replied_noti } from "./Reply.stories";
-import { mentioned_noti } from "./Mention.stories";
-import { liked_noti } from "./Like.stories";
+import { repliedNoti } from "./Reply.stories";
+import { mentionedNoti } from "./Mention.stories";
+import { likedNoti } from "./Like.stories";
 import { ScrollView } from "tamagui";
 
 const FollowNotificationMeta: Meta<typeof FollowNotification> = {
@@ -21,10 +21,10 @@ const FollowNotificationMeta: Meta<typeof FollowNotification> = {
     (Story) => (
       <ScrollView flex={1}>
         <Story />
-        <LikeNotification {...liked_noti.args} />
-        <MentionNotification {...mentioned_noti.args} />
-        <ReplyNotification {...replied_noti.args} />
-        <QuotedNotification {...reposted_noti.args} />
+        <LikeNotification {...likedNoti.args} />
+        <MentionNotification {...mentionedNoti.args} />
+        <ReplyNotification {...repliedNoti.args} />
+        <QuotedNotification {...repostedNoti.args} />
       </ScrollView>
     ),
   ],
@@ -32,7 +32,7 @@ const FollowNotificationMeta: Meta<typeof FollowNotification> = {
 
 export default FollowNotificationMeta;
 
-export const all_notifications = {
+export const allNotifications = {
   args: {
     iconName: "user-large",
     displayName: "Luna",

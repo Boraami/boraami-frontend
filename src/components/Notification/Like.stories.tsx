@@ -19,7 +19,7 @@ const LikeNotificationMeta: Meta<typeof LikeNotification> = {
 
 export default LikeNotificationMeta;
 
-export const liked_noti = {
+export const likedNoti = {
   args: {
     displayName: "Alice Smith ",
     userName: "@alicesmith",

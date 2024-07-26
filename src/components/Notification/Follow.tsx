@@ -1,7 +1,7 @@
 import React from "react";
 import { XStack, YStack, SizableText, Separator } from "tamagui";
 import Icon from "../Icon/Icon";
-import Badge from "./Badges";
+import Badge from "../Badge/Badge";
 
 type FollowProps = {
   iconName: string;
@@ -18,10 +18,7 @@ export default function FollowNotification({
 }: FollowProps) {
   return (
     <>
-      <XStack
-        gap={12}
-        padding={10}
-      >
+      <XStack gap={12} padding={10}>
         <Icon name={iconName} size={17} style={{ paddingTop: 10 }} color={"#AA7AFF"} />
         <YStack gap={4} width={"90%"}>
           <XStack justifyContent="space-between" paddingTop={5}>

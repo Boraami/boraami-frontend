@@ -19,7 +19,7 @@ const MentionNotificationMeta: Meta<typeof MentionNotification> = {
 
 export default MentionNotificationMeta;
 
-export const mentioned_noti = {
+export const mentionedNoti = {
   args: {
     displayName: "Luna",
     userName: "@Lunandseokjin7",

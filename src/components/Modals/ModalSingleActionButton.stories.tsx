@@ -18,7 +18,7 @@ const ModalWithSingleActionButtonMeta: Meta<typeof ModalWithSingleActionButton> 
 
 export default ModalWithSingleActionButtonMeta;
 
-export const Modal1 = {
+export const Modal = {
   args: {
     modeltitle: "Application Recieved",
     btnText: "Alright",

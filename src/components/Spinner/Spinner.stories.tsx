@@ -25,25 +25,25 @@ const SpinnerMeta: Meta<typeof SpinnerComp> = {
 
 export default SpinnerMeta;
 
-export const spinner_xs = {
+export const spinnerXs = {
   args: {
     size: "xs",
   },
 };
 
-export const spinner_small = {
+export const spinnerSmall = {
   args: {
     size: "sm",
   },
 };
 
-export const spinner_medium = {
+export const spinnerMedium = {
   args: {
     size: "md",
   },
 };
 
-export const spinner_large = {
+export const spinnerLarge = {
   args: {
     size: "lg",
   },

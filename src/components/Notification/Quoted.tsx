@@ -1,8 +1,8 @@
 import React from "react";
 import { XStack, YStack, SizableText, Separator } from "tamagui";
 import Icon from "../Icon/Icon";
-import Badge from "./Badges";
-import QuotedPost from "../Post/QuotedPost";
+import Badge from "../Badge/Badge";
+import QuotedPost from "../Post/Post";
 
 type QuotedNotificationProps = {
   iconName: string;
