@@ -17,7 +17,8 @@ import React, { useState } from "react";
 
 type Props = {
   title: string;
-  name: string;
+  dialogText: string;
+  highlightedText: string;
   btnText: string;
   closeBtnText: string;
   btnStyles: BtnFieldProps;
@@ -26,7 +27,8 @@ type Props = {
 
 export const WarningDialog = ({
   title,
-  name,
+  dialogText,
+  highlightedText,
   btnText,
   closeBtnText,
   btnStyles,
@@ -122,16 +124,17 @@ export const WarningDialog = ({
                 <Separator borderColor={"$error-alert-outline"} />
                 <XStack style={{ width: "100%", padding: 16 }}>
                   <SizableText lineHeight={22} color="$error-alert-title-text" fontSize={14}>
-                    This will remove all data relating to {name}. This action cannot be reversed.
-                    <SizableText
-                      color="$error-alert-highlighted-text"
-                      fontFamily="$OpenSansBold"
-                      fontSize={14}
-                    >
-                      {" "}
-                      Deleted data cannot be recovered
-                    </SizableText>
-                    .
+                    {dialogText}
+                    {highlightedText !== "" && (
+                      <SizableText
+                        color="$error-alert-highlighted-text"
+                        fontFamily="$OpenSansBold"
+                        fontSize={14}
+                      >
+                        {" "}
+                        {highlightedText}
+                      </SizableText>
+                    )}
                   </SizableText>
                 </XStack>
                 <Separator borderColor={"$error-alert-outline"} />

@@ -22,7 +22,8 @@ export default WarningDialogMeta;
 export const Default = {
   args: {
     title: "Delete Customer",
-    name: "Sun",
+    dialogText: "This will remove all data relating to Alex. This action cannot be reversed.",
+    highlightedText: " Deleted data can not be recovered.",
     closeBtnText: "Cancel",
     btnText: "Delete",
     handleAction: () => {
