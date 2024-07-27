@@ -27,6 +27,9 @@ export {
 } from "expo-router";
 import "../tamagui.css";
 import "@tamagui/core/reset.css";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Toasts } from "@backpackapp-io/react-native-toast";
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
@@ -52,12 +55,17 @@ export default function App() {
     return null;
   }
   return (
-    <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        {Constants.expoConfig?.extra?.storybookEnabled ? <Storybook /> : <Tabs />}
-        {/* <Stack screenOptions={{ headerShown: false }}>
+    <SafeAreaProvider>
+      <GestureHandlerRootView>
+        <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
+          <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+            {Constants.expoConfig?.extra?.storybookEnabled ? <Storybook /> : <Tabs />}
+            {/* <Stack screenOptions={{ headerShown: false }}>
         </Stack> */}
-      </ThemeProvider>
-    </TamaguiProvider>
+            <Toasts />
+          </ThemeProvider>
+        </TamaguiProvider>
+      </GestureHandlerRootView>
+    </SafeAreaProvider>
   );
 }
