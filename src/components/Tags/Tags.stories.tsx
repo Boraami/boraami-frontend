@@ -31,6 +31,9 @@ export const info_md = {
     size: "md",
     txt: "INFO",
     showIcon: true,
+    handleAction: () => {
+      alert("Filter info");
+    },
   },
 };
 
