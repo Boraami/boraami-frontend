@@ -76,7 +76,7 @@ const ModalWithFooter = ({
               <YStack width={350}>
                 <Image
                   source={{
-                    uri: require("../../media/images/sitting1.png"),
+                    uri: require("../../assets/Modals/sitting1.png"),
                   }}
                   width={59}
                   height={51}
