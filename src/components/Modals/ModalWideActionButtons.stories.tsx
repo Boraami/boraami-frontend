@@ -25,6 +25,7 @@ export const ModalWithImage = {
     btn1text: "Cancel",
     btn2text: "Button",
     alignment: "image",
+    imgSource: require("../../assets/Modals/mnet-image.png"),
     btnStyles: {
       txt: "Open Modal",
       primary: "normal",

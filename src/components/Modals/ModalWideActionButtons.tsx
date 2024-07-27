@@ -4,6 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Button, Adapt, Dialog, Sheet } from "tamagui";
 import { useState } from "react";
 import BtnField, { BtnFieldProps } from "../Button/Button";
+import { ImageSourcePropType } from "react-native";
 
 type Props = {
   modeltitle: string;
@@ -12,6 +13,7 @@ type Props = {
   btn2text: string;
   closeBtnText: string;
   btnStyles: BtnFieldProps;
+  imgSource: ImageSourcePropType;
   alignment: string;
   handleAction?: (...args: any[]) => void; // since there could be any action attached to btn
 };
@@ -21,6 +23,7 @@ const ModalWideActionBtns = ({
   btn1text,
   btn2text,
   alignment,
+  imgSource,
   btnStyles,
   handleAction,
 }: Props) => {
@@ -174,13 +177,7 @@ const ModalWideActionBtns = ({
                       paddingVertical={14}
                       justifyContent="center"
                     >
-                      <Image
-                        source={{
-                          uri: require("../../assets/Modals/mnet-image.png"),
-                        }}
-                        width={220}
-                        height={98}
-                      />
+                      <Image source={imgSource} width={220} height={98} />
                     </XStack>
                   </>
                 ) : null}
