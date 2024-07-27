@@ -173,11 +173,18 @@ const ModalWideActionBtns = ({
                     </XStack>
                     <XStack
                       backgroundColor={"$error-alert-fill"}
-                      width={350}
                       paddingVertical={14}
                       justifyContent="center"
+                      alignItems="center"
                     >
-                      <Image source={imgSource} width={220} height={98} />
+                      <Image
+                        source={imgSource}
+                        maxWidth={350}
+                        maxHeight={110}
+                        objectFit="contain"
+                        aspectRatio={2.6} // taking mnet-img aspect ratio 250/96 as standard
+                        resizeMode="contain" // just objectFit doesnt work without this atm so its tamagui problem
+                      />
                     </XStack>
                   </>
                 ) : null}
