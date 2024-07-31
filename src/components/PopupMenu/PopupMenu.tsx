@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { XStack, Button, SizableText } from "tamagui";
+import React from "react";
+import { Adapt, Button, Input, Label, Popover, SizableText, Text, XStack, YStack } from "tamagui";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import Icon from "../Icon/Icon";
 
@@ -11,34 +11,41 @@ type Props = {
   handleAction?: (...args: any[]) => void;
 };
 
-export function OverflowMenu({ data, handleAction }: Props) {
-  const [visibility, setVisibility] = useState(false);
-  const handleResponderRelease = () => {
-    setVisibility(!visibility);
-  };
-  const someAction = (message: string) => {
-    handleAction && handleAction();
-    alert(message);
-  };
-  /*upon use of component in a screen onStartShouldSetResponder={() => true} and onResponderRelease={handleResponderRelease}
-should be given to the parent component in order for the menu to disappear anywhere on the screen*/
+const PopupMenu = ({ data }: Props) => {
   return (
-    <XStack
-      flexDirection="column"
-      padding={2}
-      onStartShouldSetResponder={() => true}
-      onResponderRelease={handleResponderRelease}
-    >
-      <Button
-        alignSelf="flex-start"
-        justifyContent="flex-start"
-        height={32}
-        paddingHorizontal={4}
-        onPress={() => setVisibility(!visibility)}
+    <Popover placement="bottom" allowFlip>
+      <Popover.Trigger asChild>
+        <Button
+          alignSelf="flex-start"
+          justifyContent="flex-start"
+          height={32}
+          padding={4}
+          icon={<SimpleLineIcons name="options-vertical" size={20} color="#8F66D6" />}
+        />
+      </Popover.Trigger>
+
+      <Popover.Sheet modal>
+        <Popover.Sheet.Frame />
+        <Popover.Sheet.Overlay
+          animation="lazy"
+          enterStyle={{ opacity: 0 }}
+          exitStyle={{ opacity: 0 }}
+        />
+      </Popover.Sheet>
+
+      <Popover.Content
+        enterStyle={{ y: -10, opacity: 0 }}
+        exitStyle={{ y: -10, opacity: 0 }}
+        elevate
+        animation={[
+          "quick",
+          {
+            opacity: {
+              overshootClamping: true,
+            },
+          },
+        ]}
       >
-        <SimpleLineIcons name="options-vertical" size={24} color="#8F66D6" />
-      </Button>
-      {visibility ? (
         <XStack
           flexDirection="column"
           borderRadius={4}
@@ -56,7 +63,7 @@ should be given to the parent component in order for the menu to disappear anywh
                   alignItems="center"
                   padding={0}
                   key={`${item.menuText}-${i}`}
-                  onPress={() => someAction(`${item.menuText}`)}
+                  // onPress={() => someAction(`${item.menuText}`)}
                 >
                   <XStack width={20} height={20} paddingTop={2}>
                     <Icon name={item.iconName} size={15} color="#F7F3FF" style={{}} />
@@ -75,7 +82,9 @@ should be given to the parent component in order for the menu to disappear anywh
             }
           })}
         </XStack>
-      ) : null}
-    </XStack>
+      </Popover.Content>
+    </Popover>
   );
-}
+};
+
+export default PopupMenu;
