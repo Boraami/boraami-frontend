@@ -8,6 +8,9 @@ const popupMenuItems = [
   {
     menuText: "Report ",
     iconName: "flag",
+    handleAction: () => {
+      alert("works");
+    },
   },
   {
     menuText: "Mute user",
@@ -28,7 +31,13 @@ const PopupMenuMeta: Meta<typeof PopupMenu> = {
   },
   decorators: [
     (Story) => (
-      <View flex={1} justifyContent="center" height={"100%"} alignItems="flex-end">
+      <View
+        flex={1}
+        paddingRight={20}
+        justifyContent="center"
+        height={"100%"}
+        alignItems="flex-end"
+      >
         <YStack height={"100%"} justifyContent="space-between" alignItems="flex-end">
           <Story />
           <Story />
@@ -40,4 +49,8 @@ const PopupMenuMeta: Meta<typeof PopupMenu> = {
 
 export default PopupMenuMeta;
 
-export const menu = {};
+export const menu = {
+  args: {
+    offsetX: -18,
+  },
+};

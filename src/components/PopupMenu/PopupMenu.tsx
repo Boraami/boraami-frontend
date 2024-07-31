@@ -1,19 +1,39 @@
-import React from "react";
-import { Adapt, Button, Input, Label, Popover, SizableText, Text, XStack, YStack } from "tamagui";
+import React, { useState } from "react";
+import {
+  Button,
+  Popover,
+  SizableText,
+  XStack,
+} from "tamagui";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import Icon from "../Icon/Icon";
+
+type handleBtnAction = (...args: any[]) => void;
 
 type Props = {
   data: {
     menuText: string;
     iconName: string;
+    handleAction?: handleBtnAction;
   }[];
-  handleAction?: (...args: any[]) => void;
+  offsetX: number;
 };
 
-const PopupMenu = ({ data }: Props) => {
+const PopupMenu = ({ data, offsetX }: Props) => {
+  const [isPopupOpen, setPopupOpen] = useState(false);
+
+  const handleBtnAction = (handleAction?: handleBtnAction) => {
+    setPopupOpen(false);
+    handleAction && handleAction();
+  };
   return (
-    <Popover placement="bottom" allowFlip>
+    <Popover
+      placement="bottom"
+      allowFlip
+      offset={{ crossAxis: offsetX }}
+      open={isPopupOpen}
+      onOpenChange={setPopupOpen}
+    >
       <Popover.Trigger asChild>
         <Button
           alignSelf="flex-start"
@@ -63,7 +83,7 @@ const PopupMenu = ({ data }: Props) => {
                   alignItems="center"
                   padding={0}
                   key={`${item.menuText}-${i}`}
-                  // onPress={() => someAction(`${item.menuText}`)}
+                  onPress={() => handleBtnAction(item?.handleAction)}
                 >
                   <XStack width={20} height={20} paddingTop={2}>
                     <Icon name={item.iconName} size={15} color="#F7F3FF" style={{}} />
