@@ -135,14 +135,6 @@ const PopupMenu = ({ data, title, sheetHeightPerc, offsetX }: MenuProps) => {
           backgroundColor={"$overflow-bg-color"}
         >
           {isWeb ? null : (
-            // <Separator
-            //   borderColor="$boraami.500"
-            // borderWidth={2}
-            // marginBottom={16}
-            // width={74}
-            // borderRadius={"$r-strong"}
-            // alignSelf="center"
-            // />
             <Divider
               borderColor="$boraami.500"
               borderWidth={2}
