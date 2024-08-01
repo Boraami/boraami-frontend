@@ -51,6 +51,15 @@ export default PopupMenuMeta;
 
 export const menu = {
   args: {
+    sheetHeightPerc: 35,
+    offsetX: -18,
+  },
+};
+
+export const menuWithTitle = {
+  args: {
+    title: "Popup Menu",
+    sheetHeightPerc: 40,
     offsetX: -18,
   },
 };
