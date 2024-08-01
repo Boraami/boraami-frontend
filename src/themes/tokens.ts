@@ -10,7 +10,7 @@ const radius = {
   "r-full": 64,
 };
 
-const spacing = {
+const space = {
   "s-3xs": 2,
   "s-2xs": 4,
   "s-xs": 8,
@@ -25,8 +25,14 @@ const spacing = {
 
 export const tokens = createTokens({
   ...tamaguiTokens,
-  radius,
-  spacing,
+  radius: {
+    ...tamaguiTokens.radius,
+    ...radius,
+  },
+  space: {
+    ...tamaguiTokens.space,
+    ...space,
+  },
   boraami: colorScheme.boraami,
   bwl: colorScheme.bwl,
   serendipity: colorScheme.serendipity,

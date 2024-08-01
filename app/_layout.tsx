@@ -55,17 +55,17 @@ export default function App() {
     return null;
   }
   return (
-    <SafeAreaProvider>
-      <GestureHandlerRootView>
-        <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
-          <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-            {Constants.expoConfig?.extra?.storybookEnabled ? <Storybook /> : <Tabs />}
-            {/* <Stack screenOptions={{ headerShown: false }}>
-        </Stack> */}
-            <Toasts />
-          </ThemeProvider>
-        </TamaguiProvider>
-      </GestureHandlerRootView>
-    </SafeAreaProvider>
+      <SafeAreaProvider>
+        <GestureHandlerRootView>
+          <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
+            <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+              {Constants.expoConfig?.extra?.storybookEnabled ? <Storybook /> : <Tabs />}
+              {/* <Stack screenOptions={{ headerShown: false }}>
+          </Stack> */}
+              <Toasts />
+            </ThemeProvider>
+          </TamaguiProvider>
+        </GestureHandlerRootView>
+      </SafeAreaProvider>
   );
 }

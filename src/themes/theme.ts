@@ -264,11 +264,18 @@ const light = {
   "badge-bg-color": colorScheme.boraami[700],
   "large-badge-text": colorScheme.butter[50],
   // Divider component
-  subtle: colorScheme.boraami[100],
-  Strong: colorScheme.mono[400],
-  //overflowMenu component
-  "overflow-bg-color": colorScheme.boraami[700],
-  "text-icon-color": colorScheme.boraami[50],
+  "divider-subtle": colorScheme.boraami[100],
+  "divider-strong": colorScheme.mono[400],
+  //Overflow Menu component
+  "popup-sheet-title": colorScheme.mono[500],
+  "overflow-bg-color": colorScheme.boraami[50],
+  "pressed-state-bg": colorScheme.boraami[200],
+  "text-icon-color": colorScheme.boraami[500],
+  "default-state-text": colorScheme.mono[900],
+  "pressed-state-text": colorScheme.mono[900],
+  "focused-state-bg": colorScheme.boraami[300],
+  "hover-state-bg": colorScheme.boraami[200],
+  "disable-popup-btn": colorScheme.mono[500],
   //Overlay component
   "overlay-bg-color": colorScheme.mono[400],
   //Nav Bar component
@@ -518,11 +525,18 @@ const dark: BaseTheme = {
   "badge-bg-color": colorScheme.boraami[500],
   "large-badge-text": colorScheme.butter[50],
   // Divider component
-  subtle: colorScheme.boraami[400],
-  Strong: colorScheme.boraami[100],
+  "divider-subtle": colorScheme.boraami[400],
+  "divider-strong": colorScheme.boraami[100],
   // Overflow menu component
-  "overflow-bg-color": colorScheme.boraami[500],
-  "text-icon-color": colorScheme.boraami[50],
+  "popup-sheet-title": colorScheme.mono[400],
+  "overflow-bg-color": colorScheme.boraami[900],
+  "pressed-state-bg": colorScheme.boraami[800],
+  "text-icon-color": colorScheme.boraami[500],
+  "default-state-text": colorScheme.boraami[50],
+  "pressed-state-text": colorScheme.boraami[50],
+  "focused-state-bg": colorScheme.boraami[600],
+  "hover-state-bg": colorScheme.boraami[600],
+  "disable-popup-btn": colorScheme.mono[400],
   //Overlay component
   "overlay-bg-color": colorScheme.mono[400],
   //Nav Bar component
