@@ -99,7 +99,12 @@ const PopupMenu = ({ data, title, sheetHeightPerc, offsetX }: MenuProps) => {
         />
       </Popover.Trigger>
       <Adapt when="sm" platform="touch">
-        <Popover.Sheet modal dismissOnSnapToBottom snapPoints={[sheetHeightPerc]}>
+        <Popover.Sheet
+          modal
+          dismissOnSnapToBottom
+          dismissOnOverlayPress
+          snapPoints={[sheetHeightPerc]}
+        >
           <Popover.Sheet.Overlay
             backgroundColor={"#B48BFF33"}
             animation="lazy"
@@ -148,7 +153,7 @@ const PopupMenu = ({ data, title, sheetHeightPerc, offsetX }: MenuProps) => {
             <SizableText
               color="$popup-sheet-title"
               fontFamily="$body"
-              fontSize={"$sm"}
+              fontSize={"$md"}
               padding={10}
               paddingHorizontal={16}
             >
