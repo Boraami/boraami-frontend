@@ -1,19 +1,19 @@
 import React from "react";
-import { View, styled } from "tamagui";
+import { Separator, ViewProps } from "tamagui";
 
-const Divider = styled(View, {
-  borderColor: "$subtle",
-  width: 420,
-  borderWidth: "1",
-});
-
-type Props = {
-  vertical: boolean;
-  borderColor: string;
+const Divider = ({ borderColor = "$divider-subtle", ...rest }: ViewProps) => {
+  return (
+    <Separator
+      borderColor={
+        borderColor === "subtle"
+          ? "$divider-subtle"
+          : borderColor === "strong"
+          ? "$divider-strong"
+          : borderColor
+      }
+      {...rest}
+    />
+  );
 };
 
-const Dividers = ({ borderColor }: Props) => {
-  return <Divider borderColor={borderColor} />;
-};
-
-export default Dividers;
+export default Divider;

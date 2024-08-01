@@ -1,18 +1,19 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import Dividers from "./Divider";
+import Divider from "./Divider";
+import { SizableText } from "tamagui";
 
-const DividerMeta: Meta<typeof Dividers> = {
+const DividerMeta: Meta<typeof Divider> = {
   title: "Divider",
-  component: Dividers,
-  argTypes: {},
+  component: Divider,
   args: {
-    borderColor: "$subtle",
+    width: "100%",
   },
   decorators: [
     (Story) => (
-      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
+      <View style={{ alignItems: "center", justifyContent: "center", flex: 1, width: "100%" }}>
+        <SizableText color={"$text-icon-color"}>Hello There </SizableText>
         <Story />
       </View>
     ),
@@ -21,10 +22,17 @@ const DividerMeta: Meta<typeof Dividers> = {
 
 export default DividerMeta;
 
-export const LightColor = {};
+export const lightColor = {};
 
-export const NeutralColor = {
+export const neutralColor = {
   args: {
-    borderColor: "$Strong",
+    borderColor: "strong",
+    width: "100%",
+  },
+};
+
+export const anyColor = {
+  args: {
+    borderColor: "$bwl.500",
   },
 };
