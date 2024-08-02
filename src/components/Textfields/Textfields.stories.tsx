@@ -11,6 +11,8 @@ export const TextfieldsMeta: Meta<typeof Textfields> = {
       "Default input. Maximum height of container to occupy only 5 lines of input texts. Provide a scroll post 5 lines.",
     helperText: "Helper Text",
     maxLength: 1000,
+    width:350,
+    height:136,
     disabled: false,
     backgroundColor: "$default-textbox-fill",
     color: "$default-textbox-text",

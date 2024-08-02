@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { XStack, YStack, styled, TextArea, SizableText, TextAreaProps } from "tamagui";
+import {  useColorScheme } from "react-native";
+import { colorScheme } from "../../themes/theme";
 
 interface TextBoxProps extends TextAreaProps {
   error?: boolean;
@@ -9,21 +11,23 @@ const CustomTextBox: React.FC<TextBoxProps> = (props) => <StyledTextbox {...prop
 
 type Props = {
   name: "default";
+  width: number,
+  height: number,
+  value: string,
   helperText: string;
   placeholder: string;
-  maxLength?: number;
-  onChangeText?: () => void;
+  maxLength: number;
+  onChangeText?: (text: string) => void;
   onChange?: () => void;
   opacity?: number;
   disabled?: boolean;
   editable?: boolean;
   selectTextOnFocus?: boolean;
   error?: boolean;
+  count:number;
 };
 
 const StyledTextbox = styled(TextArea, {
-  height: 136,
-  width: 350,
   borderRadius: 6,
   borderWidth: 1,
   placeholderTextColor: "$placeholder-textbox-text",
@@ -50,6 +54,10 @@ const StyledTextbox = styled(TextArea, {
 
 const Textfields = ({
   name,
+  width,
+  height,
+  value,
+  count,
   maxLength,
   placeholder,
   helperText,
@@ -60,13 +68,13 @@ const Textfields = ({
   error,
   ...rest
 }: Props) => {
-  const [count, setCount] = useState(0);
-  const [input, setInput] = useState("");
   const [index, setIndex] = useState(0);
+  
+  const theme = useColorScheme();
+  const isDarkTheme = theme === "dark";
+  const errorColor = isDarkTheme ? colorScheme.bwl[500] : colorScheme.bwl[700];
 
   const handleOnChangeText = (text: string) => {
-    setInput(text);
-    setCount(text.length);
   };
 
   const stateTextColor = disabled
@@ -77,8 +85,13 @@ const Textfields = ({
     <YStack>
       <CustomTextBox
         aria-label={name}
-        value={input}
+        value={value}//input
         editable={editable}
+        textAlignVertical="top"
+        height={height}
+        size={'$sm'}
+        lineHeight={21}
+        width={width}
         placeholder={placeholder}
         selectTextOnFocus={selectTextOnFocus}
         onChangeText={handleOnChangeText}
@@ -89,11 +102,11 @@ const Textfields = ({
         onBlur={() => setIndex(0)}
         {...rest}
       />
-      <XStack flexDirection="row" justifyContent="space-between">
+      <XStack flexDirection="row" width={width} justifyContent="space-between">
         <SizableText color={stateTextColor} size={"$sm"}>
           {helperText}
         </SizableText>
-        <SizableText color={stateTextColor} size={"$sm"}>
+        <SizableText color={count>maxLength?errorColor:stateTextColor} size={"$sm"}>
           {count}/{maxLength}
         </SizableText>
       </XStack>

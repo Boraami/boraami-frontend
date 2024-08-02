@@ -342,6 +342,16 @@ const light = {
   "avatar-btn-border": colorScheme.boraami[500],
   "avatar-btn-text": colorScheme.boraami[50],
   "avatar-divider": colorScheme.boraami[400],
+  //reply-post
+  "post-replying-to-text": colorScheme.boraami[100],
+  "post-comment-bg-color": colorScheme.mono[800],
+  "post-placeholder-textbox-fill": colorScheme.boraami[50],
+  "post-placeholder-textbox-border": colorScheme.boraami[200],
+  "post-placeholder-textbox-text": colorScheme.boraami[500],
+  "post-placeholder-helper-text": colorScheme.mono[600],
+  "post-disabled-btn-fill": colorScheme.mono[400],
+  "post-disabled-btn-text": colorScheme.mono[100],
+
 };
 // note: we set up a single consistent base type to validate the rest
 
@@ -604,6 +614,15 @@ const dark: BaseTheme = {
   "avatar-btn-border": colorScheme.boraami[500],
   "avatar-btn-text": colorScheme.boraami[50],
   "avatar-divider": colorScheme.boraami[400],
+  //reply-post
+  "post-replying-to-text": colorScheme.boraami[800],
+  "post-comment-bg-color": colorScheme.butter[50],
+  "post-placeholder-textbox-fill": colorScheme.boraami[900],
+  "post-placeholder-textbox-border": colorScheme.boraami[300],
+  "post-placeholder-textbox-text": colorScheme.boraami[500],
+  "post-placeholder-helper-text": colorScheme.mono[300],
+  "post-disabled-btn-fill": colorScheme.mono[400],
+  "post-disabled-btn-text": colorScheme.mono[100],
 };
 
 const allThemes = {
