@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { XStack, YStack, styled, TextArea, SizableText, TextAreaProps } from "tamagui";
-import {  useColorScheme } from "react-native";
+import { useColorScheme } from "react-native";
 import { colorScheme } from "../../themes/theme";
 
 interface TextBoxProps extends TextAreaProps {
@@ -9,22 +9,20 @@ interface TextBoxProps extends TextAreaProps {
 
 const CustomTextBox: React.FC<TextBoxProps> = (props) => <StyledTextbox {...props} />;
 
-type Props = {
+type Props = TextAreaProps & {
   name: "default";
-  width: number,
-  height: number,
-  value: string,
+  width: number;
+  height: number;
+  value: string;
   helperText: string;
   placeholder: string;
   maxLength: number;
-  onChangeText?: (text: string) => void;
-  onChange?: () => void;
   opacity?: number;
   disabled?: boolean;
   editable?: boolean;
   selectTextOnFocus?: boolean;
   error?: boolean;
-  count:number;
+  count: number;
 };
 
 const StyledTextbox = styled(TextArea, {
@@ -69,13 +67,10 @@ const Textfields = ({
   ...rest
 }: Props) => {
   const [index, setIndex] = useState(0);
-  
+
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
   const errorColor = isDarkTheme ? colorScheme.bwl[500] : colorScheme.bwl[700];
-
-  const handleOnChangeText = (text: string) => {
-  };
 
   const stateTextColor = disabled
     ? "$disabled-helper-text-textfield"
@@ -85,16 +80,15 @@ const Textfields = ({
     <YStack>
       <CustomTextBox
         aria-label={name}
-        value={value}//input
+        value={value} //input
         editable={editable}
-        textAlignVertical="top"
+        verticalAlign="top"
         height={height}
-        size={'$sm'}
+        size={"$sm"}
         lineHeight={21}
         width={width}
         placeholder={placeholder}
         selectTextOnFocus={selectTextOnFocus}
-        onChangeText={handleOnChangeText}
         disabled={disabled}
         error={error}
         borderWidth={index === 0 ? 1 : 2}
@@ -106,7 +100,7 @@ const Textfields = ({
         <SizableText color={stateTextColor} size={"$sm"}>
           {helperText}
         </SizableText>
-        <SizableText color={count>maxLength?errorColor:stateTextColor} size={"$sm"}>
+        <SizableText color={count > maxLength ? errorColor : stateTextColor} size={"$sm"}>
           {count}/{maxLength}
         </SizableText>
       </XStack>
