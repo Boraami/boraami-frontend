@@ -183,7 +183,6 @@ const ModalWideActionBtns = ({
                         maxHeight={110}
                         objectFit="contain"
                         aspectRatio={2.6} // taking mnet-img aspect ratio 250/96 as standard
-                        resizeMode="contain" // just objectFit doesnt work without this atm so its tamagui problem
                       />
                     </XStack>
                   </>
