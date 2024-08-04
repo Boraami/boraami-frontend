@@ -65,9 +65,10 @@ type CheckboxProps = {
   size: string;
   labeltext: string;
   value: string;
+  gap?: number;
 };
 
-const CheckBox = ({ value, disable, size, labeltext, checked }: CheckboxProps) => {
+const CheckBox = ({ value, disable, size, labeltext, gap = 6, checked }: CheckboxProps) => {
   //sizing=> -6=9, -5=11, -4=13, -3=14, -2=16, no-size=20
   // -4->sm, -2->md, 0->lg(acc to design)
   //in order to make it disabled, u have to give a checked state
@@ -75,7 +76,7 @@ const CheckBox = ({ value, disable, size, labeltext, checked }: CheckboxProps) =
   return (
     <XStack>
       {disable ? (
-        <YStack flexDirection="row" gap={9} alignItems="center">
+        <XStack gap={gap} alignItems="center">
           <Checkbox
             value={value}
             id={id}
@@ -101,9 +102,9 @@ const CheckBox = ({ value, disable, size, labeltext, checked }: CheckboxProps) =
           >
             {labeltext}
           </Label>
-        </YStack>
+        </XStack>
       ) : (
-        <YStack flexDirection="row" gap={9} alignItems="center">
+        <YStack flexDirection="row" gap={gap} alignItems="center">
           <Checkbox
             value={value}
             id={id}

@@ -38,13 +38,14 @@ type Props = {
   disable?: boolean;
   size: string;
   labelText: string;
+  gap?: number;
 };
 
-const RadioItem = ({ value, disable, size, labelText }: Props) => {
+const RadioItem = ({ value, disable, size, labelText, gap=8 }: Props) => {
   const id = `radiogroup-${value}`;
   return (
     <XStack>
-      <YStack alignItems="center" flexDirection="row" gap={8}>
+      <XStack alignItems="center" gap={gap}>
         <RadioGroup.Item
           id={id}
           borderColor={disable ? "rgba(95,61,156,0.3)" : "#5F3D9C"}
@@ -95,7 +96,7 @@ const RadioItem = ({ value, disable, size, labelText }: Props) => {
         >
           {labelText}
         </Label>
-      </YStack>
+      </XStack>
     </XStack>
   );
 };

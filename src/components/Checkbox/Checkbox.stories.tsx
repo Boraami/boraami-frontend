@@ -31,6 +31,7 @@ export const small = {
     size: "sm",
     labeltext: "Label",
     value: "1",
+    gap: 10,
   },
 };
 export const medium = {

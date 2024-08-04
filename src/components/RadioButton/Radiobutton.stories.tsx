@@ -42,6 +42,7 @@ export const medium = {
     value: "1",
     disable: false,
     size: "md",
+    gap: 8,
     labeText: "label bestie",
   },
 };

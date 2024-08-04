@@ -7,6 +7,7 @@ type RadioListSizeProps = {
   [key: string]: {
     ls: string;
     ts: number;
+    gap: number;
   };
 };
 
@@ -25,14 +26,17 @@ const radioSizes: RadioListSizeProps = {
   sm: {
     ls: "$xs",
     ts: 12,
+    gap: 6,
   },
   md: {
     ls: "$sm",
     ts: 14,
+    gap: 8,
   },
   lg: {
     ls: "$md",
     ts: 16,
+    gap: 10,
   },
 };
 
@@ -50,7 +54,7 @@ const RadiobuttonList = ({ data, heading, size, helperText }: radioBtnProps) => 
         </Label>
       )}
       <RadioGroup aria-labelledby="Select one item" defaultValue="1" name="form">
-        <YStack gap={10} marginLeft={5}>
+        <YStack gap={radioSizes[size].gap} marginLeft={5}>
           {data.map((item, i) => {
             return (
               <RadioItem

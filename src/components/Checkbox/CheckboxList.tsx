@@ -6,20 +6,24 @@ type CBSizeProps = {
   [key: string]: {
     ls: string;
     ts: number;
+    gap: number;
   };
 };
 const CBSizes: CBSizeProps = {
   sm: {
     ls: "$xs",
     ts: 12,
+    gap: 6,
   },
   md: {
     ls: "$sm",
     ts: 14,
+    gap: 8,
   },
   lg: {
     ls: "$md",
     ts: 16,
+    gap: 10,
   },
 };
 
@@ -37,10 +41,11 @@ type Props = {
 
 const CheckBoxList = ({ size, heading, helpertext, data }: Props) => {
   return (
-    <XStack flexDirection="column" gap={10}>
+    <XStack flexDirection="column" gap={6}>
       {heading === "" ? null : (
         <Label
           paddingTop={2}
+          paddingLeft={4}
           size={CBSizes[size].ls}
           fontFamily={"$heading"}
           color="$disabled-label-text"
@@ -49,7 +54,7 @@ const CheckBoxList = ({ size, heading, helpertext, data }: Props) => {
         </Label>
       )}
 
-      <YStack gap={10} marginLeft={5}>
+      <YStack gap={CBSizes[size].gap} marginLeft={5}>
         {data.map((item, i) => {
           return (
             <CheckBox
@@ -68,6 +73,7 @@ const CheckBoxList = ({ size, heading, helpertext, data }: Props) => {
           fontFamily={"$body"}
           fontSize={CBSizes[size].ts}
           marginTop={2}
+          paddingLeft={4}
           color="$boraami.500"
         >
           {helpertext}
