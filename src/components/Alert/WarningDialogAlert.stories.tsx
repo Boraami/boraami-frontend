@@ -25,7 +25,7 @@ export const Default = {
     dialogText: "This will remove all data relating to Alex. This action cannot be reversed.",
     highlightedText: " Deleted data can not be recovered.",
     closeBtnText: "Cancel",
-    btnText: "Delete",
+    btnText: "I Understand. Delete!",
     handleAction: () => {
       alert("It WORKSSSSS");
     },

@@ -154,7 +154,7 @@ const WarningDialog = ({
                   <XStack justifyContent="flex-end" width={"100%"} gap={6}>
                     <BtnField
                       txt={closeBtnText}
-                      size="lg"
+                      size="md"
                       fontSize={"$sm"}
                       name="dialog-close"
                       maxWidth="48%"
@@ -164,9 +164,9 @@ const WarningDialog = ({
                     />
                     <BtnField
                       txt={btnText}
-                      size="lg"
+                      size="md"
                       name="dialog-close"
-                      maxWidth="48%"
+                      // maxWidth="48%" // Not needed cz it is restricting btn text
                       primary="normal"
                       onPress={handleActionPress}
                     />
