@@ -30,10 +30,10 @@ type BtnSizeProps = {
 
 const btnSizes: BtnSizeProps = {
   sm: {
-    paddingHorizontal: 8,
+    paddingHorizontal: 14,
     gap: -3,
     txtSize: "$sm",
-    iconSize: 8,
+    iconSize: 12,
     borderRadius: 90,
   },
   md: {
@@ -158,7 +158,7 @@ const FloatingBtnField = (props: ButtonProps) => {
         <SizableText
           fontFamily={"$btn"}
           textAlign={"center"}
-          color={"white"}
+          color={"$default-FAB-text"}
           size={btnSizes[size].txtSize}
           top={0.1}
         >

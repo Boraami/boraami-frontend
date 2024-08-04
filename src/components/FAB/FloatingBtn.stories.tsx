@@ -42,6 +42,7 @@ export const defaultMedium = {
     name: "button",
     button: "normal",
     size: "md",
+    iconNameAfter: "heart",
     txt: "Quickstart",
   },
 };
