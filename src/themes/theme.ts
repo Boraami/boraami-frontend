@@ -226,8 +226,8 @@ const light = {
   "hover-radio-text": colorScheme.boraami[900],
 
   //Switch Component
-  "default-pill": colorScheme.boraami[300],
-  "default-handle": colorScheme.boraami[50],
+  "default-checked-handle": colorScheme.boraami[500],
+  "default-unchecked-handle": colorScheme.mono[400],
   "default-label-text": colorScheme.boraami[900],
   "default-helper-text": colorScheme.boraami[500],
   "disabled-pill": colorScheme.boraami[300],
@@ -264,7 +264,7 @@ const light = {
   "badge-bg-color": colorScheme.boraami[700],
   "large-badge-text": colorScheme.butter[50],
   // Divider component
-  "divider-subtle": colorScheme.boraami[100],
+  "divider-subtle": colorScheme.boraami[200],
   "divider-strong": colorScheme.mono[400],
   //Overflow Menu component
   "popup-sheet-title": colorScheme.mono[500],
@@ -498,8 +498,8 @@ const dark: BaseTheme = {
   "hover-radio-text": colorScheme.boraami[50],
 
   //Switch Component
-  "default-pill": colorScheme.boraami[700],
-  "default-handle": colorScheme.boraami[50],
+  "default-checked-handle": colorScheme.boraami[600],
+  "default-unchecked-handle": colorScheme.mono[500],
   "default-label-text": colorScheme.boraami[50],
   "default-helper-text": colorScheme.boraami[300],
   "disabled-pill": colorScheme.boraami[700],

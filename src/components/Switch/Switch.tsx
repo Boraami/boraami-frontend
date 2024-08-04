@@ -8,10 +8,10 @@ const Frame = styled(Stack, {
   variants: {
     checked: {
       true: {
-        backgroundColor: "$boraami.600",
+        backgroundColor: "$default-checked-handle",
       },
       false: {
-        backgroundColor: "$boraami.300",
+        backgroundColor: "$default-unchecked-handle", // make var for it in future
       },
     },
   } as const,
@@ -99,7 +99,7 @@ const SwitchDefault = ({ size, heading, helpertext, disabled }: SwitchProps) => 
         <Label
           size={SwitchLabelSizes[size].ls}
           fontFamily={"$heading"}
-          color="$disabled-label-text"
+          color="$default-label-text"
         >
           {heading}
         </Label>
@@ -116,7 +116,7 @@ const SwitchDefault = ({ size, heading, helpertext, disabled }: SwitchProps) => 
         <SizableText
           fontFamily={"$body"}
           fontSize={SwitchLabelSizes[size].ts}
-          color="$disabled-helper-text"
+          color="$default-helper-text"
         >
           {helpertext}
         </SizableText>
