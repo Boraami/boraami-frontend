@@ -1,7 +1,8 @@
 import React from "react";
-import { XStack, YStack, SizableText, Separator } from "tamagui";
+import { XStack, YStack, SizableText } from "tamagui";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Badge from "../Badge/Badge";
+import Divider from "../Divider/Divider";
 
 type LikeProps = {
   displayName: string;
@@ -47,7 +48,7 @@ const LikeNotification = ({ displayName, userName, dateTime }: LikeProps) => {
           </XStack>
         </YStack>
       </XStack>
-      <Separator borderColor={"$boraami.100"} />
+      <Divider borderColor={"$divider-subtle"} />
     </>
   );
 };

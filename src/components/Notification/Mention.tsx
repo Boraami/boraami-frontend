@@ -1,7 +1,8 @@
 import React from "react";
-import { XStack, YStack, SizableText, Separator } from "tamagui";
+import { XStack, YStack, SizableText } from "tamagui";
 import { FontAwesome } from "@expo/vector-icons";
 import Badge from "../Badge/Badge";
+import Divider from "../Divider/Divider";
 
 type MentionProps = {
   displayName: string;
@@ -47,7 +48,7 @@ const MentionNotification = ({ displayName, userName, dateTime }: MentionProps) 
           </XStack>
         </YStack>
       </XStack>
-      <Separator borderColor={"$boraami.100"} />
+      <Divider borderColor={"$divider-subtle"} />
     </>
   );
 };

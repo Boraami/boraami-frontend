@@ -1,6 +1,8 @@
 import React from "react";
-import { Avatar, SizableText, XStack, Image } from "tamagui";
+import { Avatar, SizableText, XStack, Image, Stack } from "tamagui";
 import Icon from "../Icon/Icon";
+import PopupMenu from "../PopupMenu/PopupMenu";
+import { popupMenuItems } from "../PopupMenu/PopupMenu.stories";
 
 export type Props = {
   username: string;
@@ -56,7 +58,7 @@ const Post = ({ avatarText, displayName, username, postText, postImg }: Props) =
             {username}
           </SizableText>
         </XStack>
-        <Icon name="ellipsis-vertical" size={12} color="#5F3D9C" />
+        <PopupMenu data={popupMenuItems} sheetHeightPerc={35} iconWidth={14} />
       </XStack>
       <SizableText
         fontFamily={"$body"}
@@ -73,12 +75,13 @@ const Post = ({ avatarText, displayName, username, postText, postImg }: Props) =
         source={{
           uri: postImg,
         }}
-        style={{
-          alignSelf: "center",
-          borderRadius: 4,
-          borderWidth: 1,
-          borderColor: "$quoted-post-bg-color",
-        }}
+        objectFit="cover"
+        width={'100%'}
+        aspectRatio={1}
+        alignSelf="center"
+        borderRadius={4}
+        borderWidth={1}
+        borderColor="$quoted-post-bg-color"
       />
     </XStack>
   );

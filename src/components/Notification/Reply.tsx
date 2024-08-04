@@ -2,6 +2,7 @@ import React from "react";
 import { XStack, YStack, SizableText, Separator } from "tamagui";
 import { FontAwesome } from "@expo/vector-icons";
 import Badge from "../Badge/Badge";
+import Divider from "../Divider/Divider";
 
 type ReplyProps = {
   displayName: string;
@@ -55,7 +56,7 @@ const ReplyNotification = ({ displayName, userName, dateTime, replyMsg }: ReplyP
               fontFamily={"$body"}
               size={"$md"}
               color={"$replied-quoted-text"}
-              paddingLeft={3}
+              paddingLeft={30}
               paddingBottom={15}
               wordWrap="normal"
             >
@@ -64,7 +65,7 @@ const ReplyNotification = ({ displayName, userName, dateTime, replyMsg }: ReplyP
           </XStack>
         )}
       </XStack>
-      <Separator borderColor={"$boraami.100"} />
+      <Divider borderColor={"$divider-subtle"} />
     </>
   );
 };

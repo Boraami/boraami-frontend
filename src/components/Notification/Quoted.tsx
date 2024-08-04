@@ -1,8 +1,9 @@
 import React from "react";
-import { XStack, YStack, SizableText, Separator } from "tamagui";
+import { XStack, YStack, SizableText } from "tamagui";
 import Icon from "../Icon/Icon";
 import Badge from "../Badge/Badge";
 import QuotedPost from "../Post/Post";
+import Divider from "../Divider/Divider";
 
 type QuotedNotificationProps = {
   iconName: string;
@@ -74,7 +75,7 @@ const QuotedNotification = ({
                 fontFamily={"$body"}
                 size={"$md"}
                 color={"$replied-quoted-text"}
-                paddingLeft={3}
+                paddingLeft={32}
                 paddingBottom={15}
                 wordWrap="normal"
               >
@@ -95,7 +96,7 @@ const QuotedNotification = ({
           </XStack>
         )}
       </XStack>
-      <Separator borderColor={"$boraami.100"} />
+      <Divider borderColor={"$divider-subtle"} />
     </>
   );
 };
