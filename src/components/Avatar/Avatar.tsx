@@ -1,13 +1,13 @@
 import React from "react";
-import { Avatar, SizableText } from "tamagui";
+import { Avatar as TamaguiAvatar, SizableText } from "tamagui";
 
 export type Props = {
   AvatarText: string;
 };
 
-const AvatarUserProfile = ({ AvatarText }: Props) => {
+const Avatar = ({ AvatarText }: Props) => {
   return (
-    <Avatar
+    <TamaguiAvatar
       circular
       backgroundColor={"$avatar-bg-color"}
       borderWidth={3}
@@ -18,7 +18,7 @@ const AvatarUserProfile = ({ AvatarText }: Props) => {
       <SizableText fontFamily={"$btn"} color={"$avatar-text"} size={"$md"}>
         {AvatarText}
       </SizableText>
-    </Avatar>
+    </TamaguiAvatar>
   );
 };
 

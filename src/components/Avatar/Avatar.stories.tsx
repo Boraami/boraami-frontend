@@ -1,11 +1,11 @@
 import React from "react";
 import { View } from "react-native";
 import { Meta } from "@storybook/react-native";
-import AvatarUserProfile from "./Avatar";
+import Avatar from "./Avatar";
 
-const AvatarUserProfileMeta: Meta<typeof AvatarUserProfile> = {
-  title: "AvatarUserProfile",
-  component: AvatarUserProfile,
+const AvatarMeta: Meta<typeof Avatar> = {
+  title: "Avatar",
+  component: Avatar,
   argTypes: {},
   args: {},
   decorators: [
@@ -17,7 +17,7 @@ const AvatarUserProfileMeta: Meta<typeof AvatarUserProfile> = {
   ],
 };
 
-export default AvatarUserProfileMeta;
+export default AvatarMeta;
 
 export const AvatarUser = {
   args: {
