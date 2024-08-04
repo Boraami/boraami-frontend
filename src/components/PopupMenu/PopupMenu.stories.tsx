@@ -1,10 +1,10 @@
 import React from "react";
 import { Meta } from "@storybook/react-native";
 import PopupMenu from "./PopupMenu";
-import { View, XStack } from "tamagui";
+import { View } from "tamagui";
 import { YStack } from "tamagui";
 
-const popupMenuItems = [
+export const popupMenuItems = [
   {
     menuText: "Report ",
     iconName: "flag",

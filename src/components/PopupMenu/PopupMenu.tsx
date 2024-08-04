@@ -19,7 +19,8 @@ type MenuProps = {
   data: MenuItemProps[];
   sheetHeightPerc: number;
   title?: string;
-  offsetX: number;
+  iconWidth?: number;
+  offsetX?: number;
 };
 
 type MenuItemComponentProps = {
@@ -73,7 +74,7 @@ const MenuItem = ({ data, handleBtnAction }: MenuItemComponentProps) => {
   );
 };
 
-const PopupMenu = ({ data, title, sheetHeightPerc, offsetX }: MenuProps) => {
+const PopupMenu = ({ data, title, sheetHeightPerc = 40, iconWidth = 20, offsetX }: MenuProps) => {
   const [isPopupOpen, setPopupOpen] = useState(false);
 
   const handleBtnAction = (handleAction?: handleBtnAction) => {
@@ -95,7 +96,7 @@ const PopupMenu = ({ data, title, sheetHeightPerc, offsetX }: MenuProps) => {
           justifyContent="flex-start"
           height={32}
           padding={4}
-          icon={<SimpleLineIcons name="options-vertical" size={20} color="#8F66D6" />}
+          icon={<SimpleLineIcons name="options-vertical" size={iconWidth} color="#8F66D6" />}
         />
       </Popover.Trigger>
       <Adapt when="sm" platform="touch">
