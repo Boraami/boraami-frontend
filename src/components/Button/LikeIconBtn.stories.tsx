@@ -25,6 +25,7 @@ export default LikeIconBtnMeta;
 
 export const LikeIcon = {
   args: {
+    count:999
   },
 
 };

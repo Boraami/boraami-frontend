@@ -25,6 +25,7 @@ export default RepostIconBtnMeta;
 
 export const RepostIcon = {
   args: {
+    count:999
   },
 
 };
