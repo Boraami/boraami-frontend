@@ -4,6 +4,8 @@ import { Button, ButtonProps, SizableText, Stack, StackProps, XStack } from "tam
 type Props = ButtonProps & {
   count?: number;
   iconContainerStyles?: StackProps;
+  idleColor: string;
+  activeColor: string;
   iconBefore: React.JSX.Element;
   iconAfter: React.JSX.Element;
 };
@@ -36,7 +38,15 @@ const formatNumber = (num: number) => {
   return num;
 };
 
-const IconBtn = ({ count, iconBefore, iconAfter,iconContainerStyles, ...rest }: Props) => {
+const IconBtn = ({
+  count,
+  iconBefore,
+  iconAfter,
+  iconContainerStyles,
+  idleColor,
+  activeColor,
+  ...rest
+}: Props) => {
   const [tapped, setTapped] = useState(false);
   const [liked, setLiked] = useState(count);
 
@@ -51,7 +61,7 @@ const IconBtn = ({ count, iconBefore, iconAfter,iconContainerStyles, ...rest }: 
       {/* We can have dynamic values for width height if needed in future but for current use cases this is all we need */}
       <Stack {...iconContainerStyles}>{tapped ? iconAfter : iconBefore}</Stack>
       {count && (
-        <SizableText color={"#8F66D6"} size={"$xs"}>
+        <SizableText color={tapped ? activeColor : idleColor} size={"$xs"}>
           {number}
         </SizableText>
       )}
