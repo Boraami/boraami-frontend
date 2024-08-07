@@ -17,12 +17,12 @@ const IconBtnMeta: Meta<typeof IconBtn> = {
         }}
       >
         <IconBtn
-          count={9999999}
+          count={41690}
           iconBefore={<FontAwesome name="heart-o" size={14} color={"#C2A0FF"} />}
           iconAfter={<FontAwesome name="heart" size={14} color={"#8F66D6"} />}
         />
         <IconBtn
-          count={1098}
+          count={1299}
           iconBefore={<FontAwesome6 name="retweet" size={14} color={"#C2A0FF"} />}
           iconAfter={<FontAwesome6 name="retweet" size={14} color={"#8F66D6"} />}
         />

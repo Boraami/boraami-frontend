@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Button, SizableText, Stack, XStack } from "tamagui";
+import { Button, ButtonProps, SizableText, Stack, XStack } from "tamagui";
 
-type Props = {
+type Props = ButtonProps & {
   count?: number;
   iconBefore: React.JSX.Element;
   iconAfter: React.JSX.Element;
@@ -41,11 +41,10 @@ const IconBtn = ({ count, iconBefore, iconAfter, ...rest }: Props) => {
     setTapped(!tapped);
     count && typeof liked === "number" && setLiked(liked + (tapped ? -1 : 1));
   };
-  let c =
-    typeof liked === "number" && (liked > 9999 ? formatNumber(liked, 2) : formatNumber(liked, 1));
+  let c = typeof liked === "number" && formatNumber(liked, 2);
 
   return (
-    <Button width={70} height={20} size={"$2xs"} onPress={handleIconBtn} {...rest}>
+    <Button height={20} size={"$2xs"} onPress={handleIconBtn} {...rest}>
       {/* We can have dynamic values for width height if needed in future but for current use cases this is all we need */}
       <Stack width={16}>{tapped ? iconAfter : iconBefore}</Stack>
       {count && (
