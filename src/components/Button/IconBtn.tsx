@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import { Button, ButtonProps, SizableText, Stack, XStack } from "tamagui";
+import { Button, ButtonProps, SizableText, Stack, StackProps, XStack } from "tamagui";
 
 type Props = ButtonProps & {
   count?: number;
+  iconContainerStyles?: StackProps;
   iconBefore: React.JSX.Element;
   iconAfter: React.JSX.Element;
 };
 
-// this function needs more work cz near the precision it rounds off the number itself instead of letting like click do that
-const formatNumber = (num: number, precision: number = 2) => {
+function truncNumber(number: number, decimal: number) {
+  return Math.trunc(number * Math.pow(10, decimal)) / Math.pow(10, decimal);
+}
+
+const formatNumber = (num: number) => {
   const map = [
     { suffix: "T", threshold: 1e12 },
     { suffix: "B", threshold: 1e9 },
@@ -17,17 +21,14 @@ const formatNumber = (num: number, precision: number = 2) => {
     { suffix: "", threshold: 1 },
   ];
 
-  if (num <= 999) {
-    return num;
-  }
   const found = map.find((x) => Math.abs(num) >= x.threshold);
   if (found) {
-    const number = (num / found.threshold).toFixed(precision);
-    const formatted = number + found.suffix;
-    if (number.slice(-2) === ".0") {
-      return number.slice(0, -2) + found.suffix;
-    } else if (number.slice(-3) === ".00") {
-      return number.slice(0, -3) + found.suffix;
+    const truncNum = truncNumber(num / found.threshold, 2).toString();
+    const formatted = truncNum + found.suffix;
+    if (truncNum.slice(-2) === ".0") {
+      return truncNum.slice(0, -2) + found.suffix;
+    } else if (truncNum.slice(-3) === ".00") {
+      return truncNum.slice(0, -3) + found.suffix;
     }
     return formatted;
   }
@@ -35,20 +36,19 @@ const formatNumber = (num: number, precision: number = 2) => {
   return num;
 };
 
-const IconBtn = ({ count, iconBefore, iconAfter, ...rest }: Props) => {
+const IconBtn = ({ count, iconBefore, iconAfter,iconContainerStyles, ...rest }: Props) => {
   const [tapped, setTapped] = useState(false);
   const [liked, setLiked] = useState(count);
   const handleIconBtn = () => {
     setTapped(!tapped);
     count && typeof liked === "number" && setLiked(liked + (tapped ? -1 : 1));
   };
-  let c =
-    typeof liked === "number" && formatNumber(liked, 2);
+  let c = typeof liked === "number" && formatNumber(liked);
 
   return (
     <Button height={20} size={"$2xs"} onPress={handleIconBtn} {...rest}>
       {/* We can have dynamic values for width height if needed in future but for current use cases this is all we need */}
-      <Stack width={16}>{tapped ? iconAfter : iconBefore}</Stack>
+      <Stack {...iconContainerStyles}>{tapped ? iconAfter : iconBefore}</Stack>
       {count && (
         <SizableText color={"#8F66D6"} size={"$xs"}>
           {c}
