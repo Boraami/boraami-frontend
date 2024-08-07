@@ -39,11 +39,12 @@ const formatNumber = (num: number) => {
 const IconBtn = ({ count, iconBefore, iconAfter,iconContainerStyles, ...rest }: Props) => {
   const [tapped, setTapped] = useState(false);
   const [liked, setLiked] = useState(count);
+
   const handleIconBtn = () => {
     setTapped(!tapped);
     count && typeof liked === "number" && setLiked(liked + (tapped ? -1 : 1));
   };
-  let c = typeof liked === "number" && formatNumber(liked);
+  let number = typeof liked === "number" && formatNumber(liked);
 
   return (
     <Button height={20} size={"$2xs"} onPress={handleIconBtn} {...rest}>
@@ -51,7 +52,7 @@ const IconBtn = ({ count, iconBefore, iconAfter,iconContainerStyles, ...rest }: 
       <Stack {...iconContainerStyles}>{tapped ? iconAfter : iconBefore}</Stack>
       {count && (
         <SizableText color={"#8F66D6"} size={"$xs"}>
-          {c}
+          {number}
         </SizableText>
       )}
     </Button>
