@@ -351,7 +351,20 @@ const light = {
   "post-placeholder-helper-text": colorScheme.mono[600],
   "post-disabled-btn-fill": colorScheme.mono[400],
   "post-disabled-btn-text": colorScheme.mono[100],
-
+  //Tabs
+  "tab-default-text" : colorScheme.boraami[700],
+  "tab-default-icon" : colorScheme.boraami[700],
+  "tab-disabled-text" : colorScheme.mono[700],
+  "tab-disabled-icon" : colorScheme.mono[700],
+  "tab-hover-text" : colorScheme.serendipity[600],
+  "tab-hover-icon" : colorScheme.serendipity[600],
+  "tab-hover-line" : colorScheme.serendipity[600],
+  "tab-active-text" : colorScheme.boraami[700],
+  "tab-active-icon" : colorScheme.boraami[700],
+  "tab-active-line" : colorScheme.boraami[700],
+  "tab-focus-text" : colorScheme.mono[600],
+  "tab-focus-icon" : colorScheme.mono[600],
+  "tab-focus-line" : colorScheme.mono[600],
 };
 // note: we set up a single consistent base type to validate the rest
 
@@ -623,6 +636,20 @@ const dark: BaseTheme = {
   "post-placeholder-helper-text": colorScheme.mono[300],
   "post-disabled-btn-fill": colorScheme.mono[400],
   "post-disabled-btn-text": colorScheme.mono[100],
+  //Tabs
+  "tab-default-text" : colorScheme.mono[300],
+  "tab-default-icon" : colorScheme.mono[300],
+  "tab-disabled-text" : colorScheme.mono[300],
+  "tab-disabled-icon" : colorScheme.mono[300],
+  "tab-hover-text" : colorScheme.serendipity[400],
+  "tab-hover-icon" : colorScheme.serendipity[400],
+  "tab-hover-line" : colorScheme.serendipity[400],
+  "tab-active-text" : colorScheme.boraami[400],
+  "tab-active-icon" : colorScheme.boraami[400],
+  "tab-active-line" : colorScheme.boraami[400],
+  "tab-focus-text" : colorScheme.serendipity[100],
+  "tab-focus-icon" : colorScheme.serendipity[100],
+  "tab-focus-line" : colorScheme.serendipity[100],
 };
 
 const allThemes = {
