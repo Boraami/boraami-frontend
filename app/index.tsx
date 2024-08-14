@@ -1,5 +1,6 @@
 import { View } from "react-native";
 import { Button, H1, styled } from "tamagui";
+import TabScreen from "../src/components/Tabs/TabScreen";
 
 const CBtn = styled(Button, {
   borderRadius: "$r-strong",
@@ -11,8 +12,7 @@ const CBtn = styled(Button, {
 export default function App() {
   return (
     <View>
-      <H1>HOME</H1>
-      <CBtn>Plain</CBtn>
+      <TabScreen />
     </View>
   );
 }
