@@ -12,7 +12,7 @@ export type TabButtonType = {
     size: FontSizeTokens;
     disabled: boolean;
     alignment: |"IconLeft"|"IconRight"|"NoIcon";
-  };
+};
 
 type TabButtonProps = {
   buttons: TabButtonType[];
