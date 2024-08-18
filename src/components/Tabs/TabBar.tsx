@@ -1,8 +1,5 @@
 import * as React from 'react';
-import {
-  Dimensions,
-  ScrollView,
-} from 'react-native';
+import { Dimensions,  ScrollView,} from 'react-native';
 import { TabView, SceneMap, Route, SceneRendererProps } from 'react-native-tab-view';
 import { SizableText, YStack, XStack, FontSizeTokens, Button } from "tamagui";
 import { FontAwesome } from "@expo/vector-icons";
@@ -30,27 +27,35 @@ const TabSize: TSize = {
       textsize:14,
       iconsize:10,
       lh: 14,
-
   },
   $md: {
       textsize:16,
       iconsize:12,
       lh: 16,
-
   },
   $lg: {
       textsize:18,
       iconsize:14,
       lh: 18,
-
   },
 };
 
+type TabRoute = Route & {
+  title: string;
+  iconName?: FontAwesomeIconName;
+  size: FontSizeTokens;
+  disabled: boolean;
+  alignment: |"IconLeft"|"IconRight"|"NoIcon";
+};
+
+const initialLayout = { width: Dimensions.get('window').width };
+
+//add each tab's content
 const FirstRoute: React.FC = () => (
-  <ScrollView >
+  <ScrollView showsVerticalScrollIndicator={false}>
         <Post
          avatarText= "TT"
-         displayName= "Bessie Cooper"
+         displayName= "kigris"
          username="@armyuser1"
          postText= "I miss them."
          postImg = {require("../../assets/Notification/Image.png")} />
@@ -66,77 +71,50 @@ const FirstRoute: React.FC = () => (
          username="@armyuser1"
          postText= "I miss them."
          postImg = {require("../../assets/Notification/Image.png")} />
-         <Post
-         avatarText= "TT"
-         displayName= "kigris"
-         username="@armyuser1"
-         postText= "I miss them."
-         postImg = {require("../../assets/Notification/Image.png")} />
-         <Post
-         avatarText= "TT"
-         displayName= "Bessie Cooper"
-         username="@armyuser1"
-         postText= "I miss them."
-         postImg = {require("../../assets/Notification/Image.png")} />
   </ScrollView>
 );
-
 const SecondRoute: React.FC = () => (
-  <ScrollView >
+  <ScrollView showsVerticalScrollIndicator={false}>
     <SizableText>Tab 2</SizableText>
   </ScrollView>
 );
 const ThirdRoute: React.FC = () => (
-  <ScrollView>
+  <ScrollView showsVerticalScrollIndicator={false}>
     <SizableText>Tab 3</SizableText>
   </ScrollView>
 );
-
 const FourthRoute: React.FC = () => (
-  <ScrollView >
+  <ScrollView showsVerticalScrollIndicator={false}>
     <SizableText>Tab 4</SizableText>
   </ScrollView>
 );
 const FifthRoute: React.FC = () => (
-  <ScrollView >
-    <SizableText>Tab 4</SizableText>
+  <ScrollView showsVerticalScrollIndicator={false}>
+    <SizableText>Tab 5</SizableText>
   </ScrollView>
 );
 
-type TabRoute = Route & {
-  title: string;
-  iconName?: FontAwesomeIconName;
-  size: FontSizeTokens;
-  disabled: boolean;
-  alignment: |"IconLeft"|"IconRight"|"NoIcon";
-};
-type TabButtonType = {
-  iconName?: FontAwesomeIconName;
-  tabTitle: string;
-  size: FontSizeTokens;
-  disabled: boolean;
-  alignment: |"IconLeft"|"IconRight"|"NoIcon";
-};
-const initialLayout = { width: Dimensions.get('window').width };
-
-const TabViewExample: React.FC = () => {
+const TabsView: React.FC = () => {
   const [index, setIndex] = React.useState<number>(0);
   const [routes] = React.useState<TabRoute[]>([
-    { key: 'first', title: 'First', iconName:'heart',size:'$xs',disabled:false,alignment:'IconLeft' },
-    { key: 'second', title: 'Second',iconName:'heart',size:'$sm',disabled:false,alignment:'IconRight' },
-    { key: 'third', title: 'Third',size:'$md',iconName:'heart',disabled:false,alignment:'NoIcon' },
-    { key: 'fourth', title: 'Fourth', size:'$lg',iconName:'heart',disabled:true,alignment:'IconLeft' },
-   // { key: 'five', title: 'Fifth', size:'$lg',iconName:'heart',disabled:true,alignment:'IconLeft' },
+    { key: 'first', title: 'First', iconName:'heart',size:'$md',disabled:false,alignment:'IconLeft' },
+    { key: 'second', title: 'Second',size:'$md',disabled:false,alignment:'NoIcon' },
+    { key: 'third', title: 'Third',size:'$md',iconName:'heart',disabled:false,alignment:'IconRight' },
+    { key: 'fourth', title: 'Fourth', size:'$md',disabled:true,alignment:'NoIcon' },
+   { key: 'five', title: 'Fifth', size:'$md',iconName:'heart',disabled:true,alignment:'IconRight' },
 
   ]);
   const renderTabBar = (props: SceneRendererProps & { navigationState: { routes: TabRoute[] } }) => {
-    const inputRange = props.navigationState.routes.map((_, i) => i);
-    const theme = useColorScheme();
-    const isDarkTheme = theme === "dark";
-    
+  const theme = useColorScheme();
+  const isDarkTheme = theme === "dark";
     return (
       <XStack 
-        flexWrap="wrap">
+        flexWrap="wrap"
+        backgroundColor={"$quoted-post-bg-color"}>
+          <ScrollView 
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          >
         {props.navigationState.routes.map((route, i) => {
           const colorText= route.disabled ? '$tab-disabled-text': 
           index === i  ?'$tab-active-text':'$tab-default-text'
@@ -207,18 +185,17 @@ const TabViewExample: React.FC = () => {
                borderTopRightRadius= {4} />
               </YStack>
             )
-        })}
+        })}</ScrollView>
       </XStack>
     );
   };
-
+//add each tab's route (this will map the tab content)
   const renderScene = SceneMap({
     first: FirstRoute,
     second: SecondRoute,
     third: ThirdRoute,
     fourth: FourthRoute,
-    //five: FifthRoute,
-
+    five: FifthRoute,
   });
 
   return (
@@ -231,4 +208,4 @@ const TabViewExample: React.FC = () => {
       />
   );
 };
-export default TabViewExample;
+export default TabsView;
