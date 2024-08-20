@@ -47,7 +47,8 @@ type TabRoute = Route & {
   disabled: boolean;
   alignment: |"IconLeft"|"IconRight"|"NoIcon";
 };
-
+const Images = [require("../../assets/Notification/Image.png"),require("../../assets/Notification/Image.png"),
+require("../../assets/Notification/Image.png"),require("../../assets/Notification/Image.png"),];
 const initialLayout = { width: Dimensions.get('window').width };
 
 //add each tab's content
@@ -56,41 +57,48 @@ const FirstRoute: React.FC = () => (
         <Post
          avatarText= "TT"
          displayName= "kigris"
-         username="@armyuser1"
-         postText= "I miss them."
-         postImg = {require("../../assets/Notification/Image.png")} />
+         username="@bts_twt"
+         postText= "I miss them."/>
         <Post
          avatarText= "TT"
-         displayName= "sunshine"
-         username="@armyuser1"
+         displayName= "sunshine FESTA"
+         username="@ughhmin"
          postText= "I miss them."
          postImg = {require("../../assets/Notification/Image.png")} />
          <Post
          avatarText= "TT"
-         displayName= "fab"
-         username="@armyuser1"
+         displayName= "tasha (semi ia)"
+         username="@whalien52"
          postText= "I miss them."
-         postImg = {require("../../assets/Notification/Image.png")} />
+         postImg = {[require("../../assets/Notification/Image.png"),
+         require("../../assets/Notification/Image.png"),
+         require("../../assets/Notification/Image.png")]}/> 
+         <Post
+         avatarText= "TT"
+         displayName= "Fab"
+         username="@bangtanbytes"
+         postText= "I miss them."
+         postImg = {Images}/>
   </ScrollView>
 );
 const SecondRoute: React.FC = () => (
   <ScrollView showsVerticalScrollIndicator={false}>
-    <SizableText>Tab 2</SizableText>
+    <SizableText alignSelf='center' color={"$quoted-post-username"}>Tab 2</SizableText>
   </ScrollView>
 );
 const ThirdRoute: React.FC = () => (
   <ScrollView showsVerticalScrollIndicator={false}>
-    <SizableText>Tab 3</SizableText>
+    <SizableText alignSelf='center' color={"$quoted-post-username"}>Tab 3</SizableText>
   </ScrollView>
 );
 const FourthRoute: React.FC = () => (
   <ScrollView showsVerticalScrollIndicator={false}>
-    <SizableText>Tab 4</SizableText>
+    <SizableText alignSelf='center' color={"$quoted-post-username"}>Tab 4</SizableText>
   </ScrollView>
 );
 const FifthRoute: React.FC = () => (
   <ScrollView showsVerticalScrollIndicator={false}>
-    <SizableText>Tab 5</SizableText>
+    <SizableText alignSelf='center' color={"$quoted-post-username"}>Tab 5</SizableText>
   </ScrollView>
 );
 

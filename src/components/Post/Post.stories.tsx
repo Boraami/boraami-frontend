@@ -1,7 +1,10 @@
 import React from "react";
-import { View } from "react-native";
+import { ScrollView } from "tamagui";
 import { Meta } from "@storybook/react-native";
 import Post from "./Post";
+
+const Images = [require("../../assets/Notification/Image.png"),require("../../assets/Notification/Image.png"),
+require("../../assets/Notification/Image.png"),require("../../assets/Notification/Image.png"),];
 
 const PostMeta: Meta<typeof Post> = {
   title: "Post",
@@ -12,13 +15,46 @@ const PostMeta: Meta<typeof Post> = {
     displayName: "Bessie Cooper",
     username: "@armyuser1",
     postText: "I miss them.",
-    postImg: require("../../assets/Notification/Image.png"),
+    postImg: [require("../../assets/Notification/Image.png"),
+    require("../../assets/Notification/Image.png"),
+    require("../../assets/Notification/Image.png")],
   },
   decorators: [
     (Story) => (
-      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-        <Story />
-      </View>
+      <ScrollView flex={1}>
+        <Post
+         avatarText= "TT"
+         displayName= "kigris"
+         username="@bts_twt"
+         postText= "I miss them."/>
+        <Post
+         avatarText= "TT"
+         displayName= "sunshine"
+         username="@ughhmin"
+         postText= "I miss them."
+         postImg = {require("../../assets/Notification/Image.png")} />
+         <Post
+         avatarText= "TT"
+         displayName= "fab"
+         username="@bangtanbytes"
+         postText= "I miss them."
+         postImg = {[require("../../assets/Notification/Image.png"),
+         require("../../assets/Notification/Image.png"),]}/> 
+         <Post
+         avatarText= "TT"
+         displayName= "tasha"
+         username="@whalien52"
+         postText= "I miss them."
+         postImg = {[require("../../assets/Notification/Image.png"),
+         require("../../assets/Notification/Image.png"),
+         require("../../assets/Notification/Image.png")]}/> 
+         <Post
+         avatarText= "TT"
+         displayName= "iba"
+         username="@bangbangtan"
+         postText= "I miss them."
+         postImg = {Images}/>      
+         </ScrollView>
     ),
   ],
 };

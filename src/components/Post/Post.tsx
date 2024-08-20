@@ -9,7 +9,7 @@ export type Props = {
   avatarText: string;
   displayName: string;
   postText: string;
-  postImg: string;
+  postImg?: |string|string[];
 };
 
 const Post = ({ avatarText, displayName, username, postText, postImg }: Props) => {
@@ -71,7 +71,32 @@ const Post = ({ avatarText, displayName, username, postText, postImg }: Props) =
       >
         {postText}
       </SizableText>
-      <Image
+      {typeof(postImg)=="object"?
+        <XStack 
+        flexWrap="wrap"
+        gap={2}>
+          {postImg.map((item,i)=>{
+            const isLastImage = postImg.length===3 && i === 2;
+            const imageStyle = isLastImage? "100%":"49%"
+            return(
+              <Image
+                key={i}
+                source={{
+                  uri: item,
+                }}
+                objectFit="cover"
+                width={imageStyle}
+                aspectRatio={isLastImage?2:1}
+                alignSelf="center"
+                borderRadius={4}
+                borderWidth={1}
+                borderColor="$quoted-post-bg-color"
+                />
+            )
+          })}
+        </XStack>
+        :postImg!=null?
+        <Image
         source={{
           uri: postImg,
         }}
@@ -82,7 +107,7 @@ const Post = ({ avatarText, displayName, username, postText, postImg }: Props) =
         borderRadius={4}
         borderWidth={1}
         borderColor="$quoted-post-bg-color"
-      />
+        />:null}
     </XStack>
   );
 };
