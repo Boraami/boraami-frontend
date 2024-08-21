@@ -8,6 +8,7 @@ type Props = ButtonProps & {
   activeColor: string;
   iconBefore: React.JSX.Element;
   iconAfter: React.JSX.Element;
+  handleBtnAction?: (...args: any[]) => void;
 };
 
 function truncNumber(number: number, decimal: number) {
@@ -45,6 +46,7 @@ const IconBtn = ({
   iconContainerStyles,
   idleColor,
   activeColor,
+  handleBtnAction,
   ...rest
 }: Props) => {
   const [tapped, setTapped] = useState(false);
@@ -53,6 +55,7 @@ const IconBtn = ({
   const handleIconBtn = () => {
     setTapped(!tapped);
     count && typeof liked === "number" && setLiked(liked + (tapped ? -1 : 1));
+    handleBtnAction && handleBtnAction(!tapped, setTapped, liked, setLiked);
   };
   let number = typeof liked === "number" && formatNumber(liked);
 
