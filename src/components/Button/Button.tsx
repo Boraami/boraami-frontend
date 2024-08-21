@@ -11,9 +11,9 @@ import { FontAwesome6 } from "@expo/vector-icons";
 
 interface CustomBtnProps extends TamaguiBtnProps {
   name: string;
-  primary?: string;
-  tertiary?: string;
-  secondary?: string;
+  primary?: "normal" | "disabled";
+  tertiary?: "normal" | "disabled";
+  secondary?: "normal" | "disabled";
 }
 
 const Button: React.FC<CustomBtnProps> = (props) => <StyledBtn {...props} />;
