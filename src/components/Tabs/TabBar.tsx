@@ -58,15 +58,15 @@ const initialLayout = { width: Dimensions.get("window").width };
 //add each tab's content
 const FirstRoute: React.FC = () => (
   <ScrollView showsVerticalScrollIndicator={false}>
-    <Post paddingHorizontal={14} avatarText="TT" displayName="kigris" username="@bts_twt" postText="I miss them." />
-    <Post paddingHorizontal={14} 
+    <Post dateTime="06/13/2023 13:06" paddingHorizontal={14} avatarText="TT" displayName="kigris" username="@bts_twt" postText="I miss them." />
+    <Post dateTime="06/13/2023 13:06" paddingHorizontal={14} 
       avatarText="TT"
       displayName="sunshine FESTA"
       username="@ughhmin"
       postText="I miss them."
       postImg={require("../../assets/Notification/Image.png")}
     />
-    <Post paddingHorizontal={14} 
+    <Post dateTime="06/13/2023 13:06" paddingHorizontal={14} 
       avatarText="TT"
       displayName="tasha (semi ia)"
       username="@whalien52"
@@ -77,7 +77,7 @@ const FirstRoute: React.FC = () => (
         require("../../assets/Notification/Image.png"),
       ]}
     />
-    <Post paddingHorizontal={14} 
+    <Post dateTime="06/13/2023 13:06" paddingHorizontal={14} 
       avatarText="TT"
       displayName="Fab"
       username="@bangtanbytes"
