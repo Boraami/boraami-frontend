@@ -1,8 +1,10 @@
 import React from "react";
-import { Avatar, SizableText, XStack, Image, Stack, StackProps } from "tamagui";
+import { SizableText, XStack, Image, Stack, StackProps } from "tamagui";
 import Icon from "../Icon/Icon";
 import PopupMenu from "../PopupMenu/PopupMenu";
 import { popupMenuItems } from "../PopupMenu/PopupMenu.stories";
+import Divider from "../Divider/Divider";
+import Avatar from "../Avatar/Avatar";
 
 export type Props = StackProps & {
   username: string;
@@ -17,8 +19,8 @@ const Post = ({ avatarText, displayName, username, postText, postImg, ...rest }:
     <XStack
       width={"100%"}
       backgroundColor={"$quoted-post-bg-color"}
-      paddingBottom={20}
-      paddingTop={10}
+      // paddingBottom={}
+      paddingTop={24}
       flexDirection="column"
       justifyContent="center"
       {...rest}
@@ -26,18 +28,7 @@ const Post = ({ avatarText, displayName, username, postText, postImg, ...rest }:
       <XStack flexDirection="row" justifyContent="space-between" alignItems="center">
         <XStack justifyContent="flex-start" alignItems="center">
           <XStack flexDirection="row">
-            <Avatar
-              circular
-              backgroundColor={"$boraami.700"}
-              borderWidth={1}
-              borderColor={"$boraami.700"}
-              width={32}
-              height={32}
-            >
-              <SizableText fontFamily={"$btn"} color={"$mono.50"} size={"$xs"}>
-                {avatarText}
-              </SizableText>
-            </Avatar>
+            <Avatar AvatarText={avatarText} />
           </XStack>
           <SizableText
             fontFamily={"$heading"}
@@ -64,7 +55,7 @@ const Post = ({ avatarText, displayName, username, postText, postImg, ...rest }:
         size={"$sm"}
         color={"$replied-quoted-text"}
         paddingLeft={3}
-        paddingBottom={10}
+        paddingBottom={postImg ? 10 : 0} // might be modified once we have icon btns
         paddingTop={10}
         wordWrap="normal"
       >
@@ -106,6 +97,7 @@ const Post = ({ avatarText, displayName, username, postText, postImg, ...rest }:
           borderColor="$quoted-post-bg-color"
         />
       ) : null}
+      <Divider borderColor={"$divider-strong"} paddingTop={24} />
     </XStack>
   );
 };
