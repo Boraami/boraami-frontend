@@ -1,5 +1,5 @@
 import React from "react";
-import { XStack, YStack, SizableText } from "tamagui";
+import { XStack, YStack, SizableText, Stack } from "tamagui";
 import Icon from "../Icon/Icon";
 import Badge from "../Badge/Badge";
 import QuotedPost from "../Post/Post";
@@ -31,7 +31,7 @@ const QuotedNotification = ({
   quotedPostImg,
 }: QuotedNotificationProps) => {
   return (
-    <>
+    <Stack>
       <YStack>
         <YStack paddingHorizontal={10}>
           <XStack gap={10} paddingVertical={10} justifyContent="center" alignItems="flex-start">
@@ -90,6 +90,7 @@ const QuotedNotification = ({
             <QuotedPost
               paddingHorizontal={12}
               showEngagement={false}
+              showDivider={false}
               avatarText={quotedAvatarText}
               displayName={quotedDisplayName}
               dateTime={dateTime}
@@ -101,7 +102,7 @@ const QuotedNotification = ({
         )}
       </YStack>
       <Divider borderColor={"$divider-subtle"} />
-    </>
+    </Stack>
   );
 };
 

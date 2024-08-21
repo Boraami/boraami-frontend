@@ -17,6 +17,7 @@ export type Props = StackProps & {
   postText: string;
   postImg?: string | string[];
   showEngagement?: boolean;
+  showDivider?: boolean;
 };
 
 const Post = ({
@@ -26,6 +27,7 @@ const Post = ({
   postText,
   dateTime,
   postImg,
+  showDivider = true,
   showEngagement = true,
   ...rest
 }: Props) => {
@@ -119,7 +121,7 @@ const Post = ({
       ) : null}
       {showEngagement ? (
         <XStack paddingTop={12} alignItems="center" justifyContent="space-between">
-          <XStack gap={8}>
+          <XStack gap={14}>
             <IconBtn
               count={234}
               iconBefore={<FontAwesome name="heart-o" size={16} color={idleColor} />}
@@ -149,18 +151,18 @@ const Post = ({
             />
             <IconBtn
               count={234}
-              iconBefore={<FontAwesome6 name="retweet" size={16} color={idleColor} />}
-              iconAfter={<FontAwesome6 name="retweet" size={16} color={activeColor} />}
-              idleColor={idleColor}
-              activeColor={activeColor}
-              paddingHorizontal={4}
-            />
-            <IconBtn
-              count={234}
               iconBefore={<FontAwesome6 name="comment" size={16} color={idleColor} />}
               iconAfter={<FontAwesome6 name="comment" size={16} color={idleColor} />}
               idleColor={idleColor}
               activeColor={idleColor}
+              paddingHorizontal={4}
+            />
+            <IconBtn
+              count={234}
+              iconBefore={<FontAwesome6 name="retweet" size={16} color={idleColor} />}
+              iconAfter={<FontAwesome6 name="retweet" size={16} color={activeColor} />}
+              idleColor={idleColor}
+              activeColor={activeColor}
               paddingHorizontal={4}
             />
           </XStack>
@@ -170,7 +172,7 @@ const Post = ({
         </XStack>
       ) : null}
       <Stack paddingTop={20}>
-        <Divider borderColor={"$divider-strong"} />
+        {showDivider ? <Divider borderColor={"$divider-strong"} /> : null}
       </Stack>
     </XStack>
   );
