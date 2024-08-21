@@ -549,7 +549,7 @@ const dark: BaseTheme = {
   "large-badge-text": colorScheme.butter[50],
   // Divider component
   "divider-subtle": colorScheme.boraami[400],
-  "divider-strong": colorScheme.boraami[100],
+  "divider-strong": colorScheme.boraami[400],
   // Overflow menu component
   "popup-sheet-title": colorScheme.mono[400],
   "overflow-bg-color": colorScheme.boraami[900],
