@@ -32,7 +32,7 @@ const QuotedNotification = ({
 }: QuotedNotificationProps) => {
   return (
     <>
-      <XStack flexDirection="column">
+      <YStack>
         <YStack paddingHorizontal={10}>
           <XStack gap={10} paddingVertical={10} justifyContent="center" alignItems="flex-start">
             <Icon name={iconName} size={17} style={{ paddingTop: 10 }} color={"#AA7AFF"} />
@@ -85,17 +85,21 @@ const QuotedNotification = ({
           )}
         </YStack>
         {quotedDisplayName !== "" && (
+          // This needs to be wrapped in Link to take us to post page
           <XStack justifyContent="center" alignItems="center">
             <QuotedPost
+              paddingHorizontal={12}
+              showEngagement={false}
               avatarText={quotedAvatarText}
               displayName={quotedDisplayName}
+              dateTime={dateTime}
               postImg={quotedPostImg}
               postText={quotedPostText}
               username={quotedUsername}
             />
           </XStack>
         )}
-      </XStack>
+      </YStack>
       <Divider borderColor={"$divider-subtle"} />
     </>
   );
