@@ -151,7 +151,12 @@ const TabsView: React.FC = () => {
     const theme = useColorScheme();
     const isDarkTheme = theme === "dark";
     return (
-      <XStack flexWrap="wrap" backgroundColor={"$quoted-post-bg-color"}>
+      <XStack
+        flexWrap="wrap"
+        backgroundColor={"$quoted-post-bg-color"}
+        borderBottomColor={"$divider-strong"}
+        borderBottomWidth={0.5}
+      >
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {props.navigationState.routes.map((route, i) => {
             const colorText = route.disabled
