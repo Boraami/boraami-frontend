@@ -1,28 +1,27 @@
 import React from "react";
-import { Avatar, SizableText, XStack, Image, Stack } from "tamagui";
+import { Avatar, SizableText, XStack, Image, Stack, StackProps } from "tamagui";
 import Icon from "../Icon/Icon";
 import PopupMenu from "../PopupMenu/PopupMenu";
 import { popupMenuItems } from "../PopupMenu/PopupMenu.stories";
 
-export type Props = {
+export type Props = StackProps & {
   username: string;
   avatarText: string;
   displayName: string;
   postText: string;
-  postImg?: |string|string[];
+  postImg?: string | string[];
 };
 
-const Post = ({ avatarText, displayName, username, postText, postImg }: Props) => {
+const Post = ({ avatarText, displayName, username, postText, postImg, ...rest }: Props) => {
   return (
     <XStack
+      width={"100%"}
       backgroundColor={"$quoted-post-bg-color"}
       paddingBottom={20}
       paddingTop={10}
-      paddingLeft={40}
-      paddingRight={40}
-      width={"100%"}
       flexDirection="column"
       justifyContent="center"
+      {...rest}
     >
       <XStack flexDirection="row" justifyContent="space-between" alignItems="center">
         <XStack justifyContent="flex-start" alignItems="center">
@@ -71,14 +70,12 @@ const Post = ({ avatarText, displayName, username, postText, postImg }: Props) =
       >
         {postText}
       </SizableText>
-      {typeof(postImg)=="object"?
-        <XStack 
-        flexWrap="wrap"
-        gap={2}>
-          {postImg.map((item,i)=>{
-            const isLastImage = postImg.length===3 && i === 2;
-            const imageStyle = isLastImage? "100%":"49%"
-            return(
+      {typeof postImg == "object" ? (
+        <XStack flexWrap="wrap" gap={2}>
+          {postImg.map((item, i) => {
+            const isLastImage = postImg.length === 3 && i === 2;
+            const imageStyle = isLastImage ? "100%" : "49%";
+            return (
               <Image
                 key={i}
                 source={{
@@ -86,28 +83,29 @@ const Post = ({ avatarText, displayName, username, postText, postImg }: Props) =
                 }}
                 objectFit="cover"
                 width={imageStyle}
-                aspectRatio={isLastImage?2:1}
+                aspectRatio={isLastImage ? 2 : 1}
                 alignSelf="center"
                 borderRadius={4}
                 borderWidth={1}
                 borderColor="$quoted-post-bg-color"
-                />
-            )
+              />
+            );
           })}
         </XStack>
-        :postImg!=null?
+      ) : postImg != null ? (
         <Image
-        source={{
-          uri: postImg,
-        }}
-        objectFit="cover"
-        width={'100%'}
-        aspectRatio={1}
-        alignSelf="center"
-        borderRadius={4}
-        borderWidth={1}
-        borderColor="$quoted-post-bg-color"
-        />:null}
+          source={{
+            uri: postImg,
+          }}
+          objectFit="cover"
+          width={"100%"}
+          aspectRatio={1}
+          alignSelf="center"
+          borderRadius={4}
+          borderWidth={1}
+          borderColor="$quoted-post-bg-color"
+        />
+      ) : null}
     </XStack>
   );
 };
