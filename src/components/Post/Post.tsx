@@ -1,26 +1,44 @@
 import React from "react";
 import { SizableText, XStack, Image, Stack, StackProps } from "tamagui";
-import Icon from "../Icon/Icon";
 import PopupMenu from "../PopupMenu/PopupMenu";
 import { popupMenuItems } from "../PopupMenu/PopupMenu.stories";
+import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 import Divider from "../Divider/Divider";
 import Avatar from "../Avatar/Avatar";
+import IconBtn from "../Button/IconBtn";
+import { colorScheme } from "../../themes/theme";
+import { useColorScheme } from "react-native";
 
 export type Props = StackProps & {
   username: string;
   avatarText: string;
   displayName: string;
+  dateTime: string;
   postText: string;
   postImg?: string | string[];
 };
 
-const Post = ({ avatarText, displayName, username, postText, postImg, ...rest }: Props) => {
+const Post = ({
+  avatarText,
+  displayName,
+  username,
+  postText,
+  dateTime,
+  postImg,
+  ...rest
+}: Props) => {
+  const theme = useColorScheme();
+  const isDarkTheme = theme === "dark";
+
+  const idleColor = isDarkTheme ? colorScheme.boraami[500] : colorScheme.mono[500];
+  const activeColor = isDarkTheme ? colorScheme.boraami[300] : colorScheme.boraami[500];
+
   return (
     <XStack
       width={"100%"}
       backgroundColor={"$quoted-post-bg-color"}
       // paddingBottom={}
-      paddingTop={24}
+      paddingTop={20}
       flexDirection="column"
       justifyContent="center"
       {...rest}
@@ -97,7 +115,59 @@ const Post = ({ avatarText, displayName, username, postText, postImg, ...rest }:
           borderColor="$quoted-post-bg-color"
         />
       ) : null}
-      <Divider borderColor={"$divider-strong"} paddingTop={24} />
+      <XStack paddingTop={12} alignItems="center" justifyContent="space-between">
+        <XStack gap={8}>
+          <IconBtn
+            count={234}
+            iconBefore={<FontAwesome name="heart-o" size={16} color={idleColor} />}
+            iconAfter={<FontAwesome name="heart" size={16} color={activeColor} />}
+            idleColor={idleColor}
+            activeColor={activeColor}
+            // This is how you handle the toggle between function depending on tap of icon for example sending liking unliking api request
+            handleBtnAction={(tapped, setTapped, liked, setLiked) => {
+              if (tapped) {
+                alert("You LIKED it!");
+                // Mocking api request throwing error and setting tapped and liked count to prev value
+                let promise = new Promise(function (resolve, reject) {
+                  setTimeout(() => {
+                    reject(new Error("Error occurred")); // reject the Promise with an error
+                  }, 2000);
+                });
+                // If it throws an error we reverse the tap and like count
+                promise.catch(() => {
+                  setTapped(false);
+                  setLiked(liked);
+                });
+              } else {
+                alert("You UNLIKED it!"); // unlike api request
+              }
+            }}
+            paddingHorizontal={4}
+          />
+          <IconBtn
+            count={234}
+            iconBefore={<FontAwesome6 name="retweet" size={16} color={idleColor} />}
+            iconAfter={<FontAwesome6 name="retweet" size={16} color={activeColor} />}
+            idleColor={idleColor}
+            activeColor={activeColor}
+            paddingHorizontal={4}
+          />
+          <IconBtn
+            count={234}
+            iconBefore={<FontAwesome6 name="comment" size={16} color={idleColor} />}
+            iconAfter={<FontAwesome6 name="comment" size={16} color={activeColor} />}
+            idleColor={idleColor}
+            activeColor={activeColor}
+            paddingHorizontal={4}
+          />
+        </XStack>
+        <SizableText fontFamily={"$body"} size={"$xs"} color={"$date-time-text"}>
+          {dateTime}
+        </SizableText>
+      </XStack>
+      <Stack paddingTop={20}>
+        <Divider borderColor={"$divider-strong"} />
+      </Stack>
     </XStack>
   );
 };

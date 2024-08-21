@@ -29,6 +29,7 @@ const PostMeta: Meta<typeof Post> = {
     (Story) => (
       <ScrollView flex={1}>
         <Post
+          dateTime="06/13/2023 13:06"
           paddingHorizontal={14}
           avatarText="TT"
           displayName="kigris"
@@ -36,6 +37,7 @@ const PostMeta: Meta<typeof Post> = {
           postText="I miss them."
         />
         <Post
+          dateTime="06/13/2023 13:06"
           paddingHorizontal={14}
           avatarText="TT"
           displayName="sunshine"
@@ -44,6 +46,7 @@ const PostMeta: Meta<typeof Post> = {
           postImg={require("../../assets/Notification/Image.png")}
         />
         <Post
+          dateTime="06/13/2023 13:06"
           paddingHorizontal={14}
           avatarText="TT"
           displayName="fab"
@@ -55,6 +58,7 @@ const PostMeta: Meta<typeof Post> = {
           ]}
         />
         <Post
+          dateTime="06/13/2023 13:06"
           paddingHorizontal={14}
           avatarText="TT"
           displayName="tasha"
@@ -67,6 +71,7 @@ const PostMeta: Meta<typeof Post> = {
           ]}
         />
         <Post
+          dateTime="06/13/2023 13:06"
           paddingHorizontal={14}
           avatarText="TT"
           displayName="iba"
