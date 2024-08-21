@@ -31,7 +31,7 @@ const Post = ({
   const isDarkTheme = theme === "dark";
 
   const idleColor = isDarkTheme ? colorScheme.boraami[500] : colorScheme.mono[500];
-  const activeColor = isDarkTheme ? colorScheme.boraami[300] : colorScheme.boraami[500];
+  const activeColor = colorScheme.serendipity[500];
 
   return (
     <XStack
@@ -120,9 +120,9 @@ const Post = ({
           <IconBtn
             count={234}
             iconBefore={<FontAwesome name="heart-o" size={16} color={idleColor} />}
-            iconAfter={<FontAwesome name="heart" size={16} color={activeColor} />}
+            iconAfter={<FontAwesome name="heart" size={16} color={"#EC4899"} />}
             idleColor={idleColor}
-            activeColor={activeColor}
+            activeColor={"#EC4899"}
             // This is how you handle the toggle between function depending on tap of icon for example sending liking unliking api request
             handleBtnAction={(tapped, setTapped, liked, setLiked) => {
               if (tapped) {
@@ -155,9 +155,9 @@ const Post = ({
           <IconBtn
             count={234}
             iconBefore={<FontAwesome6 name="comment" size={16} color={idleColor} />}
-            iconAfter={<FontAwesome6 name="comment" size={16} color={activeColor} />}
+            iconAfter={<FontAwesome6 name="comment" size={16} color={idleColor} />}
             idleColor={idleColor}
-            activeColor={activeColor}
+            activeColor={idleColor}
             paddingHorizontal={4}
           />
         </XStack>
