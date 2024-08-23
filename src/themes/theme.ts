@@ -332,7 +332,7 @@ const light = {
   "quoted-post-link": colorScheme.boraami[600],
   "quoted-post-bg-color": colorScheme.mono[50],
   "quoted-post-username": colorScheme.mono[800],
-  "quoted-post-user-tag": colorScheme.mono[600],
+  "quoted-post-user-tag": colorScheme.mono[500],
   //avatars
   "avatar-bg-color": colorScheme.boraami[700],
   "avatar-border-color": colorScheme.boraami[200],
@@ -351,7 +351,20 @@ const light = {
   "post-placeholder-helper-text": colorScheme.mono[600],
   "post-disabled-btn-fill": colorScheme.mono[400],
   "post-disabled-btn-text": colorScheme.mono[100],
-
+  //Tabs
+  "tab-default-text" : colorScheme.boraami[700],
+  "tab-default-icon" : colorScheme.boraami[700],
+  "tab-disabled-text" : colorScheme.mono[700],
+  "tab-disabled-icon" : colorScheme.mono[700],
+  "tab-hover-text" : colorScheme.serendipity[600],
+  "tab-hover-icon" : colorScheme.serendipity[600],
+  "tab-hover-line" : colorScheme.serendipity[600],
+  "tab-active-text" : colorScheme.boraami[700],
+  "tab-active-icon" : colorScheme.boraami[700],
+  "tab-active-line" : colorScheme.boraami[700],
+  "tab-focus-text" : colorScheme.mono[600],
+  "tab-focus-icon" : colorScheme.mono[600],
+  "tab-focus-line" : colorScheme.mono[600],
 };
 // note: we set up a single consistent base type to validate the rest
 
@@ -536,7 +549,7 @@ const dark: BaseTheme = {
   "large-badge-text": colorScheme.butter[50],
   // Divider component
   "divider-subtle": colorScheme.boraami[400],
-  "divider-strong": colorScheme.boraami[100],
+  "divider-strong": colorScheme.boraami[400],
   // Overflow menu component
   "popup-sheet-title": colorScheme.mono[400],
   "overflow-bg-color": colorScheme.boraami[900],
@@ -598,13 +611,13 @@ const dark: BaseTheme = {
   "new-notification-badge": colorScheme.boraami[700],
   "username-action-taken-text": colorScheme.butter[50],
   "user-tag-text": colorScheme.boraami[400],
-  "date-time-text": colorScheme.mono[400],
+  "date-time-text": colorScheme.boraami[500],
   "divider-notifications": colorScheme.boraami[400],
   "replied-quoted-text": colorScheme.boraami[100],
   "quoted-post-link": colorScheme.boraami[400],
   "quoted-post-bg-color": colorScheme.boraami[900],
   "quoted-post-username": colorScheme.butter[50],
-  "quoted-post-user-tag": colorScheme.mono[400],
+  "quoted-post-user-tag": colorScheme.boraami[500],
   //avatars
   "avatar-bg-color": colorScheme.boraami[700],
   "avatar-border-color": colorScheme.boraami[400],
@@ -623,6 +636,20 @@ const dark: BaseTheme = {
   "post-placeholder-helper-text": colorScheme.mono[300],
   "post-disabled-btn-fill": colorScheme.mono[400],
   "post-disabled-btn-text": colorScheme.mono[100],
+  //Tabs
+  "tab-default-text" : colorScheme.mono[300],
+  "tab-default-icon" : colorScheme.mono[300],
+  "tab-disabled-text" : colorScheme.mono[300],
+  "tab-disabled-icon" : colorScheme.mono[300],
+  "tab-hover-text" : colorScheme.serendipity[400],
+  "tab-hover-icon" : colorScheme.serendipity[400],
+  "tab-hover-line" : colorScheme.serendipity[400],
+  "tab-active-text" : colorScheme.boraami[400],
+  "tab-active-icon" : colorScheme.boraami[400],
+  "tab-active-line" : colorScheme.boraami[400],
+  "tab-focus-text" : colorScheme.serendipity[100],
+  "tab-focus-icon" : colorScheme.serendipity[100],
+  "tab-focus-line" : colorScheme.serendipity[100],
 };
 
 const allThemes = {

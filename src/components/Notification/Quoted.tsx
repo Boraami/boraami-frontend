@@ -1,5 +1,5 @@
 import React from "react";
-import { XStack, YStack, SizableText } from "tamagui";
+import { XStack, YStack, SizableText, Stack } from "tamagui";
 import Icon from "../Icon/Icon";
 import Badge from "../Badge/Badge";
 import QuotedPost from "../Post/Post";
@@ -31,8 +31,8 @@ const QuotedNotification = ({
   quotedPostImg,
 }: QuotedNotificationProps) => {
   return (
-    <>
-      <XStack flexDirection="column">
+    <Stack>
+      <YStack>
         <YStack paddingHorizontal={10}>
           <XStack gap={10} paddingVertical={10} justifyContent="center" alignItems="flex-start">
             <Icon name={iconName} size={17} style={{ paddingTop: 10 }} color={"#AA7AFF"} />
@@ -85,19 +85,24 @@ const QuotedNotification = ({
           )}
         </YStack>
         {quotedDisplayName !== "" && (
+          // This needs to be wrapped in Link to take us to post page
           <XStack justifyContent="center" alignItems="center">
             <QuotedPost
+              paddingHorizontal={12}
+              showEngagement={false}
+              showDivider={false}
               avatarText={quotedAvatarText}
               displayName={quotedDisplayName}
+              dateTime={dateTime}
               postImg={quotedPostImg}
               postText={quotedPostText}
               username={quotedUsername}
             />
           </XStack>
         )}
-      </XStack>
+      </YStack>
       <Divider borderColor={"$divider-subtle"} />
-    </>
+    </Stack>
   );
 };
 

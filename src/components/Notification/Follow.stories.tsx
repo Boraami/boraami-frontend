@@ -18,7 +18,7 @@ const FollowNotificationMeta: Meta<typeof FollowNotification> = {
   args: {},
   decorators: [
     (Story) => (
-      <ScrollView flex={1}>
+      <ScrollView flex={1} backgroundColor={"$app-bg"}>
         <Story />
         <LikeNotification {...likedNoti.args} />
         <MentionNotification {...mentionedNoti.args} />
