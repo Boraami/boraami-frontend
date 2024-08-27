@@ -1,4 +1,4 @@
-//react-native-image-zoom-viewer
+//react-native-awesome-gallery
 import React, { useState } from "react";
 import { SizableText, XStack, Stack, StackProps, Button } from "tamagui";
 import PopupMenu from "../PopupMenu/PopupMenu";
@@ -10,7 +10,7 @@ import IconBtn from "../Button/IconBtn";
 import { colorScheme } from "../../themes/theme";
 import { useColorScheme } from "react-native";
 import { Modal, TouchableOpacity, View,Image} from "react-native";
-import ImageViewer from "react-native-image-zoom-viewer";
+import Gallery from "react-native-awesome-gallery";
 
 export type Props = StackProps & {
   username: string;
@@ -23,7 +23,7 @@ export type Props = StackProps & {
   showDivider?: boolean;
 };
 
-const Post = ({
+const Posts = ({
   avatarText,
   displayName,
   username,
@@ -42,12 +42,11 @@ const Post = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = (Array.isArray(postImg) ? postImg : [postImg]).filter((uri)=> typeof uri==='number').map((img)=>{
       if(typeof img === 'number'){
-        return{url: Image.resolveAssetSource(img).uri};
+        return Image.resolveAssetSource(img).uri;
       } else {
-        return{url:img!};
+        return img!;
       }
   });
-  console.log(images)
   return (
     <XStack
       width={"100%"}
@@ -115,9 +114,8 @@ const Post = ({
                 setCurrentIndex(i)
               }}>
               <Image
-                key={i}
                 source={{
-                  uri:urlConversion,
+                  uri: urlConversion,
                 }}
                 style={{
                   objectFit:"cover",
@@ -139,19 +137,19 @@ const Post = ({
         transparent={true}
         animationType="fade"
       >
-        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,1)'}}>
+        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,1)' }}>
         <Button 
               alignSelf='flex-start'
               onPress={() => setShowDialogue(false)} 
             ><FontAwesome name="chevron-left" size={14} color={'#fff'}/></Button>
-          <ImageViewer
-            imageUrls={images}
-            index={currentIndex}
-            onSwipeDown={() => setShowDialogue(false)}
-            enableSwipeDown={true}
-            saveToLocalByLongPress
-            failImageSource= {{url:'https://example.com/sample-image.jpg'}}
+          
+          <Gallery
+            keyExtractor={(item,i)=>i}
+            data={images}
+            initialIndex={currentIndex}
+            onSwipeToClose={() => setShowDialogue(false)}
           />
+          
         </View>
       </Modal>
       {showEngagement ? (
@@ -213,4 +211,4 @@ const Post = ({
   );
 };
 
-export default Post;
+export default Posts;

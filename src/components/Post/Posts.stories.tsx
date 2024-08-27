@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollView } from "tamagui";
 import { Meta } from "@storybook/react-native";
-import Post from "./Post";
+import Posts from "./Posts";
 
 const Images = [
   require("../../assets/Notification/Image.png"),
@@ -10,9 +10,9 @@ const Images = [
   require("../../assets/Modals/mnet-image.png"),
 ];
 
-const PostMeta: Meta<typeof Post> = {
-  title: "Post",
-  component: Post,
+const PostsMeta: Meta<typeof Posts> = {
+  title: "Posts",
+  component: Posts,
   argTypes: {},
   args: {
     avatarText: "TT",
@@ -28,7 +28,7 @@ const PostMeta: Meta<typeof Post> = {
   decorators: [
     (Story) => (
       <ScrollView flex={1}>
-        <Post
+        <Posts
           dateTime="06/13/2023 13:06"
           paddingHorizontal={14}
           avatarText="TT"
@@ -36,7 +36,7 @@ const PostMeta: Meta<typeof Post> = {
           username="@bts_twt"
           postText="I miss them."
         />
-        <Post
+        <Posts
           dateTime="06/13/2023 13:06"
           paddingHorizontal={14}
           avatarText="TT"
@@ -45,7 +45,7 @@ const PostMeta: Meta<typeof Post> = {
           postText="I miss them."
           postImg={[require("../../assets/Notification/Image.png")]}
         />
-        <Post
+        <Posts
           dateTime="06/13/2023 13:06"
           paddingHorizontal={14}
           avatarText="TT"
@@ -57,7 +57,7 @@ const PostMeta: Meta<typeof Post> = {
             require("../../assets/Modals/mnet-image.png"),
           ]}
         />
-        <Post
+        <Posts
           dateTime="06/13/2023 13:06"
           paddingHorizontal={14}
           avatarText="TT"
@@ -70,7 +70,7 @@ const PostMeta: Meta<typeof Post> = {
             require("../../assets/Modals/mnet-image.png"),
           ]}
         />
-        <Post
+        <Posts
           dateTime="06/13/2023 13:06"
           paddingHorizontal={14}
           avatarText="TT"
@@ -84,6 +84,6 @@ const PostMeta: Meta<typeof Post> = {
   ],
 };
 
-export default PostMeta;
+export default PostsMeta;
 
 export const TimelinePost = {};
