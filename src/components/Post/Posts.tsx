@@ -39,6 +39,7 @@ const Posts = ({
   const [showDialog,setShowDialogue] = React.useState(false);
   const idleColor = isDarkTheme ? colorScheme.boraami[500] : colorScheme.mono[500];
   const activeColor = colorScheme.serendipity[500];
+  const [url,setUrl] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = (Array.isArray(postImg) ? postImg : [postImg]).filter((uri)=> typeof uri==='number').map((img)=>{
       if(typeof img === 'number'){
@@ -148,6 +149,21 @@ const Posts = ({
             data={images}
             initialIndex={currentIndex}
             onSwipeToClose={() => setShowDialogue(false)}
+            renderItem={(item)=>
+              (
+              <XStack flex={1}>
+              <Image
+              source={{
+                uri: item.item,
+              }}
+              style={{
+                objectFit:"contain",
+                width: '100%',
+                aspectRatio:1,
+                alignSelf:'center'
+              }}
+              onError={()=>item.item='https://example.com/sample-image.jpg'}
+            /></XStack>)}
           />
           
         </View>

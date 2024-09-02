@@ -5,8 +5,8 @@ import Posts from "./Posts";
 
 const Images = [
   require("../../assets/Notification/Image.png"),
-  require("../../assets/Notification/Image.png"),
-  require("../../assets/Notification/Image.png"),
+  require("../../assets/Notification/Screenshot_20240831-151719.jpg"),
+  require("../../assets/Notification/1725099856399.jpg"),
   require("../../assets/Modals/mnet-image.png"),
 ];
 
