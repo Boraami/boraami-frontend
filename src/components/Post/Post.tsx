@@ -42,7 +42,7 @@ const Post = ({
   const screenHeight = Dimensions.get('window').height;
   const [showDialog,setShowDialogue] = React.useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isEngagemnetVisible, setEngagementVisible ] = useState(true);
+  const [isEngagementVisible, setEngagementVisible ] = useState(true);
   const images = (Array.isArray(postImg) ? postImg : [postImg]).filter((uri)=> typeof uri==='number').map((img)=>{
       if(typeof img === 'number'){
         return{url: Image.resolveAssetSource(img).uri};
@@ -154,9 +154,9 @@ const Post = ({
             enableSwipeDown={true}
             saveToLocalByLongPress
             failImageSource= {{url:'https://example.com/sample-image.jpg'}}
-            onClick={()=>setEngagementVisible(!isEngagemnetVisible)}
+            onClick={()=>setEngagementVisible(!isEngagementVisible)}
             />
-            {isEngagemnetVisible && (
+            {isEngagementVisible && (
               <View style={{position:'absolute', top:40,left:10, borderRadius:100, backgroundColor: 'rgba(0,0,0,0.5)' }}>
               <Button 
               alignSelf='flex-start'
@@ -164,7 +164,7 @@ const Post = ({
               circular
             ><FontAwesome name="chevron-left" size={16} color={'#fff'}/></Button></View>
             )}
-            {isEngagemnetVisible && (
+            {isEngagementVisible && (
               <View style={{
                 position:'absolute', 
                 bottom:0,
@@ -206,7 +206,7 @@ const Post = ({
               iconBefore={<FontAwesome6 name="comment" size={16} color={'#fff'} />}
               iconAfter={<FontAwesome6 name="comment" size={16} color={idleColor} />}
               idleColor={'#fff'}
-              activeColor={idleColor}
+              activeColor={'#fff'}
               paddingHorizontal={4}
             />
             <IconBtn

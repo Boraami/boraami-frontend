@@ -9,7 +9,7 @@ import Avatar from "../Avatar/Avatar";
 import IconBtn from "../Button/IconBtn";
 import { colorScheme } from "../../themes/theme";
 import { useColorScheme } from "react-native";
-import { Modal, TouchableOpacity, View,Image} from "react-native";
+import { Modal, TouchableOpacity, View,Image, StatusBar} from "react-native";
 import Gallery from "react-native-awesome-gallery";
 
 export type Props = StackProps & {
@@ -39,7 +39,7 @@ const Posts = ({
   const [showDialog,setShowDialogue] = React.useState(false);
   const idleColor = isDarkTheme ? colorScheme.boraami[500] : colorScheme.mono[500];
   const activeColor = colorScheme.serendipity[500];
-  const [url,setUrl] = useState('');
+  const [isEngagementVisible, setEngagementVisible ] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = (Array.isArray(postImg) ? postImg : [postImg]).filter((uri)=> typeof uri==='number').map((img)=>{
       if(typeof img === 'number'){
@@ -48,6 +48,17 @@ const Posts = ({
         return img!;
       }
   });
+  const [imageUris, setImageUris] = useState(images);
+  const imageData = imageUris.map((imageUri, index) => ({
+    uri: imageUri,
+    onError: () => handleImageError(index),
+  }));
+  const handleImageError = (index:number) => {
+    const updatedImages = [...imageUris];
+    updatedImages[index] = 'path/to/fallback-image.jpg';
+    setImageUris(updatedImages);
+  };
+
   return (
     <XStack
       width={"100%"}
@@ -138,34 +149,82 @@ const Posts = ({
         transparent={true}
         animationType="fade"
       >
-        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,1)' }}>
-        <Button 
+        <View style={{flex:1, backgroundColor: 'rgba(0,0,0,1)'}}>
+          <StatusBar hidden={true}/>
+          <View style={{flex:1}}>
+         <Gallery
+            keyExtractor={(item,i)=>i}
+            data={imageData.map((item) => item.uri)}
+            initialIndex={currentIndex}
+            style={{flex:1, width:"100%",}}
+            onSwipeToClose={() => setShowDialogue(false)}
+            onTap={()=>setEngagementVisible(!isEngagementVisible)}
+          />
+          {isEngagementVisible && (
+              <View style={{position:'absolute', top:0,left:5, borderRadius:100, backgroundColor: 'rgba(0,0,0,0.5)' }}>
+              <Button 
               alignSelf='flex-start'
               onPress={() => setShowDialogue(false)} 
-            ><FontAwesome name="chevron-left" size={14} color={'#fff'}/></Button>
-          
-          <Gallery
-            keyExtractor={(item,i)=>i}
-            data={images}
-            initialIndex={currentIndex}
-            onSwipeToClose={() => setShowDialogue(false)}
-            renderItem={(item)=>
-              (
-              <XStack flex={1}>
-              <Image
-              source={{
-                uri: item.item,
+              circular
+            ><FontAwesome name="chevron-left" size={16} color={'#fff'}/></Button></View>
+            )}
+            {isEngagementVisible && (
+              <View style={{
+                position:'absolute', 
+                bottom:0,
+                left:0,
+                right:0,
+                paddingHorizontal:20,
+                height:60,
+                backgroundColor: 'rgba(0,0,0,0.5)' }}>
+          <XStack paddingTop={18} alignItems="center" justifyContent="space-between" flexDirection="row">
+            <IconBtn
+              count={234}
+              iconBefore={<FontAwesome name="heart-o" size={16} color={'#fff'} />}
+              iconAfter={<FontAwesome name="heart" size={16} color={"#EC4899"} />}
+              idleColor={'#fff'}
+              activeColor={"#EC4899"}
+              // This is how you handle the toggle between function depending on tap of icon for example sending liking unliking api request
+              handleBtnAction={(tapped, setTapped, liked, setLiked) => {
+                if (tapped) {
+                  alert("You LIKED it!");
+                  // Mocking api request throwing error and setting tapped and liked count to prev value
+                  let promise = new Promise(function (resolve, reject) {
+                    setTimeout(() => {
+                      reject(new Error("Error occurred")); // reject the Promise with an error
+                    }, 2000);
+                  });
+                  // If it throws an error we reverse the tap and like count
+                  promise.catch(() => {
+                    setTapped(false);
+                    setLiked(liked);
+                  });
+                } else {
+                  alert("You UNLIKED it!"); // unlike api request
+                }
               }}
-              style={{
-                objectFit:"contain",
-                width: '100%',
-                aspectRatio:1,
-                alignSelf:'center'
-              }}
-              onError={()=>item.item='https://example.com/sample-image.jpg'}
-            /></XStack>)}
-          />
-          
+              paddingHorizontal={4}
+            />
+            <IconBtn
+              count={234}
+              iconBefore={<FontAwesome6 name="comment" size={16} color={'#fff'} />}
+              iconAfter={<FontAwesome6 name="comment" size={16} color={idleColor} />}
+              idleColor={'#fff'}
+              activeColor={'#fff'}
+              paddingHorizontal={4}
+            />
+            <IconBtn
+              count={234}
+              iconBefore={<FontAwesome6 name="retweet" size={16} color={'#fff'} />}
+              iconAfter={<FontAwesome6 name="retweet" size={16} color={activeColor} />}
+              idleColor={'#fff'}
+              activeColor={activeColor}
+              paddingHorizontal={4}
+            />
+          </XStack>
+              </View>
+            )}
+        </View>
         </View>
       </Modal>
       {showEngagement ? (
