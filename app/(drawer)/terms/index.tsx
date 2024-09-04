@@ -1,10 +1,10 @@
 import { Link, Stack } from "expo-router";
 import { Button, StyleSheet, Text, View } from "react-native";
 
-export default function Index() {
+export default function Terms() {
     return (
       <>
-      <Stack.Screen options={{headerShown: false, title: 'Terms and Conditions'}} />
+      <Stack.Screen options={{headerShown: true, title: 'Terms and Conditions'}} />
       <View style={styles.container}>
       <View style={styles.main}>
       <Text style={styles.title}>Terms and Conditions</Text>

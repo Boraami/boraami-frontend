@@ -1,10 +1,10 @@
 import { Link, Stack } from "expo-router";
 import { Button, StyleSheet, Text, View } from "react-native";
 
-export default function Index() {
+export default function Coffee() {
     return (
       <>
-      <Stack.Screen options={{headerShown: false, title: 'Buy us a Coffee'}} />
+      <Stack.Screen options={{headerShown: true, title: 'Buy us a Coffee'}} />
       <View style={styles.container}>
       <View style={styles.main}>
       <Text style={styles.title}>Buy Coffee</Text>

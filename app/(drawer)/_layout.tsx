@@ -301,7 +301,7 @@ const CustomDrawerContent = (props: DrawerProps) => {
 
 //const Drawer = createDrawerNavigator();
 
-export default function Layout() {
+export default function DrawerLayout() {
     const theme = useColorScheme();
     const isDarkTheme = theme === "dark";
     const toodleColor = isDarkTheme ? 'white' : 'black';
@@ -322,10 +322,10 @@ export default function Layout() {
                     backgroundColor: barColor
                 },
             }}>
-            <Drawer.Screen name="profile" options={{ title: 'Profile', headerShown: true,}} />
-            <Drawer.Screen name="coffee" options={{ title: 'Buy us a Coffe', headerShown: true,}} />
-            <Drawer.Screen name="conduct" options={{ title: 'Codes of Conduct', headerShown: true,}} />
-            <Drawer.Screen name="terms" options={{ title: 'Terms', headerShown: true,}} />
+            <Drawer.Screen name="profile/index" options={{ title: 'Profile', headerShown: true,}} />
+            <Drawer.Screen name="coffee/index" options={{ title: 'Buy us a Coffe', headerShown: true,}} />
+            <Drawer.Screen name="conduct/index" options={{ title: 'Codes of Conduct', headerShown: true,}} />
+            <Drawer.Screen name="terms/index" options={{ title: 'Terms', headerShown: true,}} />
         </Drawer>
     )
 }

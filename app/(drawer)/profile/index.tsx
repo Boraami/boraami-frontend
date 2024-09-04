@@ -1,12 +1,12 @@
 import { Stack } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function Index() {
+export default function Profile() {
   const name = "Yoongi's Wife";
   const userName = "tangerines4life";
   return (
     <>
-      <Stack.Screen options={{ headerShown: false, title: 'Profile' }} />
+      <Stack.Screen options={{ headerShown: true, title: 'Profile' }} />
       <View style={styles.container}>
         <Text style={styles.title}>{name}</Text>
         <Text style={styles.title}>@{userName}</Text>

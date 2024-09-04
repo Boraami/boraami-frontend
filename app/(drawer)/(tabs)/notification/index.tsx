@@ -2,10 +2,10 @@ import { Redirect, Tabs, Stack} from 'expo-router';
 import { Text, View, StyleSheet } from 'react-native';
 
 
-export default function Index() {
+export default function Notification() {
   return (
     <>
-    <Stack.Screen options={{headerShown: false, title: 'Notification'}} />
+    <Stack.Screen options={{headerShown: true, title: 'Notification'}} />
     <View style={styles.container}>
       <Text style={{fontSize: 24}}>Notifications Tab</Text>
     </View>

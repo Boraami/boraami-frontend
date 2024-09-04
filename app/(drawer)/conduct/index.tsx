@@ -1,10 +1,10 @@
 import { Link, Stack } from "expo-router";
 import { Button, StyleSheet, Text, View } from "react-native";
 
-export default function Index() {
+export default function Conduct() {
     return (
       <>
-      <Stack.Screen options={{headerShown: false, title: 'Codes of Conduct'}} />
+      <Stack.Screen options={{headerShown: true, title: 'Codes of Conduct'}} />
       <View style={styles.container}>
       <View style={styles.main}>
       <Text style={styles.title}>Codes of Conduct</Text>

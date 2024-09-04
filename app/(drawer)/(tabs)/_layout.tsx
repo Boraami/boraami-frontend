@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Tabs, useNavigation } from "expo-router";
 import { FontAwesome, FontAwesome6, SimpleLineIcons } from '@expo/vector-icons';
-import { Image, Dimensions, View, useColorScheme } from "react-native";
+import { Image, Dimensions, View, useColorScheme, TouchableOpacity } from "react-native";
 import { colorScheme } from "../../../src/themes/theme";
 import { DrawerToggleButton } from "@react-navigation/drawer";
-
+import { DrawerActions} from '@react-navigation/native';
 
 function LogoTitle() {
   const theme = useColorScheme();
@@ -52,10 +52,7 @@ export default function TabsLayout() {
 
   return (
     <Tabs screenOptions={{
-      headerShown: true,
-      headerLeft: () => <DrawerToggleButton
-          tintColor={toodleColor}
-        />,
+      headerShown: false,
         headerRight: () => <LogoTitle />,
         headerStyle: {
             backgroundColor: barColor
@@ -71,7 +68,7 @@ export default function TabsLayout() {
         shadowOffset: {width: 0, height: -1},
       },
     }}>
-      <Tabs.Screen name="home"
+      <Tabs.Screen name="home/index"
         options={{
           tabBarLabel: 'Home',
           title: 'Home',
@@ -79,7 +76,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color }) => (
             <FontAwesome name="home" size={24} color={color} />)
         }} />
-      <Tabs.Screen name="search"
+      <Tabs.Screen name="search/index"
         options={{
           tabBarLabel: 'Search',
           title: 'Search',
@@ -87,7 +84,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color }) => (
             <FontAwesome name="search" size={24} color={color} />)
         }} />
-      <Tabs.Screen name="notification"
+      <Tabs.Screen name="notification/index"
         options={{
           tabBarLabel: 'Notification',
           title: 'Notification',
@@ -101,13 +98,17 @@ export default function TabsLayout() {
           tabBarIcon: ({ color }) => (
             <FontAwesome6 name="bell" size={24} color={color} />)
         }} />
-      <Tabs.Screen name="settings"
+      <Tabs.Screen name="settings/index"
         options={{
           tabBarLabel: 'Settings',
           title: 'Settings',
           tabBarShowLabel: false,
           tabBarIcon: ({ color }) => (
             <SimpleLineIcons name="menu" size={24} color={color} />),
+            tabBarButton: (props) => (
+              <TouchableOpacity
+               {...props} onPress={() => navigate.dispatch(DrawerActions.openDrawer())}/>
+            )
         }} />
     </Tabs>
   )
