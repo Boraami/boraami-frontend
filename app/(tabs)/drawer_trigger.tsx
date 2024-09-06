@@ -1,17 +1,16 @@
-import { Drawer } from "expo-router/drawer"
 import { router, usePathname } from "expo-router";
 import { View, Image, useColorScheme } from "react-native";
 import { DrawerContentScrollView, DrawerItem, DrawerToggleButton } from "@react-navigation/drawer";
 import { FontAwesome6, FontAwesome } from "@expo/vector-icons";
 import { Avatar, SizableText } from "tamagui";
-import { colorScheme } from "../../src/themes/theme";
+import { colorScheme } from "./../../src/themes/theme";
 
 function LogoTitle() {
     const theme = useColorScheme();
     const isDarkTheme = theme === "dark";
     const iconTheme = isDarkTheme ?
-        require('../../assets/dark.png') :
-        require('../../assets/light.png');
+        require('./../../assets/dark.png') :
+        require('./../../assets/light.png');
     return (
         <View>
             <Image
@@ -20,7 +19,8 @@ function LogoTitle() {
                     marginRight: 24,
                     marginTop: 7,
                     width: 101,
-                    height: 48 }}
+                    height: 48
+                }}
                 source={iconTheme}
             />
         </View>
@@ -28,6 +28,7 @@ function LogoTitle() {
 }
 
 interface DrawerProps {
+    navigation: any;
     name: string;
     userName: string;
     followers: number;
@@ -169,13 +170,13 @@ function UserDisplay(props: DrawerProps) {
                     marginLeft: 20,
                     marginTop: 19,
                 }}>
-                    <FollowCount {...props}/>
+                    <FollowCount {...props} />
                 </View>
             </View>
         </View>)
 }
 
-const CustomDrawerContent = (props: DrawerProps) => {
+export default function CustomDrawerContent(props: DrawerProps) {
     const theme = useColorScheme();
     const isDarkTheme = theme === "dark";
     const defaultIconColor = isDarkTheme ? colorScheme.boraami[200] : colorScheme.boraami[500];
@@ -199,18 +200,18 @@ const CustomDrawerContent = (props: DrawerProps) => {
                     gap: 100,
                     flexDirection: 'row',
                 }}>
-                    <View style={{alignSelf: 'flex-start'}}>
-                    <SizableText style={{
-                    fontSize: 16,
-                    fontStyle: 'normal',
-                    fontFamily: 'monospace',
-                    color: menuColor,
-                    fontWeight: 700,
-                    lineHeight: 20,
-                    marginLeft: 22,
-                    marginTop: 15,
-                    paddingTop: 4
-                }}>Menu</SizableText>
+                    <View style={{ alignSelf: 'flex-start' }}>
+                        <SizableText style={{
+                            fontSize: 16,
+                            fontStyle: 'normal',
+                            fontFamily: 'monospace',
+                            color: menuColor,
+                            fontWeight: 700,
+                            lineHeight: 20,
+                            marginLeft: 22,
+                            marginTop: 15,
+                            paddingTop: 4
+                        }}>Menu</SizableText>
                     </View>
                     <LogoTitle />
                 </View>
@@ -223,109 +224,77 @@ const CustomDrawerContent = (props: DrawerProps) => {
                 marginTop: 19,
                 width: 249
             }}>
-            <DrawerItem onPress={() => {
-                router.push('/profile')
-            }}
+                <DrawerItem
                 label={'Profile'}
-                style={{
-                    backgroundColor: pathname == "/profile" ? activeIconColor : navBarColor,
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: 12
-            }}
-                labelStyle={[
-                    { color: pathname == "/profile" ? "#fff" : tabTextColor },
-                    { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: '400', width: 249 }]}
-                icon={({ size }) => (
-                    <FontAwesome6 name="user-large"
-                        size={size}
-                        color={defaultIconColor}
-                         />)}/>
-            <DrawerItem onPress={() => {
-                router.push('/coffee')
-            }}
-                label={'Buy us a Coffee'}
-                style={{
-                    backgroundColor: pathname == "/coffee" ? activeIconColor : navBarColor,
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: 12,
+                onPress={() => router.push("profile")}
+                    style={{
+                        backgroundColor: pathname == "profile" ? activeIconColor : navBarColor,
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: 12
+                    }}
+                    labelStyle={[
+                        { color: pathname == "profile" ? "#fff" : tabTextColor },
+                        { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: '400', width: 249 }]}
+                    icon={({ size }) => (
+                        <FontAwesome6 name="user-large"
+                            size={size}
+                            color={defaultIconColor}
+                        />)} />
+                <DrawerItem onPress={() => {
+                    router.push('/(drawer)/coffee')
                 }}
-                labelStyle={[
-                    { color: pathname == "/coffee" ? "#fff" : tabTextColor },
-                    { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: '400', width: 249 }]}
-                icon={({ size }) => (
-                    <FontAwesome name="coffee"
-                        size={size}
-                        color={defaultIconColor}
-                    />)} />
-            <DrawerItem onPress={() => {
-                router.push('/conduct')
-            }}
-                label={'Codes of Conduct'}
-                style={{
-                    backgroundColor: pathname == "/conduct" ? activeIconColor : navBarColor,
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: 12,
-                 }}
-                labelStyle={[
-                    { color: pathname == "/conducts" ? "#fff" : tabTextColor },
-                    { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: '400', width: 249 }]}
-                icon={({ size }) => (
-                    <FontAwesome6 name="gear"
-                        size={size}
-                        color={defaultIconColor} />)} />
-            <DrawerItem
-                onPress={() => {
-                    router.push('/terms')
+                    label={'Buy us a Coffee'}
+                    style={{
+                        backgroundColor: pathname == "/(drawer)/coffee" ? activeIconColor : navBarColor,
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: 12,
+                    }}
+                    labelStyle={[
+                        { color: pathname == "/(drawer)/coffee" ? "#fff" : tabTextColor },
+                        { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: '400', width: 249 }]}
+                    icon={({ size }) => (
+                        <FontAwesome name="coffee"
+                            size={size}
+                            color={defaultIconColor}
+                        />)} />
+                <DrawerItem onPress={() => {
+                    router.push('/(drawer)/conduct')
                 }}
-                label={'Terms & Conditions'}
-                style={{
-                    backgroundColor: pathname == "/terms" ? activeIconColor : navBarColor,
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: 12,
-                 }}
-                labelStyle={[
-                    { color: pathname == "/terms" ? "#fff" : tabTextColor },
-                    { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: '400', width: 249 }]}
-                icon={({ size }) => (
-                    <FontAwesome6 name="scroll"
-                        size={size}
-                        color={defaultIconColor} />)} />
-                        </View>
+                    label={'Codes of Conduct'}
+                    style={{
+                        backgroundColor: pathname == "/(drawer)/conduct" ? activeIconColor : navBarColor,
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: 12,
+                    }}
+                    labelStyle={[
+                        { color: pathname == "/(drawer)/conduct" ? "#fff" : tabTextColor },
+                        { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: '400', width: 249 }]}
+                    icon={({ size }) => (
+                        <FontAwesome6 name="gear"
+                            size={size}
+                            color={defaultIconColor} />)} />
+                <DrawerItem
+                    onPress={() => {
+                        router.push('/(drawer)/terms')
+                    }}
+                    label={'Terms & Conditions'}
+                    style={{
+                        backgroundColor: pathname == "/(drawer)/terms" ? activeIconColor : navBarColor,
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: 12,
+                    }}
+                    labelStyle={[
+                        { color: pathname == "/(drawer)/terms" ? "#fff" : tabTextColor },
+                        { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: '400', width: 249 }]}
+                    icon={({ size }) => (
+                        <FontAwesome6 name="scroll"
+                            size={size}
+                            color={defaultIconColor} />)} />
+            </View>
         </DrawerContentScrollView >
-    )
-}
-
-//const Drawer = createDrawerNavigator();
-
-export default function DrawerLayout() {
-    const theme = useColorScheme();
-    const isDarkTheme = theme === "dark";
-    const toodleColor = isDarkTheme ? 'white' : 'black';
-    const barColor = isDarkTheme ? '#140233' : '#FFFFFF'
-    return (
-        <Drawer drawerContent={(props) => <CustomDrawerContent
-            name={"Yoongi's Wife"}
-            userName={"tangerines4life"}
-            followers={208}
-            following={67} {...props} />}
-            screenOptions={{
-                headerShown: false,
-                headerLeft: () => <DrawerToggleButton
-                    tintColor={toodleColor}
-                />,
-                headerRight: () => <LogoTitle />,
-                headerStyle: {
-                    backgroundColor: barColor
-                },
-            }}>
-            <Drawer.Screen name="profile/index" options={{ title: 'Profile', headerShown: true,}} />
-            <Drawer.Screen name="coffee/index" options={{ title: 'Buy us a Coffe', headerShown: true,}} />
-            <Drawer.Screen name="conduct/index" options={{ title: 'Codes of Conduct', headerShown: true,}} />
-            <Drawer.Screen name="terms/index" options={{ title: 'Terms', headerShown: true,}} />
-        </Drawer>
     )
 }

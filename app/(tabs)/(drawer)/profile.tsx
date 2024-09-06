@@ -1,21 +1,24 @@
-import { Link, Stack } from "expo-router";
+import { Link } from "expo-router";
 import { Button, StyleSheet, Text, View } from "react-native";
 
-export default function Coffee() {
-    return (
-      <>
-      <Stack.Screen options={{headerShown: true, title: 'Buy us a Coffee'}} />
-      <View style={styles.container}>
+export default function Profile() {
+  const name = "Yoongi's Wife";
+  const userName = "tangerines4life";
+
+  return (
+    <View style={styles.container}>
       <View style={styles.main}>
-      <Text style={styles.title}>Buy Coffee</Text>
+        <View style={styles.container}>
+          <Text style={styles.title}>{name}</Text>
+          <Text style={styles.title}>@{userName}</Text>
+        </View>
         <Link href={'/(tabs)/home'} asChild>
-          <Button title="Go to Tabs"/>
+          <Button title="Go to Tabs" />
         </Link>
       </View>
     </View>
-      </>
-      );
-  }
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -33,4 +36,5 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 64,
     fontWeight: "bold",
-  }});
+  }
+});

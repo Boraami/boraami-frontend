@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Tabs, useNavigation } from "expo-router";
 import { FontAwesome, FontAwesome6, SimpleLineIcons } from '@expo/vector-icons';
 import { Image, Dimensions, View, useColorScheme, TouchableOpacity } from "react-native";
-import { colorScheme } from "../../../src/themes/theme";
+import { colorScheme } from "../../src/themes/theme";
 import { DrawerToggleButton } from "@react-navigation/drawer";
 import { DrawerActions} from '@react-navigation/native';
 
@@ -10,8 +10,8 @@ function LogoTitle() {
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
   const iconTheme = isDarkTheme ?
-      require('../../../assets/dark.png') :
-      require('../../../assets/light.png');
+      require('../../assets/dark.png') :
+      require('../../assets/light.png');
   return (
       <View>
           <Image
@@ -52,7 +52,7 @@ export default function TabsLayout() {
 
   return (
     <Tabs screenOptions={{
-      headerShown: false,
+      headerShown: true,
         headerRight: () => <LogoTitle />,
         headerStyle: {
             backgroundColor: barColor
@@ -68,7 +68,7 @@ export default function TabsLayout() {
         shadowOffset: {width: 0, height: -1},
       },
     }}>
-      <Tabs.Screen name="home/index"
+      <Tabs.Screen name="home"
         options={{
           tabBarLabel: 'Home',
           title: 'Home',
@@ -76,7 +76,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color }) => (
             <FontAwesome name="home" size={24} color={color} />)
         }} />
-      <Tabs.Screen name="search/index"
+      <Tabs.Screen name="search"
         options={{
           tabBarLabel: 'Search',
           title: 'Search',
@@ -84,7 +84,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color }) => (
             <FontAwesome name="search" size={24} color={color} />)
         }} />
-      <Tabs.Screen name="notification/index"
+      <Tabs.Screen name="notification"
         options={{
           tabBarLabel: 'Notification',
           title: 'Notification',
@@ -98,10 +98,9 @@ export default function TabsLayout() {
           tabBarIcon: ({ color }) => (
             <FontAwesome6 name="bell" size={24} color={color} />)
         }} />
-      <Tabs.Screen name="settings/index"
+      <Tabs.Screen name="drawer_trigger"
         options={{
-          tabBarLabel: 'Settings',
-          title: 'Settings',
+          title: 'Drawer',
           tabBarShowLabel: false,
           tabBarIcon: ({ color }) => (
             <SimpleLineIcons name="menu" size={24} color={color} />),
@@ -110,6 +109,10 @@ export default function TabsLayout() {
                {...props} onPress={() => navigate.dispatch(DrawerActions.openDrawer())}/>
             )
         }} />
+        <Tabs.Screen name="(drawer)/coffee" options={{title: 'Coffee', href: null}}/>
+        <Tabs.Screen name="(drawer)/conduct" options={{title: 'Conduct',href: null}}/>
+        <Tabs.Screen name="(drawer)/profile" options={{title: 'Profile',href: null}}/>
+        <Tabs.Screen name="(drawer)/terms" options={{title: 'Terms',href: null}}/>
     </Tabs>
   )
 }

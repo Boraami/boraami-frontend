@@ -1,19 +1,16 @@
-import { Link, Stack } from "expo-router";
+import { Link } from "expo-router";
 import { Button, StyleSheet, Text, View } from "react-native";
 
-export default function Terms() {
+export default function Coffee() {
     return (
-      <>
-      <Stack.Screen options={{headerShown: true, title: 'Terms and Conditions'}} />
       <View style={styles.container}>
       <View style={styles.main}>
-      <Text style={styles.title}>Terms and Conditions</Text>
+      <Text style={styles.title}>Buy Coffee</Text>
         <Link href={'/(tabs)/home'} asChild>
           <Button title="Go to Tabs"/>
         </Link>
       </View>
     </View>
-      </>
       );
   }
 
