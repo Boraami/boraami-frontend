@@ -1,5 +1,4 @@
-import { Stack } from "expo-router";
-import { useColorScheme, View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 export default function Search() {
     return (

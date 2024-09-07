@@ -72,6 +72,7 @@ export const colorScheme = {
     900: "#843319",
   },
   mono: {
+    0: "#FFFFFF",
     50: "#F4F3F5",
     100: "#E9E5F0",
     200: "#D7D1E2",
@@ -82,6 +83,7 @@ export const colorScheme = {
     700: "#3F374E",
     800: "#322A41",
     900: "#241C33",
+    1000: "#000000"
   },
 };
 
@@ -280,7 +282,7 @@ const light = {
   "error-textbox-text" :colorScheme.mono[800],
   "error-helper-text-textfield" : colorScheme.bwl[700],
   "error-scroll-bar" : colorScheme.boraami[200],
-  
+
   "disabled-textbox-fill" : colorScheme.boraami[50],
   "disabled-textbox-border" : colorScheme.boraami[400],
   "disabled-textbox-text" :colorScheme.boraami[700],
@@ -500,7 +502,7 @@ const dark: BaseTheme = {
   "error-textbox-text" :colorScheme.boraami[50],
   "error-helper-text-textfield" : colorScheme.bwl[400],
   "error-scroll-bar" : colorScheme.boraami[500],
-  
+
   "disabled-textbox-fill" : colorScheme.boraami[900],
   "disabled-textbox-border" : colorScheme.boraami[300],
   "disabled-textbox-text" :colorScheme.boraami[50],

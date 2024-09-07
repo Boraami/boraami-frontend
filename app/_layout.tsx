@@ -3,7 +3,6 @@ import { useColorScheme, View, Image } from "react-native";
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { TamaguiProvider } from "tamagui";
 import { config } from "./../tamagui.config";
-import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
 import Constants from "expo-constants";
 import Storybook from "../.storybook";
@@ -27,7 +26,7 @@ export {
 } from "expo-router";
 import "../tamagui.css";
 import "@tamagui/core/reset.css";
-import CustomDrawerContent from "./(tabs)/drawer_trigger";
+import CustomDrawerContent from "./(tabs)/drawer/drawer_trigger";
 import Drawer from "expo-router/drawer";
 import { DrawerToggleButton } from "@react-navigation/drawer";
 

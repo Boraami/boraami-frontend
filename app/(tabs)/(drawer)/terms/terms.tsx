@@ -1,14 +1,10 @@
-import { Link } from "expo-router";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Terms() {
     return (
       <View style={styles.container}>
       <View style={styles.main}>
       <Text style={styles.title}>Terms and Conditions</Text>
-        <Link href={'/(tabs)/home'} asChild>
-          <Button title="Go to Tabs"/>
-        </Link>
       </View>
     </View>
       );

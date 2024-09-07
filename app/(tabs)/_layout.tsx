@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { Tabs, useNavigation } from "expo-router";
-import { FontAwesome, FontAwesome6, SimpleLineIcons } from '@expo/vector-icons';
 import { Image, Dimensions, View, useColorScheme, TouchableOpacity } from "react-native";
 import { colorScheme } from "../../src/themes/theme";
-import { DrawerToggleButton } from "@react-navigation/drawer";
 import { DrawerActions} from '@react-navigation/native';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 function LogoTitle() {
   const theme = useColorScheme();
@@ -37,8 +36,7 @@ export default function TabsLayout() {
   const dividerColor = isDarkTheme ? colorScheme.boraami[600] : colorScheme.boraami[300];
   const notifDotColor = colorScheme.butter[400];
   const [isActive, setIsActive] = useState(false);
-  const toodleColor = isDarkTheme ? 'white' : 'black';
-  const barColor = isDarkTheme ? '#140233' : '#FFFFFF';
+  const barColor = isDarkTheme ? '#140233' : '#F7F3FF';
 
   const handleNotificationactive = () => {
     setIsActive(true);
@@ -55,7 +53,9 @@ export default function TabsLayout() {
       headerShown: true,
         headerRight: () => <LogoTitle />,
         headerStyle: {
-            backgroundColor: barColor
+            backgroundColor: barColor,
+            borderBottomColor: dividerColor,
+            borderBottomWidth: 0.5
         },
       tabBarShowLabel: false,
       tabBarActiveTintColor: activeIconColor,
@@ -64,27 +64,25 @@ export default function TabsLayout() {
         height: 56,
         backgroundColor: navBarColor, //boraami.50
         borderTopColor: dividerColor,
-        shadowColor: '#C2A0FF',
-        shadowOffset: {width: 0, height: -1},
       },
     }}>
-      <Tabs.Screen name="home"
+      <Tabs.Screen name="home/home"
         options={{
           tabBarLabel: 'Home',
           title: 'Home',
           tabBarShowLabel: false,
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="home" size={24} color={color} />)
+            <MaterialIcons name="home" size={24} color={color} />)
         }} />
-      <Tabs.Screen name="search"
+      <Tabs.Screen name="search/search"
         options={{
           tabBarLabel: 'Search',
           title: 'Search',
           tabBarShowLabel: false,
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="search" size={24} color={color} />)
+            <MaterialIcons name="search" size={24} color={color} />)
         }} />
-      <Tabs.Screen name="notification"
+      <Tabs.Screen name="notification/notification"
         options={{
           tabBarLabel: 'Notification',
           title: 'Notification',
@@ -96,23 +94,23 @@ export default function TabsLayout() {
             left: 1,
           },
           tabBarIcon: ({ color }) => (
-            <FontAwesome6 name="bell" size={24} color={color} />)
+            <MaterialIcons name="notifications" size={24} color={color} />)
         }} />
-      <Tabs.Screen name="drawer_trigger"
+      <Tabs.Screen name="drawer/drawer_trigger"
         options={{
           title: 'Drawer',
           tabBarShowLabel: false,
           tabBarIcon: ({ color }) => (
-            <SimpleLineIcons name="menu" size={24} color={color} />),
+            <MaterialIcons name="menu" size={24} color={color} />),
             tabBarButton: (props) => (
               <TouchableOpacity
                {...props} onPress={() => navigate.dispatch(DrawerActions.openDrawer())}/>
             )
         }} />
-        <Tabs.Screen name="(drawer)/coffee" options={{title: 'Coffee', href: null}}/>
-        <Tabs.Screen name="(drawer)/conduct" options={{title: 'Conduct',href: null}}/>
-        <Tabs.Screen name="(drawer)/profile" options={{title: 'Profile',href: null}}/>
-        <Tabs.Screen name="(drawer)/terms" options={{title: 'Terms',href: null}}/>
+        <Tabs.Screen name="(drawer)/coffee/coffee" options={{title: 'Coffee', href: null}}/>
+        <Tabs.Screen name="(drawer)/conduct/conduct" options={{title: 'Conduct',href: null}}/>
+        <Tabs.Screen name="(drawer)/profile/profile" options={{title: 'Profile',href: null}}/>
+        <Tabs.Screen name="(drawer)/terms/terms" options={{title: 'Terms',href: null}}/>
     </Tabs>
   )
 }

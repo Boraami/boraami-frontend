@@ -1,5 +1,4 @@
-import { Link } from "expo-router";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Profile() {
   const name = "Yoongi's Wife";
@@ -12,9 +11,6 @@ export default function Profile() {
           <Text style={styles.title}>{name}</Text>
           <Text style={styles.title}>@{userName}</Text>
         </View>
-        <Link href={'/(tabs)/home'} asChild>
-          <Button title="Go to Tabs" />
-        </Link>
       </View>
     </View>
   );
