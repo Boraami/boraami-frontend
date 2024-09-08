@@ -18,6 +18,7 @@
     "@expo-google-fonts/open-sans": "^0.2.3",
     "@expo-google-fonts/poppins": "^0.2.3",
     "@expo/metro-runtime": "~3.2.1",
+    "@expo/ngrok": "^4.1.0",
     "@react-navigation/drawer": "6.4.1",
     "@tamagui/babel-plugin": "^1.88.16",
     "@tamagui/config": "^1.88.16",
