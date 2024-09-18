@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useColorScheme, View, Image } from "react-native";
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { TamaguiProvider } from "tamagui";
@@ -29,6 +29,7 @@ import "@tamagui/core/reset.css";
 import CustomDrawerContent from "./(tabs)/drawer/drawer_trigger";
 import Drawer from "expo-router/drawer";
 import { DrawerToggleButton } from "@react-navigation/drawer";
+import { useRouter } from "expo-router";
 
 function LogoTitle() {
   const theme = useColorScheme();
@@ -69,15 +70,17 @@ export default function App() {
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
   const toodleColor = isDarkTheme ? 'white' : 'black';
-  const barColor = isDarkTheme ? '#140233' : '#FFFFFF'
+  const barColor = isDarkTheme ? '#140233' : '#FFFFFF';
+  const router = useRouter();
+
   useEffect(() => {
     if (fontsLoaded) {
-      // can hide splash screen here
+      router.push('/(tabs)/home/');
     }
   }, [fontsLoaded]);
 
   if (!fontsLoaded && !fontError) {
-    return null;
+    return null; // Don't render anything until fonts are loaded
   }
 
   return (
