@@ -199,6 +199,7 @@ export default function CustomDrawerContent(props: DrawerProps) {
   const pathname = usePathname();
   const isDrawerOpen = useDrawerStatus() === 'open';
 
+  console.log(pathname);
   return (
     <View style={{ flex: 1, position: 'relative' }}>
       <DrawerContentScrollView {...props}
@@ -256,8 +257,9 @@ export default function CustomDrawerContent(props: DrawerProps) {
                 size={size}
                 color={defaultIconColor}
               />)} />
-          <DrawerItem onPress={() => { router.push('/coffee/coffee') }}
+          <DrawerItem
             label={'Buy us a Coffee'}
+            onPress={() => { router.push('/coffee/coffee') }}
             style={{
               backgroundColor: pathname == "/coffee/coffee" ? activeIconColor : navBarColor,
               display: 'flex',
@@ -272,8 +274,9 @@ export default function CustomDrawerContent(props: DrawerProps) {
                 size={size}
                 color={defaultIconColor}
               />)} />
-          <DrawerItem onPress={() => { router.push('/conduct/conduct') }}
+          <DrawerItem
             label={'Codes of Conduct'}
+            onPress={() => { router.push('/conduct/conduct') }}
             style={{
               backgroundColor: pathname == "/conduct/conduct" ? activeIconColor : navBarColor,
               display: 'flex',
@@ -288,8 +291,8 @@ export default function CustomDrawerContent(props: DrawerProps) {
                 size={size}
                 color={defaultIconColor} />)} />
           <DrawerItem
-            onPress={() => { router.push('/terms/terms') }}
             label={'Terms & Conditions'}
+            onPress={() => { router.push('/terms/terms') }}
             style={{
               backgroundColor: pathname == "/terms/terms" ? activeIconColor : navBarColor,
               display: 'flex',

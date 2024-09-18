@@ -47,7 +47,7 @@ export default function TabsLayout() {
   };
   const notifBag = isActive ? notifDotColor : 'transparent';
   const navigate = useNavigation();
-
+  console.log();
   return (
     <Tabs screenOptions={{
       headerShown: true,
@@ -66,7 +66,7 @@ export default function TabsLayout() {
         borderTopColor: dividerColor,
       },
     }}>
-      <Tabs.Screen name="home/home"
+      <Tabs.Screen name="home/index"
         options={{
           tabBarLabel: 'Home',
           title: 'Home',
