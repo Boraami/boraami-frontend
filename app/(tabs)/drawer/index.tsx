@@ -1,5 +1,5 @@
 import { router, useNavigation, usePathname } from "expo-router";
-import { View, useColorScheme, TouchableOpacity } from "react-native";
+import { View, useColorScheme, TouchableOpacity, Platform } from "react-native";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { FontAwesome6, FontAwesome } from "@expo/vector-icons";
 import { Avatar, SizableText, XStack } from "tamagui";
@@ -14,6 +14,7 @@ const Overlay = () => {
   const menuColor = isDarkTheme ? colorScheme.mono[0] : colorScheme.mono[0];
   const overlayOpacity = isDarkTheme ? 0.75 : 0.5;
   const navigation = useNavigation();
+  const leftOffset = Platform.OS === "ios" ? 100 : 85;
 
   return (
     <XStack
@@ -22,12 +23,11 @@ const Overlay = () => {
       opacity={overlayOpacity}
       backgroundColor={colorScheme.mono[1000]}
       position="absolute"
-      left={80}
-      right={80}
+      left={leftOffset}
+      right={0}
       zIndex={1}
       justifyContent="flex-end"
       alignItems="flex-end"
-      padding={20}
     >
       <TouchableOpacity style={{ bottom: 700, left: -15 }}
         onPress={() => navigation.dispatch(DrawerActions.closeDrawer())}
