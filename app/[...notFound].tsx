@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>404 - Page Not Found</Text>
-      <Button title="Go Back Home" onPress={() => router.push('/(tabs)/home/')} />
+      <Button title="Go Back Home" onPress={() => router.push('/home/')} />
     </View>
   );
 }

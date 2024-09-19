@@ -240,34 +240,39 @@ export default function CustomDrawerContent(props: DrawerProps) {
           marginTop: 19,
           width: 249
         }}>
-          <DrawerItem
-            label={'Profile'}
-            onPress={() => router.push("/profile/profile")}
-            style={{
-              backgroundColor: pathname == "/profile/profile" ? activeIconColor : navBarColor,
-              display: 'flex',
-              alignItems: 'flex-start',
-              gap: 12
-            }}
-            labelStyle={[
-              { color: pathname == "/profile/profile" ? "#fff" : tabTextColor },
-              { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: '400', width: 249 }]}
-            icon={({ size }) => (
-              <FontAwesome6 name="user-large"
-                size={size}
-                color={defaultIconColor}
-              />)} />
+          <View style={{
+            backgroundColor: pathname == "/profile/" ? activeIconColor : navBarColor,
+            borderRadius: 8, // Optional: add some styling for better UI (like rounding corners)
+          }}>
+            <DrawerItem
+              label={'Profile'}
+              onPress={() => router.push("/profile/")}
+              style={{
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: 12,
+              }}
+              labelStyle={[
+                { color: pathname == "/profile/" ? "#fff" : tabTextColor },
+                { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: '400', width: 249 }]}
+              icon={({ size }) => (
+                <FontAwesome6 name="user-large"
+                  size={size}
+                  color={defaultIconColor}
+                />)}
+            />
+          </View>
           <DrawerItem
             label={'Buy us a Coffee'}
-            onPress={() => { router.push('/coffee/coffee') }}
+            onPress={() => { router.push('coffee/') }}
             style={{
-              backgroundColor: pathname == "/coffee/coffee" ? activeIconColor : navBarColor,
+              backgroundColor: pathname == "coffee/" ? activeIconColor : navBarColor,
               display: 'flex',
               alignItems: 'flex-start',
               gap: 12,
             }}
             labelStyle={[
-              { color: pathname == "/coffee/coffee" ? "#fff" : tabTextColor },
+              { color: pathname == "coffee/" ? "#fff" : tabTextColor },
               { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: '400', width: 249 }]}
             icon={({ size }) => (
               <FontAwesome name="coffee"
@@ -276,15 +281,15 @@ export default function CustomDrawerContent(props: DrawerProps) {
               />)} />
           <DrawerItem
             label={'Codes of Conduct'}
-            onPress={() => { router.push('/conduct/conduct') }}
+            onPress={() => { router.push('conduct/') }}
             style={{
-              backgroundColor: pathname == "/conduct/conduct" ? activeIconColor : navBarColor,
+              backgroundColor: pathname == "conduct/" ? activeIconColor : navBarColor,
               display: 'flex',
               alignItems: 'flex-start',
               gap: 12,
             }}
             labelStyle={[
-              { color: pathname == "/conduct/conduct" ? "#fff" : tabTextColor },
+              { color: pathname == "conduct/" ? "#fff" : tabTextColor },
               { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: '400', width: 249 }]}
             icon={({ size }) => (
               <FontAwesome6 name="gear"
@@ -292,15 +297,15 @@ export default function CustomDrawerContent(props: DrawerProps) {
                 color={defaultIconColor} />)} />
           <DrawerItem
             label={'Terms & Conditions'}
-            onPress={() => { router.push('/terms/terms') }}
+            onPress={() => { router.push('terms/') }}
             style={{
-              backgroundColor: pathname == "/terms/terms" ? activeIconColor : navBarColor,
+              backgroundColor: pathname == "terms/" ? activeIconColor : navBarColor,
               display: 'flex',
               alignItems: 'flex-start',
               gap: 12,
             }}
             labelStyle={[
-              { color: pathname == "/terms/terms" ? "#fff" : tabTextColor },
+              { color: pathname == "terms/" ? "#fff" : tabTextColor },
               { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: '400', width: 249 }]}
             icon={({ size }) => (
               <FontAwesome6 name="scroll"

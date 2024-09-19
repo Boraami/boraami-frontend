@@ -26,7 +26,7 @@ export {
 } from "expo-router";
 import "../tamagui.css";
 import "@tamagui/core/reset.css";
-import CustomDrawerContent from "./(tabs)/drawer/drawer_trigger";
+import CustomDrawerContent from "./(tabs)/drawer";
 import Drawer from "expo-router/drawer";
 import { DrawerToggleButton } from "@react-navigation/drawer";
 import { useRouter } from "expo-router";
@@ -75,7 +75,7 @@ export default function App() {
 
   useEffect(() => {
     if (fontsLoaded) {
-      router.push('/(tabs)/home/');
+      router.push('/home/');
     }
   }, [fontsLoaded]);
 

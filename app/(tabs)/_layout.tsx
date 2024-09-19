@@ -74,7 +74,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="home" size={24} color={color} />)
         }} />
-      <Tabs.Screen name="search/search"
+      <Tabs.Screen name="search/index"
         options={{
           tabBarLabel: 'Search',
           title: 'Search',
@@ -82,7 +82,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="search" size={24} color={color} />)
         }} />
-      <Tabs.Screen name="notification/notification"
+      <Tabs.Screen name="notification/index"
         options={{
           tabBarLabel: 'Notification',
           title: 'Notification',
@@ -96,7 +96,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="notifications" size={24} color={color} />)
         }} />
-      <Tabs.Screen name="drawer/drawer_trigger"
+      <Tabs.Screen name="drawer/index"
         options={{
           title: 'Drawer',
           tabBarShowLabel: false,
@@ -107,10 +107,10 @@ export default function TabsLayout() {
                {...props} onPress={() => navigate.dispatch(DrawerActions.openDrawer())}/>
             )
         }} />
-        <Tabs.Screen name="(drawer)/coffee/coffee" options={{title: 'Coffee', href: null}}/>
-        <Tabs.Screen name="(drawer)/conduct/conduct" options={{title: 'Conduct',href: null}}/>
-        <Tabs.Screen name="(drawer)/profile/profile" options={{title: 'Profile',href: null}}/>
-        <Tabs.Screen name="(drawer)/terms/terms" options={{title: 'Terms',href: null}}/>
+        <Tabs.Screen name="(drawer)/coffee/index" options={{title: 'Coffee', href: null}}/>
+        <Tabs.Screen name="(drawer)/conduct/index" options={{title: 'Conduct',href: null}}/>
+        <Tabs.Screen name="(drawer)/profile/index" options={{title: 'Profile',href: null}}/>
+        <Tabs.Screen name="(drawer)/terms/index" options={{title: 'Terms',href: null}}/>
     </Tabs>
   )
 }
