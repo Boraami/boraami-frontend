@@ -44,6 +44,29 @@ const CustomTabIconButtons = (props: BottomTabBarButtonProps) => (
   </TouchableOpacity>
 );
 
+const CustomTabBarIcon = ({
+  color,
+  activeIconColor,
+  name,
+}: {
+  color: string;
+  activeIconColor: string;
+  name: "home" | "search" | "notifications";
+}) => (
+  <Stack
+    borderTopColor={color === activeIconColor ? activeIconColor : "transparent"}
+    borderTopWidth={3}
+    width={23}
+    height={40}
+    jc="center"
+    position="absolute"
+    top={0}
+    ai="center"
+  >
+    <MaterialIcons name={name} size={24} color={color} />
+  </Stack>
+);
+
 export default function TabsLayout() {
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
@@ -93,18 +116,7 @@ export default function TabsLayout() {
           tabBarShowLabel: false,
           tabBarButton: (props) => <CustomTabIconButtons {...props} />,
           tabBarIcon: ({ color }) => (
-            <Stack
-              borderTopColor={color === activeIconColor ? activeIconColor : "transparent"}
-              borderTopWidth={3}
-              width={23}
-              height={40}
-              jc="center"
-              position="absolute"
-              top={0}
-              ai="center"
-            >
-              <MaterialIcons name="home" size={24} color={color} />
-            </Stack>
+            <CustomTabBarIcon color={color} activeIconColor={activeIconColor} name="home" />
           ),
         }}
       />
@@ -117,18 +129,7 @@ export default function TabsLayout() {
 
           tabBarButton: (props) => <CustomTabIconButtons {...props} />,
           tabBarIcon: ({ color }) => (
-            <Stack
-              borderTopColor={color === activeIconColor ? activeIconColor : "transparent"}
-              borderTopWidth={3}
-              width={23}
-              height={40}
-              jc="center"
-              position="absolute"
-              top={0}
-              ai="center"
-            >
-              <MaterialIcons name="search" size={24} color={color} />
-            </Stack>
+            <CustomTabBarIcon color={color} activeIconColor={activeIconColor} name="search" />
           ),
         }}
       />
@@ -138,7 +139,7 @@ export default function TabsLayout() {
           tabBarLabel: "Notification",
           title: "Notification",
           tabBarShowLabel: false,
-          tabBarBadge: "",
+          tabBarBadge: "30",
           tabBarBadgeStyle: {
             backgroundColor: notifDotColor,
             top: 4,
@@ -146,18 +147,11 @@ export default function TabsLayout() {
           },
           tabBarButton: (props) => <CustomTabIconButtons {...props} />,
           tabBarIcon: ({ color }) => (
-            <Stack
-              borderTopColor={color === activeIconColor ? activeIconColor : "transparent"}
-              borderTopWidth={3}
-              width={23}
-              height={40}
-              jc="center"
-              position="absolute"
-              top={0}
-              ai="center"
-            >
-              <MaterialIcons name="notifications" size={24} color={color} />
-            </Stack>
+            <CustomTabBarIcon
+              color={color}
+              activeIconColor={activeIconColor}
+              name="notifications"
+            />
           ),
         }}
       />
