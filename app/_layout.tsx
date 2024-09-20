@@ -34,22 +34,20 @@ import { useRouter } from "expo-router";
 function LogoTitle() {
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
-  const iconTheme = isDarkTheme ?
-      require('../assets/dark.png') :
-      require('../assets/light.png');
+  const iconTheme = isDarkTheme ? require("../assets/dark.png") : require("../assets/light.png");
   return (
-      <View>
-          <Image
-              style={{
-                  alignSelf: 'flex-end',
-                  marginRight: 24,
-                  marginTop: 7,
-                  width: 101,
-                  height: 48
-              }}
-              source={iconTheme}
-          />
-      </View>
+    <View>
+      <Image
+        style={{
+          alignSelf: "flex-end",
+          marginRight: 24,
+          marginTop: 7,
+          width: 101,
+          height: 48,
+        }}
+        source={iconTheme}
+      />
+    </View>
   );
 }
 
@@ -69,13 +67,14 @@ export default function App() {
   const colorScheme = useColorScheme();
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
-  const toodleColor = isDarkTheme ? 'white' : 'black';
-  const barColor = isDarkTheme ? '#140233' : '#FFFFFF';
+  const toodleColor = isDarkTheme ? "white" : "black";
+  const barColor = isDarkTheme ? "#140233" : "#FFFFFF";
   const router = useRouter();
+  const drawerWidth = 300;
 
   useEffect(() => {
     if (fontsLoaded) {
-      router.push('/home/');
+      router.push("/home/");
     }
   }, [fontsLoaded]);
 
@@ -86,24 +85,34 @@ export default function App() {
   return (
     <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        {Constants.expoConfig?.extra?.storybookEnabled ? <Storybook /> :
-          <Drawer drawerContent={(props) => <CustomDrawerContent
-            name={"Yoongi's Wife"}
-            userName={"tangerines4life"}
-            followers={208}
-            following={67} {...props} />}
+        {Constants.expoConfig?.extra?.storybookEnabled ? (
+          <Storybook />
+        ) : (
+          <Drawer
+            drawerContent={(props) => (
+              <CustomDrawerContent
+                name={"Yoongi's Wife"}
+                userName={"tangerines4life"}
+                followers={208}
+                following={67}
+                {...props}
+              />
+            )}
             screenOptions={{
+              drawerStyle: {
+                width: drawerWidth,
+              },
               headerShown: false,
-              headerLeft: () => <DrawerToggleButton
-                tintColor={toodleColor}
-              />,
+              headerLeft: () => <DrawerToggleButton tintColor={toodleColor} />,
               headerRight: () => <LogoTitle />,
               headerStyle: {
-                backgroundColor: barColor
+                backgroundColor: "#fff",
               },
-            }}>
-            <Drawer.Screen name="(tabs)" options={{ title: 'Tabs' }} />
-          </Drawer>}
+            }}
+          >
+            <Drawer.Screen name="(tabs)" options={{ title: "Tabs" }} />
+          </Drawer>
+        )}
       </ThemeProvider>
     </TamaguiProvider>
   );
