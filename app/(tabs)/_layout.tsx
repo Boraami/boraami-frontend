@@ -57,7 +57,7 @@ const CustomTabBarIcon = ({
     borderTopColor={color === activeIconColor ? activeIconColor : "transparent"}
     borderTopWidth={3}
     width={25}
-    height={40} 
+    height={40}
     jc="center"
     position="absolute"
     top={0}
@@ -136,7 +136,7 @@ export default function TabsLayout() {
           tabBarLabel: "Notification",
           title: "Notification",
           tabBarShowLabel: false,
-          tabBarBadge: "30",
+          tabBarBadge: "", // this should be visible if only there are unseen notifications so that logic needs to be there in future
           tabBarBadgeStyle: {
             backgroundColor: notifDotColor,
             top: 4,
@@ -160,7 +160,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color }) => <MaterialIcons name="menu" size={24} color={color} />,
           tabBarButton: (props) => (
             <Button width="25%" onPress={() => navigate.dispatch(DrawerActions.openDrawer())}>
-              <Stack backgroundColor={'blue'} justifyContent="center" alignItems="center">
+              <Stack backgroundColor={"blue"} justifyContent="center" alignItems="center">
                 {props.children}
               </Stack>
             </Button>
