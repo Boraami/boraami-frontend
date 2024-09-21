@@ -33,7 +33,7 @@ function FollowCount(props: DrawerProps) {
         marginBottom: 19,
         marginTop: 19,
         paddingLeft: 20,
-        paddingRight: 20
+        paddingRight: 20,
       }}
     >
       <View
@@ -112,9 +112,9 @@ function UserInfo(props: DrawerProps) {
         //user info
         display: "flex",
         width: 256,
-        justifyContent: 'center',
+        justifyContent: "center",
         flexDirection: "column",
-        alignSelf: 'center',
+        alignSelf: "center",
         marginLeft: 9,
         gap: 4,
       }}
@@ -125,7 +125,7 @@ function UserInfo(props: DrawerProps) {
           fontWeight: "bold",
           fontFamily: PoppinsReg.family,
           lineHeight: 20,
-          fontStyle: 'normal',
+          fontStyle: "normal",
           color: tabTextColor,
         }}
       >
@@ -134,7 +134,7 @@ function UserInfo(props: DrawerProps) {
       <SizableText
         style={{
           fontSize: 12,
-          fontStyle: 'normal',
+          fontStyle: "normal",
           lineHeight: 16,
           fontFamily: OpenSansReg.family,
           color: defaultIconColor,
@@ -180,7 +180,7 @@ function UserDisplay(props: DrawerProps) {
             flexDirection: "row",
             marginTop: 16,
             paddingLeft: 20,
-            paddingRight: 20
+            paddingRight: 20,
           }}
         >
           <Avatar circular size={64}>
@@ -188,10 +188,7 @@ function UserDisplay(props: DrawerProps) {
           </Avatar>
           <UserInfo {...props} />
         </View>
-        <View
-          style={{
-          }}
-        >
+        <View style={{}}>
           <FollowCount {...props} />
         </View>
       </View>
@@ -202,10 +199,8 @@ function UserDisplay(props: DrawerProps) {
 export default function CustomDrawerContent(props: DrawerProps) {
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
-  const defaultIconColor = isDarkTheme ? '#AA7AFF' : colorScheme.boraami[200];
-  const activeIconColor = isDarkTheme ? colorScheme.serendipity[400] : colorScheme.serendipity[300];
+  const defaultIconColor = isDarkTheme ? colorScheme.boraami[500] : colorScheme.boraami[600];
   const navBarColor = isDarkTheme ? colorScheme.boraami[900] : colorScheme.boraami[50];
-  const itemColor = isDarkTheme ? colorScheme.boraami[800] : 'gray';
   const dividerColor = isDarkTheme ? colorScheme.boraami[600] : colorScheme.boraami[300];
   const menuColor = isDarkTheme ? colorScheme.boraami[200] : colorScheme.boraami[700];
   const tabTextColor = isDarkTheme ? "white" : "black";
@@ -213,10 +208,13 @@ export default function CustomDrawerContent(props: DrawerProps) {
 
   console.log(pathname);
   return (
-    <View style={{
-      flex: 1,
-      position: "relative",
-      width: "100%" }}>
+    <View
+      style={{
+        flex: 1,
+        position: "relative",
+        width: "100%",
+      }}
+    >
       <DrawerContentScrollView
         {...props}
         style={{
@@ -234,7 +232,7 @@ export default function CustomDrawerContent(props: DrawerProps) {
               gap: 100,
               flexDirection: "row",
               paddingLeft: 20,
-              paddingRight: 20
+              paddingRight: 20,
             }}
           >
             <View style={{ alignSelf: "flex-start" }}>
@@ -262,16 +260,10 @@ export default function CustomDrawerContent(props: DrawerProps) {
             display: "flex",
             gap: 8,
             marginTop: 19,
-            justifyContent: 'center',
-
+            justifyContent: "center",
           }}
         >
-          <View
-            style={{
-              backgroundColor: pathname == "/profile" ? itemColor : navBarColor,
-              borderRadius: 8, // Optional: add some styling for better UI (like rounding corners)
-            }}
-          >
+          <View>
             <DrawerItem
               label={"Profile"}
               onPress={() => router.push("/profile")}
@@ -281,7 +273,7 @@ export default function CustomDrawerContent(props: DrawerProps) {
                 gap: 12,
               }}
               labelStyle={[
-                { color: pathname == "/profile" ? "#fff" : tabTextColor },
+                { color: tabTextColor },
                 { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: "400", width: 249 },
               ]}
               icon={({ size }) => (
@@ -295,13 +287,12 @@ export default function CustomDrawerContent(props: DrawerProps) {
               router.push("coffee/");
             }}
             style={{
-              backgroundColor: pathname == "/coffee" ? itemColor : navBarColor,
               display: "flex",
               alignItems: "flex-start",
               gap: 12,
             }}
             labelStyle={[
-              { color: pathname == "/coffee" ? "#fff" : tabTextColor },
+              { color: tabTextColor },
               { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: "400", width: 249 },
             ]}
             icon={({ size }) => <FontAwesome name="coffee" size={size} color={defaultIconColor} />}
@@ -312,13 +303,12 @@ export default function CustomDrawerContent(props: DrawerProps) {
               router.push("conduct/");
             }}
             style={{
-              backgroundColor: pathname == "/conduct" ? itemColor : navBarColor,
               display: "flex",
               alignItems: "flex-start",
               gap: 12,
             }}
             labelStyle={[
-              { color: pathname == "/conduct" ? "#fff" : tabTextColor },
+              { color: tabTextColor },
               { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: "400", width: 249 },
             ]}
             icon={({ size }) => <FontAwesome6 name="gear" size={size} color={defaultIconColor} />}
@@ -329,13 +319,12 @@ export default function CustomDrawerContent(props: DrawerProps) {
               router.push("terms/");
             }}
             style={{
-              backgroundColor: pathname == "/terms" ? itemColor : navBarColor,
               display: "flex",
               alignItems: "flex-start",
               gap: 12,
             }}
             labelStyle={[
-              { color: pathname == "/terms" ? "#fff" : tabTextColor },
+              { color: tabTextColor },
               { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: "400", width: 249 },
             ]}
             icon={({ size }) => <FontAwesome6 name="scroll" size={size} color={defaultIconColor} />}
