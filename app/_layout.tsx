@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useColorScheme, View, Image, TouchableOpacity } from "react-native";
+import { useEffect } from "react";
+import { useColorScheme, View, Image } from "react-native";
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { TamaguiProvider } from "tamagui";
 import { config } from "./../tamagui.config";
@@ -28,10 +28,7 @@ import "../tamagui.css";
 import "@tamagui/core/reset.css";
 import CustomDrawerContent from "./(tabs)/drawer";
 import Drawer from "expo-router/drawer";
-import { useDrawerStatus } from "@react-navigation/drawer";
-import { useNavigation, useRouter } from "expo-router";
-import { DrawerActions } from "@react-navigation/native";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { useRouter } from "expo-router";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Toasts } from "@backpackapp-io/react-native-toast";
@@ -55,21 +52,6 @@ function LogoTitle() {
     </View>
   );
 }
-
-const CloseButton = () => {
-  const navigation = useNavigation();
-  const isDrawerOpen = useDrawerStatus() === "open";
-
-  if (!isDrawerOpen) return null; // Only show the overlay when drawer is open
-
-  return (
-    <View>
-      <TouchableOpacity onPress={() => navigation.dispatch(DrawerActions.closeDrawer())}>
-        <MaterialIcons name="close" size={30} color={"#FFFFFF"} />
-      </TouchableOpacity>
-    </View>
-  );
-};
 
 
 export default function App() {

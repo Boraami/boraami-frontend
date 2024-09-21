@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { Tabs, useNavigation } from "expo-router";
-import { Image, Dimensions, View, useColorScheme, TouchableOpacity } from "react-native";
+import { Image, View, useColorScheme, TouchableOpacity } from "react-native";
 import { colorScheme } from "../../src/themes/theme";
 import { DrawerActions } from "@react-navigation/native";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
