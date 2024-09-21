@@ -2,10 +2,11 @@ import { router, useNavigation, usePathname } from "expo-router";
 import { View, useColorScheme } from "react-native";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { FontAwesome6, FontAwesome } from "@expo/vector-icons";
-import { Avatar, SizableText } from "tamagui";
+import { SizableText } from "tamagui";
 import { colorScheme } from "../../../src/themes/theme";
 import { PoppinsReg } from "../../../src/themes/fonts/fontPoppins";
 import { OpenSansReg } from "../../../src/themes/fonts/fontOpenSans";
+import Avatar from "../../../src/components/Avatar/Avatar";
 
 interface DrawerProps {
   navigation: any;
@@ -183,9 +184,7 @@ function UserDisplay(props: DrawerProps) {
             paddingRight: 20,
           }}
         >
-          <Avatar circular size={64}>
-            <Avatar.Fallback bc={defaultIconColor} />
-          </Avatar>
+          <Avatar AvatarText={"YW"} size={64}/>
           <UserInfo {...props} />
         </View>
         <View style={{}}>
