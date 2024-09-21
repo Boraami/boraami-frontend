@@ -32,6 +32,9 @@ import { useDrawerStatus } from "@react-navigation/drawer";
 import { useNavigation, useRouter } from "expo-router";
 import { DrawerActions } from "@react-navigation/native";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Toasts } from "@backpackapp-io/react-native-toast";
 
 function LogoTitle() {
   const theme = useColorScheme();
@@ -68,6 +71,7 @@ const CloseButton = () => {
   );
 };
 
+
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
     Poppins_400Regular,
@@ -101,38 +105,42 @@ export default function App() {
   }
 
   return (
-    <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        {Constants.expoConfig?.extra?.storybookEnabled ? (
-          <Storybook />
-        ) : (
-          <Drawer
-            drawerContent={(props) => (
-              <CustomDrawerContent
-                name={"Yoongi's Wife"}
-                userName={"tangerines4life"}
-                followers={208}
-                following={67}
-                {...props}
-              />
-            )}
-            screenOptions={{
-              drawerStyle: {
-                width: drawerWidth,
-              },
-              headerShown: false,
-              drawerType: "front",
-              overlayColor: `rgba(0, 0, 0, ${overlayOpacity})`,
-              headerRight: () => <LogoTitle />,
-              headerStyle: {
-                backgroundColor: "#fff",
-              },
-            }}
-          >
-            <Drawer.Screen name="(tabs)" options={{ title: "Tabs" }} />
-          </Drawer>
-        )}
-      </ThemeProvider>
-    </TamaguiProvider>
+    <SafeAreaProvider>
+      <GestureHandlerRootView>
+          <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
+            <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+              {Constants.expoConfig?.extra?.storybookEnabled ? (
+                <Storybook />
+              ) : (
+                <Drawer
+                  drawerContent={(props) => (
+                    <CustomDrawerContent
+                      name={"Yoongi's Wife"}
+                      userName={"tangerines4life"}
+                      followers={208}
+                      following={67}
+                      {...props}
+                    />
+                  )}
+                  screenOptions={{
+                    drawerStyle: {
+                      width: drawerWidth,
+                    },
+                    headerShown: false,
+                    drawerType: "front",
+                    overlayColor: `rgba(0, 0, 0, ${overlayOpacity})`,
+                    headerRight: () => <LogoTitle />,
+                    headerStyle: {
+                      backgroundColor: "#fff",
+                    },
+                  }}
+                >
+                  <Drawer.Screen name="(tabs)" options={{ title: "Tabs" }} />
+                </Drawer>
+              )}<Toasts />
+            </ThemeProvider>
+        </TamaguiProvider>
+      </GestureHandlerRootView>
+    </SafeAreaProvider>
   );
 }

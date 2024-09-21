@@ -153,7 +153,10 @@ const InputField = (props: InputProps) => {
   return (
     <YStack>
       {label && (
-        <Label htmlFor={name} marginBottom={Platform.OS === "android" ? -10 : -2}>
+        <Label
+          htmlFor={name}
+          marginBottom={Platform.OS === "android" ? -10 : size === "xl" ? 2 : -2}
+        >
           <SizableText
             color={!!error ? errorColor : "$label-input-text"}
             fontFamily="$body"
