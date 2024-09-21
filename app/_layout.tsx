@@ -55,16 +55,14 @@ function LogoTitle() {
 
 const CloseButton = () => {
   const navigation = useNavigation();
-  const isDrawerOpen = useDrawerStatus() === 'open';
+  const isDrawerOpen = useDrawerStatus() === "open";
 
   if (!isDrawerOpen) return null; // Only show the overlay when drawer is open
 
   return (
-    <View >
-      <TouchableOpacity
-        onPress={() => navigation.dispatch(DrawerActions.closeDrawer())}
-      >
-        <MaterialIcons name="close" size={30} color={'#FFFFFF'} />
+    <View>
+      <TouchableOpacity onPress={() => navigation.dispatch(DrawerActions.closeDrawer())}>
+        <MaterialIcons name="close" size={30} color={"#FFFFFF"} />
       </TouchableOpacity>
     </View>
   );
@@ -90,7 +88,7 @@ export default function App() {
   const barColor = isDarkTheme ? "#140233" : "#FFFFFF";
   const router = useRouter();
   const drawerWidth = 300;
-  const overlayOpacity = isDarkTheme ? 0.75 : 0.50;
+  const overlayOpacity = isDarkTheme ? 0.75 : 0.5;
 
   useEffect(() => {
     if (fontsLoaded) {
@@ -120,16 +118,17 @@ export default function App() {
             )}
             screenOptions={{
               drawerStyle: {
-                width: drawerWidth
+                width: drawerWidth,
               },
               headerShown: false,
-              drawerType: 'front',
+              drawerType: "front",
               overlayColor: `rgba(0, 0, 0, ${overlayOpacity})`,
               headerRight: () => <LogoTitle />,
               headerStyle: {
                 backgroundColor: "#fff",
               },
-            }}>
+            }}
+          >
             <Drawer.Screen name="(tabs)" options={{ title: "Tabs" }} />
           </Drawer>
         )}
