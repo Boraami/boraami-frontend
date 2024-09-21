@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useColorScheme, View, Image } from "react-native";
+import { useColorScheme, View, Image, TouchableOpacity } from "react-native";
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { TamaguiProvider } from "tamagui";
 import { config } from "./../tamagui.config";
@@ -28,8 +28,10 @@ import "../tamagui.css";
 import "@tamagui/core/reset.css";
 import CustomDrawerContent from "./(tabs)/drawer";
 import Drawer from "expo-router/drawer";
-import { DrawerToggleButton } from "@react-navigation/drawer";
-import { useRouter } from "expo-router";
+import { useDrawerStatus } from "@react-navigation/drawer";
+import { useNavigation, useRouter } from "expo-router";
+import { DrawerActions } from "@react-navigation/native";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 function LogoTitle() {
   const theme = useColorScheme();
@@ -51,6 +53,23 @@ function LogoTitle() {
   );
 }
 
+const CloseButton = () => {
+  const navigation = useNavigation();
+  const isDrawerOpen = useDrawerStatus() === 'open';
+
+  if (!isDrawerOpen) return null; // Only show the overlay when drawer is open
+
+  return (
+    <View >
+      <TouchableOpacity
+        onPress={() => navigation.dispatch(DrawerActions.closeDrawer())}
+      >
+        <MaterialIcons name="close" size={30} color={'#FFFFFF'} />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
     Poppins_400Regular,
@@ -71,6 +90,7 @@ export default function App() {
   const barColor = isDarkTheme ? "#140233" : "#FFFFFF";
   const router = useRouter();
   const drawerWidth = 300;
+  const overlayOpacity = isDarkTheme ? 0.75 : 0.50;
 
   useEffect(() => {
     if (fontsLoaded) {
@@ -100,16 +120,16 @@ export default function App() {
             )}
             screenOptions={{
               drawerStyle: {
-                width: drawerWidth,
+                width: drawerWidth
               },
               headerShown: false,
-              headerLeft: () => <DrawerToggleButton tintColor={toodleColor} />,
+              drawerType: 'front',
+              overlayColor: `rgba(0, 0, 0, ${overlayOpacity})`,
               headerRight: () => <LogoTitle />,
               headerStyle: {
                 backgroundColor: "#fff",
               },
-            }}
-          >
+            }}>
             <Drawer.Screen name="(tabs)" options={{ title: "Tabs" }} />
           </Drawer>
         )}
