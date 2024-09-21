@@ -196,6 +196,15 @@ function UserDisplay(props: DrawerProps) {
   );
 }
 
+type DrawerItemStyleTypes = {
+  style: {
+    display: "flex" | "none" | undefined;
+    alignItems: "flex-start";
+    gap: 12;
+  };
+  labelStyle: {};
+};
+
 export default function CustomDrawerContent(props: DrawerProps) {
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
@@ -205,6 +214,18 @@ export default function CustomDrawerContent(props: DrawerProps) {
   const menuColor = isDarkTheme ? colorScheme.boraami[200] : colorScheme.boraami[700];
   const tabTextColor = isDarkTheme ? "white" : "black";
   const pathname = usePathname();
+
+  const drawerItemStyles: DrawerItemStyleTypes = {
+    style: {
+      display: "flex",
+      alignItems: "flex-start",
+      gap: 12,
+    },
+    labelStyle: [
+      { color: tabTextColor },
+      { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: "400", width: 249 },
+    ],
+  };
 
   console.log(pathname);
   return (
@@ -267,15 +288,8 @@ export default function CustomDrawerContent(props: DrawerProps) {
             <DrawerItem
               label={"Profile"}
               onPress={() => router.push("/profile")}
-              style={{
-                display: "flex",
-                alignItems: "flex-start",
-                gap: 12,
-              }}
-              labelStyle={[
-                { color: tabTextColor },
-                { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: "400", width: 249 },
-              ]}
+              style={drawerItemStyles.style}
+              labelStyle={drawerItemStyles.labelStyle}
               icon={({ size }) => (
                 <FontAwesome6 name="user-large" size={size} color={defaultIconColor} />
               )}
@@ -286,15 +300,8 @@ export default function CustomDrawerContent(props: DrawerProps) {
             onPress={() => {
               router.push("coffee/");
             }}
-            style={{
-              display: "flex",
-              alignItems: "flex-start",
-              gap: 12,
-            }}
-            labelStyle={[
-              { color: tabTextColor },
-              { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: "400", width: 249 },
-            ]}
+            style={drawerItemStyles.style}
+            labelStyle={drawerItemStyles.labelStyle}
             icon={({ size }) => <FontAwesome name="coffee" size={size} color={defaultIconColor} />}
           />
           <DrawerItem
@@ -302,15 +309,8 @@ export default function CustomDrawerContent(props: DrawerProps) {
             onPress={() => {
               router.push("conduct/");
             }}
-            style={{
-              display: "flex",
-              alignItems: "flex-start",
-              gap: 12,
-            }}
-            labelStyle={[
-              { color: tabTextColor },
-              { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: "400", width: 249 },
-            ]}
+            style={drawerItemStyles.style}
+            labelStyle={drawerItemStyles.labelStyle}
             icon={({ size }) => <FontAwesome6 name="gear" size={size} color={defaultIconColor} />}
           />
           <DrawerItem
@@ -318,15 +318,8 @@ export default function CustomDrawerContent(props: DrawerProps) {
             onPress={() => {
               router.push("terms/");
             }}
-            style={{
-              display: "flex",
-              alignItems: "flex-start",
-              gap: 12,
-            }}
-            labelStyle={[
-              { color: tabTextColor },
-              { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: "400", width: 249 },
-            ]}
+            style={drawerItemStyles.style}
+            labelStyle={drawerItemStyles.labelStyle}
             icon={({ size }) => <FontAwesome6 name="scroll" size={size} color={defaultIconColor} />}
           />
         </View>
