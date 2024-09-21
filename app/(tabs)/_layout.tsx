@@ -53,17 +53,26 @@ const CustomTabBarIcon = ({
   activeIconColor: string;
   name: "home" | "search" | "notifications";
 }) => (
-  <Stack
-    borderTopColor={color === activeIconColor ? activeIconColor : "transparent"}
-    borderTopWidth={3}
-    width={23}
-    height={40}
-    jc="center"
+<Stack
+    backgroundColor={color === activeIconColor ? activeIconColor : "transparent"}
+    borderRadius={50}
+    width={40}
+    height={6}
     position="absolute"
-    top={0}
+    top={-3}
+    jc="center"
     ai="center"
   >
-    <MaterialIcons name={name} size={24} color={color} />
+    <Stack
+      width={23}
+      height={40}
+      jc="center"
+      position="absolute"
+      ai="center"
+      top={0}
+    >
+      <MaterialIcons name={name} size={24} color={color} />
+    </Stack>
   </Stack>
 );
 
@@ -102,7 +111,7 @@ export default function TabsLayout() {
         tabBarActiveTintColor: activeIconColor,
         tabBarInactiveTintColor: defaultIconColor,
         tabBarStyle: {
-          // height: 56, see if this works on android
+//           height: 56, //see if this works on android
           backgroundColor: navBarColor, //boraami.50
           borderTopColor: dividerColor,
         },
