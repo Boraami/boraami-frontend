@@ -53,24 +53,17 @@ const CustomTabBarIcon = ({
   activeIconColor: string;
   name: "home" | "search" | "notifications";
 }) => (
-<Stack
-    backgroundColor={color === activeIconColor ? activeIconColor : "transparent"}
-    borderRadius={50}
-    width={40}
-    height={6}
-    position="absolute"
-    top={-3}
+  <Stack
+    borderTopColor={color === activeIconColor ? activeIconColor : "transparent"}
+    borderTopWidth={3}
+    width={25}
+    height={40} 
     jc="center"
+    position="absolute"
+    top={0}
     ai="center"
   >
-    <Stack
-      width={23}
-      height={40}
-      jc="center"
-      position="absolute"
-      ai="center"
-      top={0}
-    >
+    <Stack width={23} height={40} jc="center" position="absolute" ai="center" top={0}>
       <MaterialIcons name={name} size={24} color={color} />
     </Stack>
   </Stack>
@@ -83,6 +76,7 @@ export default function TabsLayout() {
   const activeIconColor = isDarkTheme ? colorScheme.serendipity[300] : colorScheme.serendipity[500];
   const navBarColor = isDarkTheme ? colorScheme.boraami[900] : colorScheme.boraami[50];
   const dividerColor = isDarkTheme ? colorScheme.boraami[600] : colorScheme.boraami[300];
+  const titleColor = isDarkTheme ? colorScheme.boraami[50] : colorScheme.boraami[700];
   const notifDotColor = colorScheme.butter[400];
   const [isActive, setIsActive] = useState(false);
   const barColor = isDarkTheme ? "#140233" : "#F7F3FF";
@@ -102,6 +96,11 @@ export default function TabsLayout() {
       screenOptions={{
         headerShown: true,
         headerRight: () => <LogoTitle />,
+        headerTitleAlign: "left",
+        headerTintColor: titleColor,
+        headerTitleStyle: {
+          fontWeight: "700",
+        },
         headerStyle: {
           backgroundColor: barColor,
           borderBottomColor: dividerColor,
@@ -111,7 +110,6 @@ export default function TabsLayout() {
         tabBarActiveTintColor: activeIconColor,
         tabBarInactiveTintColor: defaultIconColor,
         tabBarStyle: {
-//           height: 56, //see if this works on android
           backgroundColor: navBarColor, //boraami.50
           borderTopColor: dividerColor,
         },
@@ -121,7 +119,7 @@ export default function TabsLayout() {
         name="home/index"
         options={{
           tabBarLabel: "Home",
-          title: "Home",
+          title: "Boraline",
           tabBarShowLabel: false,
           tabBarButton: (props) => <CustomTabIconButtons {...props} />,
           tabBarIcon: ({ color }) => (
@@ -172,7 +170,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color }) => <MaterialIcons name="menu" size={24} color={color} />,
           tabBarButton: (props) => (
             <Button width="25%" onPress={() => navigate.dispatch(DrawerActions.openDrawer())}>
-              <Stack justifyContent="center" alignItems="center">
+              <Stack backgroundColor={'blue'} justifyContent="center" alignItems="center">
                 {props.children}
               </Stack>
             </Button>
