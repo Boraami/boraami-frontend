@@ -92,7 +92,7 @@ export default function App() {
 
   useEffect(() => {
     if (fontsLoaded) {
-      router.push("/home/");
+      router.push("/boraline");
     }
   }, [fontsLoaded]);
 

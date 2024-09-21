@@ -78,19 +78,9 @@ export default function TabsLayout() {
   const dividerColor = isDarkTheme ? colorScheme.boraami[600] : colorScheme.boraami[300];
   const titleColor = isDarkTheme ? colorScheme.boraami[50] : colorScheme.boraami[700];
   const notifDotColor = colorScheme.butter[400];
-  const [isActive, setIsActive] = useState(false);
   const barColor = isDarkTheme ? "#140233" : "#F7F3FF";
 
-  const handleNotificationactive = () => {
-    setIsActive(true);
-  };
-
-  const handleNotificationInactive = () => {
-    setIsActive(false);
-  };
-  const notifBag = isActive ? notifDotColor : "transparent";
   const navigate = useNavigation();
-  console.log();
   return (
     <Tabs
       screenOptions={{
@@ -116,9 +106,9 @@ export default function TabsLayout() {
       }}
     >
       <Tabs.Screen
-        name="home/index"
+        name="boraline/index"
         options={{
-          tabBarLabel: "Home",
+          tabBarLabel: "Boraline",
           title: "Boraline",
           tabBarShowLabel: false,
           tabBarButton: (props) => <CustomTabIconButtons {...props} />,
@@ -183,14 +173,4 @@ export default function TabsLayout() {
       <Tabs.Screen name="(drawer)/terms/index" options={{ title: "Terms", href: null }} />
     </Tabs>
   );
-}
-
-function getWidth() {
-  let width = Dimensions.get("window").width;
-
-  // Horizontal Padding = 20...
-  width = width - 80;
-
-  // Total five Tabs...
-  return width / 5;
 }
