@@ -1,4 +1,4 @@
-import { router, useNavigation, usePathname } from "expo-router";
+import { router, usePathname } from "expo-router";
 import { View, useColorScheme } from "react-native";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { FontAwesome6, FontAwesome } from "@expo/vector-icons";
@@ -150,9 +150,7 @@ function UserInfo(props: DrawerProps) {
 function UserDisplay(props: DrawerProps) {
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
-  const defaultIconColor = isDarkTheme ? colorScheme.boraami[200] : colorScheme.boraami[500];
   const dividerColor = isDarkTheme ? colorScheme.boraami[600] : colorScheme.mono[400];
-  const tabTextColor = isDarkTheme ? "white" : "black";
 
   return (
     <View
@@ -184,7 +182,7 @@ function UserDisplay(props: DrawerProps) {
             paddingRight: 20,
           }}
         >
-          <Avatar AvatarText={"YW"} size={64}/>
+          <Avatar AvatarText={"YW"} size={64} />
           <UserInfo {...props} />
         </View>
         <View style={{}}>
@@ -195,13 +193,27 @@ function UserDisplay(props: DrawerProps) {
   );
 }
 
-type DrawerItemStyleTypes = {
-  style: {
-    display: "flex" | "none" | undefined;
-    alignItems: "flex-start";
-    gap: 12;
-  };
-  labelStyle: {};
+type CustomDrawerItemProps = {
+  label: string;
+  onPress: () => void;
+  icon: (props: { focused: boolean; size: number; color: string }) => React.ReactNode;
+  tabTextColor: string;
+};
+
+const CustomDrawerItem = (props: CustomDrawerItemProps) => {
+  return (
+    <DrawerItem
+      style={{
+        display: "flex",
+        gap: 12,
+      }}
+      labelStyle={[
+        { color: props.tabTextColor },
+        { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: "400", width: 249 },
+      ]}
+      {...props}
+    />
+  );
 };
 
 export default function CustomDrawerContent(props: DrawerProps) {
@@ -212,19 +224,8 @@ export default function CustomDrawerContent(props: DrawerProps) {
   const dividerColor = isDarkTheme ? colorScheme.boraami[600] : colorScheme.boraami[300];
   const menuColor = isDarkTheme ? colorScheme.boraami[200] : colorScheme.boraami[700];
   const tabTextColor = isDarkTheme ? "white" : "black";
-  const pathname = usePathname();
 
-  const drawerItemStyles: DrawerItemStyleTypes = {
-    style: {
-      display: "flex",
-      alignItems: "flex-start",
-      gap: 12,
-    },
-    labelStyle: [
-      { color: tabTextColor },
-      { marginLeft: -14, fontSize: 16, lineHeight: 24, fontWeight: "400", width: 249 },
-    ],
-  };
+  const pathname = usePathname();
 
   console.log(pathname);
   return (
@@ -284,42 +285,42 @@ export default function CustomDrawerContent(props: DrawerProps) {
           }}
         >
           <View>
-            <DrawerItem
+            <CustomDrawerItem
               label={"Profile"}
               onPress={() => router.push("/profile")}
-              style={drawerItemStyles.style}
-              labelStyle={drawerItemStyles.labelStyle}
               icon={({ size }) => (
-                <FontAwesome6 name="user-large" size={size} color={defaultIconColor} />
+                <FontAwesome6 name={"user-large"} size={size} color={defaultIconColor} />
               )}
+              tabTextColor={tabTextColor}
             />
           </View>
-          <DrawerItem
+          <CustomDrawerItem
             label={"Buy us a Coffee"}
             onPress={() => {
               router.push("coffee/");
             }}
-            style={drawerItemStyles.style}
-            labelStyle={drawerItemStyles.labelStyle}
-            icon={({ size }) => <FontAwesome name="coffee" size={size} color={defaultIconColor} />}
+            icon={({ size }) => (
+              <FontAwesome name={"coffee"} size={size} color={defaultIconColor} />
+            )}
+            tabTextColor={tabTextColor}
           />
-          <DrawerItem
+          <CustomDrawerItem
             label={"Codes of Conduct"}
             onPress={() => {
               router.push("conduct/");
             }}
-            style={drawerItemStyles.style}
-            labelStyle={drawerItemStyles.labelStyle}
-            icon={({ size }) => <FontAwesome6 name="gear" size={size} color={defaultIconColor} />}
+            icon={({ size }) => <FontAwesome6 name={"gear"} size={size} color={defaultIconColor} />}
+            tabTextColor={tabTextColor}
           />
-          <DrawerItem
+          <CustomDrawerItem
             label={"Terms & Conditions"}
             onPress={() => {
               router.push("terms/");
             }}
-            style={drawerItemStyles.style}
-            labelStyle={drawerItemStyles.labelStyle}
-            icon={({ size }) => <FontAwesome6 name="scroll" size={size} color={defaultIconColor} />}
+            icon={({ size }) => (
+              <FontAwesome6 name={"scroll"} size={size} color={defaultIconColor} />
+            )}
+            tabTextColor={tabTextColor}
           />
         </View>
       </DrawerContentScrollView>
