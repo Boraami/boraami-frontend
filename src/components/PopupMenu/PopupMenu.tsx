@@ -31,7 +31,7 @@ type MenuItemComponentProps = {
 // This can be changed to breakpoints once we have them and if tamagui allows- doesnt look possible as of now so
 const isWeb = Platform.OS === "web";
 
-const MenuItem = ({ data, handleBtnAction }: MenuItemComponentProps) => {
+export const MenuItem = ({ data, handleBtnAction }: MenuItemComponentProps) => {
   const [isBtnPressed, setBtnPressed] = useState(false);
   const { iconComponent, menuText } = data;
   const theme = useColorScheme();
@@ -117,7 +117,6 @@ const PopupMenu = ({ data, title, sheetHeightPerc = 40, iconWidth = 20, offsetX 
           </Popover.Sheet.Frame>
         </Popover.Sheet>
       </Adapt>
-
       <Popover.Content
         enterStyle={{ y: -10, opacity: 0 }}
         exitStyle={{ y: -10, opacity: 0 }}
