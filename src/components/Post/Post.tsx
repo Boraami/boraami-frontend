@@ -8,6 +8,7 @@ import Avatar from "../Avatar/Avatar";
 import {  TouchableOpacity,Image,useColorScheme} from "react-native";
 import PostEngagement from '../Post/PostEngagement'
 import ViewedImageModal from "./ViewedImageModal";
+//why isntit getting pushed whyyyyyyyyyyyyyy
 
 export type Props = StackProps & {
   username: string;
