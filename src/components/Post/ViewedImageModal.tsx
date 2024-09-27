@@ -180,13 +180,13 @@ const ViewedImageModal = ({
                     inputRange: [0, 1],
                     outputRange: [0, 5], 
                   }),
-                }, //sliding */
-                {
+                }, //sliding animation */
+                {  
                   scale: menuAnimation.interpolate({
                     inputRange: [0, 1],
                     outputRange: [0, 1], 
                   }),
-                }, //scaling
+                }, //scaling animation
               ],
             }}
           >
