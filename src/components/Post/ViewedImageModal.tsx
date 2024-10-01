@@ -1,14 +1,15 @@
-import React, { useState,useEffect, } from "react";
+import React, { useState,} from "react";
 import { XStack,  Button, YStack,  } from "tamagui";
 import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
-import { Pressable,Animated, StatusBar, Modal, Linking, Alert, Platform} from "react-native";
+import { Pressable,Animated, StatusBar, Modal, Dimensions, Alert, Platform} from "react-native";
 import ImageViewer from "react-native-image-zoom-viewer";
 import ViewedPostOptionsMenu from "./ViewedPostOptionsMenu";
 import * as FileSystem from 'expo-file-system';
 import * as MediaLibrary from 'expo-media-library';
-import PostEngagement from './PostEngagement'
-
-
+import PostEngagement from './PostEngagement';
+import {requestMediaLibraryPermission, } from '../../helpers/Permissions';
+import ShortAlert from "../Alert/ShortAlert";
+import { toast } from "@backpackapp-io/react-native-toast";
 type ImageModalProps = {
   showDialog: boolean;
   setShowDialogue: (show: boolean) => void;
@@ -30,6 +31,7 @@ const ViewedImageModal = ({
   dateTime,
   modalType,
 }: ImageModalProps) => {
+  const screenWidth = Dimensions.get("window").width;
   const [isEngagementVisible, setEngagementVisible] = React.useState(true);
   const [menuAnimation] = useState(new Animated.Value(0.5)); 
   const showMenu = () => {
@@ -51,78 +53,60 @@ const ViewedImageModal = ({
     });
   };
 
-  const requestMediaLibraryPermission = async () => {
-    const { status } = await MediaLibrary.getPermissionsAsync();
-    if (status === 'granted') {
-      return true; // Permission already granted
-    }
-    if (status === 'denied') {
-      const { granted } = await MediaLibrary.requestPermissionsAsync();
-      if (!granted) {
-        showPermissionAlert();
-        return false;
-      }
-      return true;
-    }
-    if (status === 'undetermined') {
-      const { granted } = await MediaLibrary.requestPermissionsAsync();
-      return granted;
-    }
-    return false;
-  };
-
-  const showPermissionAlert = () => {
-    Alert.alert(
-      'Permission Denied',
-      'Please enable media library permissions in your device settings to save images.',
-      [
-        {
-          text: 'Open Settings',
-          onPress: () => openAppSettings(),
-        },
-        { text: 'Cancel', style: 'cancel' },
-      ],
-      { cancelable: true }
-    );
-  };
-
-  const openAppSettings = () => {
-    if (Platform.OS === 'ios') {
-      Linking.openURL('app-settings:');
-    } else {
-      Linking.openSettings();
-    }
-  };
-
+  const succesToast =()=>{
+    toast("", {
+      width: screenWidth,
+      disableShadow: true,
+      duration: 150,
+      customToast: () => {
+        return(
+          <>
+          <Modal transparent={true}>
+          <XStack position='absolute'
+            bottom={70}
+            left={0}
+            right={0}
+            width={50}>
+          <ShortAlert name={"success"} shade={"subtle"} alert={"Image Saved!"} alertWidth="35%" noCrossIcon={true}/>
+          </XStack></Modal>
+          </>
+        ) ;
+      },
+    });
+  }
   const saveImageToGallery = async (imageUrl: string) => {
     setOptionsMenu(false)
     try {
-      //Requesting media library permissions
-      const hasPermission = await requestMediaLibraryPermission();
-      if(!hasPermission) return;
+      const { hasPermission, limitedAccess } = await requestMediaLibraryPermission();
+      if (!hasPermission || limitedAccess) {
+        return;
+      }; // Exit if permission is not granted
       //Downloading the image to the cache directory
       const localFilePath = `${FileSystem.cacheDirectory}downloaded-image.jpg`; // Temporary file path
       const downloadResult = await FileSystem.downloadAsync(imageUrl, localFilePath);
       if (downloadResult.status === 200) {
         //Saving the downloaded image to the gallery
         const asset = await MediaLibrary.createAssetAsync(downloadResult.uri);
-        await MediaLibrary.createAlbumAsync('Boraami', asset, true); // Create or add to album - becauseof this every time user saves img, it sees an alert askking permission. it cant be removed as its for security reasons.
-        //Delete the temporary file after saving
-        await FileSystem.deleteAsync(downloadResult.uri);
-        Alert.alert('Success', 'Image has been saved to your gallery.');
-      } else {
-        Alert.alert('Error', `Failed to download image. Status code: ${downloadResult.status}`);
-      }
+        //Now delete the temporary files after saving(android)
+        await FileSystem.deleteAsync(downloadResult.uri, { idempotent: true });
+        succesToast();
+    } else {
+      throw new Error(`Failed to download image. Status code: ${downloadResult.status}`);
+    }
     } catch (error) {
       console.error('Error saving image:', error);
-      Alert.alert('Error', `Failed to save image: ${error}`);
+      Alert.alert('Error', 'Something went wrong. Please check Boraami permissions in app settings and try again.');
     }
   };
 
   return (
     <Modal
       visible={showDialog}
-      onRequestClose={() => setShowDialogue(false)}
+      onRequestClose={() => {
+        setShowDialogue(false)
+        setOptionsMenu(false)
+        setEngagementVisible(true)}
+      }
       transparent={true}
       animationType='fade'
       statusBarTranslucent={true}
@@ -192,7 +176,8 @@ const ViewedImageModal = ({
             }}
           >
         <YStack
-          
+          width= {140}
+          height= {55}
           backgroundColor='white'
           flexWrap="wrap"
           borderRadius={4}

@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { Dimensions, useColorScheme } from "react-native";
-import { XStack, View, SizableText, styled } from "tamagui";
+import { XStack, View, SizableText, styled, ViewProps } from "tamagui";
 import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 import { colorScheme } from "../../themes/theme";
 
-type Props = {
+type Props = ViewProps & {
   shade: "solid" | "subtle" | "outline";
   name: "default" | "success" | "warning";
   alert: string;
+  alertWidth?: string;
+  noCrossIcon?: boolean;
 };
 
 const StyledAlert = styled(View, {
-  width: "85%",
   borderRadius: 4,
   alignItems: "center",
   flexDirection: "row",
@@ -100,7 +101,7 @@ const StyledText = styled(SizableText, {
   },
 });
 
-const ShortAlert = ({ shade, name, alert }: Props) => {
+const ShortAlert = ({ shade, name, alert, alertWidth ,   noCrossIcon}: Props) => {
   const [close, setClose] = useState(false);
   const theme = useColorScheme();
 
@@ -114,7 +115,7 @@ const ShortAlert = ({ shade, name, alert }: Props) => {
 
   return (
     <View width={Dimensions.get("window").width} justifyContent="center" alignItems="center">
-      <StyledAlert variant={`${name}.${shade}`}>
+      <StyledAlert variant={`${name}.${shade}`} width={alertWidth? alertWidth:'85%'}>
         <XStack flexDirection={"row"} justifyContent={"space-evenly"} alignItems="center">
           {/* Only render this icon for 'success' and 'default' alerts */}
           {name !== "warning" ? (
@@ -163,44 +164,46 @@ const ShortAlert = ({ shade, name, alert }: Props) => {
             </StyledText>
           </XStack>
         </XStack>
-
+        {  noCrossIcon? null:
         <FontAwesome6
-          name="xmark"
-          size={16}
-          color={
-            // Default variant:
-            theme === "dark" && name === "default"
-              ? shade === "subtle"
-                ? colorScheme.mono[800]
-                : colorScheme.butter[50]
-              : theme === "light" && name === "default"
-              ? shade === "solid"
-                ? colorScheme.butter[50]
-                : colorScheme.mono[800]
-              : // Success variant:
-              theme === "dark" && name === "success"
-              ? shade === "solid"
-                ? colorScheme.butter[50]
-                : shade === "subtle"
-                ? colorScheme.mono[800]
-                : colorScheme.singularity[200]
-              : theme === "light" && name === "success"
-              ? shade === "solid"
-                ? colorScheme.butter[50]
-                : colorScheme.mono[800]
-              : // Warning variant:
-              theme === "dark" && name === "warning"
-              ? shade === "outline"
-                ? colorScheme.ptd[500]
-                : colorScheme.mono[800]
-              : theme === "light" && name === "warning"
-              ? shade === "solid" || shade === "subtle"
-                ? colorScheme.mono[800]
-                : colorScheme.mono[800]
+        name="xmark"
+        size={16}
+        color={
+          // Default variant:
+          theme === "dark" && name === "default"
+            ? shade === "subtle"
+              ? colorScheme.mono[800]
+              : colorScheme.butter[50]
+            : theme === "light" && name === "default"
+            ? shade === "solid"
+              ? colorScheme.butter[50]
               : colorScheme.mono[800]
-          }
-          onPress={handleClose}
-        />
+            : // Success variant:
+            theme === "dark" && name === "success"
+            ? shade === "solid"
+              ? colorScheme.butter[50]
+              : shade === "subtle"
+              ? colorScheme.mono[800]
+              : colorScheme.singularity[200]
+            : theme === "light" && name === "success"
+            ? shade === "solid"
+              ? colorScheme.butter[50]
+              : colorScheme.mono[800]
+            : // Warning variant:
+            theme === "dark" && name === "warning"
+            ? shade === "outline"
+              ? colorScheme.ptd[500]
+              : colorScheme.mono[800]
+            : theme === "light" && name === "warning"
+            ? shade === "solid" || shade === "subtle"
+              ? colorScheme.mono[800]
+              : colorScheme.mono[800]
+            : colorScheme.mono[800]
+        }
+        onPress={handleClose}
+      />
+      }
+        
       </StyledAlert>
     </View>
   );
