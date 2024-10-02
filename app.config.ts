@@ -6,11 +6,11 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   slug: "boraami-frontend",
   version: "1.0.0",
   orientation: "portrait",
-  icon: "./assets/icon.png",
+//  icon: "./assets/icon.png",
   scheme: "boraami-frontend",
   userInterfaceStyle: "automatic",
   splash: {
-    image: "./assets/splash.png",
+//    image: "./assets/splash.png",
     resizeMode: "contain",
     backgroundColor: "#ffffff",
   },
@@ -20,12 +20,12 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   android: {
     adaptiveIcon: {
-      foregroundImage: "./assets/adaptive-icon.png",
+//      foregroundImage: "./assets/adaptive-icon.png",
       backgroundColor: "#ffffff",
     },
   },
   web: {
-    favicon: "./assets/favicon.png",
+//    favicon: "./assets/favicon.png",
     bundler: "metro",
   },
   extra: {

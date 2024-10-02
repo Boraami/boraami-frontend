@@ -170,6 +170,8 @@ export default function TabsLayout() {
       <Tabs.Screen name="(drawer)/conduct/index" options={{ title: "Conduct", href: null }} />
       <Tabs.Screen name="(drawer)/profile/index" options={{ title: "Profile", href: null }} />
       <Tabs.Screen name="(drawer)/terms/index" options={{ title: "Terms", href: null }} />
+      <Tabs.Screen name="(stack)/signIn" options={{title: "Sign In", headerShown: false}}/>
+      <Tabs.Screen name="(stack)/welcome" options={{title: "Welcome", headerShown: false}}/>
     </Tabs>
   );
 }
