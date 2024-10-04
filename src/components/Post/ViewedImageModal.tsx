@@ -1,7 +1,7 @@
-import React, { useState,} from "react";
+import React, { useEffect, useState,} from "react";
 import { XStack,  Button, YStack,  } from "tamagui";
 import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
-import { Pressable,Animated, StatusBar, Modal, Dimensions, Alert, Platform} from "react-native";
+import { Pressable,Animated, StatusBar, Modal,} from "react-native";
 import ImageViewer from "react-native-image-zoom-viewer";
 import ViewedPostOptionsMenu from "./ViewedPostOptionsMenu";
 import * as FileSystem from 'expo-file-system';
@@ -9,7 +9,6 @@ import * as MediaLibrary from 'expo-media-library';
 import PostEngagement from './PostEngagement';
 import {requestMediaLibraryPermission, } from '../../helpers/Permissions';
 import ShortAlert from "../Alert/ShortAlert";
-import { toast } from "@backpackapp-io/react-native-toast";
 type ImageModalProps = {
   showDialog: boolean;
   setShowDialogue: (show: boolean) => void;
@@ -31,9 +30,10 @@ const ViewedImageModal = ({
   dateTime,
   modalType,
 }: ImageModalProps) => {
-  const screenWidth = Dimensions.get("window").width;
   const [isEngagementVisible, setEngagementVisible] = React.useState(true);
   const [menuAnimation] = useState(new Animated.Value(0.5)); 
+  const [showToast,setShowToast] =  useState(false);
+  const [toastProps, setToastProps] = useState({name:'',shade:'',alert:''})
   const showMenu = () => {
     setOptionsMenu(true);
     Animated.timing(menuAnimation, {
@@ -42,7 +42,6 @@ const ViewedImageModal = ({
       useNativeDriver: true,
     }).start();
   };
-
   const hideMenu = () => {
     Animated.timing(menuAnimation, {
       toValue: 0,
@@ -52,27 +51,29 @@ const ViewedImageModal = ({
       setOptionsMenu(false);
     });
   };
-
-  const succesToast =()=>{
-    toast("", {
-      width: screenWidth,
-      disableShadow: true,
-      duration: 150,
-      customToast: () => {
-        return(
-          <>
-          <Modal transparent={true}>
-          <XStack position='absolute'
-            bottom={70}
-            left={0}
-            right={0}
-            width={50}>
-          <ShortAlert name={"success"} shade={"subtle"} alert={"Image Saved!"} alertWidth="35%" noCrossIcon={true}/>
-          </XStack></Modal>
-          </>
-        ) ;
-      },
+  useEffect(()=>{
+    if(showToast){
+      const timer = setTimeout(()=>{
+        setShowToast(false);
+      },1000);
+      return ()=> clearTimeout(timer);
+    }
+  },[showToast])
+  const successToast =()=>{
+    setToastProps({
+      name:'success',
+      shade:'subtle',
+      alert:'Image saved!'
     });
+    setShowToast(true);
+  }
+  const errorToast =()=>{
+    setToastProps({
+      name:'warning',
+      shade:'subtle',
+      alert:'Image could not be saved!'
+    });
+    setShowToast(true);
   }
   const saveImageToGallery = async (imageUrl: string) => {
     setOptionsMenu(false)
@@ -82,20 +83,22 @@ const ViewedImageModal = ({
         return;
       }; // Exit if permission is not granted
       //Downloading the image to the cache directory
-      const localFilePath = `${FileSystem.cacheDirectory}downloaded-image.jpg`; // Temporary file path
+      const currentTime = new Date();
+      const timeStamp = currentTime.getTime();
+      const localFilePath = `${FileSystem.cacheDirectory}boraami_image_${timeStamp}.jpg`; // Temporary file path
       const downloadResult = await FileSystem.downloadAsync(imageUrl, localFilePath);
       if (downloadResult.status === 200) {
         //Saving the downloaded image to the gallery
-        const asset = await MediaLibrary.createAssetAsync(downloadResult.uri);
+        await MediaLibrary.createAssetAsync(downloadResult.uri);
         //Now delete the temporary files after saving(android)
         await FileSystem.deleteAsync(downloadResult.uri, { idempotent: true });
-        succesToast();
+        successToast();
     } else {
       throw new Error(`Failed to download image. Status code: ${downloadResult.status}`);
     }
     } catch (error) {
       console.error('Error saving image:', error);
-      Alert.alert('Error', 'Something went wrong. Please check Boraami permissions in app settings and try again.');
+      errorToast();
     }
   };
 
@@ -207,6 +210,20 @@ const ViewedImageModal = ({
           </Button>
         </XStack>
       )}
+      {showToast && (
+      <XStack position='absolute'
+        bottom={70}
+        left={0}
+        right={0}
+        width={50}>
+        <ShortAlert 
+        name={toastProps.name as "default" | "success" | "warning"} 
+        shade={toastProps.shade as "solid" | "subtle" | "outline"} 
+        alert={toastProps.alert} 
+        alertWidth={toastProps.name==='warning'?'55%':'35%'} 
+        noCrossIcon={true}/>
+      </XStack>
+      )}
       {modalType==='ViewTLPost' && isEngagementVisible && (
       <YStack
         position='absolute'
@@ -215,8 +232,7 @@ const ViewedImageModal = ({
         right={0}
         paddingHorizontal={20}
         height={60}
-        backgroundColor='rgba(0,0,0,0.7)'
-      >
+        backgroundColor='rgba(0,0,0,0.7)'>
         <PostEngagement dateTime={dateTime} type='ViewedPost' />
       </YStack>
       )}
