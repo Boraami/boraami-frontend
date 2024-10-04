@@ -55,7 +55,7 @@ const ViewedImageModal = ({
     if(showToast){
       const timer = setTimeout(()=>{
         setShowToast(false);
-      },1000);
+      },2000);
       return ()=> clearTimeout(timer);
     }
   },[showToast])
@@ -71,7 +71,7 @@ const ViewedImageModal = ({
     setToastProps({
       name:'warning',
       shade:'subtle',
-      alert:'Image could not be saved!'
+      alert:'Something went wrong while saving the image :('
     });
     setShowToast(true);
   }
@@ -220,7 +220,7 @@ const ViewedImageModal = ({
         name={toastProps.name as "default" | "success" | "warning"} 
         shade={toastProps.shade as "solid" | "subtle" | "outline"} 
         alert={toastProps.alert} 
-        alertWidth={toastProps.name==='warning'?'55%':'35%'} 
+        alertWidth={toastProps.name==='warning'?'90%':'35%'} 
         noCrossIcon={true}/>
       </XStack>
       )}
