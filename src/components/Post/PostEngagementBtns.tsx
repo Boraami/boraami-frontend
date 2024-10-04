@@ -4,13 +4,19 @@ import IconBtn from "../Button/IconBtn";
 import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 import {useColorScheme } from "react-native";
 import { colorScheme } from "../../themes/theme";
-import {Props} from '../Post/Post';
+import {Props} from './Post';
 
-type DateTimeProp = Pick<Props, 'dateTime'> & {
-    type: 'ViewedPost' | 'TLPost';
+type PostEngagementBtnsProps = Pick<Props, 'dateTime'> & {
+    type: 'ViewedPostImage' | 'TLPostImage';
+    postEngagementData: {
+        postId?: string;
+        likeCount: number;
+        repostCount: number;
+        commentCount: number;
+    }
 }
 
-const PostEngagement = ({dateTime, type}:DateTimeProp) => {  
+const PostEngagement = ({dateTime, type, postEngagementData}:PostEngagementBtnsProps) => {  
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
   const idleColor = isDarkTheme ? colorScheme.boraami[500] : colorScheme.mono[500];
@@ -19,10 +25,10 @@ const PostEngagement = ({dateTime, type}:DateTimeProp) => {
     return(
     <>
     <IconBtn
-    count={234}
-    iconBefore={<FontAwesome name="heart-o" size={16} color={type==='TLPost'?idleColor:'#fff'} />}
+    count={postEngagementData?.likeCount}
+    iconBefore={<FontAwesome name="heart-o" size={16} color={type==='TLPostImage'?idleColor:'#fff'} />}
     iconAfter={<FontAwesome name="heart" size={16} color={"#EC4899"} />}
-    idleColor={type==='TLPost'?idleColor:'#fff'}
+    idleColor={type==='TLPostImage'?idleColor:'#fff'}
     activeColor={"#EC4899"}
     // This is how you handle the toggle between function depending on tap of icon for example sending liking unliking api request
     handleBtnAction={(tapped, setTapped, liked, setLiked) => {
@@ -46,18 +52,18 @@ const PostEngagement = ({dateTime, type}:DateTimeProp) => {
     paddingHorizontal={4}
     />
     <IconBtn
-    count={234}
-    iconBefore={<FontAwesome6 name="comment" size={16} color={type==='TLPost'?idleColor:'#fff'} />}
-    iconAfter={<FontAwesome6 name="comment" size={16} color={type==='TLPost'?idleColor:'#fff'} />}
-    idleColor={type==='TLPost'?idleColor:'#fff'}
-    activeColor={type==='TLPost'?idleColor:'#fff'}
+    count={postEngagementData?.commentCount}
+    iconBefore={<FontAwesome6 name="comment" size={16} color={type==='TLPostImage'?idleColor:'#fff'} />}
+    iconAfter={<FontAwesome6 name="comment" size={16} color={type==='TLPostImage'?idleColor:'#fff'} />}
+    idleColor={type==='TLPostImage'?idleColor:'#fff'}
+    activeColor={type==='TLPostImage'?idleColor:'#fff'}
     paddingHorizontal={4}
     />
     <IconBtn
-    count={234}
-    iconBefore={<FontAwesome6 name="retweet" size={16} color={type==='TLPost'?idleColor:'#fff'} />}
+    count={postEngagementData?.repostCount}
+    iconBefore={<FontAwesome6 name="retweet" size={16} color={type==='TLPostImage'?idleColor:'#fff'} />}
     iconAfter={<FontAwesome6 name="retweet" size={16} color={activeColor} />}
-    idleColor={type==='TLPost'?idleColor:'#fff'}
+    idleColor={type==='TLPostImage'?idleColor:'#fff'}
     activeColor={activeColor}
     paddingHorizontal={4}
     />
@@ -66,14 +72,14 @@ const PostEngagement = ({dateTime, type}:DateTimeProp) => {
 }
 
 return (
-    <XStack paddingTop={type==='TLPost'?12:18} alignItems="center" justifyContent="space-between" flexDirection='row'>
-    {type==='TLPost'?
+    <XStack paddingTop={type==='TLPostImage'?12:18} alignItems="center" justifyContent="space-between" flexDirection='row'>
+    {type==='TLPostImage'?
     <XStack gap={14}>
     {renderIcons()}
     </XStack>
     : renderIcons()
     }
-    {type==='TLPost' &&
+    {type==='TLPostImage' &&
     <SizableText fontFamily={"$body"} size={"$xs"} color={"$date-time-text"}>
     {dateTime}
     </SizableText>

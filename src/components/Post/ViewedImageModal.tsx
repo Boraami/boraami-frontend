@@ -6,7 +6,7 @@ import ImageViewer from "react-native-image-zoom-viewer";
 import ViewedPostOptionsMenu from "./ViewedPostOptionsMenu";
 import * as FileSystem from 'expo-file-system';
 import * as MediaLibrary from 'expo-media-library';
-import PostEngagement from './PostEngagement';
+import PostEngagement from './PostEngagementBtns';
 import {requestMediaLibraryPermission, } from '../../helpers/Permissions';
 import ShortAlert from "../Alert/ShortAlert";
 type ImageModalProps = {
@@ -233,7 +233,14 @@ const ViewedImageModal = ({
         paddingHorizontal={20}
         height={60}
         backgroundColor='rgba(0,0,0,0.7)'>
-        <PostEngagement dateTime={dateTime} type='ViewedPost' />
+        <PostEngagement 
+        dateTime={dateTime} 
+        type='ViewedPostImage'
+        postEngagementData={{
+          likeCount:234,
+          repostCount:234,
+          commentCount:234
+        }} />
       </YStack>
       )}
       </XStack>
