@@ -38,8 +38,7 @@ const ViewedPostOptionsMenuMeta: Meta<typeof ViewedPostOptionsMenu> = {
         height={"100%"}
         alignItems="flex-end"
       >
-        <YStack height={"100%"} justifyContent="center" alignItems="flex-end">
-        </YStack>
+        <YStack height={"100%"} justifyContent="center" alignItems="flex-end"></YStack>
       </View>
     ),
   ],
@@ -47,6 +46,4 @@ const ViewedPostOptionsMenuMeta: Meta<typeof ViewedPostOptionsMenu> = {
 
 export default ViewedPostOptionsMenuMeta;
 
-export const menu = {
-
-};
+export const menu = {};
