@@ -53,7 +53,6 @@ function LogoTitle() {
   );
 }
 
-
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
     Poppins_400Regular,
@@ -70,14 +69,15 @@ export default function App() {
   const colorScheme = useColorScheme();
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
-  const toodleColor = isDarkTheme ? "white" : "black";
-  const barColor = isDarkTheme ? "#140233" : "#FFFFFF";
   const router = useRouter();
   const drawerWidth = 300;
   const overlayOpacity = isDarkTheme ? 0.75 : 0.5;
 
+  const isStorybookEnabled = Constants.expoConfig?.extra?.storybookEnabled;
+
   useEffect(() => {
-    if (fontsLoaded) {
+    // NOTE: Without isStorybookEnabled variable it was creating Error because of using navigation before mounting Root Layout Component, so now we check if storybook is not enabled only then we push to /boraline otherwise we do nothing
+    if (fontsLoaded && !isStorybookEnabled) {
       router.push("/boraline");
     }
   }, [fontsLoaded]);
@@ -89,38 +89,39 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <GestureHandlerRootView>
-          <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
-            <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-              {Constants.expoConfig?.extra?.storybookEnabled ? (
-                <Storybook />
-              ) : (
-                <Drawer
-                  drawerContent={(props) => (
-                    <CustomDrawerContent
-                      name={"Yoongi's Wife"}
-                      userName={"tangerines4life"}
-                      followers={208}
-                      following={67}
-                      {...props}
-                    />
-                  )}
-                  screenOptions={{
-                    drawerStyle: {
-                      width: drawerWidth,
-                    },
-                    headerShown: false,
-                    drawerType: "front",
-                    overlayColor: `rgba(0, 0, 0, ${overlayOpacity})`,
-                    headerRight: () => <LogoTitle />,
-                    headerStyle: {
-                      backgroundColor: "#fff",
-                    },
-                  }}
-                >
-                  <Drawer.Screen name="(tabs)" options={{ title: "Tabs" }} />
-                </Drawer>
-              )}<Toasts />
-            </ThemeProvider>
+        <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
+          <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+            {isStorybookEnabled ? (
+              <Storybook />
+            ) : (
+              <Drawer
+                drawerContent={(props) => (
+                  <CustomDrawerContent
+                    name={"Yoongi's Wife"}
+                    userName={"tangerines4life"}
+                    followers={208}
+                    following={67}
+                    {...props}
+                  />
+                )}
+                screenOptions={{
+                  drawerStyle: {
+                    width: drawerWidth,
+                  },
+                  headerShown: false,
+                  drawerType: "front",
+                  overlayColor: `rgba(0, 0, 0, ${overlayOpacity})`,
+                  headerRight: () => <LogoTitle />,
+                  headerStyle: {
+                    backgroundColor: "#fff",
+                  },
+                }}
+              >
+                <Drawer.Screen name="(tabs)" options={{ title: "Tabs" }} />
+              </Drawer>
+            )}
+            <Toasts />
+          </ThemeProvider>
         </TamaguiProvider>
       </GestureHandlerRootView>
     </SafeAreaProvider>
