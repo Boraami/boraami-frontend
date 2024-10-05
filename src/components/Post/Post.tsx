@@ -6,7 +6,7 @@ import { popupMenuItems } from "../PopupMenu/PopupMenu.stories";
 import Divider from "../Divider/Divider";
 import Avatar from "../Avatar/Avatar";
 import {  TouchableOpacity,Image,useColorScheme} from "react-native";
-import PostEngagement from '../Post/PostEngagement'
+import PostEngagement from './PostEngagementBtns'
 import ViewedImageModal from "./ViewedImageModal";
 
 export type Props = StackProps & {
@@ -132,7 +132,14 @@ const Post = ({
       modalType='ViewTLPost'
       />
       {showEngagement ? (
-        <PostEngagement dateTime={dateTime} type='TLPost' />
+        <PostEngagement 
+        dateTime={dateTime} 
+        type='TLPostImage'
+        postEngagementData={{
+          likeCount:234,
+          repostCount:234,
+          commentCount:234
+        }} />
       ) : null}
       <Stack paddingTop={20}>
         {showDivider ? <Divider borderColor={"$divider-strong"} /> : null}
