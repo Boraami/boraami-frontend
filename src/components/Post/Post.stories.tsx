@@ -5,9 +5,9 @@ import Post from "./Post";
 
 const Images = [
   require("../../assets/Notification/bts-placeholder.png"),
-  require("../../assets/Post/ss-placeholder.jpg"),
-  require("../../assets/Post/white-img.jpg"),
-  require("../../assets/Modals/mnet-image.png"),
+  "https://encrypted-tbn0.gstatsdadsc.com/images?q=tbn:ANd9GcQGjf_d_YDGIFCLTUNkHQ6uO1KyJEw4IqHw&s",
+  "https://encrypted-tbn0.gstatsdadsc.com/images?q=tbn:ANd9GcQGjf_d_YDGIFCLTUNkHQ6uO1KyJEw4IqHw&s",
+  "https://encrypted-tbn0.gstatsdadsc.com/images?q=tbn:ANd9GcQGjf_d_YDGIFCLTUNkHQ6uO1KyJEw4IqHw&s",
 ];
 
 const PostMeta: Meta<typeof Post> = {
