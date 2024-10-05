@@ -5,9 +5,10 @@ import PopupMenu from "../PopupMenu/PopupMenu";
 import { popupMenuItems } from "../PopupMenu/PopupMenu.stories";
 import Divider from "../Divider/Divider";
 import Avatar from "../Avatar/Avatar";
-import { TouchableOpacity, Image } from "react-native";
+import { TouchableOpacity } from "react-native";
 import PostEngagement from "./PostEngagementBtns";
 import ViewedImageModal from "./ViewedImageModal";
+import { Image } from "expo-image";
 
 export type Props = StackProps & {
   username: string;
@@ -38,7 +39,7 @@ const Post = ({
     .filter((uri) => typeof uri === "number")
     .map((img) => {
       if (typeof img === "number") {
-        return { url: Image.resolveAssetSource(img).uri };
+        return { url: img };
       } else {
         return { url: img! };
       }
@@ -107,9 +108,9 @@ const Post = ({
               >
                 <Image
                   key={i}
-                  source={{
-                    uri: typeof item === "number" ? Image.resolveAssetSource(item).uri : item!,
-                  }}
+                  source={item}
+                  placeholder={require("../../assets/failed-img.jpg")}
+                  placeholderContentFit="contain"
                   style={{
                     objectFit: "cover",
                     width: "100%",
@@ -126,7 +127,7 @@ const Post = ({
         </XStack>
       ) : null}
       {postImg && postImg.length > 0 ? (
-        <ViewedImageModal
+        <ViewedImageModal 
           showDialog={showDialog}
           setShowDialogue={setShowDialogue}
           images={images}

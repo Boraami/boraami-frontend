@@ -127,6 +127,9 @@ const ViewedImageModal = ({
           <XStack flex={1}>
             <ImageViewer
               imageUrls={images}
+              failImageSource={{
+                url: "https://png.pngtree.com/png-vector/20191029/ourmid/pngtree-address-icon-isolated-on-abstract-background-png-image_1901952.jpg",
+              }} //This should work but is showing error if one image is loaded while others are not, and displays blank if image is not loaded/have error
               renderIndicator={() => <XStack />}
               style={{ flex: 1, width: "100%" }}
               index={currentIndex}
