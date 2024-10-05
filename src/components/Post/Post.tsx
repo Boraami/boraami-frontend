@@ -34,7 +34,6 @@ const Post = ({
   const [optionsMenu, setOptionsMenu] = React.useState(false);
   const [showDialog, setShowDialogue] = React.useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const images = (Array.isArray(postImg) ? postImg : [postImg])
     .filter((uri) => typeof uri === "number")
     .map((img) => {
@@ -90,50 +89,54 @@ const Post = ({
       >
         {postText}
       </SizableText>
-      <XStack flexWrap="wrap" gap={2}>
-        {postImg?.map((item, i) => {
-          const isLastImage = postImg.length === 3 && i === 2;
-          const isOnlyImage = postImg.length === 1 && i === 0;
-          const imageWidthStyle = isLastImage ? "100%" : "49%";
-          const imageFlexStyle = isOnlyImage ? null : imageWidthStyle;
-          return (
-            <TouchableOpacity
-              key={i}
-              style={{ flexBasis: imageFlexStyle }}
-              onPress={() => {
-                setShowDialogue(true);
-                setCurrentIndex(i);
-              }}
-            >
-              <Image
+      {postImg && postImg.length > 0 ? (
+        <XStack flexWrap="wrap" gap={2}>
+          {postImg?.map((item, i) => {
+            const isLastImage = postImg.length === 3 && i === 2;
+            const isOnlyImage = postImg.length === 1 && i === 0;
+            const imageWidthStyle = isLastImage ? "100%" : "49%";
+            const imageFlexStyle = isOnlyImage ? null : imageWidthStyle;
+            return (
+              <TouchableOpacity
                 key={i}
-                source={{
-                  uri: typeof item === "number" ? Image.resolveAssetSource(item).uri : item!,
+                style={{ flexBasis: imageFlexStyle }}
+                onPress={() => {
+                  setShowDialogue(true);
+                  setCurrentIndex(i);
                 }}
-                style={{
-                  objectFit: "cover",
-                  width: "100%",
-                  aspectRatio: isLastImage ? 2 : 1,
-                  alignSelf: "center",
-                  borderRadius: 4,
-                  borderWidth: 1,
-                  borderColor: "$quoted-post-bg-color",
-                }}
-              />
-            </TouchableOpacity>
-          );
-        })}
-      </XStack>
-      <ViewedImageModal
-        showDialog={showDialog}
-        setShowDialogue={setShowDialogue}
-        images={images}
-        currentIndex={currentIndex}
-        setOptionsMenu={setOptionsMenu}
-        optionsMenu={optionsMenu}
-        dateTime={dateTime}
-        modalType="ViewTLPost"
-      />
+              >
+                <Image
+                  key={i}
+                  source={{
+                    uri: typeof item === "number" ? Image.resolveAssetSource(item).uri : item!,
+                  }}
+                  style={{
+                    objectFit: "cover",
+                    width: "100%",
+                    aspectRatio: isLastImage ? 2 : 1,
+                    alignSelf: "center",
+                    borderRadius: 4,
+                    borderWidth: 1,
+                    borderColor: "$quoted-post-bg-color",
+                  }}
+                />
+              </TouchableOpacity>
+            );
+          })}
+        </XStack>
+      ) : null}
+      {postImg && postImg.length > 0 ? (
+        <ViewedImageModal
+          showDialog={showDialog}
+          setShowDialogue={setShowDialogue}
+          images={images}
+          currentIndex={currentIndex}
+          setOptionsMenu={setOptionsMenu}
+          optionsMenu={optionsMenu}
+          dateTime={dateTime}
+          modalType="ViewTLPost"
+        />
+      ) : null}
       {showEngagement ? (
         <PostEngagement
           dateTime={dateTime}
