@@ -31,6 +31,6 @@ export const repostedNoti = {
     quotedDisplayName: "Bessie Cooper",
     quotedUsername: "@armyuser1",
     quotedPostText: "I miss them.",
-    quotedPostImg: require("../../assets/Notification/Image.png"),
+    quotedPostImg: [require("../../assets/Notification/bts-placeholder.png")],
   },
 };

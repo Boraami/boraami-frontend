@@ -15,7 +15,7 @@ type QuotedNotificationProps = {
   quotedAvatarText: string;
   quotedDisplayName: string;
   quotedPostText: string;
-  quotedPostImg: string;
+  quotedPostImg: string[];
 };
 
 const QuotedNotification = ({
