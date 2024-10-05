@@ -10,11 +10,11 @@ const PostTextFieldMeta: Meta<typeof PostTextField> = {
   args: {
     helperText: "Helper Text",
     username: "@armyuser1",
-    width:310,
-    height:115,
-    maxLength:100,
-    placeholderText:"Default input. Maximum height of container to occupy only 5 lines of input texts. Provide a scroll post 5 lines.",
-
+    width: 310,
+    height: 115,
+    maxLength: 100,
+    placeholderText:
+      "Default input. Maximum height of container to occupy only 5 lines of input texts. Provide a scroll post 5 lines.",
   },
   decorators: [
     (Story) => (

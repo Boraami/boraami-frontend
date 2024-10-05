@@ -17,7 +17,7 @@ const ShortAlertMeta: Meta = {
           disableShadow: true,
           duration: 7000,
           customToast: () => {
-            return <ShortAlert name={"default"} shade={"outline"} alert={"Outline Alert"} />;
+            return <ShortAlert name={"default"} shade={"outline"} alert={"Outline Alert"}      />;
           },
         });
         toast("", {
@@ -25,7 +25,7 @@ const ShortAlertMeta: Meta = {
           disableShadow: true,
           duration: 7000,
           customToast: () => {
-            return <ShortAlert name={"default"} shade={"subtle"} alert={"Subtle Alert"} />;
+            return <ShortAlert name={"default"} shade={"subtle"} alert={"Subtle Alert"}     />;
           },
         });
         toast("", {
@@ -33,7 +33,7 @@ const ShortAlertMeta: Meta = {
           disableShadow: true,
           duration: 6000,
           customToast: () => {
-            return <ShortAlert name={"default"} shade={"solid"} alert={"Solid Alert"} />;
+            return <ShortAlert name={"default"} shade={"solid"} alert={"Solid Alert"}     />;
           },
         });
         toast("", {
@@ -41,7 +41,7 @@ const ShortAlertMeta: Meta = {
           disableShadow: true,
           duration: 8000,
           customToast: () => {
-            return <ShortAlert name={"success"} shade={"outline"} alert={"Outline Alert"} />;
+            return <ShortAlert name={"success"} shade={"outline"} alert={"Outline Alert"}     />;
           },
         });
         toast("", {
@@ -49,7 +49,7 @@ const ShortAlertMeta: Meta = {
           disableShadow: true,
           duration: 9000,
           customToast: () => {
-            return <ShortAlert name={"success"} shade={"subtle"} alert={"Subtle Alert"} />;
+            return <ShortAlert name={"success"} shade={"subtle"} alert={"Subtle Alert"}     />;
           },
         });
         toast("", {
@@ -57,7 +57,7 @@ const ShortAlertMeta: Meta = {
           disableShadow: true,
           duration: 7000,
           customToast: () => {
-            return <ShortAlert name={"success"} shade={"solid"} alert={"Solid Alert"} />;
+            return <ShortAlert name={"success"} shade={"solid"} alert={"Solid Alert"}     />;
           },
         });
         toast("", {
@@ -65,7 +65,7 @@ const ShortAlertMeta: Meta = {
           disableShadow: true,
           duration: 7000,
           customToast: () => {
-            return <ShortAlert name={"warning"} shade={"outline"} alert={"Outline Alert"} />;
+            return <ShortAlert name={"warning"} shade={"outline"} alert={"Outline Alert"}     />;
           },
         });
         toast("", {
@@ -73,7 +73,7 @@ const ShortAlertMeta: Meta = {
           disableShadow: true,
           duration: 9000,
           customToast: () => {
-            return <ShortAlert name={"warning"} shade={"subtle"} alert={"Subtle Alert"} />;
+            return <ShortAlert name={"warning"} shade={"subtle"} alert={"Subtle Alert"}     />;
           },
         });
         toast("", {
@@ -81,7 +81,7 @@ const ShortAlertMeta: Meta = {
           disableShadow: true,
           duration: 6000,
           customToast: () => {
-            return <ShortAlert name={"warning"} shade={"solid"} alert={"Solid Alert"} />;
+            return <ShortAlert name={"warning"} shade={"solid"} alert={"Solid Alert"}     />;
           },
         });
       }, []);
