@@ -5,9 +5,9 @@ import Post from "./Post";
 
 const Images = [
   require("../../assets/Notification/Image.png"),
-  require("../../assets/Notification/Image.png"),
-  require("../../assets/Notification/Image.png"),
-  require("../../assets/Notification/Image.png"),
+  require("../../assets/Notification/Screenshot_20240831-151719.jpg"),
+  require("../../assets/Notification/1725099856399.jpg"),
+  require("../../assets/Modals/mnet-image.png"),
 ];
 
 const PostMeta: Meta<typeof Post> = {
@@ -43,7 +43,7 @@ const PostMeta: Meta<typeof Post> = {
           displayName="sunshine"
           username="@ughhmin"
           postText="I miss them."
-          postImg={require("../../assets/Notification/Image.png")}
+          postImg={[require("../../assets/Notification/Image.png")]}
         />
         <Post
           dateTime="06/13/2023 13:06"
@@ -54,7 +54,7 @@ const PostMeta: Meta<typeof Post> = {
           postText="I miss them."
           postImg={[
             require("../../assets/Notification/Image.png"),
-            require("../../assets/Notification/Image.png"),
+            require("../../assets/Modals/mnet-image.png"),
           ]}
         />
         <Post
@@ -67,7 +67,7 @@ const PostMeta: Meta<typeof Post> = {
           postImg={[
             require("../../assets/Notification/Image.png"),
             require("../../assets/Notification/Image.png"),
-            require("../../assets/Notification/Image.png"),
+            require("../../assets/Modals/mnet-image.png"),
           ]}
         />
         <Post

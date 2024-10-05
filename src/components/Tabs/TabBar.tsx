@@ -64,7 +64,9 @@ const FirstRoute: React.FC = () => (
       displayName="sunshine FESTA"
       username="@ughhmin"
       postText="I miss them."
-      postImg={require("../../assets/Notification/Image.png")}
+      postImg={[
+        require("../../assets/Notification/Image.png"),
+      ]}
     />
     <Post dateTime="06/13/2023 13:06" paddingHorizontal={20} 
       avatarText="TT"
