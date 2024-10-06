@@ -4,12 +4,10 @@ import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 import { Pressable, Animated, StatusBar, Modal } from "react-native";
 import ImageViewer from "react-native-image-zoom-viewer";
 import ViewedPostOptionsMenu from "./ViewedPostOptionsMenu";
-import * as FileSystem from "expo-file-system";
-import * as MediaLibrary from "expo-media-library";
 import PostEngagement from "./PostEngagementBtns";
-import { requestMediaLibraryPermission } from "../../helpers/Permissions";
 import ShortAlert from "../Alert/ShortAlert";
 import { ImageWithFallback } from "../Image/Image";
+import { saveImageToGallery } from "./helpers/helper";
 
 type ImageModalProps = {
   showDialog: boolean;
@@ -87,33 +85,6 @@ const ViewedImageModal = ({
     setShowToast(true);
   };
 
-  const saveImageToGallery = async (imageUrl: string) => {
-    setOptionsMenu(false);
-    try {
-      const { hasPermission, limitedAccess } = await requestMediaLibraryPermission();
-      if (!hasPermission || limitedAccess) {
-        return;
-      } // Exit if permission is not granted
-      //Downloading the image to the cache directory
-      const currentTime = new Date();
-      const timeStamp = currentTime.getTime();
-      const localFilePath = `${FileSystem.cacheDirectory}boraami_image_${timeStamp}.jpg`; // Temporary file path
-      const downloadResult = await FileSystem.downloadAsync(imageUrl, localFilePath);
-      if (downloadResult.status === 200) {
-        //Saving the downloaded image to the gallery
-        await MediaLibrary.createAssetAsync(downloadResult.uri);
-        //Now delete the temporary files after saving(android)
-        await FileSystem.deleteAsync(downloadResult.uri, { idempotent: true });
-        successToast();
-      } else {
-        throw new Error(`Failed to download image. Status code: ${downloadResult.status}`);
-      }
-    } catch (error) {
-      console.error("Error saving image:", error);
-      errorToast();
-    }
-  };
-
   return (
     <Modal
       visible={showDialog}
@@ -161,7 +132,7 @@ const ViewedImageModal = ({
                       style={
                         props?.source && typeof props.source.uri === "string"
                           ? props.style
-                          : { width: "100%", height: "100%", objectFit: "contain" }
+                          : { width: "90%", height: "90%", objectFit: "contain" }
                       }
                     />
                   </XStack>
@@ -248,7 +219,12 @@ const ViewedImageModal = ({
                         menuText: "Save Image ",
                         iconName: "download",
                         handleAction: () => {
-                          saveImageToGallery(images[currentIndex]?.url);
+                          saveImageToGallery(
+                            images[currentIndex]?.url,
+                            setOptionsMenu,
+                            successToast,
+                            errorToast
+                          );
                         },
                       },
                     ]}
