@@ -166,71 +166,24 @@ const ViewedImageModal = ({
           )}
           {optionsMenu && (
             <>
-              <Pressable
-                style={{ top: 0, bottom: 0, left: 0, right: 0, position: "absolute" }}
-                onPress={hideMenu}
+              <ViewedPostOptionsMenu
+                hideMenu={hideMenu}
+                menuAnimation={menuAnimation}
+                data={[
+                  {
+                    menuText: "Save Image ",
+                    iconName: "download",
+                    handleAction: () => {
+                      saveImageToGallery(
+                        images[currentIndex]?.url,
+                        setOptionsMenu,
+                        successToast,
+                        errorToast
+                      );
+                    },
+                  },
+                ]}
               />
-              <Animated.View
-                style={{
-                  position: "absolute",
-                  top: 85,
-                  right: 55,
-                  width: 115,
-                  height: 55,
-                  backgroundColor: "white",
-                  borderRadius: 4,
-                  shadowColor: "#000",
-                  shadowOffset: { width: 0, height: 2 },
-                  shadowOpacity: 0.3,
-                  shadowRadius: 4,
-                  elevation: 100,
-                  opacity: menuAnimation,
-                  transform: [
-                    /*{
-                  translateY: menuAnimation.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [0, 5], 
-                  }),
-                }, //sliding animation */
-                    {
-                      scale: menuAnimation.interpolate({
-                        inputRange: [0, 1],
-                        outputRange: [0, 1],
-                      }),
-                    }, //scaling animation
-                  ],
-                }}
-              >
-                <YStack
-                  width={140}
-                  height={55}
-                  backgroundColor="white"
-                  flexWrap="wrap"
-                  borderRadius={4}
-                  shadowColor="#000"
-                  shadowOffset={{ width: 0, height: 2 }}
-                  shadowOpacity={0.3}
-                  shadowRadius={4}
-                  elevation={100}
-                >
-                  <ViewedPostOptionsMenu
-                    data={[
-                      {
-                        menuText: "Save Image ",
-                        iconName: "download",
-                        handleAction: () => {
-                          saveImageToGallery(
-                            images[currentIndex]?.url,
-                            setOptionsMenu,
-                            successToast,
-                            errorToast
-                          );
-                        },
-                      },
-                    ]}
-                  />
-                </YStack>
-              </Animated.View>
             </>
           )}
           {isEngagementVisible && (
