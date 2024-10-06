@@ -6,8 +6,8 @@ import Post from "./Post";
 const Images = [
   "https://cdn.dribbble.com/users/27766/screenshots/3488007/media/313b019754da503ec0860771a5536b.png?resize=400x300&vertical=center",
   "https://wallpapers.com/images/high/bts-cute-pictures-clumo6ruyz93u9ph.webp",
+  "https://wallpapers.com/images/high/bts-chibi-pile-m10g2dljpk050xse.webp",
   require("../../assets/Notification/bts-placeholder.png"),
-  "https://cdn.dribbble.com/users/27766/screenshots/3488007/media/30313b019754da503ec0860771a5536b.png?resize=400x300&vertical=center",
 ];
 
 const PostMeta: Meta<typeof Post> = {
