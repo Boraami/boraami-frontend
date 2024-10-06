@@ -68,6 +68,7 @@ export default function StackLayout() {
           }
         }}>
         <Stack.Screen name="signIn" options={{title: 'Sign In', headerShown: true}} />
+        <Stack.Screen name="CreateAccount" options={{}}/>
       </Stack>
     </ImageBackground>
   )
