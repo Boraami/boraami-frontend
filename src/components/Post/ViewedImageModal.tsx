@@ -138,7 +138,10 @@ const ViewedImageModal = ({
               onSwipeDown={() => setShowDialogue(false)}
               enableSwipeDown={true}
               saveToLocalByLongPress={false}
-              onChange={(i) => i && setCurrentIndex(i)}
+              onChange={(i) => {
+                i && setCurrentIndex(i);
+                setShowToast(false);
+              }}
               onClick={() => setEngagementVisible(!isEngagementVisible)}
               failImageSource={{
                 url: require("../../assets/failed-img.jpg"),
