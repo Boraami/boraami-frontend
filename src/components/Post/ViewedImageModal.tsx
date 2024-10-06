@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { XStack, Button, YStack } from "tamagui";
 import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 import { Pressable, Animated, StatusBar, Modal } from "react-native";
@@ -20,6 +20,7 @@ type ImageModalProps = {
   optionsMenu: boolean;
   dateTime: string;
   modalType: "ViewTLPost" | "ViewDMImg" | "ViewPfp";
+  setCurrentIndex: Dispatch<SetStateAction<number>>;
 };
 
 const ViewedImageModal = ({
@@ -31,6 +32,7 @@ const ViewedImageModal = ({
   optionsMenu,
   dateTime,
   modalType,
+  setCurrentIndex,
 }: ImageModalProps) => {
   const [isEngagementVisible, setEngagementVisible] = React.useState(true);
   const [menuAnimation] = useState(new Animated.Value(0.5));
@@ -134,6 +136,7 @@ const ViewedImageModal = ({
               onSwipeDown={() => setShowDialogue(false)}
               enableSwipeDown={true}
               saveToLocalByLongPress={false}
+              onChange={(i) => i && setCurrentIndex(i)}
               onClick={() => setEngagementVisible(!isEngagementVisible)}
               failImageSource={{
                 url: require("../../assets/failed-img.jpg"),

@@ -135,6 +135,7 @@ const Post = ({
       {postImg && postImg.length > 0 ? (
         <ViewedImageModal
           showDialog={showDialog}
+          setCurrentIndex={setCurrentIndex}
           setShowDialogue={setShowDialogue}
           images={images}
           currentIndex={currentIndex}
