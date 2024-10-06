@@ -8,6 +8,7 @@ import Avatar from "../Avatar/Avatar";
 import { TouchableOpacity, Image } from "react-native";
 import PostEngagement from "./PostEngagementBtns";
 import ViewedImageModal from "./ViewedImageModal";
+import { ImageWithFallback } from "../Image/Image";
 
 export type Props = StackProps & {
   username: string;
@@ -34,15 +35,14 @@ const Post = ({
   const [optionsMenu, setOptionsMenu] = React.useState(false);
   const [showDialog, setShowDialogue] = React.useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = (Array.isArray(postImg) ? postImg : [postImg])
-    .filter((uri) => typeof uri === "number")
-    .map((img) => {
-      if (typeof img === "number") {
-        return { url: Image.resolveAssetSource(img).uri };
-      } else {
-        return { url: img! };
-      }
-    });
+
+  const images = (Array.isArray(postImg) ? postImg : [postImg]).map((img) => {
+    if (typeof img === "number") {
+      return { url: Image.resolveAssetSource(img).uri };
+    } else {
+      return { url: img! };
+    }
+  });
 
   return (
     <XStack
@@ -90,37 +90,45 @@ const Post = ({
         {postText}
       </SizableText>
       {postImg && postImg.length > 0 ? (
-        <XStack flexWrap="wrap" gap={2}>
+        <XStack flexWrap="wrap" gap={4} justifyContent="center" alignItems="center">
           {postImg?.map((item, i) => {
             const isLastImage = postImg.length === 3 && i === 2;
             const isOnlyImage = postImg.length === 1 && i === 0;
             const imageWidthStyle = isLastImage ? "100%" : "49%";
             const imageFlexStyle = isOnlyImage ? null : imageWidthStyle;
+            console.log(typeof item === "number");
+            console.log("img " + i);
             return (
-              <TouchableOpacity
+              <Stack
                 key={i}
-                style={{ flexBasis: imageFlexStyle }}
-                onPress={() => {
-                  setShowDialogue(true);
-                  setCurrentIndex(i);
-                }}
+                width={isOnlyImage ? "100%" : "49%"}
+                flex={1}
+                flexBasis={imageFlexStyle}
+                aspectRatio={isLastImage ? 2 : 1}
               >
-                <Image
-                  key={i}
-                  source={{
-                    uri: typeof item === "number" ? Image.resolveAssetSource(item).uri : item!,
+                <TouchableOpacity
+                  onPress={() => {
+                    setShowDialogue(true);
+                    setCurrentIndex(i);
                   }}
-                  style={{
-                    objectFit: "cover",
-                    width: "100%",
-                    aspectRatio: isLastImage ? 2 : 1,
-                    alignSelf: "center",
-                    borderRadius: 4,
-                    borderWidth: 1,
-                    borderColor: "$quoted-post-bg-color",
-                  }}
-                />
-              </TouchableOpacity>
+                >
+                  <ImageWithFallback
+                    imgSource={{
+                      uri: typeof item === "number" ? Image.resolveAssetSource(item).uri : item!,
+                    }}
+                    contentFit="cover"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      aspectRatio: isLastImage ? 2 : 1,
+                      alignSelf: "center",
+                      borderRadius: 4,
+                      borderWidth: 1.5,
+                      borderColor: "#E9E5F0",
+                    }}
+                  />
+                </TouchableOpacity>
+              </Stack>
             );
           })}
         </XStack>

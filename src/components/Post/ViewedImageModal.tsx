@@ -9,6 +9,7 @@ import * as MediaLibrary from "expo-media-library";
 import PostEngagement from "./PostEngagementBtns";
 import { requestMediaLibraryPermission } from "../../helpers/Permissions";
 import ShortAlert from "../Alert/ShortAlert";
+import { ImageWithFallback } from "../Image/Image";
 
 type ImageModalProps = {
   showDialog: boolean;
@@ -127,9 +128,6 @@ const ViewedImageModal = ({
           <XStack flex={1}>
             <ImageViewer
               imageUrls={images}
-              failImageSource={{
-                url: "https://png.pngtree.com/png-vector/20191029/ourmid/pngtree-address-icon-isolated-on-abstract-background-png-image_1901952.jpg",
-              }} //This should work but is showing error if one image is loaded while others are not, and displays blank if image is not loaded/have error
               renderIndicator={() => <XStack />}
               style={{ flex: 1, width: "100%" }}
               index={currentIndex}
@@ -137,6 +135,31 @@ const ViewedImageModal = ({
               enableSwipeDown={true}
               saveToLocalByLongPress={false}
               onClick={() => setEngagementVisible(!isEngagementVisible)}
+              failImageSource={{
+                url: require("../../assets/failed-img.jpg"),
+                // url: "https://cdn.dribbble.com/users/27766/screenshots/3488007/media/30313b019754da503ec0860771a5536b.png?resize=400x300&vertical=center", //- links work as well
+                width: 350,
+                height: 350,
+              }} //It works well with renderImage, but if we dont give width height it displays smallest size of image in case of local img file or blank for url so this is required
+              renderImage={(props) => {
+                console.log(props.source);
+                return (
+                  <XStack jc={"center"} ai={"center"} height={"100%"}>
+                    <ImageWithFallback
+                      imgSource={
+                        props?.source && typeof props.source.uri === "string"
+                          ? props.source
+                          : require("../../assets/failed-img.jpg")
+                      }
+                      style={
+                        props?.source && typeof props.source.uri === "string"
+                          ? props.style
+                          : { width: "100%", height: "100%", objectFit: "contain" }
+                      }
+                    />
+                  </XStack>
+                );
+              }}
             />
           </XStack>
           {isEngagementVisible && (

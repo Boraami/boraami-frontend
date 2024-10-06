@@ -4,10 +4,10 @@ import { Meta } from "@storybook/react-native";
 import Post from "./Post";
 
 const Images = [
+  "https://cdn.dribbble.com/users/27766/screenshots/3488007/media/313b019754da503ec0860771a5536b.png?resize=400x300&vertical=center",
+  "https://wallpapers.com/images/high/bts-cute-pictures-clumo6ruyz93u9ph.webp",
   require("../../assets/Notification/bts-placeholder.png"),
-  "https://encrypted-tbn0.gstatsdadsc.com/images?q=tbn:ANd9GcQGjf_d_YDGIFCLTUNkHQ6uO1KyJEw4IqHw&s",
-  "https://encrypted-tbn0.gstatsdadsc.com/images?q=tbn:ANd9GcQGjf_d_YDGIFCLTUNkHQ6uO1KyJEw4IqHw&s",
-  "https://encrypted-tbn0.gstatsdadsc.com/images?q=tbn:ANd9GcQGjf_d_YDGIFCLTUNkHQ6uO1KyJEw4IqHw&s",
+  "https://cdn.dribbble.com/users/27766/screenshots/3488007/media/30313b019754da503ec0860771a5536b.png?resize=400x300&vertical=center",
 ];
 
 const PostMeta: Meta<typeof Post> = {
@@ -66,8 +66,8 @@ const PostMeta: Meta<typeof Post> = {
           postText="I miss them."
           postImg={[
             require("../../assets/Notification/bts-placeholder.png"),
-            require("../../assets/Notification/bts-placeholder.png"),
             require("../../assets/Modals/mnet-image.png"),
+            "https://cdn.dribbble.com/users/27766/screenshots/3488007/media/313b019754da503ec0860771a5536b.png?resize=400x300&vertical=center",
           ]}
         />
         <Post
