@@ -21,6 +21,7 @@ type ImageModalProps = {
   dateTime: string;
   modalType: "ViewTLPost" | "ViewDMImg" | "ViewPfp";
   setCurrentIndex: Dispatch<SetStateAction<number>>;
+  errors: number[];
 };
 
 const ViewedImageModal = ({
@@ -33,6 +34,7 @@ const ViewedImageModal = ({
   dateTime,
   modalType,
   setCurrentIndex,
+  errors,
 }: ImageModalProps) => {
   const [isEngagementVisible, setEngagementVisible] = React.useState(true);
   const [menuAnimation] = useState(new Animated.Value(0.5));
@@ -173,6 +175,7 @@ const ViewedImageModal = ({
               borderRadius={100}
             >
               <Button
+                disabled={errors && errors.includes(currentIndex) ? true : false}
                 alignSelf="flex-start"
                 onPress={() => {
                   if (optionsMenu) {

@@ -35,6 +35,7 @@ const Post = ({
   const [optionsMenu, setOptionsMenu] = React.useState(false);
   const [showDialog, setShowDialogue] = React.useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [errors, setErrors] = useState<number[]>([]);
 
   const images = (Array.isArray(postImg) ? postImg : [postImg]).map((img) => {
     if (typeof img === "number") {
@@ -115,6 +116,7 @@ const Post = ({
                     imgSource={{
                       uri: typeof item === "number" ? Image.resolveAssetSource(item).uri : item!,
                     }}
+                    handleError={() => setErrors((prev) => [...prev, i])}
                     contentFit="cover"
                     style={{
                       width: "100%",
@@ -138,6 +140,7 @@ const Post = ({
           setCurrentIndex={setCurrentIndex}
           setShowDialogue={setShowDialogue}
           images={images}
+          errors={errors}
           currentIndex={currentIndex}
           setOptionsMenu={setOptionsMenu}
           optionsMenu={optionsMenu}
