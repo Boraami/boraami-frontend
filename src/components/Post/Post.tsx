@@ -8,6 +8,7 @@ import Avatar from "../Avatar/Avatar";
 import { TouchableOpacity, Image } from "react-native";
 import PostEngagement from "./PostEngagementBtns";
 import ViewedImageModal from "./ViewedImageModal";
+import { ImageWithFallback } from "../Image/Image";
 
 export type Props = StackProps & {
   username: string;
@@ -34,16 +35,15 @@ const Post = ({
   const [optionsMenu, setOptionsMenu] = React.useState(false);
   const [showDialog, setShowDialogue] = React.useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [errors, setErrors] = useState<number[]>([]);
 
-  const images = (Array.isArray(postImg) ? postImg : [postImg])
-    .filter((uri) => typeof uri === "number")
-    .map((img) => {
-      if (typeof img === "number") {
-        return { url: Image.resolveAssetSource(img).uri };
-      } else {
-        return { url: img! };
-      }
-    });
+  const images = (Array.isArray(postImg) ? postImg : [postImg]).map((img) => {
+    if (typeof img === "number") {
+      return { url: Image.resolveAssetSource(img).uri };
+    } else {
+      return { url: img! };
+    }
+  });
 
   return (
     <XStack
@@ -90,50 +90,64 @@ const Post = ({
       >
         {postText}
       </SizableText>
-      <XStack flexWrap="wrap" gap={2}>
-        {postImg?.map((item, i) => {
-          const isLastImage = postImg.length === 3 && i === 2;
-          const isOnlyImage = postImg.length === 1 && i === 0;
-          const imageWidthStyle = isLastImage ? "100%" : "49%";
-          const imageFlexStyle = isOnlyImage ? null : imageWidthStyle;
-          return (
-            <TouchableOpacity
-              key={i}
-              style={{ flexBasis: imageFlexStyle }}
-              onPress={() => {
-                setShowDialogue(true);
-                setCurrentIndex(i);
-              }}
-            >
-              <Image
+      {postImg && postImg.length > 0 ? (
+        <XStack flexWrap="wrap" gap={4} justifyContent="center" alignItems="center">
+          {postImg?.map((item, i) => {
+            const isLastImage = postImg.length === 3 && i === 2;
+            const isOnlyImage = postImg.length === 1 && i === 0;
+            const imageWidthStyle = isLastImage ? "100%" : "49%";
+            const imageFlexStyle = isOnlyImage ? null : imageWidthStyle;
+
+            return (
+              <Stack
                 key={i}
-                source={{
-                  uri: typeof item === "number" ? Image.resolveAssetSource(item).uri : item!,
-                }}
-                style={{
-                  objectFit: "cover",
-                  width: "100%",
-                  aspectRatio: isLastImage ? 2 : 1,
-                  alignSelf: "center",
-                  borderRadius: 4,
-                  borderWidth: 1,
-                  borderColor: "$quoted-post-bg-color",
-                }}
-              />
-            </TouchableOpacity>
-          );
-        })}
-      </XStack>
-      <ViewedImageModal
-        showDialog={showDialog}
-        setShowDialogue={setShowDialogue}
-        images={images}
-        currentIndex={currentIndex}
-        setOptionsMenu={setOptionsMenu}
-        optionsMenu={optionsMenu}
-        dateTime={dateTime}
-        modalType="ViewTLPost"
-      />
+                width={isOnlyImage ? "100%" : "49%"}
+                flex={1}
+                flexBasis={imageFlexStyle}
+                aspectRatio={isLastImage ? 2 : 1}
+              >
+                <TouchableOpacity
+                  onPress={() => {
+                    setShowDialogue(true);
+                    setCurrentIndex(i);
+                  }}
+                >
+                  <ImageWithFallback
+                    imgSource={{
+                      uri: typeof item === "number" ? Image.resolveAssetSource(item).uri : item!,
+                    }}
+                    handleError={() => setErrors((prev) => [...prev, i])}
+                    contentFit="cover"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      aspectRatio: isLastImage ? 2 : 1,
+                      alignSelf: "center",
+                      borderRadius: 4,
+                      borderWidth: 1.5,
+                      borderColor: "#E9E5F0",
+                    }}
+                  />
+                </TouchableOpacity>
+              </Stack>
+            );
+          })}
+        </XStack>
+      ) : null}
+      {postImg && postImg.length > 0 ? (
+        <ViewedImageModal
+          showDialog={showDialog}
+          setCurrentIndex={setCurrentIndex}
+          setShowDialogue={setShowDialogue}
+          images={images}
+          errors={errors}
+          currentIndex={currentIndex}
+          setOptionsMenu={setOptionsMenu}
+          optionsMenu={optionsMenu}
+          dateTime={dateTime}
+          modalType="ViewTLPost"
+        />
+      ) : null}
       {showEngagement ? (
         <PostEngagement
           dateTime={dateTime}

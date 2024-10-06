@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { XStack, Button, YStack } from "tamagui";
 import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 import { Pressable, Animated, StatusBar, Modal } from "react-native";
 import ImageViewer from "react-native-image-zoom-viewer";
 import ViewedPostOptionsMenu from "./ViewedPostOptionsMenu";
-import * as FileSystem from "expo-file-system";
-import * as MediaLibrary from "expo-media-library";
 import PostEngagement from "./PostEngagementBtns";
-import { requestMediaLibraryPermission } from "../../helpers/Permissions";
 import ShortAlert from "../Alert/ShortAlert";
+import { ImageWithFallback } from "../Image/Image";
+import { saveImageToGallery } from "./helpers/helper";
 
 type ImageModalProps = {
   showDialog: boolean;
@@ -19,6 +18,8 @@ type ImageModalProps = {
   optionsMenu: boolean;
   dateTime: string;
   modalType: "ViewTLPost" | "ViewDMImg" | "ViewPfp";
+  setCurrentIndex: Dispatch<SetStateAction<number>>;
+  errors: number[];
 };
 
 const ViewedImageModal = ({
@@ -30,6 +31,8 @@ const ViewedImageModal = ({
   optionsMenu,
   dateTime,
   modalType,
+  setCurrentIndex,
+  errors,
 }: ImageModalProps) => {
   const [isEngagementVisible, setEngagementVisible] = React.useState(true);
   const [menuAnimation] = useState(new Animated.Value(0.5));
@@ -82,33 +85,6 @@ const ViewedImageModal = ({
     setShowToast(true);
   };
 
-  const saveImageToGallery = async (imageUrl: string) => {
-    setOptionsMenu(false);
-    try {
-      const { hasPermission, limitedAccess } = await requestMediaLibraryPermission();
-      if (!hasPermission || limitedAccess) {
-        return;
-      } // Exit if permission is not granted
-      //Downloading the image to the cache directory
-      const currentTime = new Date();
-      const timeStamp = currentTime.getTime();
-      const localFilePath = `${FileSystem.cacheDirectory}boraami_image_${timeStamp}.jpg`; // Temporary file path
-      const downloadResult = await FileSystem.downloadAsync(imageUrl, localFilePath);
-      if (downloadResult.status === 200) {
-        //Saving the downloaded image to the gallery
-        await MediaLibrary.createAssetAsync(downloadResult.uri);
-        //Now delete the temporary files after saving(android)
-        await FileSystem.deleteAsync(downloadResult.uri, { idempotent: true });
-        successToast();
-      } else {
-        throw new Error(`Failed to download image. Status code: ${downloadResult.status}`);
-      }
-    } catch (error) {
-      console.error("Error saving image:", error);
-      errorToast();
-    }
-  };
-
   return (
     <Modal
       visible={showDialog}
@@ -133,7 +109,35 @@ const ViewedImageModal = ({
               onSwipeDown={() => setShowDialogue(false)}
               enableSwipeDown={true}
               saveToLocalByLongPress={false}
+              onChange={(i) => {
+                i && setCurrentIndex(i);
+                setShowToast(false);
+              }}
               onClick={() => setEngagementVisible(!isEngagementVisible)}
+              failImageSource={{
+                url: require("../../assets/failed-img.jpg"),
+                // url: "https://cdn.dribbble.com/users/27766/screenshots/3488007/media/30313b019754da503ec0860771a5536b.png?resize=400x300&vertical=center", //- links work as well
+                width: 350,
+                height: 350,
+              }} //It works well with renderImage, but if we dont give width height it displays smallest size of image in case of local img file or blank for url so this is required
+              renderImage={(props) => {
+                return (
+                  <XStack jc={"center"} ai={"center"} height={"100%"}>
+                    <ImageWithFallback
+                      imgSource={
+                        props?.source && typeof props.source.uri === "string"
+                          ? props.source
+                          : require("../../assets/failed-img.jpg")
+                      }
+                      style={
+                        props?.source && typeof props.source.uri === "string"
+                          ? props.style
+                          : { width: "90%", height: "90%", objectFit: "contain" }
+                      }
+                    />
+                  </XStack>
+                );
+              }}
             />
           </XStack>
           {isEngagementVisible && (
@@ -145,6 +149,7 @@ const ViewedImageModal = ({
               borderRadius={100}
             >
               <Button
+                disabled={errors && errors.includes(currentIndex) ? true : false}
                 alignSelf="flex-start"
                 onPress={() => {
                   if (optionsMenu) {
@@ -161,66 +166,24 @@ const ViewedImageModal = ({
           )}
           {optionsMenu && (
             <>
-              <Pressable
-                style={{ top: 0, bottom: 0, left: 0, right: 0, position: "absolute" }}
-                onPress={hideMenu}
+              <ViewedPostOptionsMenu
+                hideMenu={hideMenu}
+                menuAnimation={menuAnimation}
+                data={[
+                  {
+                    menuText: "Save Image ",
+                    iconName: "download",
+                    handleAction: () => {
+                      saveImageToGallery(
+                        images[currentIndex]?.url,
+                        setOptionsMenu,
+                        successToast,
+                        errorToast
+                      );
+                    },
+                  },
+                ]}
               />
-              <Animated.View
-                style={{
-                  position: "absolute",
-                  top: 85,
-                  right: 55,
-                  width: 115,
-                  height: 55,
-                  backgroundColor: "white",
-                  borderRadius: 4,
-                  shadowColor: "#000",
-                  shadowOffset: { width: 0, height: 2 },
-                  shadowOpacity: 0.3,
-                  shadowRadius: 4,
-                  elevation: 100,
-                  opacity: menuAnimation,
-                  transform: [
-                    /*{
-                  translateY: menuAnimation.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [0, 5], 
-                  }),
-                }, //sliding animation */
-                    {
-                      scale: menuAnimation.interpolate({
-                        inputRange: [0, 1],
-                        outputRange: [0, 1],
-                      }),
-                    }, //scaling animation
-                  ],
-                }}
-              >
-                <YStack
-                  width={140}
-                  height={55}
-                  backgroundColor="white"
-                  flexWrap="wrap"
-                  borderRadius={4}
-                  shadowColor="#000"
-                  shadowOffset={{ width: 0, height: 2 }}
-                  shadowOpacity={0.3}
-                  shadowRadius={4}
-                  elevation={100}
-                >
-                  <ViewedPostOptionsMenu
-                    data={[
-                      {
-                        menuText: "Save Image ",
-                        iconName: "download",
-                        handleAction: () => {
-                          saveImageToGallery(images[currentIndex]?.url);
-                        },
-                      },
-                    ]}
-                  />
-                </YStack>
-              </Animated.View>
             </>
           )}
           {isEngagementVisible && (

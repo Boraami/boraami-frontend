@@ -6,7 +6,6 @@ import BtnField from "../Button/Button";
 export type Props = {
   username: string;
   helperText: string;
-  postText: string;
   height: number;
   width: number;
   placeholderText: string;
@@ -15,7 +14,6 @@ export type Props = {
 
 const PostTextField = ({
   username,
-  postText,
   maxLength,
   helperText,
   width,
@@ -62,7 +60,11 @@ const PostTextField = ({
         size="lg"
         name="dialog-close"
         width={width}
+        disabled={count == 0 || count > maxLength}
         primary={count == 0 || count > maxLength ? "disabled" : "normal"}
+        onPress={() => {
+          alert("Posted");
+        }}
       />
     </XStack>
   );

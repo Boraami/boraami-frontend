@@ -25,11 +25,13 @@ type BtnSizeProps = {
     txtSize: FontSizeTokens;
     iconSize: number;
     borderRadius: number;
+    height: number;
   };
 };
 
 const btnSizes: BtnSizeProps = {
   sm: {
+    height: 28,
     paddingHorizontal: 14,
     gap: -3,
     txtSize: "$sm",
@@ -37,6 +39,7 @@ const btnSizes: BtnSizeProps = {
     borderRadius: 90,
   },
   md: {
+    height: 36,
     paddingHorizontal: 16,
     gap: -1,
     txtSize: "$md",
@@ -44,6 +47,7 @@ const btnSizes: BtnSizeProps = {
     borderRadius: 90,
   },
   lg: {
+    height: 48,
     paddingHorizontal: 24,
     gap: 0,
     txtSize: "$lg",
@@ -106,8 +110,6 @@ const FloatingBtnField = (props: ButtonProps) => {
 
   const { txt, size, name, button, disabled, iconNameAfter, iconNameBefore } = props;
 
-  const theme = useColorScheme();
-  const isDarkTheme = theme === "dark";
   const iconColor = disabled ? colorScheme.boraami[50] : colorScheme.mono[100];
 
   const borderColor = {
@@ -147,7 +149,7 @@ const FloatingBtnField = (props: ButtonProps) => {
         name={name}
         gap={btnSizes[size].gap}
         scaleIcon={size === "sm" ? 0.6 : 1}
-        // height={btnSizes[size].height}
+        height={btnSizes[size].height}
         borderRadius={btnSizes[size].borderRadius}
         borderColor={borderC}
         borderWidth={width}

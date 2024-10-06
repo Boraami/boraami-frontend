@@ -4,10 +4,10 @@ import { Meta } from "@storybook/react-native";
 import Post from "./Post";
 
 const Images = [
-  require("../../assets/Notification/Image.png"),
-  require("../../assets/Notification/Screenshot_20240831-151719.jpg"),
-  require("../../assets/Notification/1725099856399.jpg"),
-  require("../../assets/Modals/mnet-image.png"),
+  "https://cdn.dribbble.com/users/27766/screenshots/3488007/media/313b019754da503ec0860771a5536b.png?resize=400x300&vertical=center",
+  "https://wallpapers.com/images/high/bts-cute-pictures-clumo6ruyz93u9ph.webp",
+  "https://wallpapers.com/images/high/bts-chibi-pile-m10g2dljpk050xse.webp",
+  require("../../assets/Notification/bts-placeholder.png"),
 ];
 
 const PostMeta: Meta<typeof Post> = {
@@ -20,9 +20,9 @@ const PostMeta: Meta<typeof Post> = {
     username: "@armyuser1",
     postText: "I miss them.",
     postImg: [
-      require("../../assets/Notification/Image.png"),
-      require("../../assets/Notification/Image.png"),
-      require("../../assets/Notification/Image.png"),
+      require("../../assets/Notification/bts-placeholder.png"),
+      require("../../assets/Notification/bts-placeholder.png"),
+      require("../../assets/Notification/bts-placeholder.png"),
     ],
   },
   decorators: [
@@ -43,7 +43,7 @@ const PostMeta: Meta<typeof Post> = {
           displayName="sunshine"
           username="@ughhmin"
           postText="I miss them."
-          postImg={[require("../../assets/Notification/Image.png")]}
+          postImg={[require("../../assets/Notification/bts-placeholder.png")]}
         />
         <Post
           dateTime="06/13/2023 13:06"
@@ -53,7 +53,7 @@ const PostMeta: Meta<typeof Post> = {
           username="@bangtanbytes"
           postText="I miss them."
           postImg={[
-            require("../../assets/Notification/Image.png"),
+            require("../../assets/Notification/bts-placeholder.png"),
             require("../../assets/Modals/mnet-image.png"),
           ]}
         />
@@ -65,9 +65,9 @@ const PostMeta: Meta<typeof Post> = {
           username="@whalien52"
           postText="I miss them."
           postImg={[
-            require("../../assets/Notification/Image.png"),
-            require("../../assets/Notification/Image.png"),
+            require("../../assets/Notification/bts-placeholder.png"),
             require("../../assets/Modals/mnet-image.png"),
+            "https://cdn.dribbble.com/users/27766/screenshots/3488007/media/313b019754da503ec0860771a5536b.png?resize=400x300&vertical=center",
           ]}
         />
         <Post

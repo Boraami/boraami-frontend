@@ -72,6 +72,7 @@ export const colorScheme = {
     900: "#843319",
   },
   mono: {
+    0: "#FFFFFF",
     50: "#F4F3F5",
     100: "#E9E5F0",
     200: "#D7D1E2",
@@ -82,6 +83,7 @@ export const colorScheme = {
     700: "#3F374E",
     800: "#322A41",
     900: "#241C33",
+    1000: "#000000"
   },
 };
 

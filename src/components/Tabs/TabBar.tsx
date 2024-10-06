@@ -47,39 +47,45 @@ type TabRoute = Route & {
   disabled: boolean;
   alignment: "IconLeft" | "IconRight" | "NoIcon";
 };
-const Images = [
-  require("../../assets/Notification/Image.png"),
-  require("../../assets/Notification/Image.png"),
-  require("../../assets/Notification/Image.png"),
-  require("../../assets/Notification/Image.png"),
-];
+
+// we cannot use import as images are not modules
+const btsPlaceholderImg = require("../../assets/Notification/bts-placeholder.png");
+
+const Images = [btsPlaceholderImg, btsPlaceholderImg, btsPlaceholderImg, btsPlaceholderImg];
 const initialLayout = { width: Dimensions.get("window").width };
 
 //add each tab's content
 const FirstRoute: React.FC = () => (
   <ScrollView showsVerticalScrollIndicator={false}>
-    <Post dateTime="06/13/2023 13:06" paddingHorizontal={20} avatarText="TT" displayName="kigris" username="@bts_twt" postText="I miss them." />
-    <Post dateTime="06/13/2023 13:06" paddingHorizontal={20} 
+    <Post
+      dateTime="06/13/2023 13:06"
+      paddingHorizontal={20}
+      avatarText="TT"
+      displayName="kigris"
+      username="@bts_twt"
+      postText="I miss them."
+    />
+    <Post
+      dateTime="06/13/2023 13:06"
+      paddingHorizontal={20}
       avatarText="TT"
       displayName="sunshine FESTA"
       username="@ughhmin"
       postText="I miss them."
-      postImg={[
-        require("../../assets/Notification/Image.png"),
-      ]}
+      postImg={[btsPlaceholderImg]}
     />
-    <Post dateTime="06/13/2023 13:06" paddingHorizontal={20} 
+    <Post
+      dateTime="06/13/2023 13:06"
+      paddingHorizontal={20}
       avatarText="TT"
       displayName="tasha (semi ia)"
       username="@whalien52"
       postText="I miss them."
-      postImg={[
-        require("../../assets/Notification/Image.png"),
-        require("../../assets/Notification/Image.png"),
-        require("../../assets/Notification/Image.png"),
-      ]}
+      postImg={[btsPlaceholderImg, btsPlaceholderImg, btsPlaceholderImg]}
     />
-    <Post dateTime="06/13/2023 13:06" paddingHorizontal={20} 
+    <Post
+      dateTime="06/13/2023 13:06"
+      paddingHorizontal={20}
       avatarText="TT"
       displayName="Fab"
       username="@bangtanbytes"
