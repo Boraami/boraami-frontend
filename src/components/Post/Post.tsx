@@ -96,8 +96,7 @@ const Post = ({
             const isOnlyImage = postImg.length === 1 && i === 0;
             const imageWidthStyle = isLastImage ? "100%" : "49%";
             const imageFlexStyle = isOnlyImage ? null : imageWidthStyle;
-            console.log(typeof item === "number");
-            console.log("img " + i);
+
             return (
               <Stack
                 key={i}

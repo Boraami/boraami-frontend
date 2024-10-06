@@ -142,7 +142,6 @@ const ViewedImageModal = ({
                 height: 350,
               }} //It works well with renderImage, but if we dont give width height it displays smallest size of image in case of local img file or blank for url so this is required
               renderImage={(props) => {
-                console.log(props.source);
                 return (
                   <XStack jc={"center"} ai={"center"} height={"100%"}>
                     <ImageWithFallback

@@ -8,7 +8,6 @@ type CustomImageProps = ImageProps & {
 export const ImageWithFallback = ({ imgSource, ...props }: CustomImageProps) => {
   const [error, setError] = useState<boolean>(false);
   const fallbackImg = require("../../assets/failed-img.jpg");
-  console.log(imgSource);
   const handleError = () => {
     setError(true);
   };
