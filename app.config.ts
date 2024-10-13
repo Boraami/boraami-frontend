@@ -10,7 +10,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   scheme: "boraami-frontend",
   userInterfaceStyle: "automatic",
   splash: {
-    image: "./assets/splash.png",
+    image: "./assets/static-splash.png",
     resizeMode: "contain",
     backgroundColor: "#ffffff",
   },

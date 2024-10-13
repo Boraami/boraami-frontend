@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useColorScheme, View, Image } from "react-native";
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { TamaguiProvider } from "tamagui";
@@ -32,6 +32,7 @@ import { useRouter } from "expo-router";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Toasts } from "@backpackapp-io/react-native-toast";
+import SplashScreenComponent from "../src/components/Splash/Splash";
 
 function LogoTitle() {
   const theme = useColorScheme();
@@ -72,15 +73,17 @@ export default function App() {
   const router = useRouter();
   const drawerWidth = 300;
   const overlayOpacity = isDarkTheme ? 0.75 : 0.5;
+  const [isSplashVisible, setSplashVisible] = useState(true);
 
   const isStorybookEnabled = Constants.expoConfig?.extra?.storybookEnabled;
 
   useEffect(() => {
     // NOTE: Without isStorybookEnabled variable it was creating Error because of using navigation before mounting Root Layout Component, so now we check if storybook is not enabled only then we push to /boraline otherwise we do nothing
-    if (fontsLoaded && !isStorybookEnabled) {
+    if (fontsLoaded && !isStorybookEnabled && !isSplashVisible) {
       router.push("/boraline");
+      
     }
-  }, [fontsLoaded]);
+  }, [fontsLoaded, isSplashVisible]);
 
   if (!fontsLoaded && !fontError) {
     return null; // Don't render anything until fonts are loaded
@@ -91,7 +94,9 @@ export default function App() {
       <GestureHandlerRootView>
         <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
           <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-            {isStorybookEnabled ? (
+          {isSplashVisible ? (
+              <SplashScreenComponent onFinish={() => setSplashVisible(false)} />
+            ) : isStorybookEnabled ? (
               <Storybook />
             ) : (
               <Drawer
