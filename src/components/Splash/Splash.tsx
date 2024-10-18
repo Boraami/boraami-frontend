@@ -1,19 +1,15 @@
 import React, { useEffect, useRef } from 'react';
-import { View, Image, Text, StyleSheet, Animated, Easing, ImageBackground } from 'react-native';
+import { View, StyleSheet, Animated, Easing } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import BackgroundSvg from './../../../assets/bg-dark.svg';
 import LoaderSvg from './../../../assets/loader.svg';
 import LogoSvg from './../../../assets/boraami-primary-logo.svg'
 
-function Logo() {
-  return (
-    <View>
-      <LogoSvg height={218} width={190} style={styles.logo} />
-    </View>
-  );
+interface SplashScreenComponentProps {
+  onFinish: () => void; // Function that returns void
 }
 
-const SplashScreenComponent = ({ onFinish }) => {
+const SplashScreenComponent: React.FC<SplashScreenComponentProps> = ({ onFinish }) => {
   const spinAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -35,8 +31,6 @@ const SplashScreenComponent = ({ onFinish }) => {
       await SplashScreen.hideAsync();
       onFinish(); // Callback to navigate to the next screen
     }, 3000);
-
-    // Clean up timeout if the component unmounts before timeout
     return () => clearTimeout(hideSplashTimeout);
   }, []);
 

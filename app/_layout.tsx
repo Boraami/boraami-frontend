@@ -3,7 +3,6 @@ import { useColorScheme, View, Image } from "react-native";
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { TamaguiProvider } from "tamagui";
 import { config } from "./../tamagui.config";
-import { useFonts } from "expo-font";
 import Constants from "expo-constants";
 import Storybook from "../.storybook";
 import {
@@ -33,6 +32,10 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Toasts } from "@backpackapp-io/react-native-toast";
 import SplashScreenComponent from "../src/components/Splash/Splash";
+import { MaterialIcons } from "@expo/vector-icons";
+import * as SplashScreen from 'expo-splash-screen';
+import * as Font from 'expo-font';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 function LogoTitle() {
   const theme = useColorScheme();
@@ -54,19 +57,11 @@ function LogoTitle() {
   );
 }
 
+function cacheFonts(fonts: { [key: string]: Font.FontSource }) {
+  return Font.loadAsync(fonts);
+}
+
 export default function App() {
-  const [fontsLoaded, fontError] = useFonts({
-    Poppins_400Regular,
-    Poppins_400Regular_Italic,
-    Poppins_500Medium,
-    Poppins_500Medium_Italic,
-    Poppins_700Bold,
-    Poppins_700Bold_Italic,
-    OpenSans_400Regular,
-    OpenSans_400Regular_Italic,
-    OpenSans_700Bold,
-    OpenSans_700Bold_Italic,
-  });
   const colorScheme = useColorScheme();
   const theme = useColorScheme();
   const isDarkTheme = theme === "dark";
@@ -74,21 +69,54 @@ export default function App() {
   const drawerWidth = 300;
   const overlayOpacity = isDarkTheme ? 0.75 : 0.5;
   const [isSplashVisible, setSplashVisible] = useState(true);
-
   const isStorybookEnabled = Constants.expoConfig?.extra?.storybookEnabled;
+  const [appIsReady, setAppIsReady] = useState(false);
+
+  useEffect(() => {
+    async function loadResourcesAndDataAsync() {
+      try {
+        SplashScreen.preventAutoHideAsync(); // Prevent splash screen auto-hide
+
+        // Cache fonts (custom fonts + icons)
+        const fontAssets = cacheFonts({
+          Poppins_400Regular,
+          Poppins_400Regular_Italic,
+          Poppins_500Medium,
+          Poppins_500Medium_Italic,
+          Poppins_700Bold,
+          Poppins_700Bold_Italic,
+          OpenSans_400Regular,
+          OpenSans_400Regular_Italic,
+          OpenSans_700Bold,
+          OpenSans_700Bold_Italic,
+          ...MaterialIcons.font,  // Spread to add MaterialIcons
+          ...FontAwesome.font, // just an example, will change later
+        });
+
+        // Load all resources
+        await Promise.all([fontAssets]);
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        setAppIsReady(true);
+        SplashScreen.hideAsync(); // Hide the splash screen
+      }
+    }
+
+    loadResourcesAndDataAsync();
+  }, []);
 
   useEffect(() => {
     // NOTE: Without isStorybookEnabled variable it was creating Error because of using navigation before mounting Root Layout Component, so now we check if storybook is not enabled only then we push to /boraline otherwise we do nothing
-    if (fontsLoaded && !isStorybookEnabled && !isSplashVisible) {
+    if (!isStorybookEnabled && !isSplashVisible) {
       router.push("/boraline");
-      
     }
-  }, [fontsLoaded, isSplashVisible]);
-
+  }, [isSplashVisible]);
+/*
   if (!fontsLoaded && !fontError) {
     return null; // Don't render anything until fonts are loaded
   }
-
+ */
   return (
     <SafeAreaProvider>
       <GestureHandlerRootView>
