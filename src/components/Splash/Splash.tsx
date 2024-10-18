@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { View, StyleSheet, Animated, Easing } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
-import BackgroundSvg from './../../../assets/bg-dark.svg';
-import LoaderSvg from './../../../assets/loader.svg';
-import LogoSvg from './../../../assets/boraami-primary-logo.svg'
+import LogoSvg from '../../../assets/boraami-primary-logo.svg';
+import BackgroundSvg from '../../../assets/bg-dark.svg';
+import LoaderSvg from '../../../assets/loader.svg';
 
 interface SplashScreenComponentProps {
   onFinish: () => void; // Function that returns void
@@ -41,7 +41,7 @@ const SplashScreenComponent: React.FC<SplashScreenComponentProps> = ({ onFinish 
 
   return (
     <View style={{flex: 1}}>
-    <BackgroundSvg height={"100%"} width={"100%"} style={styles.background}/>
+<BackgroundSvg height={"100%"} width={"100%"} style={styles.background}/>
       <View style={styles.logoContainer}>
         <LogoSvg height={218} width={190} style={styles.logo} />
         <Animated.View style={[styles.loader, { transform: [{ rotate: spin }], top: 48 }]}>

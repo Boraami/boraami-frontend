@@ -64,9 +64,13 @@ function cacheFonts(fonts: { [key: string]: Font.FontSource }) {
 function cacheImages(images: (string | number)[]) {
   return images.map(image => {
     if (typeof image === 'string') {
-      return Image.prefetch(image);
+      return Image.prefetch(image).catch(error => {
+        console.log(`Error prefetching image: ${image}`, error);
+      });
     } else {
-      return Asset.fromModule(image).downloadAsync();
+      return Asset.fromModule(image).downloadAsync().catch(error => {
+        console.log(`Error downloading asset: ${image}`, error);
+      });
     }
   });
 }
@@ -103,26 +107,26 @@ export default function App() {
           ...MaterialIcons.font,  // Spread to add MaterialIcons
           ...FontAwesome6.font, // just an example, will change later
           ...FontAwesome.font,
-          ...Ionicons.font,
+          ...Ionicons.font
         });
         const imageAssets = cacheImages([
-          require('./../src/assets/Modals/mnet-image.png'),
-          require('../src/assets/loader/Light_loader.svg'),
-          require('../src/assets/loader/Dark_loader.svg'),
-          require('../assets/boraami-primary-logo.svg'),
-          require('../src/assets/Modals/sitting1.png'),
-          require('../src/assets/failed-img.png'),
-          require('../assets/bg-dark.svg'),
-          require('../assets/loader.svg'),
+          require('../src/assets/Cards/badge-placeholder.png'),
+          require('../src/assets/Modals/mnet-image.png'),
+          require('../src/assets/Modals/modal-blu.png'),
+          require('../src/assets/failed-img.jpg')
         ]);
 
         // Load all resources
-        await Promise.all([fontAssets, ...imageAssets]);
+        await Promise.all([
+          fontAssets,
+          ...imageAssets
+        ]);
       } catch (e) {
         console.warn(e);
+        console.log(e);
       } finally {
         setAppIsReady(true);
-        SplashScreen.hideAsync(); // Hide the splash screen
+        SplashScreen.hideAsync();
       }
     }
 
@@ -135,11 +139,7 @@ export default function App() {
       router.push("/boraline");
     }
   }, [isSplashVisible]);
-/*
-  if (!fontsLoaded && !fontError) {
-    return null; // Don't render anything until fonts are loaded
-  }
- */
+
   return (
     <SafeAreaProvider>
       <GestureHandlerRootView>

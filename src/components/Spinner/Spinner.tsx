@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { SafeAreaView, View, useColorScheme, Animated, Easing } from "react-native";
-
+import { SvgUri } from 'react-native-svg';
 import Dark from "../../assets/loader/Dark_loader.svg";
 import Light from "../../assets/loader/Light_loader.svg";
 
