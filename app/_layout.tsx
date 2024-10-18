@@ -32,10 +32,10 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Toasts } from "@backpackapp-io/react-native-toast";
 import SplashScreenComponent from "../src/components/Splash/Splash";
-import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialIcons, Ionicons, FontAwesome, FontAwesome6, SimpleLineIcons } from "@expo/vector-icons";
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { Asset } from 'expo-asset';
 
 function LogoTitle() {
   const theme = useColorScheme();
@@ -59,6 +59,16 @@ function LogoTitle() {
 
 function cacheFonts(fonts: { [key: string]: Font.FontSource }) {
   return Font.loadAsync(fonts);
+}
+
+function cacheImages(images: (string | number)[]) {
+  return images.map(image => {
+    if (typeof image === 'string') {
+      return Image.prefetch(image);
+    } else {
+      return Asset.fromModule(image).downloadAsync();
+    }
+  });
 }
 
 export default function App() {
@@ -89,12 +99,18 @@ export default function App() {
           OpenSans_400Regular_Italic,
           OpenSans_700Bold,
           OpenSans_700Bold_Italic,
+          ...SimpleLineIcons.font,
           ...MaterialIcons.font,  // Spread to add MaterialIcons
-          ...FontAwesome.font, // just an example, will change later
+          ...FontAwesome6.font, // just an example, will change later
+          ...FontAwesome.font,
+          ...Ionicons.font,
         });
+        const imageAssets = cacheImages([
+          require('./../src/assets/Modals/mnet-image.png'),
+        ]);
 
         // Load all resources
-        await Promise.all([fontAssets]);
+        await Promise.all([fontAssets, ...imageAssets]);
       } catch (e) {
         console.warn(e);
       } finally {
