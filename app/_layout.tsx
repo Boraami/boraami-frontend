@@ -107,6 +107,13 @@ export default function App() {
         });
         const imageAssets = cacheImages([
           require('./../src/assets/Modals/mnet-image.png'),
+          require('../src/assets/loader/Light_loader.svg'),
+          require('../src/assets/loader/Dark_loader.svg'),
+          require('../assets/boraami-primary-logo.svg'),
+          require('../src/assets/Modals/sitting1.png'),
+          require('../src/assets/failed-img.png'),
+          require('../assets/bg-dark.svg'),
+          require('../assets/loader.svg'),
         ]);
 
         // Load all resources
